@@ -53,7 +53,6 @@ const App: React.FC = () => {
           </p>
           <div className={styles.componentsGrid}>
             <div className={styles.componentCard}>
-              <img src="/placeholder.svg" alt="Button" />
               <h3>Button</h3>
               <p>
                 A customizable button component with various styles and sizes.
@@ -386,12 +385,7 @@ const App: React.FC = () => {
               <h3>Status Badge</h3>
               <div className={styles.buttonGroup}>
                 <Badge variant="success">Active</Badge>
-                <Badge
-                  variant="danger"
-                  icon={<img src="error-icon.png" alt="Error" />}
-                >
-                  Error
-                </Badge>
+                <Badge variant="danger">Error</Badge>
                 <Badge variant="warning">Warning</Badge>
                 <Badge variant="info">Info</Badge>
               </div>
