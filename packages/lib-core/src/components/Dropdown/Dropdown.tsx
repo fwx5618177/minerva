@@ -55,11 +55,16 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    const currentRef = dropdownRef.current;
+    if (currentRef) {
+      currentRef.addEventListener("mousedown", handleClickOutside);
+    }
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      if (currentRef) {
+        currentRef.removeEventListener("mousedown", handleClickOutside);
+      }
     };
-  }, []);
+  }, [dropdownRef]);
 
   return (
     <div
