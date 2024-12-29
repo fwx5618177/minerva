@@ -1,0 +1,108 @@
+.progressIndicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .icon {
+    margin-right: 0.5rem;
+  }
+
+  &.small {
+    font-size: 1rem;
+  }
+
+  &.medium {
+    font-size: 2rem;
+  }
+
+  &.large {
+    font-size: 3rem;
+  }
+
+  &.defaultWidth {
+    width: 200px; // 默认宽度
+  }
+
+  &.fullWidth {
+    width: 100%; // 全宽度
+  }
+}
+
+.spinner,
+.circle {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.barContainer,
+.dottedBarContainer {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #e0e0e0;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+
+  .bar {
+    height: 100%;
+    background-color: #007bff;
+    width: 50%;
+    animation: barAnimation 2s linear infinite;
+  }
+
+  .dottedBar {
+    height: 100%;
+    width: 100%;
+    background: repeating-linear-gradient(90deg, #007bff, #007bff 10px, transparent 10px, transparent 20px);
+    animation: dottedBarAnimation 2s linear infinite;
+  }
+}
+
+@keyframes barAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.waveContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wave {
+    animation: waveAnimation 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes dottedBarAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
+}

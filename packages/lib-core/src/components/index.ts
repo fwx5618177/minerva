@@ -6,3 +6,4 @@ export * from "./Dropdown";
 export * from "./SearchButton";
 export * from "./StatusIndicator";
 export * from "./TextField";
+export * from "./ProgressIndicator";

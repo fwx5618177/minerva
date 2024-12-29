@@ -17,6 +17,7 @@ import AvatarSection from "@components/Avatar";
 import CardSection from "@components/CardSection";
 import TextFieldSection from "@components/TextFieldSection";
 import DropdownSection from "@components/DropdownSection";
+import ProgressIndicatorSection from "@components/ProgressIndicatorSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -408,14 +409,8 @@ const App: React.FC = () => {
             </div>
 
             <TextFieldSection />
-            <div className={styles.componentCard}>
-              <img src="/placeholder.svg" alt="Dropdown" />
-              <h3>Dropdown</h3>
-              <p>
-                A customizable dropdown menu component with various interaction
-                options.
-              </p>
-            </div>
+
+            <ProgressIndicatorSection />
           </div>
         </section>
       </Main>
