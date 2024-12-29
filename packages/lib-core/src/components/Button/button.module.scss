@@ -1,0 +1,151 @@
+@import "../../styles/common.scss";
+
+.customButton {
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.1s ease,
+    box-shadow 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // 默认 box-shadow
+
+  &:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); // 悬停时的 box-shadow
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); // 聚焦时的 box-shadow
+  }
+
+  &.primary {
+    background-color: #007bff;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &.warning {
+    background-color: #ff9800;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #ffb74d;
+    }
+  }
+
+  &.error {
+    background-color: #ff4d4f;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #e57373;
+    }
+  }
+
+  &.retry {
+    background: linear-gradient(90deg, #ff4c4c, #ff9a9a);
+    color: #fff;
+
+    &:hover {
+      background: linear-gradient(90deg, #ff9a9a, #ff4c4c);
+    }
+  }
+
+  &.back {
+    background: linear-gradient(90deg, #0198e9, #01c5e4);
+    color: #fff;
+
+    &:hover {
+      background: linear-gradient(90deg, #01c5e4, #0198e9);
+    }
+  }
+
+  &:disabled {
+    background-color: #c0c0c0;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.5;
+    box-shadow: none;
+
+    &:hover {
+      background-color: #a0a0a0;
+    }
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  &.small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  &.medium {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  &.large {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+  }
+
+  &.xlarge {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+  }
+
+  &.borderRadiusNone {
+    border-radius: 0;
+  }
+
+  &.borderRadiusSmall {
+    border-radius: 0.125rem;
+  }
+
+  &.borderRadiusMedium {
+    border-radius: 0.25rem;
+  }
+
+  &.borderRadiusLarge {
+    border-radius: 0.5rem;
+  }
+
+  &.borderRadiusCircle {
+    font-size: clamp(0.3rem, 2vw, 0.8rem); /* 自适应字体大小 */
+    border-radius: 50%;
+    width: clamp(2rem, 10vw, 3rem); /* 固定宽度 */
+    height: clamp(2rem, 10vw, 3rem); /* 固定高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* 移除内边距 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    text-overflow: ellipsis; /* 显示省略号 */
+    white-space: nowrap; /* 禁止换行 */
+  }
+
+  &.borderRadiusSquare {
+    border-radius: 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: calc(var(--font-size-base) * 0.875);
+    padding: 0.5rem 1rem;
+  }
+
+  @extend .commonRippleEffect;
+}

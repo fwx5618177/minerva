@@ -1,0 +1,19 @@
+.section {
+  margin: 20px 0;
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  h4 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-top: 5px;
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+}

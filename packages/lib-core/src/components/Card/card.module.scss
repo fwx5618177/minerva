@@ -1,0 +1,154 @@
+.card {
+  background-color: #ffffff; /* 替换为原生颜色 */
+  border-radius: 0.25rem; /* 替换为原生值 */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  &.default {
+    border: 1px solid #e1e1e1; /* 替换为原生颜色 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 替换为原生值 */
+  }
+
+  &.outlined {
+    border: 1px solid #e1e1e1; /* 替换为原生颜色 */
+    box-shadow: none;
+  }
+
+  &.shadow {
+    border: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 替换为原生值 */
+  }
+
+  &.elevated {
+    border: none;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* 替换为原生值 */
+  }
+
+  &.filled {
+    border: none;
+    background-color: #f0f0f0; /* 替换为原生颜色 */
+    box-shadow: none;
+  }
+
+  &.noHeader .cardHeader {
+    display: none;
+  }
+
+  &.noFooter .cardFooter {
+    display: none;
+  }
+
+  &.noHeaderFooter .cardHeader,
+  &.noHeaderFooter .cardFooter {
+    display: none;
+  }
+
+  .cardHeader {
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 添加分割线 */
+  }
+
+  .cardTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333333; /* 替换为原生颜色 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cardDescription {
+    font-size: 0.875rem; /* 替换为原生值 */
+    color: #666666; /* 替换为原生颜色 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cardContent {
+    padding: 1rem;
+    flex: 1;
+    background-color: #f9f9f9; /* 替换为原生颜色 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 添加分割线 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cardFooter {
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    text-align: right;
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* 添加分割线 */
+  }
+
+  .cardButton {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .slideIn {
+    animation: slideIn 1s ease-in-out;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .zoomIn {
+    animation: zoomIn 1s ease-in-out;
+  }
+
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

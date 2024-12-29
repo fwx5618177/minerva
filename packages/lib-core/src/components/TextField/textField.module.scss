@@ -1,0 +1,206 @@
+.container {
+  margin: 1rem 0;
+}
+
+.containerHideBorder {
+  border: none !important;
+  border-bottom: 1px solid #e1e1e1 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+
+  &:focus,
+  &:hover {
+    border-bottom-color: #ff9800 !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.25);
+  }
+}
+
+.defaultWidth {
+  width: 300px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.textField {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e1e1e1;
+  border-radius: 0.25rem;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &.focused {
+    border-color: #ff9800;
+    box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.25);
+
+    .label {
+      color: #ff9800;
+    }
+  }
+
+  &.filled {
+    .label {
+      color: #ff9800;
+    }
+  }
+
+  &.minimal {
+    border: none;
+    box-shadow: none;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e1e1e1;
+  }
+
+  &.error {
+    border-color: #dc3545;
+    border-width: 2px;
+
+    .label {
+      color: #dc3545;
+    }
+  }
+
+  &.shake {
+    animation: shake 0.5s ease-out;
+  }
+
+  &.disabled {
+    background-color: #c0c0c0;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.8;
+    box-shadow: none;
+
+    &:hover {
+      background-color: #a0a0a0;
+    }
+  }
+}
+
+.label {
+  position: absolute;
+  top: 0.75rem;
+  font-size: 1rem;
+  color: #6c757d;
+  transition: all 0.3s ease;
+  z-index: 1;
+  background: #fff;
+  padding: 0 0.25rem;
+  cursor: text;
+
+  &.shrink {
+    top: -0.5rem;
+    left: 0.75rem;
+    font-size: 0.75rem;
+    color: #ff9800;
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: inherit;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: inherit;
+  margin-left: 0.5rem;
+  background-color: transparent;
+
+  &.hideBorder {
+    border: none;
+    box-shadow: none;
+  }
+
+  &::placeholder {
+    margin-left: 0.5rem;
+  }
+
+  &:focus-visible {
+    outline: none;
+    outline-offset: 0;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:focus-visible {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    -webkit-text-fill-color: #000;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+.iconLeft {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0.75rem;
+  color: #6c757d;
+}
+
+.iconRight {
+  display: flex;
+  position: absolute;
+  right: 0.75rem;
+  color: #6c757d;
+}
+
+.togglePasswordIcon {
+  cursor: pointer;
+}
+
+.clearIcon {
+  position: absolute;
+  right: 0.75rem;
+  color: #6c757d;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.errorIcon {
+  margin-right: 0.25rem;
+  color: #dc3545;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.charCount {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 0.75rem;
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-10px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(10px);
+  }
+}

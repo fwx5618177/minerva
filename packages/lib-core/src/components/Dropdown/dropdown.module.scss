@@ -1,0 +1,109 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  .trigger {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu {
+    position: absolute;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem; /* 调整圆角半径 */
+    overflow: hidden;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: clamp(10rem, 2vw, 15rem);
+    max-height: 15rem;
+
+    .menuList {
+      max-height: 15rem;
+      overflow-y: auto;
+      border-radius: inherit;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #cbcbcb;
+        border-radius: inherit;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    }
+
+    &.down {
+      top: 100%;
+      left: 0;
+    }
+
+    &.up {
+      bottom: 100%;
+      left: 0;
+    }
+
+    &.left {
+      top: 0;
+      left: -100%;
+    }
+
+    &.right {
+      top: 0;
+      right: -100%;
+    }
+
+    .menuItem {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      text-align: center;
+      font-size: clamp(0.6rem, 2vw, 0.8rem);
+      font-weight: 600;
+      color: #000;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #e9ecef;
+        color: #007bff !important;
+      }
+
+      &.disabled {
+        color: #c0c0c0;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

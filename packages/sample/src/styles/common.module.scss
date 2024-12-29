@@ -1,0 +1,15 @@
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section {
+  margin: 10px 0;
+
+  .group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

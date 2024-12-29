@@ -1,0 +1,54 @@
+.avatarGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
+
+  .avatarGroupItem {
+    margin-left: -1.5rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      z-index: 2;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    @media (max-width: 576px) {
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .count {
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #6c757d;
+    color: #fff;
+    border: 1px solid #fff;
+    position: absolute;
+    right: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+
+    @media (max-width: 576px) {
+      font-size: 0.75rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
