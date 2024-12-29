@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextField from "@minerva/lib-core/src/components/TextField/TextField";
+import { TextField } from "@minerva/lib-core";
 import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import styles from "./index.module.scss";
 
@@ -102,7 +102,7 @@ const TextFieldSection: React.FC = () => {
           />
           <p>展示最小版本的 TextField</p>
         </div>
-        {/* <div>
+        <div>
           <h4>Error Example</h4>
           <TextField
             name="errorExample"
@@ -110,11 +110,11 @@ const TextFieldSection: React.FC = () => {
             placeholder="Enter text"
             value={username}
             onChange={handleUsernameChange}
-            error="This is an error message"
+            error={error}
             borderRadius="0.5rem"
           />
           <p>展示带有错误消息的 TextField</p>
-        </div> */}
+        </div>
         <div>
           <h4>No Border TextField</h4>
           <TextField
@@ -211,7 +211,7 @@ const TextFieldSection: React.FC = () => {
             placeholder="With Error"
             value={username}
             onChange={handleUsernameChange}
-            error="This is an error message"
+            error={error}
             borderRadius="0.5rem"
           />
           <TextField
