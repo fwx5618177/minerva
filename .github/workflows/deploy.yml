@@ -33,9 +33,11 @@ jobs:
       - name: Build sample project
         run: pnpm --filter @minerva/sample build
 
-      - name: Deploy sample to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: packages/sample/dist
-          publish_branch: gh-pages
+          branch: gh-pages
+          folder: packages/sample/dist
+
+      - name: Add Redirects for SPA
+        run: echo "/* /index.html 200" > dist/_redirects
