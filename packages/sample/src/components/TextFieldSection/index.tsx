@@ -94,11 +94,9 @@ const TextFieldSection: React.FC = () => {
           <TextField
             name="minimal"
             label="Minimal TextField"
-            placeholder="Minimal version"
             value={username}
             onChange={handleUsernameChange}
             minimal
-            borderRadius="0.5rem"
           />
           <p>展示最小版本的 TextField</p>
         </div>
