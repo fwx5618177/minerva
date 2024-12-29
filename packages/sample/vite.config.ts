@@ -17,8 +17,14 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
+    assetsDir: ".",
     rollupOptions: {
       input: path.resolve(__dirname, "index.html"),
+      output: {
+        assetFileNames: "[name].[ext]",
+        chunkFileNames: "[name].js",
+        entryFileNames: "[name].js",
+      },
     },
   },
   css: {
