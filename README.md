@@ -1,4 +1,4 @@
-# Minerva Component Library (Not complete)
+# Minerva Component Library
 
 This is the Minerva Component Library, a versatile component library supporting web. It supports both ESM and CommonJS modules, provides free and paid versions, and includes WASM interfaces for high-performance computing. The library is developed using Vite and pnpm.
 
