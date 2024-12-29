@@ -38,6 +38,3 @@ jobs:
         with:
           branch: gh-pages
           folder: packages/sample/dist
-
-      - name: Add Redirects for SPA
-        run: echo "/* /index.html 200" > dist/_redirects
