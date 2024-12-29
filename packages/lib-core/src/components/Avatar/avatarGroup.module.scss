@@ -3,10 +3,6 @@
   display: flex;
   align-items: center;
 
-  @media (max-width: 576px) {
-    flex-direction: column;
-  }
-
   .avatarGroupItem {
     margin-left: -1.5rem;
     transition: transform 0.3s ease;
@@ -20,20 +16,15 @@
     &:first-child {
       margin-left: 0;
     }
-
-    @media (max-width: 576px) {
-      margin-left: 0;
-      margin-bottom: 1rem;
-    }
   }
 
   .count {
-    font-size: 0.875rem;
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
+    width: clamp(1.5rem, 2vw, 2rem);
+    height: clamp(1.5rem, 2vw, 2rem);
     border-radius: 50%;
     background-color: #6c757d;
     color: #fff;
@@ -44,11 +35,38 @@
     transform: translateY(-50%);
     z-index: 1;
     pointer-events: none;
+  }
+}
 
-    @media (max-width: 576px) {
-      font-size: 0.75rem;
-      width: 1.5rem;
-      height: 1.5rem;
-    }
+// 响应式支持
+@media (max-width: 576px) {
+  .avatarGroupItem {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    width: 100%; // 确保在移动端时宽度不会消失
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .count {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    width: clamp(1.5rem, 2vw, 2rem);
+    height: clamp(1.5rem, 2vw, 2rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .count {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    width: clamp(1.75rem, 2vw, 2.25rem);
+    height: clamp(1.75rem, 2vw, 2.25rem);
+  }
+}
+
+@media (min-width: 992px) {
+  .count {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    width: clamp(2rem, 2vw, 2.5rem);
+    height: clamp(2rem, 2vw, 2.5rem);
   }
 }

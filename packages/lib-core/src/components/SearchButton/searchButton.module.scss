@@ -12,12 +12,11 @@
   font-family: "Roboto", sans-serif;
   font-weight: 800;
   position: relative;
-  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem); // 使用 clamp 调整字体大小
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #007bff;
   color: #ffffff;
@@ -136,26 +135,27 @@
 
   &.small {
     padding: 0.5rem;
-    font-size: 0.75rem;
+    font-size: clamp(0.75rem, 2vw, 0.875rem); // 使用 clamp 调整字体大小
   }
 
   &.medium {
     padding: 0.65rem;
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 2vw, 1rem); // 使用 clamp 调整字体大小
   }
 
   &.large {
     padding: 1rem;
-    font-size: 1rem;
+    font-size: clamp(1rem, 2vw, 1.125rem); // 使用 clamp 调整字体大小
   }
 
   &.xlarge {
     padding: 1.25rem;
-    font-size: 1.25rem;
+    font-size: clamp(1.125rem, 2vw, 1.25rem); // 使用 clamp 调整字体大小
   }
 
   .children {
     margin-left: 0.5rem;
+    white-space: nowrap;
   }
 
   .icon {
@@ -244,4 +244,33 @@
   }
 
   @extend .commonRippleEffect;
+}
+
+// 响应式支持
+@media (max-width: 576px) {
+  .searchButton {
+    font-size: clamp(0.75rem, 2vw, 0.875rem); // 小屏幕字体大小
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .searchButton {
+    font-size: clamp(0.875rem, 2vw, 1rem); // 中小屏幕字体大小
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .searchButton {
+    font-size: clamp(1rem, 2vw, 1.125rem); // 中屏幕字体大小
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .searchButton {
+    font-size: clamp(1.125rem, 2vw, 1.25rem); // 大屏幕字体大小
+    padding: 1rem 2rem;
+  }
 }

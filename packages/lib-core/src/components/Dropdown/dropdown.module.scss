@@ -66,8 +66,8 @@
     }
 
     &.right {
-      top: 0;
-      right: -100%;
+      top: clamp(2rem, 2vw, 3rem);
+      right: -80%;
     }
 
     .menuItem {
@@ -105,5 +105,30 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// 响应式支持
+@media (max-width: 576px) {
+  .menuItem {
+    font-size: clamp(0.5rem, 2vw, 0.7rem); // 小屏幕字体大小
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .menuItem {
+    font-size: clamp(0.6rem, 2vw, 0.8rem); // 中小屏幕字体大小
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .menuItem {
+    font-size: clamp(0.7rem, 2vw, 0.9rem); // 中屏幕字体大小
+  }
+}
+
+@media (min-width: 992px) {
+  .menuItem {
+    font-size: clamp(0.8rem, 2vw, 1rem); // 大屏幕字体大小
   }
 }

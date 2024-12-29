@@ -12,10 +12,9 @@
   font-family: "Roboto", sans-serif;
   font-weight: 800;
   position: relative;
-  overflow: hidden;
   display: inline-block;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem); // 使用 clamp 调整字体大小
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // 默认 box-shadow
 
   &:hover {
@@ -90,22 +89,22 @@
 
   &.small {
     padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
+    font-size: clamp(0.75rem, 2vw, 0.875rem); // 使用 clamp 调整字体大小
   }
 
   &.medium {
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 2vw, 1rem); // 使用 clamp 调整字体大小
   }
 
   &.large {
     padding: 0.75rem 1.5rem;
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem); // 使用 clamp 调整字体大小
   }
 
   &.xlarge {
     padding: 1rem 2rem;
-    font-size: 1.25rem;
+    font-size: clamp(1.125rem, 2vw, 1.25rem); // 使用 clamp 调整字体大小
   }
 
   &.borderRadiusNone {
@@ -125,26 +124,42 @@
   }
 
   &.borderRadiusCircle {
-    font-size: clamp(0.3rem, 2vw, 0.8rem); /* 自适应字体大小 */
+    font-size: clamp(0.3rem, 2vw, 0.8rem); // 自适应字体大小
     border-radius: 50%;
-    width: clamp(2rem, 10vw, 3rem); /* 固定宽度 */
-    height: clamp(2rem, 10vw, 3rem); /* 固定高度 */
+    width: clamp(2rem, 10vw, 3rem); // 固定宽度
+    height: clamp(2rem, 10vw, 3rem); // 固定高度
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0; /* 移除内边距 */
-    overflow: hidden; /* 隐藏溢出内容 */
-    text-overflow: ellipsis; /* 显示省略号 */
-    white-space: nowrap; /* 禁止换行 */
+    padding: 0; // 移除内边距
+    overflow: hidden;
+    word-wrap: break-word;
+    text-overflow: ellipsis; // 显示省略号
+    white-space: nowrap; // 禁止换行
   }
 
   &.borderRadiusSquare {
     border-radius: 0;
   }
 
-  @media (max-width: 768px) {
-    font-size: calc(var(--font-size-base) * 0.875);
+  @media (max-width: 576px) {
+    font-size: clamp(0.75rem, 2vw, 0.875rem); // 小屏幕字体大小
+    padding: 0.25rem 0.5rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 768px) {
+    font-size: clamp(0.875rem, 2vw, 1rem); // 中小屏幕字体大小
     padding: 0.5rem 1rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    font-size: clamp(1rem, 2vw, 1.125rem); // 中屏幕字体大小
+    padding: 0.75rem 1.5rem;
+  }
+
+  @media (min-width: 992px) {
+    font-size: clamp(1.125rem, 2vw, 1.25rem); // 大屏幕字体大小
+    padding: 1rem 2rem;
   }
 
   @extend .commonRippleEffect;

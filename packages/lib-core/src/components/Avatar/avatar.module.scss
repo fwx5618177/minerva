@@ -90,3 +90,92 @@
 
   @extend .commonRippleEffect;
 }
+
+// 响应式支持
+@media (max-width: 576px) {
+  .avatar {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    &.small {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    &.medium {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    &.large {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .avatar {
+    width: 2rem;
+    height: 2rem;
+
+    &.small {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &.medium {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &.large {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    &.small {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    &.medium {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    &.large {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .avatar {
+    width: 3rem;
+    height: 3rem;
+
+    &.small {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &.medium {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &.large {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+}
