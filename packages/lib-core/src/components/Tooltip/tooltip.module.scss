@@ -19,9 +19,27 @@
   pointer-events: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   opacity: 0;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.2s ease-in-out;
 
   &.show {
     opacity: 1;
+  }
+
+  // Add animation classes
+  &.animation-fade {
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &.animation-scale {
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+    transform: scale(0.9);
+
+    &.show {
+      transform: scale(1);
+    }
   }
 
   // Variants

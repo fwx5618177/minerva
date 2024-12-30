@@ -139,48 +139,44 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
     const updatePosition = useCallback(() => {
       if (!triggerRef.current || !tooltipRef.current) return;
 
+      if (followCursor) {
+        setPosition({
+          top: cursorPosition.y - tooltipRef.current.offsetHeight - offset[1],
+          left: cursorPosition.x - tooltipRef.current.offsetWidth / 2,
+        });
+        return;
+      }
+
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const tooltipRect = tooltipRef.current.getBoundingClientRect();
-
       const getPosition = placementMap[placement];
-      const newPosition = getPosition(triggerRect, tooltipRect, offset);
-
-      if (followCursor) {
-        const newTop = cursorPosition.y - tooltipRect.height - offset[1];
-        const newLeft = cursorPosition.x - tooltipRect.width / 2;
-
-        if (
-          Math.abs(newTop - position.top) > 1 ||
-          Math.abs(newLeft - position.left) > 1
-        ) {
-          setPosition({
-            top: newTop,
-            left: newLeft,
-          });
-        }
-      } else {
-        setPosition(newPosition);
-      }
+      setPosition(getPosition(triggerRect, tooltipRect, offset));
     }, [placement, offset, followCursor, cursorPosition.x, cursorPosition.y]);
 
     useEffect(() => {
-      let rafId: number;
+      if (!open || !tooltipRef.current) return;
 
-      if (open) {
-        rafId = requestAnimationFrame(() => {
-          updatePosition();
-        });
-
-        window.addEventListener("scroll", updatePosition);
-        window.addEventListener("resize", updatePosition);
-      }
+      const rafId = requestAnimationFrame(() => {
+        updatePosition();
+        tooltipRef.current?.classList.add(styles.show);
+      });
 
       return () => {
-        if (rafId) {
-          cancelAnimationFrame(rafId);
-        }
-        window.removeEventListener("scroll", updatePosition);
-        window.removeEventListener("resize", updatePosition);
+        cancelAnimationFrame(rafId);
+      };
+    }, [open, updatePosition]);
+
+    useEffect(() => {
+      if (!open) return;
+
+      const handleResize = () => {
+        requestAnimationFrame(updatePosition);
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
       };
     }, [open, updatePosition]);
 
@@ -204,10 +200,9 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
 
     const handleMouseMove = useCallback(
       (e: MouseEvent) => {
-        if (followCursor) {
-          setCursorPosition({ x: e.clientX, y: e.clientY });
-          updatePosition();
-        }
+        if (!followCursor) return;
+        setCursorPosition({ x: e.clientX, y: e.clientY });
+        requestAnimationFrame(updatePosition);
       },
       [followCursor, updatePosition],
     );
@@ -242,6 +237,7 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
           onKeyDown={handleKeyDown}
           tabIndex={0}
           role="button"
+          aria-label={ariaLabel}
           aria-describedby={open ? "tooltip" : undefined}
         >
           {children}
@@ -251,28 +247,24 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
             <div
               ref={tooltipRef}
               id="tooltip"
-              role={"tooltip"}
+              role="tooltip"
               aria-label={ariaLabel}
               className={`
                 ${styles.tooltip}
                 ${styles[variant]}
                 ${styles[shape]}
-                ${styles[`placement-${placement}`]}
                 ${styles[`animation-${animation}`]}
                 ${followCursor ? styles.followCursor : ""}
-                ${open ? styles.show : ""}
                 ${arrow ? styles.arrow : ""}
               `}
-              style={
-                {
-                  ...(bgColor?.includes("gradient")
-                    ? { background: bgColor }
-                    : { backgroundColor: bgColor }),
-                  color: textColor,
-                  zIndex,
-                  transform: `translate3d(${position.left}px, ${position.top}px, 0)`,
-                } as React.CSSProperties
-              }
+              style={{
+                ...position,
+                ...(bgColor?.includes("gradient")
+                  ? { background: bgColor }
+                  : { backgroundColor: bgColor }),
+                color: textColor,
+                zIndex,
+              }}
             >
               {content}
               {arrow && (
