@@ -19,6 +19,8 @@ import TextFieldSection from "@components/TextFieldSection";
 import DropdownSection from "@components/DropdownSection";
 import ProgressIndicatorSection from "@components/ProgressIndicatorSection";
 import CheckboxSection from "@components/CheckboxSection";
+import IconButtonSection from "@components/IconButtonSection";
+import TooltipSection from "@components/TooltipSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -399,6 +401,10 @@ const App: React.FC = () => {
             <ProgressIndicatorSection />
 
             <CheckboxSection />
+
+            <IconButtonSection />
+
+            <TooltipSection />
           </div>
         </section>
       </Main>

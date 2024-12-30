@@ -1,0 +1,141 @@
+@import "../../styles/common.scss";
+
+.tooltipTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 300px;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  z-index: 1500;
+  pointer-events: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }
+
+  // Variants
+  &.dark {
+    background-color: #333333;
+    color: #ffffff;
+  }
+
+  &.light {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+  }
+
+  &.info {
+    background-color: #2196f3;
+    color: #ffffff;
+  }
+
+  &.success {
+    background-color: #4caf50;
+    color: #ffffff;
+  }
+
+  &.warning {
+    background-color: #ff9800;
+    color: #ffffff;
+  }
+
+  &.error {
+    background-color: #f44336;
+    color: #ffffff;
+  }
+
+  // Shapes
+  &.default {
+    border-radius: 4px;
+  }
+
+  &.rounded {
+    border-radius: 16px;
+    padding: 0.75rem 1.5rem;
+  }
+
+  &.thought {
+    border-radius: 20px;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 20px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: inherit;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -25px;
+      left: 15px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: inherit;
+    }
+  }
+
+  &.square {
+    border-radius: 0;
+  }
+
+  &.followCursor {
+    transition: none;
+  }
+
+  // Arrow
+  &.arrow {
+    margin: 12px;
+
+    .tooltipArrow {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: inherit;
+      transform: rotate(45deg);
+    }
+
+    &[data-placement^="top"] .tooltipArrow {
+      bottom: -6px;
+      left: calc(50% - 6px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &[data-placement^="bottom"] .tooltipArrow {
+      top: -6px;
+      left: calc(50% - 6px);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &[data-placement^="left"] .tooltipArrow {
+      right: -6px;
+      top: calc(50% - 6px);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &[data-placement^="right"] .tooltipArrow {
+      left: -6px;
+      top: calc(50% - 6px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}

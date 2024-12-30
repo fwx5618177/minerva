@@ -8,3 +8,5 @@ export * from "./StatusIndicator";
 export * from "./TextField";
 export * from "./ProgressIndicator";
 export * from "./Checkbox";
+export * from "./IconButton";
+export * from "./Tooltip";
