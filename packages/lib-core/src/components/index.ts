@@ -7,3 +7,4 @@ export * from "./SearchButton";
 export * from "./StatusIndicator";
 export * from "./TextField";
 export * from "./ProgressIndicator";
+export * from "./Checkbox";

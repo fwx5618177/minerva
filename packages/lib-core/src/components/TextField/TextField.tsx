@@ -194,4 +194,6 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   },
 );
 
+TextField.displayName = "TextField";
+
 export default React.memo(TextField);

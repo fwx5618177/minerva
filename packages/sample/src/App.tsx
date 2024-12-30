@@ -18,6 +18,7 @@ import CardSection from "@components/CardSection";
 import TextFieldSection from "@components/TextFieldSection";
 import DropdownSection from "@components/DropdownSection";
 import ProgressIndicatorSection from "@components/ProgressIndicatorSection";
+import CheckboxSection from "@components/CheckboxSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -393,18 +394,11 @@ const App: React.FC = () => {
 
             <AvatarSection />
 
-            <div className={styles.componentCard}>
-              <h3>Card</h3>
-              <p>
-                A versatile card component with header, content, and footer
-                sections.
-              </p>
-              <CardSection />
-            </div>
-
             <TextFieldSection />
 
             <ProgressIndicatorSection />
+
+            <CheckboxSection />
           </div>
         </section>
       </Main>

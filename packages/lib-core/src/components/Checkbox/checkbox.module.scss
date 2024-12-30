@@ -1,0 +1,224 @@
+@import "../../styles/common.scss";
+
+.checkboxWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &.error {
+    animation: shake 0.4s linear;
+  }
+}
+
+.checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.38;
+  }
+
+  &.error .checkmark {
+    border-color: #d32f2f;
+    background-color: rgba(211, 47, 47, 0.1);
+  }
+
+  &.labelStart {
+    flex-direction: row-reverse;
+  }
+
+  &.labelTop {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  &.labelBottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &:hover:not(:disabled) ~ .checkmark {
+    opacity: 0.8;
+  }
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+
+  &:checked ~ .checkmark {
+    background-color: #1976d2;
+    border-color: #1976d2;
+
+    &:after {
+      display: block;
+    }
+  }
+
+  &:focus ~ .checkmark {
+    box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.12);
+  }
+
+  &:hover:not(:disabled) ~ .checkmark {
+    background-color: #1976d299;
+  }
+}
+
+.checkmark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border: 2px solid rgba(0, 0, 0, 0.54);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+    width: 5px;
+    height: 10px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translate(-1px, -1px);
+  }
+
+  [style*="--custom-color"] & {
+    border-color: attr(style var(--custom-color));
+
+    &:checked {
+      background-color: attr(style var(--custom-color));
+      border-color: attr(style var(--custom-color));
+    }
+  }
+}
+
+// Shapes
+.square .checkmark {
+  border-radius: 2px;
+}
+
+.circle .checkmark {
+  border-radius: 50%;
+}
+
+.rounded .checkmark {
+  border-radius: 4px;
+}
+
+// Sizes
+.small {
+  .checkmark {
+    width: 15px;
+    height: 15px;
+
+    &:after {
+      width: 4px;
+      height: 8px;
+    }
+  }
+
+  .label {
+    font-size: 13px;
+  }
+}
+
+.large {
+  .checkmark {
+    width: 24px;
+    height: 24px;
+
+    &:after {
+      width: 6px;
+      height: 12px;
+    }
+  }
+
+  .label {
+    font-size: 16px;
+  }
+}
+
+.label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.helperTextWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+
+  .errorIcon {
+    color: #d32f2f;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.helperText {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+
+  &.errorText {
+    color: #d32f2f;
+  }
+}
+
+// Indeterminate state
+input:indeterminate ~ .checkmark {
+  background-color: #1976d2;
+  border-color: #1976d2;
+
+  &:after {
+    display: block;
+    transform: none;
+    width: 10px;
+    height: 2px;
+    border: 0;
+    background-color: #ffffff;
+    top: 50%;
+    left: 50%;
+    margin: -1px 0 0 -5px;
+  }
+}
+
+// Ripple effect
+.checkbox {
+  @extend .commonRippleEffect;
+}
+
+// Error animation
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+// 当设置自定义颜色时更新边框颜色
+.checkbox {
+  &[style*="--checkbox-bg-color"] .checkmark {
+    border-color: var(--checkbox-bg-color);
+  }
+}
