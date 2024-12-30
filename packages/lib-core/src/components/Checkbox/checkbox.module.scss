@@ -68,7 +68,7 @@
   }
 
   &:hover:not(:disabled) ~ .checkmark {
-    background-color: #1976d299;
+    opacity: 0.8;
   }
 }
 
@@ -77,8 +77,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   background-color: #ffffff;
   border: 2px solid rgba(0, 0, 0, 0.54);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -124,8 +124,10 @@
     height: 15px;
 
     &:after {
-      width: 4px;
-      height: 8px;
+      width: 3px;
+      height: 7px;
+      border-width: 0 1.5px 1.5px 0;
+      transform: rotate(45deg) translate(-1px, -1px);
     }
   }
 
@@ -136,12 +138,14 @@
 
 .large {
   .checkmark {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
 
     &:after {
-      width: 6px;
-      height: 12px;
+      width: 7px;
+      height: 14px;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg) translate(-1px, -1px);
     }
   }
 
@@ -187,13 +191,13 @@ input:indeterminate ~ .checkmark {
   &:after {
     display: block;
     transform: none;
-    width: 10px;
-    height: 2px;
+    width: 12px;
+    height: 3px;
     border: 0;
     background-color: #ffffff;
     top: 50%;
     left: 50%;
-    margin: -1px 0 0 -5px;
+    margin: -1.5px 0 0 -6px;
   }
 }
 

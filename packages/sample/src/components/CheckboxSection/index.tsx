@@ -1,23 +1,34 @@
 import React, { useState, useRef } from "react";
 import { Checkbox, Button } from "@minerva/lib-core";
-import { FaCheck, FaStar, FaHeart, FaExclamationCircle } from "react-icons/fa";
+import {
+  FaCheck,
+  FaStar,
+  FaHeart,
+  FaExclamationCircle,
+  FaInfoCircle,
+  FaCheckCircle,
+  FaTimesCircle,
+  FaBell,
+  FaBookmark,
+} from "react-icons/fa";
 import styles from "./index.module.scss";
 
 const CheckboxSection: React.FC = () => {
   const [checked, setChecked] = useState(false);
   const [indeterminate, setIndeterminate] = useState(true);
   const checkboxRef = useRef<HTMLInputElement>(null);
-  const [isError, setIsError] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
 
   const handleError = () => {
     if (checkboxRef.current) {
-      console.log("checkbox:", checkboxRef.current);
       checkboxRef.current.focus();
       checkboxRef.current.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
-      setIsError((state) => !state);
+      setIsError(true);
+      // 重置错误状态，以便可以重复触发动画
+      setTimeout(() => setIsError(false), 1000);
     }
   };
 
@@ -51,8 +62,77 @@ const CheckboxSection: React.FC = () => {
         <Checkbox label="Large Checkbox" size="large" defaultChecked />
       </div>
 
-      <h3>Custom Colors</h3>
+      <h3>Custom Icons</h3>
       <div className={styles.group}>
+        <Checkbox
+          label="Check Icon"
+          defaultChecked
+          icon={<FaCheck size={12} />}
+          boxColor="#4caf50"
+          checkmarkColor="#fff"
+        />
+        <Checkbox
+          label="Star Icon"
+          defaultChecked
+          icon={<FaStar size={12} />}
+          boxColor="#ff9800"
+          checkmarkColor="#fff"
+        />
+        <Checkbox
+          label="Heart Icon"
+          defaultChecked
+          icon={<FaHeart size={12} />}
+          boxColor="#f44336"
+          checkmarkColor="#fff"
+        />
+        <Checkbox
+          label="Bell Icon"
+          defaultChecked
+          icon={<FaBell size={12} />}
+          boxColor="#9c27b0"
+          checkmarkColor="#fff"
+        />
+        <Checkbox
+          label="Bookmark Icon"
+          defaultChecked
+          icon={<FaBookmark size={12} />}
+          boxColor="#2196f3"
+          checkmarkColor="#fff"
+        />
+      </div>
+
+      <h3>Custom Colors & Styles</h3>
+      <div className={styles.group}>
+        <Checkbox
+          label="Purple Theme"
+          defaultChecked
+          boxColor="#9c27b0"
+          checkmarkColor="#ffffff"
+          shape="rounded"
+        />
+        <Checkbox
+          label="Gradient Theme"
+          defaultChecked
+          boxColor="linear-gradient(45deg, #2196f3, #00bcd4)"
+          checkmarkColor="#fff"
+          shape="circle"
+        />
+        <Checkbox
+          label="Custom Border"
+          defaultChecked
+          boxColor="#e91e63"
+          boxBorderColor="#c2185b"
+          checkmarkColor="#fff"
+        />
+        <Checkbox
+          label="Gold Theme"
+          defaultChecked
+          boxColor="#ffd700"
+          boxBorderColor="#daa520"
+          checkmarkColor="#000"
+          icon={<FaStar size={12} />}
+        />
+
         <Checkbox
           label="Custom Checkmark Color"
           defaultChecked
@@ -73,91 +153,83 @@ const CheckboxSection: React.FC = () => {
         />
       </div>
 
-      <h3>Custom Icons</h3>
+      <h3>Error States & Validation</h3>
       <div className={styles.group}>
         <Checkbox
-          label="Check Icon"
-          defaultChecked
-          icon={<FaCheck />}
-          boxColor="#4caf50"
-        />
-        <Checkbox
-          label="Star Icon"
-          defaultChecked
-          icon={<FaStar />}
-          boxColor="#ff9800"
-        />
-        <Checkbox
-          label="Heart Icon"
-          defaultChecked
-          icon={<FaHeart />}
-          boxColor="#f44336"
-        />
-      </div>
-
-      <h3>Label Placement</h3>
-      <div className={styles.group}>
-        <Checkbox label="Label Start" labelPlacement="start" defaultChecked />
-        <Checkbox label="Label End" labelPlacement="end" defaultChecked />
-        <Checkbox label="Label Top" labelPlacement="top" defaultChecked />
-        <Checkbox label="Label Bottom" labelPlacement="bottom" defaultChecked />
-      </div>
-
-      <h3>States and Validation</h3>
-      <div className={styles.group}>
-        <Checkbox
-          label="Controlled Checkbox"
-          checked={checked}
-          onChange={(checked: boolean) => setChecked(checked)}
-        />
-        <Checkbox
-          label="Required Checkbox"
-          required
-          helperText="This field is required"
-        />
-        <Checkbox
-          label="Error State"
+          label="Basic Error"
           error
-          helperText="Please accept the terms and conditions"
+          helperText="This field is required"
         />
         <Checkbox
           label="Custom Error Icon"
           error
-          errorIcon={<FaExclamationCircle />}
-          helperText="Something went wrong"
+          errorIcon={<FaTimesCircle />}
+          helperText="Please accept the terms"
+        />
+        <Checkbox
+          label="Info Error Style"
+          error
+          errorIcon={<FaInfoCircle color="#1976d2" />}
+          helperText="Additional information needed"
+          boxColor="#1976d2"
+        />
+        <Checkbox
+          label="Warning Style"
+          error
+          errorIcon={<FaExclamationCircle color="#ff9800" />}
+          helperText="Please review your selection"
+          boxColor="#ff9800"
         />
       </div>
 
-      <h3>Complex Examples</h3>
+      <h3>Label Placements</h3>
       <div className={styles.group}>
         <Checkbox
-          label="Premium Selection"
-          icon={<FaStar />}
-          boxColor="#ffd700"
-          boxBorderColor="#daa520"
-          checkmarkColor="#fff"
-          labelPlacement="start"
-          helperText="Unlock premium features"
+          label="Top Label"
+          labelPlacement="top"
+          defaultChecked
+          icon={<FaCheckCircle />}
+          boxColor="#4caf50"
         />
         <Checkbox
-          label="Terms and Conditions"
-          shape="rounded"
-          size="large"
-          required
-          error
-          helperText="You must accept the terms to continue"
+          label="Bottom Label"
+          labelPlacement="bottom"
+          defaultChecked
+          icon={<FaCheckCircle />}
           boxColor="#2196f3"
         />
+        <Checkbox
+          label="Start Label"
+          labelPlacement="start"
+          defaultChecked
+          icon={<FaCheckCircle />}
+          boxColor="#9c27b0"
+        />
+        <Checkbox
+          label="End Label"
+          labelPlacement="end"
+          defaultChecked
+          icon={<FaCheckCircle />}
+          boxColor="#ff9800"
+        />
       </div>
 
-      <h3>Error Animation</h3>
+      <h3>Interactive Examples</h3>
       <div className={styles.group}>
         <Checkbox
+          label="Controlled Checkbox"
+          checked={checked}
+          onChange={(checked) => setChecked(checked)}
+          boxColor="#2196f3"
+          icon={<FaCheck size={12} />}
+        />
+        <Checkbox
           ref={checkboxRef}
-          label="Animated Error"
+          label="Animated Error State"
           error={isError}
-          helperText="This field has an error"
+          helperText="Click the button to trigger error animation"
           boxColor="#d32f2f"
+          errorIcon={<FaExclamationCircle />}
         />
         <Button onClick={handleError}>Trigger Error Animation</Button>
       </div>
