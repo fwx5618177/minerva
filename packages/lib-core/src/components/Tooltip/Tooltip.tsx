@@ -91,6 +91,7 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
       arrow = false,
       onOpen,
       onClose,
+      ariaLabel,
     },
     ref,
   ) => {
@@ -175,6 +176,19 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
       }
     }, [followCursor, handleMouseMove]);
 
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+      if (disabled) return;
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        setIsOpen(true);
+        onOpen?.();
+      }
+      if (e.key === "Escape" && open) {
+        setIsOpen(false);
+        onClose?.();
+      }
+    };
+
     return (
       <>
         <div
@@ -182,6 +196,10 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
           className={`${styles.tooltipTrigger} ${className}`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
+          role="button"
+          aria-describedby={open ? "tooltip" : undefined}
         >
           {children}
         </div>
@@ -189,6 +207,9 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
           createPortal(
             <div
               ref={tooltipRef}
+              id="tooltip"
+              role={"tooltip"}
+              aria-label={ariaLabel}
               className={`
                 ${styles.tooltip}
                 ${styles[variant]}

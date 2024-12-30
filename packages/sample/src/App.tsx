@@ -394,6 +394,7 @@ const App: React.FC = () => {
               </div>
             </div>
 
+            <CardSection />
             <AvatarSection />
 
             <TextFieldSection />

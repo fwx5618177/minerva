@@ -91,6 +91,9 @@ export interface TooltipProps {
 
   /** Callback when tooltip hides */
   onClose?: () => void;
+
+  /** ARIA label for the tooltip */
+  ariaLabel?: string;
 }
 
 export interface TooltipRef {

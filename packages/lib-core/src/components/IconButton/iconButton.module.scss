@@ -1,10 +1,5 @@
 @import "../../styles/common.scss";
 
-.iconButtonWrapper {
-  position: relative;
-  display: inline-block;
-}
-
 .iconButton {
   position: relative;
   display: inline-flex;
@@ -12,252 +7,182 @@
   justify-content: center;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
   overflow: hidden;
+  padding: 0;
   background-color: transparent;
-  color: #333333;
 
-  // Sizes
+  @extend .commonRippleEffect;
+
+  // Size variants
   &.small {
-    width: 32px;
-    height: 32px;
-    .icon {
-      font-size: 16px;
-    }
+    width: 36px;
+    height: 36px;
+    font-size: 1.125rem;
   }
 
   &.medium {
-    width: 40px;
-    height: 40px;
-    .icon {
-      font-size: 20px;
-    }
+    width: 44px;
+    height: 44px;
+    font-size: 1.375rem;
   }
 
   &.large {
-    width: 48px;
-    height: 48px;
-    .icon {
-      font-size: 24px;
-    }
+    width: 52px;
+    height: 52px;
+    font-size: 1.625rem;
   }
 
-  // Shapes
-  &.shapeCircle {
+  // Shape variants
+  &.circle {
     border-radius: 50%;
   }
 
-  &.shapeSquare {
-    border-radius: 4px;
-  }
-
-  &.shapeRounded {
+  &.square {
     border-radius: 8px;
   }
 
-  // States
-  &:hover:not(:disabled) {
-    background-color: rgba(0, 0, 0, 0.04);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  // Style variants
+  &.default {
+    color: #666666;
+    &:hover:not(.disabled):not(.loading) {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+    &.active {
+      color: #333333;
+      background-color: rgba(0, 0, 0, 0.12);
+    }
   }
 
-  &:active:not(:disabled) {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.6);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  // Variants
   &.primary {
-    color: #2196f3;
-    &:hover:not(:disabled) {
-      background-color: rgba(33, 150, 243, 0.08);
+    color: #1976d2;
+    &:hover:not(.disabled):not(.loading) {
+      background-color: rgba(25, 118, 210, 0.12);
+    }
+    &.active {
+      color: #0d47a1;
+      background-color: rgba(25, 118, 210, 0.16);
     }
   }
 
   &.secondary {
-    color: #9e9e9e;
-    &:hover:not(:disabled) {
-      background-color: rgba(158, 158, 158, 0.08);
+    color: #9c27b0;
+    &:hover:not(.disabled):not(.loading) {
+      background-color: rgba(156, 39, 176, 0.12);
+    }
+    &.active {
+      color: #7b1fa2;
+      background-color: rgba(156, 39, 176, 0.16);
     }
   }
 
   &.success {
     color: #4caf50;
-    &:hover:not(:disabled) {
-      background-color: rgba(76, 175, 80, 0.08);
+    &:hover:not(.disabled):not(.loading) {
+      background-color: rgba(76, 175, 80, 0.12);
+    }
+    &.active {
+      color: #2e7d32;
+      background-color: rgba(76, 175, 80, 0.16);
+    }
+  }
+
+  &.error {
+    color: #d32f2f;
+    &:hover:not(.disabled):not(.loading) {
+      background-color: rgba(211, 47, 47, 0.12);
+    }
+    &.active {
+      color: #c62828;
+      background-color: rgba(211, 47, 47, 0.16);
     }
   }
 
   &.warning {
     color: #ff9800;
-    &:hover:not(:disabled) {
-      background-color: rgba(255, 152, 0, 0.08);
+    &:hover:not(.disabled):not(.loading) {
+      background-color: rgba(255, 152, 0, 0.12);
+    }
+    &.active {
+      color: #f57c00;
+      background-color: rgba(255, 152, 0, 0.16);
     }
   }
 
-  &.error {
-    color: #f44336;
-    &:hover:not(:disabled) {
-      background-color: rgba(244, 67, 54, 0.08);
-    }
+  // States
+  &:focus-visible {
+    outline: 2px solid #1976d2;
+    outline-offset: 2px;
   }
 
-  &.info {
-    color: #00bcd4;
-    &:hover:not(:disabled) {
-      background-color: rgba(0, 188, 212, 0.08);
-    }
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
   }
 
-  // Loading spinner
-  .spinner {
-    width: 16px;
-    height: 16px;
-    border: 2px solid currentColor;
-    border-right-color: transparent;
-    border-radius: 50%;
-    animation: spin 0.75s linear infinite;
-  }
-
-  // Ripple effect (always enabled)
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background-color: currentColor;
-    border-radius: 50%;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1);
-    transition:
-      opacity 1s,
-      transform 0.5s;
-  }
-
-  &:active::after {
-    opacity: 0.16;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 0s;
-  }
-
-  // 基础样式
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:active {
-    transform: scale(0.95);
+  &.loading {
+    cursor: wait !important;
+    pointer-events: none;
   }
 
   // Ripple effect
-  &.ripple {
-    &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      transform: scale(0);
-      transition: transform 0.3s ease-out;
-    }
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    background-color: rgba(0, 0, 0, 0.16);
+    pointer-events: none;
+  }
 
-    &:active::after {
-      transform: scale(1.5);
+  @keyframes ripple {
+    to {
+      transform: scale(4);
       opacity: 0;
     }
   }
 
-  // Loading animation
-  &.loading {
-    pointer-events: none;
-    opacity: 0.7;
+  &:hover:not(.disabled):not(.loading) {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
 
-    .spinner {
-      animation: spin 1s linear infinite;
+  &:active:not(.disabled):not(.loading) {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &.active {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  // Add SVG fill color support
+  svg {
+    fill: currentColor;
+    transition: fill 0.2s ease-in-out;
+  }
+
+  &.active {
+    color: var(--active-color, currentColor);
+    background-color: var(--hover-color, rgba(0, 0, 0, 0.12));
+
+    svg {
+      fill: var(--fill-color, currentColor);
     }
   }
 
-  // Filled states
-  &.filled {
-    &.primary {
-      background-color: var(--primary-color);
-    }
-    &.success {
-      background-color: var(--success-color);
-    }
-    &.warning {
-      background-color: var(--warning-color);
-    }
-    &.error {
-      background-color: var(--error-color);
-    }
-
-    .icon {
-      color: #ffffff;
-    }
+  // Custom colors
+  &:hover:not(.disabled):not(.loading) {
+    background-color: var(--hover-color, rgba(0, 0, 0, 0.08));
   }
-}
 
-// Tooltip styles
-.tooltip {
-  position: absolute;
-  background-color: rgba(33, 33, 33, 0.9);
-  color: #ffffff;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.2s;
-  z-index: 1000;
+  // Override default variant styles when custom colors are used
+  &[style] {
+    &.active {
+      color: var(--active-color);
+      background-color: var(--hover-color, rgba(0, 0, 0, 0.12));
+    }
 
-  .iconButton:hover + & {
-    opacity: 1;
-  }
-}
-
-.tooltipTop {
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-8px);
-}
-
-.tooltipBottom {
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-}
-
-.tooltipLeft {
-  right: 100%;
-  top: 50%;
-  transform: translateY(-50%) translateX(-8px);
-}
-
-.tooltipRight {
-  left: 100%;
-  top: 50%;
-  transform: translateY(-50%) translateX(8px);
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+    &:hover:not(.disabled):not(.loading) {
+      background-color: var(--hover-color);
+    }
   }
 }
