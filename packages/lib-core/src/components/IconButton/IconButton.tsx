@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import { IconButtonProps } from "./types";
 import { Tooltip } from "../Tooltip";
 import { ProgressIndicator } from "../ProgressIndicator";
@@ -47,34 +47,39 @@ const IconButton: React.FC<IconButtonProps> = ({
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
+  // 使用 useMemo 缓存按钮样式
+  const buttonStyle = useMemo(
+    () =>
+      ({
+        color,
+        backgroundColor: bgColor,
+        "--active-color": activeColor,
+        "--hover-color": hoverColor,
+        "--fill-color": fillColor,
+      }) as React.CSSProperties,
+    [color, bgColor, activeColor, hoverColor, fillColor],
+  );
+
+  // 使用 useMemo 缓存按钮类名
+  const buttonClassName = useMemo(
+    () =>
+      `${styles.iconButton} ${styles[variant]} ${styles[size]} ${styles[shape]} ${
+        disabled ? styles.disabled : ""
+      } ${loading ? styles.loading : ""} ${active ? styles.active : ""} ${className}`,
+    [variant, size, shape, disabled, loading, active, className],
+  );
+
   const buttonContent = (
     <button
       ref={buttonRef}
-      className={`
-        ${styles.iconButton}
-        ${styles[variant]}
-        ${styles[size]}
-        ${styles[shape]}
-        ${disabled ? styles.disabled : ""}
-        ${loading ? styles.loading : ""}
-        ${active ? styles.active : ""}
-        ${className}
-      `}
+      className={buttonClassName}
       disabled={disabled || loading}
       onClick={onClick}
       tabIndex={disabled ? -1 : tabIndex}
       aria-label={ariaLabel || "icon button"}
       aria-disabled={disabled || loading}
       role="button"
-      style={
-        {
-          color,
-          backgroundColor: bgColor,
-          "--active-color": activeColor,
-          "--hover-color": hoverColor,
-          "--fill-color": fillColor,
-        } as React.CSSProperties
-      }
+      style={buttonStyle}
       {...props}
     >
       {loading ? (
@@ -85,11 +90,21 @@ const IconButton: React.FC<IconButtonProps> = ({
     </button>
   );
 
-  return showTooltip && tooltip ? (
-    <Tooltip {...tooltip}>{buttonContent}</Tooltip>
-  ) : (
-    buttonContent
+  // 如果不需要 tooltip，直接返回按钮
+  if (!showTooltip || !tooltip) {
+    return buttonContent;
+  }
+
+  // 使用 useMemo 缓存 tooltip props
+  const tooltipProps = useMemo(
+    () => ({
+      ...tooltip,
+      disabled: disabled || loading,
+    }),
+    [tooltip, disabled, loading],
   );
+
+  return <Tooltip {...tooltipProps}>{buttonContent}</Tooltip>;
 };
 
 export default React.memo(IconButton);

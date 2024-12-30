@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import {
   FaHeart,
   FaStar,
@@ -31,38 +31,43 @@ const InteractiveIconButton: React.FC<InteractiveIconProps> = ({
   const config = interactiveIconsMap[type];
   const Icon = iconMap[type];
 
-  useEffect(() => {
-    setIsActive(initialState);
-  }, [initialState]);
+  const handleClick = useCallback(() => {
+    setIsActive((prevState) => {
+      const newState = !prevState;
+      onChange?.(newState);
+      return newState;
+    });
+  }, [onChange]);
 
-  const handleClick = () => {
-    const newState = !isActive;
-    setIsActive(newState);
-    onChange?.(newState);
-  };
+  const buttonProps = useMemo(
+    () => ({
+      color: isActive ? config.activeColor : config.inactiveColor,
+      activeColor: config.activeColor,
+      bgColor: isActive ? config.activeBgColor : config.inactiveBgColor,
+      hoverColor: isActive
+        ? config.activeHoverColor
+        : config.inactiveHoverColor,
+      fillColor: isActive ? config.activeFillColor : config.inactiveFillColor,
+      tooltip: {
+        content: isActive ? config.activeTooltip : config.inactiveTooltip,
+      },
+    }),
+    [isActive, config],
+  );
 
   return (
     <IconButton
       icon={<Icon />}
       active={isActive}
       onClick={handleClick}
-      color={isActive ? config.activeColor : config.inactiveColor}
-      activeColor={config.activeColor}
-      bgColor={isActive ? config.activeBgColor : config.inactiveBgColor}
-      hoverColor={
-        isActive ? config.activeHoverColor : config.inactiveHoverColor
-      }
-      fillColor={isActive ? config.activeFillColor : config.inactiveFillColor}
       showTooltip
-      tooltip={{
-        content: isActive ? config.activeTooltip : config.inactiveTooltip,
-      }}
       className={className}
       size={size}
       shape={shape}
       disabled={disabled}
+      {...buttonProps}
     />
   );
 };
 
-export default InteractiveIconButton;
+export default React.memo(InteractiveIconButton);

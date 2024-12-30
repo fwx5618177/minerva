@@ -68,6 +68,31 @@ const placementMap: Record<
   }),
 };
 
+/**
+ * Tooltip component that displays informative text when hovering over an element
+ * @param content - Content to be displayed inside the tooltip
+ * @param children - The element that triggers the tooltip
+ * @param open - Whether the tooltip is shown (controlled)
+ * @param defaultOpen - Default open state for uncontrolled component
+ * @param placement - Placement of the tooltip relative to its target
+ * @param variant - Visual style variant (light, dark, info, success, warning, error)
+ * @param shape - Shape of the tooltip (default, rounded, thought, square)
+ * @param animation - Animation style (fade, scale, shift-away, shift-toward, perspective)
+ * @param enterDelay - Delay before showing tooltip (ms)
+ * @param leaveDelay - Delay before hiding tooltip (ms)
+ * @param offset - Offset from the target element [x, y]
+ * @param disabled - Whether tooltip is disabled
+ * @param followCursor - Whether tooltip follows cursor movement
+ * @param className - Additional class name
+ * @param zIndex - Custom z-index
+ * @param bgColor - Custom background color
+ * @param textColor - Custom text color
+ * @param arrow - Whether to show arrow
+ * @param onOpen - Callback when tooltip shows
+ * @param onClose - Callback when tooltip hides
+ * @param ariaLabel - ARIA label for accessibility
+ * @returns A tooltip component
+ */
 const Tooltip = forwardRef<TooltipRef, TooltipProps>(
   (
     {
@@ -121,21 +146,39 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
       const newPosition = getPosition(triggerRect, tooltipRect, offset);
 
       if (followCursor) {
-        newPosition.top = cursorPosition.y - tooltipRect.height - offset[1];
-        newPosition.left = cursorPosition.x - tooltipRect.width / 2;
-      }
+        const newTop = cursorPosition.y - tooltipRect.height - offset[1];
+        const newLeft = cursorPosition.x - tooltipRect.width / 2;
 
-      setPosition(newPosition);
-    }, [placement, offset, followCursor, cursorPosition]);
+        if (
+          Math.abs(newTop - position.top) > 1 ||
+          Math.abs(newLeft - position.left) > 1
+        ) {
+          setPosition({
+            top: newTop,
+            left: newLeft,
+          });
+        }
+      } else {
+        setPosition(newPosition);
+      }
+    }, [placement, offset, followCursor, cursorPosition.x, cursorPosition.y]);
 
     useEffect(() => {
+      let rafId: number;
+
       if (open) {
-        updatePosition();
+        rafId = requestAnimationFrame(() => {
+          updatePosition();
+        });
+
         window.addEventListener("scroll", updatePosition);
         window.addEventListener("resize", updatePosition);
       }
 
       return () => {
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+        }
         window.removeEventListener("scroll", updatePosition);
         window.removeEventListener("resize", updatePosition);
       };
@@ -252,4 +295,4 @@ const Tooltip = forwardRef<TooltipRef, TooltipProps>(
 
 Tooltip.displayName = "Tooltip";
 
-export default Tooltip;
+export default React.memo(Tooltip);

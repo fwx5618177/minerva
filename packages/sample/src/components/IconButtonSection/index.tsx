@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { IconButton, InteractiveIconButton } from "@minerva/lib-core";
 import {
   FaHeart,
@@ -21,9 +21,33 @@ const IconButtonSection: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleFavoriteChange = (isActive: boolean) => {
-    console.log("Favorite state:", isActive);
-  };
+  const handleActiveToggle = useCallback(() => {
+    setIsActive((prev) => !prev);
+  }, []);
+
+  const handleLoadingToggle = useCallback(() => {
+    setIsLoading((prev) => !prev);
+  }, []);
+
+  const handleFavoriteChange = useCallback((active: boolean) => {
+    console.log("Favorite state:", active);
+  }, []);
+
+  const handleBookmarkChange = useCallback((active: boolean) => {
+    console.log("Bookmark state:", active);
+  }, []);
+
+  const handleStarChange = useCallback((active: boolean) => {
+    console.log("Star state:", active);
+  }, []);
+
+  const handleLikeChange = useCallback((active: boolean) => {
+    console.log("Like state:", active);
+  }, []);
+
+  const handleFollowChange = useCallback((active: boolean) => {
+    console.log("Follow state:", active);
+  }, []);
 
   return (
     <div className={styles.section}>
@@ -134,7 +158,7 @@ const IconButtonSection: React.FC = () => {
         <IconButton
           icon={<FaEdit />}
           active={isActive}
-          onClick={() => setIsActive(!isActive)}
+          onClick={handleActiveToggle}
           showTooltip
           tooltip={{
             content: isActive ? "Active state" : "Click to activate",
@@ -151,7 +175,7 @@ const IconButtonSection: React.FC = () => {
         <IconButton
           icon={<FaEdit />}
           loading={isLoading}
-          onClick={() => setIsLoading(!isLoading)}
+          onClick={handleLoadingToggle}
           showTooltip
           tooltip={{
             content: isLoading ? "Loading..." : "Click to load",
@@ -238,24 +262,11 @@ const IconButtonSection: React.FC = () => {
         />
         <InteractiveIconButton
           type="bookmark"
-          onChange={(isActive: boolean) =>
-            console.log("Bookmark state:", isActive)
-          }
+          onChange={handleBookmarkChange}
         />
-        <InteractiveIconButton
-          type="star"
-          onChange={(isActive: boolean) => console.log("Star state:", isActive)}
-        />
-        <InteractiveIconButton
-          type="like"
-          onChange={(isActive: boolean) => console.log("Like state:", isActive)}
-        />
-        <InteractiveIconButton
-          type="follow"
-          onChange={(isActive: boolean) =>
-            console.log("Follow state:", isActive)
-          }
-        />
+        <InteractiveIconButton type="star" onChange={handleStarChange} />
+        <InteractiveIconButton type="like" onChange={handleLikeChange} />
+        <InteractiveIconButton type="follow" onChange={handleFollowChange} />
       </div>
 
       <h3>Fill Color Variations</h3>
@@ -307,7 +318,7 @@ const IconButtonSection: React.FC = () => {
           bgColor="#fce4ec"
           hoverColor="#f8bbd0"
           fillColor="#e91e63"
-          active={true}
+          active
           showTooltip
           tooltip={{
             content: "Custom active state",
@@ -320,7 +331,7 @@ const IconButtonSection: React.FC = () => {
           bgColor="#e3f2fd"
           hoverColor="#bbdefb"
           fillColor="#2196f3"
-          active={true}
+          active
           showTooltip
           tooltip={{
             content: "Custom active state",
@@ -333,7 +344,7 @@ const IconButtonSection: React.FC = () => {
           bgColor="#e8f5e9"
           hoverColor="#c8e6c9"
           fillColor="#4caf50"
-          active={true}
+          active
           showTooltip
           tooltip={{
             content: "Custom active state",

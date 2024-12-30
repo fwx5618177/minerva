@@ -1,6 +1,6 @@
 import Tooltip from "./Tooltip";
-import type { TooltipProps } from "./types";
+import type { TooltipProps, TooltipRef } from "./types";
 
-export { Tooltip, TooltipProps };
+export { Tooltip, TooltipProps, TooltipRef };
 
 export default Tooltip;

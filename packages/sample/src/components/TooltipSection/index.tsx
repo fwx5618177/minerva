@@ -1,10 +1,33 @@
-import React, { useRef, useState } from "react";
-import { Tooltip, TooltipRef, Button } from "@minerva/lib-core";
+import React, { useRef, useState, useCallback } from "react";
+import { Tooltip, Button } from "@minerva/lib-core";
+import type { TooltipRef } from "@minerva/lib-core";
 import styles from "./index.module.scss";
 
 const TooltipSection: React.FC = () => {
-  const tooltipRef = useRef<TooltipRef>(null);
+  const openRef = useRef<TooltipRef>(null);
+  const closeRef = useRef<TooltipRef>(null);
+  const toggleRef = useRef<TooltipRef>(null);
   const [isControlledOpen, setIsControlledOpen] = useState(false);
+
+  const handleControlledOpen = useCallback(() => {
+    setIsControlledOpen(true);
+  }, []);
+
+  const handleControlledClose = useCallback(() => {
+    setIsControlledOpen(false);
+  }, []);
+
+  const handleControlledToggle = useCallback(() => {
+    setIsControlledOpen((prev) => !prev);
+  }, []);
+
+  const handleOpen = useCallback(() => {
+    console.log("Tooltip opened");
+  }, []);
+
+  const handleClose = useCallback(() => {
+    console.log("Tooltip closed");
+  }, []);
 
   return (
     <div className={styles.section}>
@@ -125,30 +148,16 @@ const TooltipSection: React.FC = () => {
       <h3>交互控制</h3>
       <div className={styles.group}>
         <div className={styles.feature}>
-          <h4>Ref 控制</h4>
-          <Tooltip content="通过 Ref 控制显示" ref={tooltipRef}>
-            <Button onClick={() => tooltipRef.current?.toggle()}>
-              点击切换显示
-            </Button>
-          </Tooltip>
-        </div>
-        <div className={styles.feature}>
           <h4>受控显示</h4>
           <Tooltip
             content="完全受控的 Tooltip"
             open={isControlledOpen}
-            onOpen={() => setIsControlledOpen(true)}
-            onClose={() => setIsControlledOpen(false)}
+            onOpen={handleControlledOpen}
+            onClose={handleControlledClose}
           >
-            <Button onClick={() => setIsControlledOpen(!isControlledOpen)}>
+            <Button onClick={handleControlledToggle}>
               {isControlledOpen ? "点击关闭" : "点击打开"}
             </Button>
-          </Tooltip>
-        </div>
-        <div className={styles.feature}>
-          <h4>默认打开</h4>
-          <Tooltip content="默认显示的 Tooltip" defaultOpen arrow>
-            <Button>默认打开</Button>
           </Tooltip>
         </div>
       </div>
@@ -206,19 +215,13 @@ const TooltipSection: React.FC = () => {
       <div className={styles.group}>
         <div className={styles.feature}>
           <h4>显示回调</h4>
-          <Tooltip
-            content="触发 onOpen"
-            onOpen={() => console.log("Tooltip opened")}
-          >
+          <Tooltip content="触发 onOpen" onOpen={handleOpen}>
             <Button>打开回调</Button>
           </Tooltip>
         </div>
         <div className={styles.feature}>
           <h4>关闭回调</h4>
-          <Tooltip
-            content="触发 onClose"
-            onClose={() => console.log("Tooltip closed")}
-          >
+          <Tooltip content="触发 onClose" onClose={handleClose}>
             <Button>关闭回调</Button>
           </Tooltip>
         </div>
@@ -357,20 +360,33 @@ const TooltipSection: React.FC = () => {
       <div className={styles.group}>
         <div className={styles.feature}>
           <h4>打开方法</h4>
-          <Tooltip content="使用 ref.open() 打开" ref={tooltipRef}>
-            <Button onClick={() => tooltipRef.current?.open()}>打开</Button>
+          <Tooltip
+            content="使用 ref.open() 打开"
+            ref={openRef}
+            onOpen={handleOpen}
+          >
+            <Button onClick={() => openRef.current?.open()}>打开</Button>
           </Tooltip>
         </div>
         <div className={styles.feature}>
           <h4>关闭方法</h4>
-          <Tooltip content="使用 ref.close() 关闭" ref={tooltipRef} defaultOpen>
-            <Button onClick={() => tooltipRef.current?.close()}>关闭</Button>
+          <Tooltip
+            content="使用 ref.close() 关闭"
+            ref={closeRef}
+            onClose={handleClose}
+          >
+            <Button onClick={() => closeRef.current?.close()}>关闭</Button>
           </Tooltip>
         </div>
         <div className={styles.feature}>
           <h4>切换方法</h4>
-          <Tooltip content="使用 ref.toggle() 切换" ref={tooltipRef}>
-            <Button onClick={() => tooltipRef.current?.toggle()}>
+          <Tooltip
+            content="使用 ref.toggle() 切换"
+            ref={toggleRef}
+            onOpen={handleOpen}
+            onClose={handleClose}
+          >
+            <Button onClick={() => toggleRef.current?.toggle()}>
               切换显示
             </Button>
           </Tooltip>
