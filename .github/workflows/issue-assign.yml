@@ -1,0 +1,108 @@
+name: Issue Assignment
+
+on:
+  issues:
+    types: [opened, reopened]
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository owner
+        id: get-owner
+        run: |
+          OWNER=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${{ github.repository }}" \
+            | jq -r '.owner.login')
+          echo "owner=$OWNER" >> $GITHUB_OUTPUT
+
+      - name: Check if assignee exists
+        id: check-assignee
+        run: |
+          if [[ "${{ github.event.issue.assignee.login }}" == "" && "${{ github.event.pull_request.assignee.login }}" == "" ]]; then
+            echo "needs_assignment=true" >> $GITHUB_OUTPUT
+          else
+            echo "needs_assignment=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Auto-assign issue/PR
+        if: steps.check-assignee.outputs.needs_assignment == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = '${{ steps.get-owner.outputs.owner }}';
+            const issueNumber = context.issue.number;
+            const repo = context.repo.repo;
+
+            try {
+              if (context.eventName === 'issues') {
+                await github.rest.issues.addAssignees({
+                  owner: context.repo.owner,
+                  repo,
+                  issue_number: issueNumber,
+                  assignees: [owner]
+                });
+                
+                console.log(`Successfully assigned issue #${issueNumber} to ${owner}`);
+                
+                // Add a comment to notify
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo,
+                  issue_number: issueNumber,
+                  body: `@${owner} has been automatically assigned to this issue.`
+                });
+              } else if (context.eventName === 'pull_request') {
+                await github.rest.pulls.createReview({
+                  owner: context.repo.owner,
+                  repo,
+                  pull_number: issueNumber,
+                  event: 'COMMENT',
+                  body: `@${owner} has been automatically assigned to review this PR.`
+                });
+                
+                await github.rest.pulls.requestReviewers({
+                  owner: context.repo.owner,
+                  repo,
+                  pull_number: issueNumber,
+                  reviewers: [owner]
+                });
+                
+                console.log(`Successfully requested review from ${owner} for PR #${issueNumber}`);
+              }
+            } catch (error) {
+              console.error('Error in auto-assignment:', error);
+              core.setFailed(error.message);
+            }
+
+      - name: Add labels
+        if: steps.check-assignee.outputs.needs_assignment == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueNumber = context.issue.number;
+
+            try {
+              if (context.eventName === 'issues') {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  labels: ['needs-triage']
+                });
+              } else if (context.eventName === 'pull_request') {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  labels: ['needs-review']
+                });
+              }
+            } catch (error) {
+              console.error('Error adding labels:', error);
+              core.setFailed(error.message);
+            }
