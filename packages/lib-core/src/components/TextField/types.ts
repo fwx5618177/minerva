@@ -24,4 +24,6 @@ export interface TextFieldProps {
   size?: "small" | "medium" | "large";
   /** Suffix content */
   suffix?: React.ReactNode;
+  /** Callback fired when the input loses focus */
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }

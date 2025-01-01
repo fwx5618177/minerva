@@ -4,7 +4,7 @@ import { TextField } from "../TextField";
 import { IconButton } from "../IconButton";
 import TimePickerPanel from "./TimePickerPanel";
 import { TimePickerProps } from "./types";
-import { formatTime, parseTime } from "./utils";
+import { formatTime, isValidTime, parseTime } from "./utils";
 import styles from "./timePicker.module.scss";
 import { FaClock } from "react-icons/fa";
 
@@ -141,6 +141,7 @@ const TimePicker: React.FC<TimePickerProps> = ({
         placeholder={placeholder}
         label=""
         onChange={handleInputChange}
+        onBlur={handleInputBlur}
         name="time-picker"
         disabled={disabled}
         size={size}

@@ -38,6 +38,7 @@ import { TextFieldProps } from "./types";
  * @param readOnly - Whether the text field is read-only
  * @param size - The size of the text field
  * @param suffix - The suffix to be displayed
+ * @param onBlur - Callback fired when the input loses focus
  * @returns A text field component
  */
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
@@ -65,6 +66,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       readOnly = false,
       size = "medium",
       suffix,
+      onBlur,
     },
     ref,
   ) => {
@@ -82,9 +84,13 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       setIsFocused(true);
     }, []);
 
-    const handleBlur = useCallback(() => {
-      setIsFocused(false);
-    }, []);
+    const handleBlur = useCallback(
+      (e: React.FocusEvent<HTMLInputElement>) => {
+        setIsFocused(false);
+        onBlur?.(e);
+      },
+      [onBlur],
+    );
 
     const handleChange = useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
