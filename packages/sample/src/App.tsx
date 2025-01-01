@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useCallback } from "react";
 
 import Layout from "./pages/Layout";
 import Sidebar from "@components/Sidebar/Sidebar";
@@ -21,9 +21,24 @@ import ProgressIndicatorSection from "@components/ProgressIndicatorSection";
 import CheckboxSection from "@components/CheckboxSection";
 import IconButtonSection from "@components/IconButtonSection";
 import TooltipSection from "@components/TooltipSection";
+import TimePickerSection from "@components/TimePickerSection";
+import PopperSection from "@components/PopperSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
+
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleRefClick = useCallback(() => {
+    if (buttonRef.current) {
+      buttonRef.current.style.transform = "scale(1.1)";
+      setTimeout(() => {
+        if (buttonRef.current) {
+          buttonRef.current.style.transform = "scale(1)";
+        }
+      }, 200);
+    }
+  }, []);
 
   const handleSearchClick = () => {
     console.log("Search button clicked");
@@ -61,8 +76,11 @@ const App: React.FC = () => {
                 A customizable button component with various styles and sizes.
               </p>
               <div className={styles.buttonExamples}>
-                <h3>small</h3>
+                <h3>Button with Ref</h3>
                 <div className={styles.buttonGroup}>
+                  <Button ref={buttonRef} onClick={handleRefClick}>
+                    Click for Scale Effect
+                  </Button>
                   <Button size="small">Button</Button>
                   <Button size="small" variant="error">
                     Button
@@ -406,6 +424,10 @@ const App: React.FC = () => {
             <IconButtonSection />
 
             <TooltipSection />
+
+            {/* <TimePickerSection /> */}
+
+            <PopperSection />
           </div>
         </section>
       </Main>

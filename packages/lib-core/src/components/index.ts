@@ -10,3 +10,5 @@ export * from "./ProgressIndicator";
 export * from "./Checkbox";
 export * from "./IconButton";
 export * from "./Tooltip";
+export * from "./TimePicker";
+export * from "./Popper";

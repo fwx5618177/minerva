@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./button.module.scss";
 import { ButtonProps } from "./types";
 
@@ -11,36 +11,45 @@ import { ButtonProps } from "./types";
  * @param ariaLabel - The aria-label attribute for the button, used for accessibility
  * @param disabled - Whether the button is disabled
  * @param borderRadius - The border radius of the button (none, small, medium, large, circle, square)
+ * @param ref - Ref forwarded to the button element
  * @returns A button component
  */
-const Button: React.FC<ButtonProps> = ({
-  onClick,
-  children,
-  className = "",
-  variant = "primary",
-  size = "medium",
-  ariaLabel,
-  disabled = false,
-  borderRadius = "medium", // 默认值为 medium
-}) => {
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (!disabled && onClick) {
-      onClick(event);
-    }
-  };
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      onClick,
+      children,
+      className = "",
+      variant = "primary",
+      size = "medium",
+      ariaLabel,
+      disabled = false,
+      borderRadius = "medium", // 默认值为 medium
+    },
+    ref,
+  ) => {
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (!disabled && onClick) {
+        onClick(event);
+      }
+    };
 
-  return (
-    <button
-      className={`${styles.customButton} ${styles[variant]} ${styles[size]} ${styles[`borderRadius${borderRadius.charAt(0).toUpperCase() + borderRadius.slice(1)}`]} ${className}`}
-      onClick={handleClick}
-      aria-label={ariaLabel}
-      role="button"
-      tabIndex={0}
-      disabled={disabled}
-    >
-      {children}
-    </button>
-  );
-};
+    return (
+      <button
+        ref={ref}
+        className={`${styles.customButton} ${styles[variant]} ${styles[size]} ${styles[`borderRadius${borderRadius.charAt(0).toUpperCase() + borderRadius.slice(1)}`]} ${className}`}
+        onClick={handleClick}
+        aria-label={ariaLabel}
+        role="button"
+        tabIndex={0}
+        disabled={disabled}
+      >
+        {children}
+      </button>
+    );
+  },
+);
+
+Button.displayName = "Button";
 
 export default Button;

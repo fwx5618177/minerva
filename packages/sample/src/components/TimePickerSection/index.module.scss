@@ -1,0 +1,27 @@
+.section {
+  padding: 24px;
+
+  h3 {
+    margin: 32px 0 16px;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 16px;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+
+    > * {
+      min-width: 200px;
+    }
+  }
+}

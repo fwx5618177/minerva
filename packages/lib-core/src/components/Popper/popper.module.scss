@@ -1,0 +1,184 @@
+@import "../../styles/common.scss"; // your global styles or variables
+
+.popper {
+  position: fixed; // not relative to parent
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 12px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow:
+    0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  transform: scale(0.8);
+  transform-origin: center top;
+  transition:
+    opacity 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  // Variants
+  &.default {
+    background: #ffffff;
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  &.primary {
+    background: #1890ff;
+    color: #ffffff;
+  }
+
+  &.secondary {
+    background: #6c757d;
+    color: #ffffff;
+  }
+
+  &.success {
+    background: #52c41a;
+    color: #ffffff;
+  }
+
+  &.warning {
+    background: #faad14;
+    color: #ffffff;
+  }
+
+  &.error {
+    background: #ff4d4f;
+    color: #ffffff;
+  }
+
+  // Types
+  &.popover {
+    padding: 12px 16px;
+    min-width: 200px;
+    font-size: 14px;
+    line-height: 1.5715;
+  }
+
+  &.menu {
+    padding: 4px 0;
+    min-width: 120px;
+
+    .menuItem {
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+    }
+  }
+
+  &.dropdown {
+    padding: 4px 0;
+    min-width: 120px;
+    border: 1px solid #f0f0f0;
+  }
+
+  &.select {
+    padding: 4px 0;
+    min-width: 120px;
+    max-height: 256px;
+    overflow-y: auto;
+  }
+
+  &.autocomplete {
+    padding: 4px 0;
+    min-width: 180px;
+    max-height: 256px;
+    overflow-y: auto;
+  }
+
+  &.datepicker {
+    padding: 8px;
+    min-width: 280px;
+    font-size: 14px;
+  }
+
+  &.colorpicker {
+    padding: 12px;
+    width: 240px;
+  }
+
+  &.cascader {
+    padding: 4px 0;
+    min-width: 180px;
+    max-height: 280px;
+    overflow-y: auto;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow:
+      0 0 0 2px rgba(24, 144, 255, 0.2),
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 6px 16px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #1890ff;
+    outline-offset: 2px;
+  }
+
+  @extend .commonRippleEffect;
+}
+
+.popperArrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 1;
+
+  &[data-placement^="top"] {
+    bottom: -6px;
+  }
+
+  &[data-placement^="bottom"] {
+    top: -6px;
+  }
+
+  &[data-placement^="left"] {
+    right: -6px;
+  }
+
+  &[data-placement^="right"] {
+    left: -6px;
+  }
+}
+
+.popperArrowInner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: inherit;
+  transform: rotate(45deg);
+  box-shadow: inherit;
+}
+
+// Scrollbar styles for overflow content
+.scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 3px;
+  }
+}

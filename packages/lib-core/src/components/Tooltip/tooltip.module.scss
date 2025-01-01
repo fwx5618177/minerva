@@ -22,6 +22,8 @@
   transform: translate3d(0, 0, 0);
   transition: opacity 0.2s ease-in-out;
 
+  @extend .commonRippleEffect;
+
   &.show {
     opacity: 1;
   }
