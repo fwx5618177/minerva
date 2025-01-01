@@ -21,7 +21,7 @@ const POSITION_MAP: Record<
   ) => { top: number; left: number }
 > = {
   top: (anchor, popper, offset) => ({
-    top: anchor.top - popper.height - offset.y,
+    top: anchor.top - popper.height - offset.y - 8,
     left: anchor.left + (anchor.width - popper.width) / 2,
   }),
   topStart: (anchor, popper, offset) => ({
@@ -33,7 +33,7 @@ const POSITION_MAP: Record<
     left: anchor.right - popper.width,
   }),
   bottom: (anchor, popper, offset) => ({
-    top: anchor.bottom + offset.y,
+    top: anchor.bottom + offset.y + 8,
     left: anchor.left + (anchor.width - popper.width) / 2,
   }),
   bottomStart: (anchor, popper, offset) => ({
@@ -46,7 +46,7 @@ const POSITION_MAP: Record<
   }),
   left: (anchor, popper, offset) => ({
     top: anchor.top + (anchor.height - popper.height) / 2,
-    left: anchor.left - popper.width - offset.x,
+    left: anchor.left - popper.width - offset.x - 8,
   }),
   leftStart: (anchor, popper, offset) => ({
     top: anchor.top,
@@ -58,7 +58,7 @@ const POSITION_MAP: Record<
   }),
   right: (anchor, popper, offset) => ({
     top: anchor.top + (anchor.height - popper.height) / 2,
-    left: anchor.right + offset.x,
+    left: anchor.right + offset.x + 8,
   }),
   rightStart: (anchor, popper, offset) => ({
     top: anchor.top,

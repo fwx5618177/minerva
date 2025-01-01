@@ -74,7 +74,8 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   opacity: 0;
   transform: translate3d(0, 0, 0);
   transition: opacity 0.2s ease-in-out;
-  pointer-events: auto; // 与 tooltip 不同，popper 需要可交互
+  pointer-events: auto;
+  margin: 8px;
 
   &.open {
     opacity: 1;
@@ -89,9 +90,26 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   }
 
   &.default {
-    background-color: #ffffff;
-    color: #333333;
-    border: 1px solid #e0e0e0;
+    background-color: map-get(map-get($popper-colors, default), bg);
+    color: map-get(map-get($popper-colors, default), text);
+    border: 1px solid map-get(map-get($popper-colors, default), border);
+
+    .menuItem,
+    .selectItem {
+      &:hover {
+        background-color: map-get(map-get($popper-colors, default), hover-bg);
+      }
+
+      &:active,
+      &.active {
+        background-color: map-get(map-get($popper-colors, default), active-bg);
+        color: map-get(map-get($popper-colors, default), active-color);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px map-get(map-get($popper-colors, default), focus-shadow);
+      }
+    }
   }
 
   &.tooltip {
@@ -176,45 +194,95 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     }
   }
 
-  // Arrow styles - 与 Tooltip 保持一致
-  &.arrow {
-    margin: 12px;
+  // Arrow styles
+  .popperArrow {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 0;
 
-    .popperArrow {
+    .popperArrowInner {
       position: absolute;
       width: 12px;
       height: 12px;
       background: inherit;
       transform: rotate(45deg);
+      z-index: -1;
+    }
 
-      &[data-placement^="top"] {
-        bottom: -6px;
-        left: calc(50% - 6px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
-      }
-
-      &[data-placement^="bottom"] {
+    &[data-placement^="top"] {
+      bottom: -12px;
+      .popperArrowInner {
         top: -6px;
-        left: calc(50% - 6px);
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
-      }
-
-      &[data-placement^="left"] {
-        right: -6px;
-        top: calc(50% - 6px);
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
-      }
-
-      &[data-placement^="right"] {
-        left: -6px;
-        top: calc(50% - 6px);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid;
+        border-right: 1px solid;
       }
     }
+
+    &[data-placement^="bottom"] {
+      top: -12px;
+      .popperArrowInner {
+        bottom: -6px;
+        border-top: 1px solid;
+        border-left: 1px solid;
+      }
+    }
+
+    &[data-placement^="left"] {
+      right: -12px;
+      .popperArrowInner {
+        left: -6px;
+        border-top: 1px solid;
+        border-right: 1px solid;
+      }
+    }
+
+    &[data-placement^="right"] {
+      left: -12px;
+      .popperArrowInner {
+        right: -6px;
+        border-bottom: 1px solid;
+        border-left: 1px solid;
+      }
+    }
+  }
+
+  // Variant-specific arrow styles
+  &.default .popperArrow .popperArrowInner {
+    background-color: map-get(map-get($popper-colors, default), bg);
+    border-color: map-get(map-get($popper-colors, default), border);
+  }
+
+  &.primary .popperArrow .popperArrowInner {
+    background-color: map-get(map-get($popper-colors, primary), bg);
+    border-color: map-get(map-get($popper-colors, primary), border);
+  }
+
+  &.secondary .popperArrow .popperArrowInner {
+    background-color: map-get(map-get($popper-colors, secondary), bg);
+    border-color: map-get(map-get($popper-colors, secondary), border);
+  }
+
+  &.success .popperArrow .popperArrowInner {
+    background-color: map-get(map-get($popper-colors, success), bg);
+    border-color: map-get(map-get($popper-colors, success), border);
+  }
+
+  &.warning .popperArrow .popperArrowInner {
+    background-color: map-get(map-get($popper-colors, warning), bg);
+    border-color: map-get(map-get($popper-colors, warning), border);
+  }
+
+  &.error .popperArrow .popperArrowInner {
+    background-color: map-get(map-get($popper-colors, error), bg);
+    border-color: map-get(map-get($popper-colors, error), border);
+  }
+
+  &.tooltip .popperArrow .popperArrowInner {
+    background-color: #333333;
+    border-color: #333333;
   }
 
   // Animation
@@ -233,21 +301,55 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     }
   }
 
-  // Variants (保持与 Tooltip 一致的颜色方案)
-  &.dark {
-    background-color: #333333;
-    color: #ffffff;
+  // Variants
+  &.primary {
+    background-color: map-get(map-get($popper-colors, primary), bg);
+    color: map-get(map-get($popper-colors, primary), text);
+    border: 1px solid map-get(map-get($popper-colors, primary), border);
+
+    .menuItem,
+    .selectItem {
+      color: #fff;
+
+      &:hover {
+        background-color: darken(map-get(map-get($popper-colors, primary), bg), 10%);
+      }
+
+      &:active,
+      &.active {
+        background-color: darken(map-get(map-get($popper-colors, primary), bg), 15%);
+      }
+    }
+
+    .popperArrow {
+      background-color: map-get(map-get($popper-colors, primary), bg);
+      border-color: map-get(map-get($popper-colors, primary), border);
+    }
   }
 
-  &.light {
-    background-color: #ffffff;
-    color: #333333;
-    border: 1px solid #e0e0e0;
-  }
+  &.secondary {
+    background-color: map-get(map-get($popper-colors, secondary), bg);
+    color: map-get(map-get($popper-colors, secondary), text);
+    border: 1px solid map-get(map-get($popper-colors, secondary), border);
 
-  &.info {
-    background-color: #2196f3;
-    color: #ffffff;
+    .menuItem,
+    .selectItem {
+      color: #fff;
+
+      &:hover {
+        background-color: darken(map-get(map-get($popper-colors, secondary), bg), 10%);
+      }
+
+      &:active,
+      &.active {
+        background-color: darken(map-get(map-get($popper-colors, secondary), bg), 15%);
+      }
+    }
+
+    .popperArrow {
+      background-color: map-get(map-get($popper-colors, secondary), bg);
+      border-color: map-get(map-get($popper-colors, secondary), border);
+    }
   }
 
   &.success {
@@ -383,67 +485,6 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
       }
     }
   }
-}
-
-.popperArrow {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  pointer-events: none;
-  z-index: 1;
-
-  &[data-placement^="top"] {
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    .popperArrowInner {
-      transform: rotate(45deg);
-      bottom: 6px;
-    }
-  }
-
-  &[data-placement^="bottom"] {
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    .popperArrowInner {
-      transform: rotate(45deg);
-      top: 6px;
-    }
-  }
-
-  &[data-placement^="left"] {
-    right: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    .popperArrowInner {
-      transform: rotate(45deg);
-      right: 6px;
-    }
-  }
-
-  &[data-placement^="right"] {
-    left: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    .popperArrowInner {
-      transform: rotate(45deg);
-      left: 6px;
-    }
-  }
-}
-
-.popperArrowInner {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: inherit;
-  border: inherit;
-  z-index: -1;
 }
 
 .scrollbar {
