@@ -5,6 +5,17 @@ import {
   FaBookmark,
   FaThumbsUp,
   FaUserPlus,
+  FaShare,
+  FaBell,
+  FaThumbtack,
+  FaArchive,
+  FaLock,
+  FaDownload,
+  FaEye,
+  FaClock,
+  FaThumbsDown,
+  FaFlag,
+  FaTimes as FaClose,
 } from "react-icons/fa";
 import { InteractiveIconProps } from "./interactive-types";
 import { interactiveIconsMap } from "./interactive-config";
@@ -16,6 +27,18 @@ const iconMap = {
   bookmark: FaBookmark,
   like: FaThumbsUp,
   follow: FaUserPlus,
+  share: FaShare,
+  notification: FaBell,
+  pin: FaThumbtack,
+  archive: FaArchive,
+  lock: FaLock,
+  download: FaDownload,
+  visibility: FaEye,
+  clock: FaClock,
+  rate: FaStar,
+  thumbDown: FaThumbsDown,
+  flag: FaFlag,
+  close: FaClose,
 };
 
 const InteractiveIconButton: React.FC<InteractiveIconProps> = ({

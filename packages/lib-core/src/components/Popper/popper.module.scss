@@ -77,7 +77,7 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   pointer-events: auto;
   margin: 8px;
 
-  &.open {
+  &.visible {
     opacity: 1;
   }
 
@@ -296,7 +296,7 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
       transform 0.2s ease-in-out;
     transform: scale(0.9);
 
-    &.open {
+    &.visible {
       transform: scale(1);
     }
   }

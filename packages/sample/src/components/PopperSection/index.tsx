@@ -156,7 +156,7 @@ const PopperSection: React.FC = () => {
             基础 Popper
           </Button>
           <Popper
-            open={activePopper === "basic"}
+            visible={activePopper === "basic"}
             anchorEl={buttonRefs.current["basic"]}
             onClickAway={() => setActivePopper(null)}
           >
@@ -179,7 +179,7 @@ const PopperSection: React.FC = () => {
               {placement}
             </Button>
             <Popper
-              open={activePopper === `placement-${placement}`}
+              visible={activePopper === `placement-${placement}`}
               anchorEl={buttonRefs.current[`placement-${placement}`]}
               placement={placement}
               arrow
@@ -203,7 +203,7 @@ const PopperSection: React.FC = () => {
               {type} 类型
             </Button>
             <Popper
-              open={activePopper === `type-${type}`}
+              visible={activePopper === `type-${type}`}
               anchorEl={buttonRefs.current[`type-${type}`]}
               type={type}
               arrow
@@ -243,7 +243,7 @@ const PopperSection: React.FC = () => {
               {size} 尺寸（单行）
             </Button>
             <Popper
-              open={activePopper === `size-single-${size}`}
+              visible={activePopper === `size-single-${size}`}
               anchorEl={buttonRefs.current[`size-single-${size}`]}
               size={size}
               arrow
@@ -267,7 +267,7 @@ const PopperSection: React.FC = () => {
               {size} 尺寸（多行）
             </Button>
             <Popper
-              open={activePopper === `size-multi-${size}`}
+              visible={activePopper === `size-multi-${size}`}
               anchorEl={buttonRefs.current[`size-multi-${size}`]}
               size={size}
               arrow
@@ -288,12 +288,12 @@ const PopperSection: React.FC = () => {
             <Button
               ref={(el) => (buttonRefs.current[`variant-${variant}`] = el)}
               onClick={() => handlePopperToggle(`variant-${variant}`)}
-              variant={variant}
+              variant={"warning"}
             >
               {variant} 样式
             </Button>
             <Popper
-              open={activePopper === `variant-${variant}`}
+              visible={activePopper === `variant-${variant}`}
               anchorEl={buttonRefs.current[`variant-${variant}`]}
               variant={variant}
               arrow
@@ -318,7 +318,7 @@ const PopperSection: React.FC = () => {
             快速动画
           </Button>
           <Popper
-            open={activePopper === "animation-fast"}
+            visible={activePopper === "animation-fast"}
             anchorEl={buttonRefs.current["animation-fast"]}
             animation={{ duration: 5000, easing: "ease-out" }}
             arrow
@@ -336,7 +336,7 @@ const PopperSection: React.FC = () => {
             慢速动画
           </Button>
           <Popper
-            open={activePopper === "animation-slow"}
+            visible={activePopper === "animation-slow"}
             anchorEl={buttonRefs.current["animation-slow"]}
             animation={{ duration: 5000, easing: "ease-in-out" }}
             arrow
@@ -361,7 +361,7 @@ const PopperSection: React.FC = () => {
               溢出测试
             </Button>
             <Popper
-              open={activePopper === "overflow"}
+              visible={activePopper === "overflow"}
               anchorEl={buttonRefs.current["overflow"]}
               arrow
               onClickAway={() => setActivePopper(null)}
@@ -383,7 +383,7 @@ const PopperSection: React.FC = () => {
                 滚动测试
               </Button>
               <Popper
-                open={activePopper === "scroll"}
+                visible={activePopper === "scroll"}
                 anchorEl={buttonRefs.current["scroll"]}
                 arrow
                 onClickAway={() => setActivePopper(null)}
@@ -404,7 +404,7 @@ const PopperSection: React.FC = () => {
             嵌套 Popper
           </Button>
           <Popper
-            open={activePopper === "nested-1"}
+            visible={activePopper === "nested-1"}
             anchorEl={buttonRefs.current["nested-1"]}
             arrow
             onClickAway={() => setActivePopper(null)}
@@ -419,7 +419,7 @@ const PopperSection: React.FC = () => {
                 打开嵌套层
               </Button>
               <Popper
-                open={activePopper === "nested-2"}
+                visible={activePopper === "nested-2"}
                 anchorEl={buttonRefs.current["nested-2"]}
                 arrow
                 onClickAway={() => setActivePopper(null)}
@@ -443,7 +443,7 @@ const PopperSection: React.FC = () => {
               {title}
             </Button>
             <Popper
-              open={activePopper === id}
+              visible={activePopper === id}
               anchorEl={buttonRefs.current[id]}
               popperStyle={style}
               onClickAway={() => setActivePopper(null)}
@@ -478,7 +478,7 @@ const PopperSection: React.FC = () => {
               {title}
             </Button>
             <Popper
-              open={activePopper === id}
+              visible={activePopper === id}
               anchorEl={buttonRefs.current[id]}
               {...props}
               onClickAway={() => setActivePopper(null)}
@@ -501,7 +501,7 @@ const PopperSection: React.FC = () => {
               {title}
             </Button>
             <Popper
-              open={activePopper === id}
+              visible={activePopper === id}
               anchorEl={buttonRefs.current[id]}
               animation={animation}
               arrow
@@ -525,7 +525,7 @@ const PopperSection: React.FC = () => {
               {title}
             </Button>
             <Popper
-              open={activePopper === id}
+              visible={activePopper === id}
               anchorEl={buttonRefs.current[id]}
               offset={offset}
               arrow
@@ -548,7 +548,7 @@ const PopperSection: React.FC = () => {
             切换显示
           </Button>
           <Popper
-            open={activePopper === "toggle"}
+            visible={activePopper === "toggle"}
             anchorEl={buttonRefs.current["toggle"]}
             arrow
             animation={{ duration: 300, easing: "ease-in-out" }}

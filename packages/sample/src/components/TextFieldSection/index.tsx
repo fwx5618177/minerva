@@ -264,6 +264,118 @@ const TextFieldSection: React.FC = () => {
           />
           <p>展示带有和不带字符计数的 TextField</p>
         </div>
+        <div>
+          <h4>TextField with Different Sizes</h4>
+          <TextField
+            name="smallSize"
+            label="Small Size"
+            value={username}
+            onChange={handleUsernameChange}
+            size="small"
+            borderRadius="0.5rem"
+          />
+          <TextField
+            name="mediumSize"
+            label="Medium Size"
+            value={username}
+            onChange={handleUsernameChange}
+            size="medium"
+            borderRadius="0.5rem"
+          />
+          <TextField
+            name="largeSize"
+            label="Large Size"
+            value={username}
+            onChange={handleUsernameChange}
+            size="large"
+            borderRadius="0.5rem"
+          />
+          <p>展示不同尺寸的 TextField</p>
+        </div>
+        <div>
+          <h4>TextField with Suffix</h4>
+          <TextField
+            name="withSuffix1"
+            label="With Unit"
+            value={username}
+            onChange={handleUsernameChange}
+            suffix={<span>kg</span>}
+            borderRadius="0.5rem"
+          />
+          <TextField
+            name="withSuffix2"
+            label="With Icon Suffix"
+            value={username}
+            onChange={handleUsernameChange}
+            suffix={<FaUser />}
+            borderRadius="0.5rem"
+          />
+          <TextField
+            name="withSuffix3"
+            label="With Text Suffix"
+            value={email}
+            onChange={handleEmailChange}
+            suffix="@gmail.com"
+            borderRadius="0.5rem"
+          />
+          <p>展示带有不同后缀的 TextField</p>
+        </div>
+        <div>
+          <h4>TextField with ReadOnly</h4>
+          <TextField
+            name="readOnly1"
+            label="Basic ReadOnly"
+            value="This is read-only text"
+            onChange={() => {}}
+            readOnly
+            borderRadius="0.5rem"
+          />
+          <TextField
+            name="readOnly2"
+            label="ReadOnly with Icon"
+            value="Read-only with icon"
+            onChange={() => {}}
+            readOnly
+            icon={<FaLock />}
+            borderRadius="0.5rem"
+          />
+          <TextField
+            name="readOnly3"
+            label="ReadOnly with Suffix"
+            value="100"
+            onChange={() => {}}
+            readOnly
+            suffix="USD"
+            borderRadius="0.5rem"
+          />
+          <p>展示只读状态的 TextField</p>
+        </div>
+        <div>
+          <h4>Combined Features</h4>
+          <TextField
+            name="combined1"
+            label="All Features"
+            value={username}
+            onChange={handleUsernameChange}
+            icon={<FaUser />}
+            suffix={<span>@company.com</span>}
+            size="small"
+            clearable
+            showCharCount
+            borderRadius="0.5rem"
+          />
+          <TextField
+            name="combined2"
+            label="ReadOnly Large"
+            value="Read-only large text"
+            onChange={() => {}}
+            readOnly
+            size="large"
+            suffix={<FaLock />}
+            borderRadius="0.5rem"
+          />
+          <p>展示组合使用多个特性的 TextField</p>
+        </div>
       </div>
     </div>
   );

@@ -88,7 +88,7 @@ const PopperArrow = ({
 /**
  * Popper Component
  * @param anchorEl - Element to anchor the popper to
- * @param open - Whether the popper is open
+ * @param visible - Whether the popper is visible
  * @param children - Additional React children (combined with content)
  * @param placement - Placement relative to anchor
  * @param variant - Visual variant
@@ -105,10 +105,12 @@ const PopperArrow = ({
  * @param tabIndex - Focus management
  * @param ariaLabel - Accessibility label
  * @param multiline - Whether to allow text wrapping
+ * @param trigger - Trigger mode
+ * @param onVisibleChange - Callback when visibility changes
  */
 const Popper = ({
   anchorEl,
-  open,
+  visible,
   children,
   placement = "bottom",
   variant = "default",
@@ -125,6 +127,8 @@ const Popper = ({
   tabIndex = 0,
   ariaLabel,
   multiline = true,
+  trigger = "click",
+  onVisibleChange,
 }: PopperProps) => {
   const popperRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
@@ -132,7 +136,7 @@ const Popper = ({
 
   // Handle outside click
   useEffect(() => {
-    if (!open || !onClickAway) return;
+    if (!visible || !onClickAway) return;
 
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -147,7 +151,7 @@ const Popper = ({
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [open, anchorEl, onClickAway]);
+  }, [visible, anchorEl, onClickAway]);
 
   // Update position with RAF for better performance
   const updatePosition = useCallback(() => {
@@ -191,7 +195,7 @@ const Popper = ({
 
   // Update position when necessary
   useEffect(() => {
-    if (!open || !anchorEl) return;
+    if (!visible || !anchorEl) return;
 
     updatePosition();
 
@@ -210,7 +214,7 @@ const Popper = ({
       window.removeEventListener("resize", updatePosition);
       window.removeEventListener("scroll", handleScroll, true);
     };
-  }, [open, anchorEl, updatePosition]);
+  }, [visible, anchorEl, updatePosition]);
 
   // Map of type-specific class names
   const TYPE_CLASS_MAP: Record<PopperType, string> = {
@@ -271,7 +275,68 @@ const Popper = ({
     [popperStyle.backgroundColor],
   );
 
-  if (!open) return null;
+  useEffect(() => {
+    if (!anchorEl) return;
+
+    const handleTrigger = () => {
+      if (trigger === "manual") return;
+      onVisibleChange?.(!visible);
+    };
+
+    const handleMouseEnter = () => {
+      if (trigger === "hover") {
+        onVisibleChange?.(true);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (trigger === "hover") {
+        onVisibleChange?.(false);
+      }
+    };
+
+    const handleFocus = () => {
+      if (trigger === "focus") {
+        onVisibleChange?.(true);
+      }
+    };
+
+    const handleBlur = () => {
+      if (trigger === "focus") {
+        onVisibleChange?.(false);
+      }
+    };
+
+    const handleContextMenu = (e: MouseEvent) => {
+      if (trigger === "contextMenu") {
+        e.preventDefault();
+        onVisibleChange?.(true);
+      }
+    };
+
+    if (trigger === "click") {
+      anchorEl.addEventListener("click", handleTrigger);
+    } else if (trigger === "hover") {
+      anchorEl.addEventListener("mouseenter", handleMouseEnter);
+      anchorEl.addEventListener("mouseleave", handleMouseLeave);
+    } else if (trigger === "focus") {
+      anchorEl.addEventListener("focus", handleFocus);
+      anchorEl.addEventListener("blur", handleBlur);
+    } else if (trigger === "contextMenu") {
+      anchorEl.addEventListener("contextmenu", handleContextMenu);
+    }
+
+    return () => {
+      anchorEl.removeEventListener("click", handleTrigger);
+      anchorEl.removeEventListener("mouseenter", handleMouseEnter);
+      anchorEl.removeEventListener("mouseleave", handleMouseLeave);
+      anchorEl.removeEventListener("focus", handleFocus);
+      anchorEl.removeEventListener("blur", handleBlur);
+      anchorEl.removeEventListener("contextmenu", handleContextMenu);
+    };
+  }, [anchorEl, trigger, visible, onVisibleChange]);
+
+  if (!visible) return null;
 
   return createPortal(
     <div
@@ -282,13 +347,13 @@ const Popper = ({
         ${styles[type]}
         ${styles[size]}
         ${multiline ? styles.multiline : styles.singleline}
-        ${open ? styles.open : ""}
+        ${visible ? styles.visible : ""}
         ${className}
       `}
       style={combinedStyles}
       role={type === "menu" ? "menu" : "dialog"}
       tabIndex={tabIndex}
-      aria-hidden={!open}
+      aria-hidden={!visible}
       aria-label={ariaLabel}
     >
       {processedChildren}

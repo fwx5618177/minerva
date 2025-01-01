@@ -49,6 +49,50 @@ const IconButtonSection: React.FC = () => {
     console.log("Follow state:", active);
   }, []);
 
+  const handleShareChange = useCallback((active: boolean) => {
+    console.log("Share state:", active);
+  }, []);
+
+  const handleNotificationChange = useCallback((active: boolean) => {
+    console.log("Notification state:", active);
+  }, []);
+
+  const handlePinChange = useCallback((active: boolean) => {
+    console.log("Pin state:", active);
+  }, []);
+
+  const handleArchiveChange = useCallback((active: boolean) => {
+    console.log("Archive state:", active);
+  }, []);
+
+  const handleLockChange = useCallback((active: boolean) => {
+    console.log("Lock state:", active);
+  }, []);
+
+  const handleDownloadChange = useCallback((active: boolean) => {
+    console.log("Download state:", active);
+  }, []);
+
+  const handleVisibilityChange = useCallback((active: boolean) => {
+    console.log("Visibility state:", active);
+  }, []);
+
+  const handleClockChange = useCallback((active: boolean) => {
+    console.log("Clock state:", active);
+  }, []);
+
+  const handleRateChange = useCallback((active: boolean) => {
+    console.log("Rate state:", active);
+  }, []);
+
+  const handleThumbDownChange = useCallback((active: boolean) => {
+    console.log("Thumb down state:", active);
+  }, []);
+
+  const handleFlagChange = useCallback((active: boolean) => {
+    console.log("Flag state:", active);
+  }, []);
+
   return (
     <div className={styles.section}>
       <h3>Variants</h3>
@@ -58,8 +102,8 @@ const IconButtonSection: React.FC = () => {
           variant="primary"
           showTooltip
           tooltip={{
-            content: "Primary variant",
-            variant: "primary",
+            content: "Dark variant",
+            variant: "dark",
           }}
         />
         <IconButton
@@ -67,8 +111,8 @@ const IconButtonSection: React.FC = () => {
           variant="secondary"
           showTooltip
           tooltip={{
-            content: "Secondary variant",
-            variant: "secondary",
+            content: "Info variant",
+            variant: "info",
           }}
         />
         <IconButton
@@ -139,7 +183,7 @@ const IconButtonSection: React.FC = () => {
           showTooltip
           tooltip={{
             content: "Circle shape",
-            shape: "circle",
+            shape: "rounded",
           }}
         />
         <IconButton
@@ -230,7 +274,7 @@ const IconButtonSection: React.FC = () => {
           tooltip={{
             content: "Add new item",
             arrow: true,
-            shape: "cloud",
+            shape: "thought",
           }}
         />
         <IconButton
@@ -240,7 +284,7 @@ const IconButtonSection: React.FC = () => {
           tooltip={{
             content: "Delete item",
             arrow: true,
-            shape: "cloud",
+            shape: "thought",
           }}
         />
         <IconButton
@@ -249,7 +293,7 @@ const IconButtonSection: React.FC = () => {
           tooltip={{
             content: "More actions",
             arrow: true,
-            shape: "cloud",
+            shape: "thought",
           }}
         />
       </div>
@@ -267,6 +311,30 @@ const IconButtonSection: React.FC = () => {
         <InteractiveIconButton type="star" onChange={handleStarChange} />
         <InteractiveIconButton type="like" onChange={handleLikeChange} />
         <InteractiveIconButton type="follow" onChange={handleFollowChange} />
+        <InteractiveIconButton type="share" onChange={handleShareChange} />
+        <InteractiveIconButton
+          type="notification"
+          onChange={handleNotificationChange}
+        />
+        <InteractiveIconButton type="pin" onChange={handlePinChange} />
+        <InteractiveIconButton type="archive" onChange={handleArchiveChange} />
+        <InteractiveIconButton type="lock" onChange={handleLockChange} />
+        <InteractiveIconButton
+          type="download"
+          onChange={handleDownloadChange}
+        />
+        <InteractiveIconButton
+          type="visibility"
+          onChange={handleVisibilityChange}
+        />
+        <InteractiveIconButton type="clock" onChange={handleClockChange} />
+        <InteractiveIconButton type="close" onChange={handleClockChange} />
+        <InteractiveIconButton type="rate" onChange={handleRateChange} />
+        <InteractiveIconButton
+          type="thumbDown"
+          onChange={handleThumbDownChange}
+        />
+        <InteractiveIconButton type="flag" onChange={handleFlagChange} />
       </div>
 
       <h3>Fill Color Variations</h3>

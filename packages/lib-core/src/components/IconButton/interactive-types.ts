@@ -27,4 +27,16 @@ export type InteractiveIconType =
   | "bookmark"
   | "star"
   | "like"
-  | "follow";
+  | "follow"
+  | "share"
+  | "notification"
+  | "pin"
+  | "archive"
+  | "lock"
+  | "download"
+  | "visibility"
+  | "clock"
+  | "rate"
+  | "thumbDown"
+  | "flag"
+  | "close";

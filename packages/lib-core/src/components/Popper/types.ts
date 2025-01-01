@@ -65,8 +65,8 @@ export interface PopperProps {
   /** Element to anchor the popper to */
   anchorEl: HTMLElement | null;
 
-  /** Whether the popper is open */
-  open: boolean;
+  /** Whether the popper is visible */
+  visible: boolean;
 
   /** Children content */
   children: React.ReactNode;
@@ -115,6 +115,12 @@ export interface PopperProps {
 
   /** Whether to allow text wrapping */
   multiline?: boolean;
+
+  /** Trigger mode */
+  trigger?: PopperTrigger;
+
+  /** Callback when visibility changes */
+  onVisibleChange?: (visible: boolean) => void;
 }
 
 export interface PopperCustomStyle {
@@ -137,3 +143,10 @@ export interface PopperCustomStyle {
   /** Padding */
   padding?: number | string;
 }
+
+export type PopperTrigger =
+  | "hover"
+  | "click"
+  | "contextMenu"
+  | "focus"
+  | "manual";

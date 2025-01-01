@@ -1,0 +1,26 @@
+@import "../../styles/common.scss";
+
+.timePicker {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+
+  .clearButton {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #8c8c8c;
+
+    &:hover {
+      opacity: 1;
+      color: #595959;
+    }
+  }
+
+  &:hover .clearButton {
+    opacity: 0.45;
+  }
+
+  .clockIcon {
+    color: #8c8c8c;
+  }
+}

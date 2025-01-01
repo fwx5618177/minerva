@@ -35,6 +35,9 @@ import { TextFieldProps } from "./types";
  * @param width - The width of the text field (e.g., "200px", "50%")
  * @param disabled - Whether the text field is disabled
  * @param ariaLabel - The aria-label attribute for accessibility
+ * @param readOnly - Whether the text field is read-only
+ * @param size - The size of the text field
+ * @param suffix - The suffix to be displayed
  * @returns A text field component
  */
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
@@ -59,6 +62,9 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       width = "300px",
       disabled = false,
       ariaLabel,
+      readOnly = false,
+      size = "medium",
+      suffix,
     },
     ref,
   ) => {
@@ -103,7 +109,15 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       }
     }, [error]);
 
-    const textFieldClasses = `${styles.textField} ${isFocused ? styles.focused : ""} ${isFilled ? styles.filled : ""} ${minimal ? styles.minimal : ""} ${error ? styles.error : ""} ${hideBorder ? styles.containerHideBorder : ""} ${shake ? styles.shake : ""} ${disabled ? styles.disabled : ""}`;
+    const textFieldClasses = `${styles.textField} ${
+      isFocused ? styles.focused : ""
+    } ${isFilled ? styles.filled : ""} ${minimal ? styles.minimal : ""} ${
+      error ? styles.error : ""
+    } ${hideBorder ? styles.containerHideBorder : ""} ${
+      shake ? styles.shake : ""
+    } ${disabled ? styles.disabled : ""} ${readOnly ? styles.readonly : ""} ${
+      styles[size]
+    }`;
     const inputClasses = `${styles.input} ${hideBorder ? styles.hideBorder : ""}`;
     const labelClasses = `${styles.label} ${isFocused || isFilled ? styles.shrink : ""}`;
     const containerClass = `${styles.container} ${hideBorder ? styles.containerHideBorder : ""}`;
@@ -116,7 +130,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     return (
       <div className={containerClass} style={containerStyles}>
         <div className={textFieldClasses} style={{ borderColor, borderRadius }}>
-          {label && !placeholder && (
+          {label && !placeholder && !readOnly && (
             <label
               className={labelClasses}
               onClick={() => inputRef?.current?.focus()}
@@ -146,12 +160,13 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               onBlur={handleBlur}
               tabIndex={0}
               disabled={disabled}
+              readOnly={readOnly}
               aria-label={ariaLabel}
               style={{
                 paddingLeft: icon && iconPosition === "left" ? "2rem" : "",
                 paddingRight:
                   (icon && iconPosition === "right" ? "2rem" : "") +
-                  (clearable ? "2rem" : ""),
+                  (!suffix && clearable ? "2rem" : ""),
               }}
             />
             {icon && iconPosition === "right" && (
@@ -168,11 +183,12 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                 )}
               </>
             )}
-            {clearable && value && (
+            {clearable && value && !readOnly && !disabled && !suffix && (
               <span className={styles.clearIcon} onClick={handleClear}>
                 <FaTimesCircle />
               </span>
             )}
+            {suffix && <span className={styles.suffix}>{suffix}</span>}
             {error && (
               <span className={styles.errorIcon}>
                 <FaExclamationTriangle />

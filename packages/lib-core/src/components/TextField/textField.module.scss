@@ -67,35 +67,118 @@
     animation: shake 0.5s ease-out;
   }
 
+  &.readonly {
+    background-color: #f5f5f5;
+    border-color: #e1e1e1;
+    cursor: default;
+
+    .input {
+      background-color: #f5f5f5;
+      color: #666666;
+      cursor: default;
+
+      &::placeholder {
+        color: #999999;
+      }
+    }
+
+    .suffix {
+      color: #666666;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: #e1e1e1;
+      box-shadow: none;
+    }
+  }
+
   &.disabled {
-    background-color: #c0c0c0;
-    color: #666666;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
     cursor: not-allowed;
     opacity: 0.8;
-    box-shadow: none;
+
+    .input {
+      background-color: transparent;
+      color: #333333;
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: #adb5bd;
+      }
+    }
+
+    .suffix {
+      color: #6c757d;
+    }
 
     &:hover {
-      background-color: #a0a0a0;
+      border-color: #dee2e6;
+      box-shadow: none;
+    }
+  }
+
+  &.small {
+    .input {
+      padding: 0.5rem;
+      font-size: 0.875rem;
+    }
+    .label:not(.shrink) {
+      top: 0.5rem;
+      font-size: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+
+  &.medium {
+    .input {
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+    .label:not(.shrink) {
+      top: 0.75rem;
+      font-size: 1rem;
+      height: 1rem;
+    }
+  }
+
+  &.large {
+    .input {
+      padding: 1rem;
+      font-size: 1.125rem;
+    }
+    .label:not(.shrink) {
+      top: 1rem;
+      font-size: 1.125rem;
+      height: 1.125rem;
     }
   }
 }
 
 .label {
   position: absolute;
-  top: 0.75rem;
-  font-size: 1rem;
   color: #6c757d;
   transition: all 0.3s ease;
   z-index: 1;
-  background: #fff;
-  padding: 0 0.25rem;
   cursor: text;
+  background: transparent;
+  padding: 0 0.25rem;
+  display: flex;
+  align-items: center;
+
+  &:not(.shrink) {
+    background: linear-gradient(180deg, transparent 45%, #fff 45%, #fff 55%, transparent 55%);
+  }
 
   &.shrink {
+    background: #ffffffcc;
     top: -0.5rem;
     left: 0.75rem;
     font-size: 0.75rem;
     color: #ff9800;
+    height: 1rem;
+    line-height: 1;
   }
 }
 
@@ -163,11 +246,16 @@
   right: 0.75rem;
   color: #6c757d;
   cursor: pointer;
-  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: #495057;
+  }
 }
 
 .errorIcon {
-  margin-right: 0.25rem;
+  margin-right: 1.5rem;
   color: #dc3545;
 }
 
@@ -185,6 +273,17 @@
   right: 0.75rem;
   font-size: 0.75rem;
   color: #6c757d;
+}
+
+.suffix {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0.75rem;
+  color: #6c757d;
+  pointer-events: none;
+  padding: 0 0.5rem;
+  font-size: 0.875rem;
 }
 
 @keyframes shake {

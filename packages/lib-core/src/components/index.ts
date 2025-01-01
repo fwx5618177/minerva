@@ -11,3 +11,4 @@ export * from "./Checkbox";
 export * from "./IconButton";
 export * from "./Tooltip";
 export * from "./Popper";
+export * from "./TimePicker";

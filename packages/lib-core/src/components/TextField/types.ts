@@ -18,4 +18,10 @@ export interface TextFieldProps {
   width?: string;
   disabled?: boolean;
   ariaLabel?: string;
+  /** Whether the input is read-only */
+  readOnly?: boolean;
+  /** Size variant */
+  size?: "small" | "medium" | "large";
+  /** Suffix content */
+  suffix?: React.ReactNode;
 }
