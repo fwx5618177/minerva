@@ -31,6 +31,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const handleToggle = () => {
     if (!disabled) {
@@ -54,17 +55,27 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
-  useEffect(() => {
-    const currentRef = dropdownRef.current;
-    if (currentRef) {
-      currentRef.addEventListener("mousedown", handleClickOutside);
+  const handleFocusOut = (event: FocusEvent) => {
+    const relatedTarget = event.relatedTarget as Node;
+    if (
+      dropdownRef.current &&
+      menuRef.current &&
+      !dropdownRef.current.contains(relatedTarget) &&
+      !menuRef.current.contains(relatedTarget)
+    ) {
+      setIsOpen(false);
     }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("focusout", handleFocusOut);
+
     return () => {
-      if (currentRef) {
-        currentRef.removeEventListener("mousedown", handleClickOutside);
-      }
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("focusout", handleFocusOut);
     };
-  }, [dropdownRef]);
+  }, []);
 
   return (
     <div
@@ -84,13 +95,15 @@ const Dropdown: React.FC<DropdownProps> = ({
       </div>
       {isOpen && (
         <div
+          ref={menuRef}
           className={`${styles.menu} ${styles[direction]}`}
           style={{
             backgroundColor: menuBgColor,
             boxShadow: menuBoxShadow,
           }}
+          tabIndex={-1}
         >
-          <ul className={styles.menuList}>
+          <ul className={styles.menuList} role="menu" tabIndex={-1}>
             {items.map((item, index) => (
               <li
                 key={index}
@@ -99,6 +112,8 @@ const Dropdown: React.FC<DropdownProps> = ({
                 style={{
                   color: item.disabled ? "#c0c0c0" : menuTextColor,
                 }}
+                role="menuitem"
+                tabIndex={item.disabled ? -1 : 0}
               >
                 {item.label}
               </li>
