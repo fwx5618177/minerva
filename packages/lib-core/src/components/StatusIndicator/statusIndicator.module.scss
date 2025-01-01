@@ -1,3 +1,9 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .statusIndicator {
   border: none;
   text-align: center;
@@ -159,6 +165,46 @@
     left: 20px;
     top: -20px;
   }
+
+  &.small {
+    width: 24px;
+    height: 24px;
+    .icon {
+      font-size: 12px;
+    }
+  }
+
+  &.medium {
+    width: 32px;
+    height: 32px;
+    .icon {
+      font-size: 16px;
+    }
+  }
+
+  &.large {
+    width: 40px;
+    height: 40px;
+    .icon {
+      font-size: 20px;
+    }
+  }
+
+  &.online {
+    background-color: #4caf50;
+  }
+
+  &.offline {
+    background-color: #f44336;
+  }
+
+  &.away {
+    background-color: #ff9800;
+  }
+
+  &.busy {
+    background-color: #f44336;
+  }
 }
 
 @keyframes clickedAnimation {
@@ -225,4 +271,10 @@
   .statusIndicator {
     font-size: clamp(1.125rem, 2vw, 1.25rem); // 大屏幕字体大小
   }
+}
+
+.label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+  user-select: none;
 }

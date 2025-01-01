@@ -9,9 +9,9 @@ import {
 
 const DropdownSection: React.FC = () => {
   return (
-    <div className={styles.buttonExamples}>
+    <div className={styles.section}>
       <h3>Dropdown direction</h3>
-      <div className={styles.buttonGroup}>
+      <div className={styles.group}>
         <Dropdown
           items={
             [
@@ -27,7 +27,7 @@ const DropdownSection: React.FC = () => {
               { label: "Option 5", value: "option5" },
             ] as DropdownOption[]
           }
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: DropdownOption) => console.log("Selected:", item)}
           direction="down"
         />
         <Dropdown
@@ -38,7 +38,7 @@ const DropdownSection: React.FC = () => {
             { label: "Option 4", value: "option4" },
             { label: "Option 5", value: "option5" },
           ]}
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: DropdownOption) => console.log("Selected:", item)}
           direction="up"
         />
         <Dropdown
@@ -49,7 +49,7 @@ const DropdownSection: React.FC = () => {
             { label: "Option 4", value: "option4" },
             { label: "Option 5", value: "option5" },
           ]}
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: DropdownOption) => console.log("Selected:", item)}
           direction="left"
         />
         <Dropdown
@@ -60,13 +60,13 @@ const DropdownSection: React.FC = () => {
             { label: "Option 4", value: "option4" },
             { label: "Option 5", value: "option5" },
           ]}
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: DropdownOption) => console.log("Selected:", item)}
           direction="right"
         />
       </div>
 
       <h3>Dropdown Menu Background Color</h3>
-      <div className={styles.buttonGroup}>
+      <div className={styles.group}>
         <Dropdown
           items={[
             { label: "Option 1", value: "option1" },
@@ -82,7 +82,7 @@ const DropdownSection: React.FC = () => {
             { label: "Option 5", value: "option5" },
             { label: "Option 5", value: "option5" },
           ]}
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: DropdownOption) => console.log("Selected:", item)}
           menuBgColor="#000000"
           menuTextColor="#ffffff"
         />
@@ -94,14 +94,14 @@ const DropdownSection: React.FC = () => {
             { label: "Option 4", value: "option4" },
             { label: "Option 5", value: "option5" },
           ]}
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: DropdownOption) => console.log("Selected:", item)}
           menuBgColor="#ff0000"
           menuTextColor="#ffffff"
         />
       </div>
 
       <h3>Dropdown Children, Disabled</h3>
-      <div className={styles.buttonGroup}>
+      <div className={styles.group}>
         <Dropdown
           items={[
             { label: "Option 1", value: "option1" },
@@ -110,7 +110,7 @@ const DropdownSection: React.FC = () => {
             { label: "Option 4", value: "option4" },
             { label: "Option 5", value: "option5" },
           ]}
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: DropdownOption) => console.log("Selected:", item)}
         >
           <span>Dropdown</span>
         </Dropdown>
@@ -123,7 +123,7 @@ const DropdownSection: React.FC = () => {
             { label: "Option 4", value: "option4" },
             { label: "Option 5", value: "option5" },
           ]}
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: DropdownOption) => console.log("Selected:", item)}
         >
           <SearchButton />
         </Dropdown>
@@ -136,7 +136,7 @@ const DropdownSection: React.FC = () => {
             { label: "Option 4", value: "option4" },
             { label: "Option 5", value: "option5" },
           ]}
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: DropdownOption) => console.log("Selected:", item)}
         >
           <Button borderRadius="circle">Menu</Button>
         </Dropdown>
@@ -155,7 +155,11 @@ const DropdownSection: React.FC = () => {
           ]}
           menuBgColor="#ff0000"
           menuTextColor="#ffffff"
-          onSelect={(item) => console.log("Selected:", item)}
+          onSelect={(item: {
+            label: string;
+            value: string;
+            disabled?: boolean;
+          }) => console.log("Selected:", item)}
         >
           <Button variant="warning" borderRadius="circle">
             Menu

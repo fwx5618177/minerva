@@ -1,5 +1,36 @@
 @import "../../styles/common.scss";
 
+.badgeWrapper {
+  display: inline-flex;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+  @extend .commonRippleEffect;
+
+  &:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .badge {
   display: inline-block;
   padding: 0.25rem 0.5rem;
@@ -15,7 +46,8 @@
     box-shadow 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  position: relative; /* 确保 ripple 效果正确定位 */
+  position: relative;
+  @extend .commonRippleEffect;
 
   &:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
@@ -84,6 +116,15 @@
     }
   }
 
+  &.error {
+    background-color: #dc3545;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #c82333;
+    }
+  }
+
   &.light {
     background-color: #f8f9fa;
     color: #212529;
@@ -138,5 +179,54 @@
     }
   }
 
-  @extend .commonRippleEffect;
+  &.top-right {
+    position: absolute;
+    top: -8px;
+    right: -4px;
+
+    &.dot {
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &.top-left {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+
+    &.dot {
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &.bottom-right {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+
+    &.dot {
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &.bottom-left {
+    position: absolute;
+    bottom: -8px;
+    left: -8px;
+
+    &.dot {
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &.dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border-radius: 50%;
+  }
 }
