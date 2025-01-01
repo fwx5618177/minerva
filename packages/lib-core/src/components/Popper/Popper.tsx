@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import { createPortal } from "react-dom";
-import type { PopperProps, PopperPlacement } from "./types";
+import type { PopperProps, PopperPlacement, PopperType } from "./types";
 import styles from "./popper.module.scss";
 
 /**
@@ -73,9 +73,15 @@ const POSITION_MAP: Record<
 /**
  * Arrow component for the Popper
  */
-const PopperArrow = ({ placement }: { placement: PopperPlacement }) => (
+const PopperArrow = ({
+  placement,
+  style,
+}: {
+  placement: PopperPlacement;
+  style?: React.CSSProperties;
+}) => (
   <div className={styles.popperArrow} data-placement={placement}>
-    <div className={styles.popperArrowInner} />
+    <div className={styles.popperArrowInner} style={style} />
   </div>
 );
 
@@ -83,11 +89,11 @@ const PopperArrow = ({ placement }: { placement: PopperPlacement }) => (
  * Popper Component
  * @param anchorEl - Element to anchor the popper to
  * @param open - Whether the popper is open
- * @param content - Content to be displayed (plain or JSX)
  * @param children - Additional React children (combined with content)
  * @param placement - Placement relative to anchor
  * @param variant - Visual variant
  * @param type - Functional type
+ * @param size - Size variant
  * @param offset - Position offset
  * @param animation - Animation settings
  * @param arrow - Show arrow indicator
@@ -95,17 +101,19 @@ const PopperArrow = ({ placement }: { placement: PopperPlacement }) => (
  * @param onClickAway - Click outside handler
  * @param className - Custom class name
  * @param style - Custom styles
+ * @param popperStyle - Custom popper styles
  * @param tabIndex - Focus management
  * @param ariaLabel - Accessibility label
+ * @param multiline - Whether to allow text wrapping
  */
 const Popper = ({
   anchorEl,
   open,
-  content,
   children,
   placement = "bottom",
   variant = "default",
-  type = "popover",
+  type = "default",
+  size = "medium",
   offset = { x: 0, y: 8 },
   animation = { duration: 200, easing: "ease" },
   arrow = false,
@@ -113,8 +121,10 @@ const Popper = ({
   onClickAway,
   className = "",
   style,
+  popperStyle = {},
   tabIndex = 0,
   ariaLabel,
+  multiline = true,
 }: PopperProps) => {
   const popperRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
@@ -202,16 +212,64 @@ const Popper = ({
     };
   }, [open, anchorEl, updatePosition]);
 
-  // Combine content
-  const contentNode = useMemo(() => {
-    if (!content && !children) return null;
-    return (
-      <>
-        {typeof content === "string" ? <div>{content}</div> : content}
-        {children}
-      </>
+  // Map of type-specific class names
+  const TYPE_CLASS_MAP: Record<PopperType, string> = {
+    default: styles.defaultItem,
+    menu: styles.menuItem,
+    select: styles.selectItem,
+    tooltip: styles.tooltipItem,
+  };
+
+  // Process children based on type using map
+  const processedChildren = useMemo(() => {
+    if (!children) return null;
+
+    const typeClass = TYPE_CLASS_MAP[type];
+    if (!typeClass) return children;
+
+    return React.Children.map(children, (child) =>
+      React.isValidElement(child)
+        ? React.cloneElement(child, {
+            className: `${typeClass} ${React.isValidElement(child) && child.props.className ? child.props.className : ""}`,
+          } as React.HTMLAttributes<HTMLElement>)
+        : child,
     );
-  }, [content, children]);
+  }, [children, type]);
+
+  // Combine custom styles with default styles
+  const combinedStyles = useMemo(
+    () => ({
+      ...style,
+      position: "absolute" as const,
+      top: position.top,
+      left: position.left,
+      zIndex,
+      backgroundColor: popperStyle.backgroundColor,
+      color: popperStyle.color,
+      width: popperStyle.width,
+      height: popperStyle.height,
+      maxWidth: popperStyle.maxWidth,
+      maxHeight: popperStyle.maxHeight,
+      minWidth: popperStyle.minWidth,
+      minHeight: popperStyle.minHeight,
+      padding: popperStyle.padding,
+      transition: `
+      opacity ${animation.duration}ms ${animation.easing},
+      visibility ${animation.duration}ms ${animation.easing},
+      transform ${animation.duration}ms ${animation.easing}
+    `,
+    }),
+    [style, position, zIndex, popperStyle, animation],
+  );
+
+  // Arrow styles
+  const arrowStyle = useMemo(
+    () => ({
+      backgroundColor: popperStyle.backgroundColor,
+      borderColor: popperStyle.backgroundColor,
+    }),
+    [popperStyle.backgroundColor],
+  );
 
   if (!open) return null;
 
@@ -222,25 +280,19 @@ const Popper = ({
         ${styles.popper}
         ${styles[variant]}
         ${styles[type]}
+        ${styles[size]}
+        ${multiline ? styles.multiline : styles.singleline}
         ${open ? styles.open : ""}
         ${className}
       `}
-      style={{
-        ...style,
-        position: "absolute",
-        top: position.top,
-        left: position.left,
-        zIndex,
-        transitionDuration: `${animation.duration}ms`,
-        transitionTimingFunction: animation.easing,
-      }}
-      role="dialog"
+      style={combinedStyles}
+      role={type === "menu" ? "menu" : "dialog"}
       tabIndex={tabIndex}
       aria-hidden={!open}
       aria-label={ariaLabel}
     >
-      {contentNode}
-      {arrow && <PopperArrow placement={placement} />}
+      {processedChildren}
+      {arrow && <PopperArrow placement={placement} style={arrowStyle} />}
     </div>,
     document.body,
   );

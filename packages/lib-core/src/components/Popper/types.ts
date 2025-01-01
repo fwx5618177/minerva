@@ -27,17 +27,18 @@ export type PopperVariant =
   | "error";
 
 /**
- * Popper type options
+ * Popper type options - simplified to most common use cases
  */
 export type PopperType =
-  | "popover"
-  | "menu"
-  | "dropdown"
-  | "select"
-  | "autocomplete"
-  | "datepicker"
-  | "colorpicker"
-  | "cascader";
+  | "default" // 默认弹出层
+  | "menu" // 菜单类型
+  | "select" // 选择器类型
+  | "tooltip"; // 提示类型
+
+/**
+ * Popper size options
+ */
+export type PopperSize = "small" | "medium" | "large";
 
 /**
  * Position offset configuration
@@ -67,11 +68,8 @@ export interface PopperProps {
   /** Whether the popper is open */
   open: boolean;
 
-  /** Plain text or JSX for popper content */
-  content?: React.ReactNode;
-
-  /** Children (can be extra JSX content) */
-  children?: React.ReactNode;
+  /** Children content */
+  children: React.ReactNode;
 
   /** Placement relative to anchor */
   placement?: PopperPlacement;
@@ -108,4 +106,34 @@ export interface PopperProps {
 
   /** Accessibility label */
   ariaLabel?: string;
+
+  /** Custom popper styles */
+  popperStyle?: PopperCustomStyle;
+
+  /** Size variant */
+  size?: "small" | "medium" | "large";
+
+  /** Whether to allow text wrapping */
+  multiline?: boolean;
+}
+
+export interface PopperCustomStyle {
+  /** Background color */
+  backgroundColor?: string;
+  /** Text color */
+  color?: string;
+  /** Width */
+  width?: number | string;
+  /** Height */
+  height?: number | string;
+  /** Max width */
+  maxWidth?: number | string;
+  /** Max height */
+  maxHeight?: number | string;
+  /** Min width */
+  minWidth?: number | string;
+  /** Min height */
+  minHeight?: number | string;
+  /** Padding */
+  padding?: number | string;
 }

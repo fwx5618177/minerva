@@ -1,135 +1,388 @@
 @import "../../styles/common.scss"; // your global styles or variables
 
+// Colors
+$popper-colors: (
+  default: (
+    bg: #ffffff,
+    text: rgba(0, 0, 0, 0.85),
+    border: #e8e8e8,
+    hover-bg: #f5f5f5,
+    active-bg: #e6f7ff,
+    active-color: #1890ff,
+    focus-shadow: rgba(24, 144, 255, 0.2),
+  ),
+  primary: (
+    bg: #1890ff,
+    text: #ffffff,
+    border: #1890ff,
+  ),
+  secondary: (
+    bg: #6c757d,
+    text: #ffffff,
+    border: #6c757d,
+  ),
+  success: (
+    bg: #52c41a,
+    text: #ffffff,
+    border: #52c41a,
+  ),
+  warning: (
+    bg: #faad14,
+    text: #ffffff,
+    border: #faad14,
+  ),
+  error: (
+    bg: #ff4d4f,
+    text: #ffffff,
+    border: #ff4d4f,
+  ),
+);
+
+// Sizes
+$popper-sizes: (
+  small: (
+    padding: 8px,
+    font-size: 12px,
+    min-width: 120px,
+  ),
+  medium: (
+    padding: 12px,
+    font-size: 14px,
+    min-width: 160px,
+  ),
+  large: (
+    padding: 16px,
+    font-size: 16px,
+    min-width: 200px,
+  ),
+);
+
+// Shadows
+$shadow-sm: 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+$shadow-md: 0 6px 16px 0 rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+
 .popper {
-  position: fixed; // not relative to parent
-  background: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
   border-radius: 4px;
-  padding: 12px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  z-index: 1500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  visibility: hidden;
-  box-shadow:
-    0 3px 6px -4px rgba(0, 0, 0, 0.12),
-    0 6px 16px 0 rgba(0, 0, 0, 0.08),
-    0 9px 28px 8px rgba(0, 0, 0, 0.05);
-  transform: scale(0.8);
-  transform-origin: center top;
-  transition:
-    opacity 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 200ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate3d(0, 0, 0);
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: auto; // 与 tooltip 不同，popper 需要可交互
 
   &.open {
     opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-  }
-
-  // Variants
-  &.default {
-    background: #ffffff;
-    color: rgba(0, 0, 0, 0.85);
-  }
-
-  &.primary {
-    background: #1890ff;
-    color: #ffffff;
-  }
-
-  &.secondary {
-    background: #6c757d;
-    color: #ffffff;
-  }
-
-  &.success {
-    background: #52c41a;
-    color: #ffffff;
-  }
-
-  &.warning {
-    background: #faad14;
-    color: #ffffff;
-  }
-
-  &.error {
-    background: #ff4d4f;
-    color: #ffffff;
   }
 
   // Types
-  &.popover {
-    padding: 12px 16px;
-    min-width: 200px;
-    font-size: 14px;
-    line-height: 1.5715;
+  &.default,
+  &.tooltip {
+    min-width: 10rem;
+    max-width: clamp(12rem, 2vw, 30rem);
+    padding: 0.5rem 1rem;
   }
 
-  &.menu {
-    padding: 4px 0;
-    min-width: 120px;
+  &.default {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+  }
 
-    .menuItem {
-      padding: 5px 12px;
-      cursor: pointer;
-      transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  &.tooltip {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    background-color: #333333;
+    color: #ffffff;
+    pointer-events: none; // tooltip 不需要交互
 
-      &:hover {
-        background-color: rgba(0, 0, 0, 0.04);
+    &.multiline {
+      white-space: normal;
+    }
+
+    .tooltipItem {
+      line-height: 1.5;
+      white-space: nowrap;
+
+      &:not(:first-child) {
+        margin-top: 4px;
       }
     }
   }
 
-  &.dropdown {
-    padding: 4px 0;
-    min-width: 120px;
-    border: 1px solid #f0f0f0;
-  }
-
+  &.menu,
   &.select {
-    padding: 4px 0;
-    min-width: 120px;
-    max-height: 256px;
-    overflow-y: auto;
+    position: absolute;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    z-index: 1000;
+    min-width: clamp(10rem, 2vw, 15rem); // 同步 dropdown 的宽度
+    min-height: 10rem; // 同步最小高度
+    max-height: 15rem; // 同步最大高度
+    padding: 0;
+    margin: 0;
+    animation: fadeIn 0.3s ease;
+
+    // 滚动条样式
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #cbcbcb;
+      border-radius: inherit;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+
+      &:hover {
+        background: #555;
+      }
+    }
+
+    .menuItem,
+    .selectItem {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      text-align: center;
+      font-size: clamp(0.6rem, 2vw, 0.8rem);
+      font-weight: 600;
+      color: #000;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: #e9ecef;
+        color: #007bff !important;
+      }
+
+      &.disabled {
+        color: #c0c0c0;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
   }
 
-  &.autocomplete {
-    padding: 4px 0;
-    min-width: 180px;
-    max-height: 256px;
-    overflow-y: auto;
+  // Arrow styles - 与 Tooltip 保持一致
+  &.arrow {
+    margin: 12px;
+
+    .popperArrow {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: inherit;
+      transform: rotate(45deg);
+
+      &[data-placement^="top"] {
+        bottom: -6px;
+        left: calc(50% - 6px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      &[data-placement^="bottom"] {
+        top: -6px;
+        left: calc(50% - 6px);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      &[data-placement^="left"] {
+        right: -6px;
+        top: calc(50% - 6px);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      &[data-placement^="right"] {
+        left: -6px;
+        top: calc(50% - 6px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
   }
 
-  &.datepicker {
+  // Animation
+  &.animation-fade {
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &.animation-scale {
+    transition:
+      opacity 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+    transform: scale(0.9);
+
+    &.open {
+      transform: scale(1);
+    }
+  }
+
+  // Variants (保持与 Tooltip 一致的颜色方案)
+  &.dark {
+    background-color: #333333;
+    color: #ffffff;
+  }
+
+  &.light {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+  }
+
+  &.info {
+    background-color: #2196f3;
+    color: #ffffff;
+  }
+
+  &.success {
+    background-color: #4caf50;
+    color: #ffffff;
+  }
+
+  &.warning {
+    background-color: #ff9800;
+    color: #ffffff;
+  }
+
+  &.error {
+    background-color: #f44336;
+    color: #ffffff;
+  }
+
+  // Size variants
+  &.small {
     padding: 8px;
-    min-width: 280px;
-    font-size: 14px;
+    font-size: 12px;
+    min-width: 120px;
   }
 
-  &.colorpicker {
+  &.medium {
     padding: 12px;
-    width: 240px;
+    font-size: 14px;
+    min-width: 160px;
   }
 
-  &.cascader {
-    padding: 4px 0;
-    min-width: 180px;
-    max-height: 280px;
+  &.large {
+    padding: 16px;
+    font-size: 16px;
+    min-width: 200px;
+  }
+
+  // Common text overflow handling
+  &.multiline {
+    white-space: normal;
+    word-wrap: break-word;
+    max-height: 300px;
     overflow-y: auto;
+
+    // Scrollbar styles
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f0f0f0;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #bfbfbf;
+      border-radius: 3px;
+
+      &:hover {
+        background: #999;
+      }
+    }
   }
 
-  &:focus {
-    outline: none;
-    box-shadow:
-      0 0 0 2px rgba(24, 144, 255, 0.2),
-      0 3px 6px -4px rgba(0, 0, 0, 0.12),
-      0 6px 16px 0 rgba(0, 0, 0, 0.08);
+  &.singleline {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    // 水平滚动条样式
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f0f0f0;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #bfbfbf;
+      border-radius: 3px;
+
+      &:hover {
+        background: #999;
+      }
+    }
   }
 
-  &:focus-visible {
-    outline: 2px solid #1890ff;
-    outline-offset: 2px;
+  // Types with size consideration
+  &.default,
+  &.tooltip {
+    &.small {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    &.medium {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+
+    &.large {
+      padding: 12px 20px;
+      font-size: 16px;
+    }
   }
 
-  @extend .commonRippleEffect;
+  &.menu,
+  &.select {
+    &.small {
+      .menuItem,
+      .selectItem {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+    }
+
+    &.medium {
+      .menuItem,
+      .selectItem {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    }
+
+    &.large {
+      .menuItem,
+      .selectItem {
+        padding: 12px 20px;
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 .popperArrow {
@@ -141,31 +394,58 @@
 
   &[data-placement^="top"] {
     bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .popperArrowInner {
+      transform: rotate(45deg);
+      bottom: 6px;
+    }
   }
 
   &[data-placement^="bottom"] {
     top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .popperArrowInner {
+      transform: rotate(45deg);
+      top: 6px;
+    }
   }
 
   &[data-placement^="left"] {
     right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .popperArrowInner {
+      transform: rotate(45deg);
+      right: 6px;
+    }
   }
 
   &[data-placement^="right"] {
     left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .popperArrowInner {
+      transform: rotate(45deg);
+      left: 6px;
+    }
   }
 }
 
 .popperArrowInner {
   position: absolute;
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   background: inherit;
-  transform: rotate(45deg);
-  box-shadow: inherit;
+  border: inherit;
+  z-index: -1;
 }
 
-// Scrollbar styles for overflow content
 .scrollbar {
   &::-webkit-scrollbar {
     width: 6px;
@@ -180,5 +460,66 @@
   &::-webkit-scrollbar-track {
     background: #f0f0f0;
     border-radius: 3px;
+  }
+}
+
+// 添加动画
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 响应式支持
+@media (max-width: 576px) {
+  .popper {
+    &.menu,
+    &.select {
+      .menuItem,
+      .selectItem {
+        font-size: clamp(0.5rem, 2vw, 0.7rem);
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .popper {
+    &.menu,
+    &.select {
+      .menuItem,
+      .selectItem {
+        font-size: clamp(0.6rem, 2vw, 0.8rem);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .popper {
+    &.menu,
+    &.select {
+      .menuItem,
+      .selectItem {
+        font-size: clamp(0.7rem, 2vw, 0.9rem);
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .popper {
+    &.menu,
+    &.select {
+      .menuItem,
+      .selectItem {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+      }
+    }
   }
 }
