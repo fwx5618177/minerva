@@ -22,6 +22,7 @@ import StatusIndicatorSection from "@components/StatusIndicatorSection";
 import BadgeSection from "@components/BadgeSection";
 import TimePickerSection from "@components/TimePickerSection";
 import ChipSection from "@components/ChipSection";
+import RadioSection from "@components/RadioSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -73,6 +74,7 @@ const App: React.FC = () => {
           <PopperSection />
 
           <ChipSection />
+          <RadioSection />
           <TimePickerSection />
         </section>
       </Main>

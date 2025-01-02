@@ -12,8 +12,8 @@ export interface ChipProps {
   size?: "small" | "medium" | "large";
   icon?: React.ReactNode;
   avatar?: React.ReactNode;
-  onDelete?: () => void;
-  onClick?: () => void;
+  onDelete?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   disabled?: boolean;
   className?: string;
   deleteIcon?: React.ReactNode;

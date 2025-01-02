@@ -1,0 +1,343 @@
+@import "../../styles/common.scss";
+
+.radioWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+
+  &.error {
+    animation: shake 0.4s linear;
+  }
+}
+
+.radio {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 8px;
+
+  .input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: inherit;
+    z-index: 1;
+  }
+
+  .radioMark {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #757575;
+    border-radius: 50%;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: currentColor;
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  // 当选中时
+  .input:checked ~ .radioMark {
+    border-color: currentColor;
+
+    &:after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.38;
+  }
+
+  &.error .radioMark {
+    border-color: #d32f2f;
+    background-color: rgba(211, 47, 47, 0.1);
+  }
+
+  // Label placement styles
+  &.labelStart {
+    flex-direction: row-reverse;
+  }
+
+  &.labelTop {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  &.labelBottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  // Type styles
+  &.primary .radioMark {
+    &:after {
+      background-color: #1976d2;
+    }
+  }
+
+  &.success .radioMark {
+    &:after {
+      background-color: #2e7d32;
+    }
+  }
+
+  &.warning .radioMark {
+    &:after {
+      background-color: #ed6c02;
+    }
+  }
+
+  &.error .radioMark {
+    &:after {
+      background-color: #d32f2f;
+    }
+  }
+
+  // Shape styles
+  &.circle .radioMark {
+    border-radius: 50%;
+  }
+
+  &.square .radioMark {
+    border-radius: 0;
+  }
+
+  &.rounded .radioMark {
+    border-radius: 4px;
+  }
+}
+
+.radioMark {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #757575;
+  border-radius: 50%;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #1976d2;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition:
+      transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover {
+    &:not(:disabled) {
+      border-color: #1976d2;
+      &:before {
+        opacity: 0.04;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #1976d2;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition:
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.radio {
+  .input:active ~ .radioMark {
+    &:before {
+      opacity: 0.12;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+.label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.small {
+  .radioMark {
+    width: 16px;
+    height: 16px;
+
+    &:after {
+      width: 8px;
+      height: 8px;
+    }
+
+    &:before {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .label {
+    font-size: 12px;
+  }
+}
+
+.large {
+  .radioMark {
+    width: 20px;
+    height: 20px;
+
+    &:after {
+      width: 12px;
+      height: 12px;
+    }
+
+    &:before {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .label {
+    font-size: 16px;
+  }
+}
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+
+  &.vertical {
+    flex-direction: column;
+  }
+
+  &.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+.helperTextWrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.helperText {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 4px;
+  min-height: 20px;
+
+  &.errorText {
+    color: #d32f2f;
+  }
+}
+
+.errorIcon {
+  color: #d32f2f;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+.primary .radioMark {
+  &:after {
+    background-color: #1976d2;
+  }
+  &:before {
+    background-color: #1976d2;
+  }
+}
+
+.success .radioMark {
+  &:after {
+    background-color: #2e7d32;
+  }
+  &:before {
+    background-color: #2e7d32;
+  }
+}
+
+.warning .radioMark {
+  &:after {
+    background-color: #ed6c02;
+  }
+  &:before {
+    background-color: #ed6c02;
+  }
+}
+
+.error .radioMark {
+  &:after {
+    background-color: #d32f2f;
+  }
+  &:before {
+    background-color: #d32f2f;
+  }
+}
+
+.radioGroupWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &.error {
+    .radioGroup {
+      border-color: #d32f2f;
+    }
+  }
+}

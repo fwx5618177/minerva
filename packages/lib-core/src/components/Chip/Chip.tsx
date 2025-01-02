@@ -41,7 +41,7 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>(
     },
     ref,
   ) => {
-    const handleDelete = (e: React.MouseEvent) => {
+    const handleDelete = (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
       onDelete?.(e);
     };
