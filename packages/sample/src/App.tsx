@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import React from "react";
 
 import Layout from "./pages/Layout";
 import Sidebar from "@components/Sidebar/Sidebar";
@@ -7,7 +7,6 @@ import Header from "@components/Header/Header";
 
 import styles from "@styles/app.module.scss";
 import { useTranslation } from "react-i18next";
-import { SearchButton, StatusIndicator, Badge } from "@minerva/lib-core";
 import AvatarSection from "@components/Avatar";
 import CardSection from "@components/CardSection";
 import TextFieldSection from "@components/TextFieldSection";

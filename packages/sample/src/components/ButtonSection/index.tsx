@@ -153,6 +153,15 @@ const ButtonSection: React.FC = () => {
         <Button borderRadius="circle">Button</Button>
         <Button borderRadius="square">Button</Button>
       </div>
+
+      <div className={styles.group}>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="success">Success</Button>
+        <Button loading>Loading Button</Button>
+        <Button active>Active Button</Button>
+        <Button shape="rounded">Rounded</Button>
+        <Button borderRadius={12}>Custom Radius</Button>
+      </div>
     </div>
   );
 };

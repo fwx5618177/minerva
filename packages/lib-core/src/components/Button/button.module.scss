@@ -163,4 +163,88 @@
   }
 
   @extend .commonRippleEffect;
+
+  &.secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #5a6268;
+    }
+  }
+
+  &.success {
+    background-color: #28a745;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #218838;
+    }
+  }
+
+  &.active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &.loading {
+    position: relative;
+    cursor: wait;
+
+    .loadingWrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .loadingSpinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s linear infinite;
+    }
+  }
+
+  // Shape styles
+  &.rounded {
+    border-radius: 9999px;
+  }
+
+  &.square {
+    border-radius: 0;
+  }
+
+  &.circle {
+    aspect-ratio: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    &.small {
+      width: 32px;
+    }
+
+    &.medium {
+      width: 40px;
+    }
+
+    &.large {
+      width: 48px;
+    }
+
+    &.xlarge {
+      width: 56px;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
