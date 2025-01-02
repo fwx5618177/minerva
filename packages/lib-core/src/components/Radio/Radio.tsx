@@ -15,7 +15,6 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
       onChange,
       size = "medium",
       type = "default",
-      shape = "circle",
       label,
       className = "",
       color,
@@ -25,7 +24,6 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
       errorIcon = <FaInfoCircle />,
       errorMessage,
       helperText,
-      labelPlacement = "end",
     },
     ref,
   ) => {
@@ -55,8 +53,6 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
           ${styles.radioWrapper} 
           ${styles[radioSize]}
           ${styles[type]}
-          ${styles[shape]}
-          ${styles[`label-${labelPlacement}`]}
           ${error ? styles.error : ""}
           ${className}
         `}

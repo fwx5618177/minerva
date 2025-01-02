@@ -10,7 +10,6 @@ export interface RadioProps {
   ) => void;
   size?: "small" | "medium" | "large";
   type?: "default" | "primary" | "success" | "warning" | "error";
-  shape?: "circle" | "square" | "rounded";
   label?: string;
   className?: string;
   color?: string;
@@ -20,7 +19,6 @@ export interface RadioProps {
   errorIcon?: React.ReactNode;
   errorMessage?: string;
   helperText?: string;
-  labelPlacement?: "start" | "end" | "top" | "bottom";
   ref?: React.Ref<HTMLInputElement>;
 }
 
