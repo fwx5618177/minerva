@@ -150,7 +150,9 @@ const PopperSection: React.FC = () => {
       <div className={styles.group}>
         <div className={styles.demoContainer}>
           <Button
-            ref={(el) => (buttonRefs.current["basic"] = el)}
+            ref={(el: HTMLButtonElement | null) =>
+              (buttonRefs.current["basic"] = el)
+            }
             onClick={() => handlePopperToggle("basic")}
           >
             基础 Popper
@@ -173,7 +175,9 @@ const PopperSection: React.FC = () => {
         {placements.map((placement) => (
           <div key={placement} className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current[`placement-${placement}`] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current[`placement-${placement}`] = el)
+              }
               onClick={() => handlePopperToggle(`placement-${placement}`)}
             >
               {placement}
@@ -197,7 +201,9 @@ const PopperSection: React.FC = () => {
         {types.map((type) => (
           <div key={type} className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current[`type-${type}`] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current[`type-${type}`] = el)
+              }
               onClick={() => handlePopperToggle(`type-${type}`)}
             >
               {type} 类型
@@ -237,7 +243,9 @@ const PopperSection: React.FC = () => {
         {sizes.map((size) => (
           <div key={`single-${size}`} className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current[`size-single-${size}`] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current[`size-single-${size}`] = el)
+              }
               onClick={() => handlePopperToggle(`size-single-${size}`)}
             >
               {size} 尺寸（单行）
@@ -261,7 +269,9 @@ const PopperSection: React.FC = () => {
         {sizes.map((size) => (
           <div key={`multi-${size}`} className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current[`size-multi-${size}`] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current[`size-multi-${size}`] = el)
+              }
               onClick={() => handlePopperToggle(`size-multi-${size}`)}
             >
               {size} 尺寸（多行）
@@ -286,9 +296,11 @@ const PopperSection: React.FC = () => {
         {variants.map((variant) => (
           <div key={variant} className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current[`variant-${variant}`] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current[`variant-${variant}`] = el)
+              }
               onClick={() => handlePopperToggle(`variant-${variant}`)}
-              variant={"warning"}
+              variant={variant}
             >
               {variant} 样式
             </Button>
@@ -312,7 +324,9 @@ const PopperSection: React.FC = () => {
       <div className={styles.group}>
         <div className={styles.demoContainer}>
           <Button
-            ref={(el) => (buttonRefs.current["animation-fast"] = el)}
+            ref={(el: HTMLButtonElement | null) =>
+              (buttonRefs.current["animation-fast"] = el)
+            }
             onClick={() => handlePopperToggle("animation-fast")}
           >
             快速动画
@@ -330,7 +344,9 @@ const PopperSection: React.FC = () => {
 
         <div className={styles.demoContainer}>
           <Button
-            ref={(el) => (buttonRefs.current["animation-slow"] = el)}
+            ref={(el: HTMLButtonElement | null) =>
+              (buttonRefs.current["animation-slow"] = el)
+            }
             onClick={() => handlePopperToggle("animation-slow")}
           >
             慢速动画
@@ -355,7 +371,9 @@ const PopperSection: React.FC = () => {
         <div className={styles.overflowContainer}>
           <div className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current["overflow"] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current["overflow"] = el)
+              }
               onClick={() => handlePopperToggle("overflow")}
             >
               溢出测试
@@ -377,7 +395,9 @@ const PopperSection: React.FC = () => {
           <div className={styles.scrollContent}>
             <div className={styles.demoContainer}>
               <Button
-                ref={(el) => (buttonRefs.current["scroll"] = el)}
+                ref={(el: HTMLButtonElement | null) =>
+                  (buttonRefs.current["scroll"] = el)
+                }
                 onClick={() => handlePopperToggle("scroll")}
               >
                 滚动测试
@@ -398,7 +418,9 @@ const PopperSection: React.FC = () => {
         <h4>嵌套 Popper</h4>
         <div className={styles.demoContainer}>
           <Button
-            ref={(el) => (buttonRefs.current["nested-1"] = el)}
+            ref={(el: HTMLButtonElement | null) =>
+              (buttonRefs.current["nested-1"] = el)
+            }
             onClick={() => handlePopperToggle("nested-1")}
           >
             嵌套 Popper
@@ -412,7 +434,9 @@ const PopperSection: React.FC = () => {
             <div style={{ padding: "8px" }}>
               <div>这是第一层 Popper</div>
               <Button
-                ref={(el) => (buttonRefs.current["nested-2"] = el)}
+                ref={(el: HTMLButtonElement | null) =>
+                  (buttonRefs.current["nested-2"] = el)
+                }
                 onClick={() => handlePopperToggle("nested-2")}
                 style={{ marginTop: 8 }}
               >
@@ -437,7 +461,9 @@ const PopperSection: React.FC = () => {
         {customStyles.map(({ id, title, style }) => (
           <div key={id} className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current[id] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current[id] = el)
+              }
               onClick={() => handlePopperToggle(id)}
             >
               {title}
@@ -472,7 +498,9 @@ const PopperSection: React.FC = () => {
         {arrowStyles.map(({ id, title, props }) => (
           <div key={id} className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current[id] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current[id] = el)
+              }
               onClick={() => handlePopperToggle(id)}
             >
               {title}
@@ -495,7 +523,9 @@ const PopperSection: React.FC = () => {
         {animations.map(({ id, title, animation }) => (
           <div key={id} className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current[id] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current[id] = el)
+              }
               onClick={() => handlePopperToggle(id)}
             >
               {title}
@@ -519,7 +549,9 @@ const PopperSection: React.FC = () => {
         {offsets.map(({ id, title, offset }) => (
           <div key={id} className={styles.demoContainer}>
             <Button
-              ref={(el) => (buttonRefs.current[id] = el)}
+              ref={(el: HTMLButtonElement | null) =>
+                (buttonRefs.current[id] = el)
+              }
               onClick={() => handlePopperToggle(id)}
             >
               {title}
@@ -542,7 +574,9 @@ const PopperSection: React.FC = () => {
       <div className={styles.group}>
         <div className={styles.demoContainer}>
           <Button
-            ref={(el) => (buttonRefs.current["toggle"] = el)}
+            ref={(el: HTMLButtonElement | null) =>
+              (buttonRefs.current["toggle"] = el)
+            }
             onClick={() => handlePopperToggle("toggle")}
           >
             切换显示

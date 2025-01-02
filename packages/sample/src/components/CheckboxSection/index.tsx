@@ -26,9 +26,7 @@ const CheckboxSection: React.FC = () => {
         behavior: "smooth",
         block: "center",
       });
-      setIsError(true);
-      // 重置错误状态，以便可以重复触发动画
-      setTimeout(() => setIsError(false), 1000);
+      setIsError((state) => !state);
     }
   };
 
@@ -219,7 +217,7 @@ const CheckboxSection: React.FC = () => {
         <Checkbox
           label="Controlled Checkbox"
           checked={checked}
-          onChange={(checked) => setChecked(checked)}
+          onChange={(checked: boolean) => setChecked(checked)}
           boxColor="#2196f3"
           icon={<FaCheck size={12} />}
         />
@@ -230,6 +228,7 @@ const CheckboxSection: React.FC = () => {
           helperText="Click the button to trigger error animation"
           boxColor="#d32f2f"
           errorIcon={<FaExclamationCircle />}
+          shape={"circle"}
         />
         <Button onClick={handleError}>Trigger Error Animation</Button>
       </div>

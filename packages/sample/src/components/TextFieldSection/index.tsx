@@ -4,26 +4,25 @@ import { FaUser, FaLock, FaEnvelope } from "react-icons/fa";
 import styles from "./index.module.scss";
 
 const TextFieldSection: React.FC = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [basicInput, setBasicInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+  const [minimalInput, setMinimalInput] = useState("");
+  const [errorInput, setErrorInput] = useState("");
+  const [noBorderInput, setNoBorderInput] = useState("");
+  const [clearableInput, setClearableInput] = useState("");
+  const [fullWidthInput, setFullWidthInput] = useState("");
+  const [customWidthInput, setCustomWidthInput] = useState("");
+  const [disabledInput, setDisabledInput] = useState("");
   const [error, setError] = useState("");
 
-  const handleUsernameChange = (value: string) => {
-    setUsername(value);
+  const handleBasicInputChange = (value: string) => {
+    setBasicInput(value);
     if (value.length < 3) {
-      setError("Username must be at least 3 characters long.");
+      setError("Input must be at least 3 characters long.");
     } else {
       setError("");
     }
-  };
-
-  const handlePasswordChange = (value: string) => {
-    setPassword(value);
-  };
-
-  const handleEmailChange = (value: string) => {
-    setEmail(value);
   };
 
   return (
@@ -36,8 +35,8 @@ const TextFieldSection: React.FC = () => {
             name="username"
             label="Username"
             placeholder="Enter your username"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             error={error}
             icon={<FaUser />}
             iconPosition="left"
@@ -51,15 +50,15 @@ const TextFieldSection: React.FC = () => {
           <TextField
             name="email"
             label="Email"
-            value={email}
-            onChange={handleEmailChange}
+            value={emailInput}
+            onChange={setEmailInput}
             icon={<FaEnvelope />}
           />
           <TextField
             name="email2"
             label="Email"
-            value={email}
-            onChange={handleEmailChange}
+            value={emailInput}
+            onChange={setEmailInput}
           />
         </div>
         <div>
@@ -68,8 +67,8 @@ const TextFieldSection: React.FC = () => {
             name="password"
             label="Password"
             placeholder="Enter your password"
-            value={password}
-            onChange={handlePasswordChange}
+            value={passwordInput}
+            onChange={setPasswordInput}
             borderColor="#ff9800"
             borderRadius="0.5rem"
             type="password"
@@ -80,8 +79,8 @@ const TextFieldSection: React.FC = () => {
             name="textPassword"
             label="Text Password"
             placeholder="Enter your password"
-            value={password}
-            onChange={handlePasswordChange}
+            value={passwordInput}
+            onChange={setPasswordInput}
             icon={<FaLock />}
             iconPosition="right"
             borderColor="#ff9800"
@@ -94,8 +93,8 @@ const TextFieldSection: React.FC = () => {
           <TextField
             name="minimal"
             label="Minimal TextField"
-            value={username}
-            onChange={handleUsernameChange}
+            value={minimalInput}
+            onChange={setMinimalInput}
             minimal
           />
           <p>展示最小版本的 TextField</p>
@@ -106,8 +105,8 @@ const TextFieldSection: React.FC = () => {
             name="errorExample"
             label="Error Example"
             placeholder="Enter text"
-            value={username}
-            onChange={handleUsernameChange}
+            value={errorInput}
+            onChange={setErrorInput}
             error={error}
             borderRadius="0.5rem"
           />
@@ -119,8 +118,8 @@ const TextFieldSection: React.FC = () => {
             name="noBorder"
             label="No Border"
             placeholder="No border"
-            value={username}
-            onChange={handleUsernameChange}
+            value={noBorderInput}
+            onChange={setNoBorderInput}
             hideBorder
             borderRadius="0.5rem"
           />
@@ -131,8 +130,8 @@ const TextFieldSection: React.FC = () => {
           <TextField
             name="clearable"
             label="Email"
-            value={email}
-            onChange={handleEmailChange}
+            value={clearableInput}
+            onChange={setClearableInput}
             icon={<FaEnvelope />}
             iconPosition="left"
             borderRadius="0.5rem"
@@ -146,8 +145,8 @@ const TextFieldSection: React.FC = () => {
             name="fullWidth"
             label="Full Width"
             placeholder="Enter text"
-            value={username}
-            onChange={handleUsernameChange}
+            value={fullWidthInput}
+            onChange={setFullWidthInput}
             borderRadius="0.5rem"
             fullWidth
           />
@@ -158,8 +157,8 @@ const TextFieldSection: React.FC = () => {
           <TextField
             name="customWidth"
             label="Custom Width"
-            value={username}
-            onChange={handleUsernameChange}
+            value={customWidthInput}
+            onChange={setCustomWidthInput}
             borderRadius="0.5rem"
             width="300px"
           />
@@ -171,22 +170,21 @@ const TextFieldSection: React.FC = () => {
             name="disabled"
             label="Disabled"
             placeholder="Disabled input"
-            value={username}
-            onChange={handleUsernameChange}
+            value={disabledInput}
+            onChange={setDisabledInput}
             borderRadius="0.5rem"
             disabled
           />
           <p>展示禁用状态的 TextField</p>
         </div>
-        {/* 新增展示部分 */}
         <div>
           <h4>TextField with and without Icon</h4>
           <TextField
             name="withIcon"
             label="With Icon"
             placeholder="With Icon"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             icon={<FaUser />}
             iconPosition="left"
             borderRadius="0.5rem"
@@ -195,8 +193,8 @@ const TextFieldSection: React.FC = () => {
             name="withoutIcon"
             label="Without Icon"
             placeholder="Without Icon"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             borderRadius="0.5rem"
           />
           <p>展示带有和不带图标的 TextField</p>
@@ -207,8 +205,8 @@ const TextFieldSection: React.FC = () => {
             name="withError"
             label="With Error"
             placeholder="With Error"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             error={error}
             borderRadius="0.5rem"
           />
@@ -216,8 +214,8 @@ const TextFieldSection: React.FC = () => {
             name="withoutError"
             label="Without Error"
             placeholder="Without Error"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             borderRadius="0.5rem"
           />
           <p>展示带有和不带错误消息的 TextField</p>
@@ -228,8 +226,8 @@ const TextFieldSection: React.FC = () => {
             name="clearableField"
             label="Clearable"
             placeholder="Clearable"
-            value={email}
-            onChange={handleEmailChange}
+            value={clearableInput}
+            onChange={setClearableInput}
             clearable
             borderRadius="0.5rem"
           />
@@ -237,8 +235,8 @@ const TextFieldSection: React.FC = () => {
             name="notClearable"
             label="Not Clearable"
             placeholder="Not Clearable"
-            value={email}
-            onChange={handleEmailChange}
+            value={clearableInput}
+            onChange={setClearableInput}
             borderRadius="0.5rem"
           />
           <p>展示带有和不带清除功能的 TextField</p>
@@ -249,8 +247,8 @@ const TextFieldSection: React.FC = () => {
             name="showCharCount"
             label="Show Char Count"
             placeholder="Show Char Count"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             showCharCount
             borderRadius="0.5rem"
           />
@@ -258,8 +256,8 @@ const TextFieldSection: React.FC = () => {
             name="noCharCount"
             label="No Char Count"
             placeholder="No Char Count"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             borderRadius="0.5rem"
           />
           <p>展示带有和不带字符计数的 TextField</p>
@@ -269,24 +267,24 @@ const TextFieldSection: React.FC = () => {
           <TextField
             name="smallSize"
             label="Small Size"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             size="small"
             borderRadius="0.5rem"
           />
           <TextField
             name="mediumSize"
             label="Medium Size"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             size="medium"
             borderRadius="0.5rem"
           />
           <TextField
             name="largeSize"
             label="Large Size"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             size="large"
             borderRadius="0.5rem"
           />
@@ -297,24 +295,24 @@ const TextFieldSection: React.FC = () => {
           <TextField
             name="withSuffix1"
             label="With Unit"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             suffix={<span>kg</span>}
             borderRadius="0.5rem"
           />
           <TextField
             name="withSuffix2"
             label="With Icon Suffix"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             suffix={<FaUser />}
             borderRadius="0.5rem"
           />
           <TextField
             name="withSuffix3"
             label="With Text Suffix"
-            value={email}
-            onChange={handleEmailChange}
+            value={emailInput}
+            onChange={setEmailInput}
             suffix="@gmail.com"
             borderRadius="0.5rem"
           />
@@ -355,8 +353,8 @@ const TextFieldSection: React.FC = () => {
           <TextField
             name="combined1"
             label="All Features"
-            value={username}
-            onChange={handleUsernameChange}
+            value={basicInput}
+            onChange={handleBasicInputChange}
             icon={<FaUser />}
             suffix={<span>@company.com</span>}
             size="small"

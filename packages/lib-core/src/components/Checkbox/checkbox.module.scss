@@ -56,7 +56,7 @@
 
   &:checked ~ .checkmark {
     background-color: #1976d2;
-    border-color: #1976d2;
+    border: 1px solid rgba(0, 0, 0, 0.54);
 
     &:after {
       display: block;
@@ -80,7 +80,7 @@
   width: 24px;
   height: 24px;
   background-color: #ffffff;
-  border: 2px solid rgba(0, 0, 0, 0.54);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:after {
