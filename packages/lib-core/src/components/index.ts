@@ -12,3 +12,4 @@ export * from "./IconButton";
 export * from "./Tooltip";
 export * from "./Popper";
 export * from "./TimePicker";
+export * from "./Chip";

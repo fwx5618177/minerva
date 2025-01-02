@@ -1,0 +1,377 @@
+@import "../../styles/common.scss";
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  outline: 0;
+  position: relative;
+  transition: all 0.2s ease;
+  font-family: "Roboto", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: default;
+
+  &.clickable {
+    cursor: pointer;
+    @extend .commonRippleEffect;
+  }
+
+  // Sizes
+  &.small {
+    height: 24px;
+    font-size: 12px;
+    padding: 0 8px;
+
+    .avatar {
+      width: 18px;
+      height: 18px;
+      margin-left: -4px;
+      margin-right: 4px;
+    }
+
+    .icon {
+      margin-left: -4px;
+      margin-right: 4px;
+      font-size: 14px;
+    }
+
+    .deleteIcon {
+      margin-right: -4px;
+      margin-left: 4px;
+      font-size: 14px;
+    }
+  }
+
+  &.medium {
+    height: 32px;
+    font-size: 14px;
+    padding: 0 12px;
+
+    .avatar {
+      width: 24px;
+      height: 24px;
+      margin-left: -6px;
+      margin-right: 6px;
+    }
+
+    .icon {
+      margin-left: -6px;
+      margin-right: 6px;
+      font-size: 18px;
+    }
+
+    .deleteIcon {
+      margin-right: -6px;
+      margin-left: 6px;
+      font-size: 16px;
+    }
+  }
+
+  &.large {
+    height: 40px;
+    font-size: 16px;
+    padding: 0 16px;
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      margin-left: -8px;
+      margin-right: 8px;
+    }
+
+    .icon {
+      margin-left: -8px;
+      margin-right: 8px;
+      font-size: 22px;
+    }
+
+    .deleteIcon {
+      margin-right: -8px;
+      margin-left: 8px;
+      font-size: 18px;
+    }
+  }
+
+  // Variants
+  &.filled {
+    background-color: #e0e0e0;
+    color: rgba(0, 0, 0, 0.87);
+
+    &:hover {
+      background-color: #d5d5d5;
+    }
+
+    &.primary {
+      background-color: #1976d2;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #1565c0;
+      }
+    }
+
+    &.secondary {
+      background-color: #9c27b0;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #7b1fa2;
+      }
+    }
+
+    &.success {
+      background-color: #2e7d32;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #1b5e20;
+      }
+    }
+
+    &.error {
+      background-color: #d32f2f;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #c62828;
+      }
+    }
+
+    &.warning {
+      background-color: #ed6c02;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #e65100;
+      }
+    }
+
+    &.info {
+      background-color: #0288d1;
+      color: #ffffff;
+
+      &:hover {
+        background-color: #01579b;
+      }
+    }
+  }
+
+  &.outlined {
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    color: rgba(0, 0, 0, 0.87);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+
+    &.primary {
+      border-color: #1976d2;
+      color: #1976d2;
+
+      &:hover {
+        background-color: rgba(25, 118, 210, 0.04);
+      }
+    }
+
+    &.secondary {
+      border-color: #9c27b0;
+      color: #9c27b0;
+
+      &:hover {
+        background-color: rgba(156, 39, 176, 0.04);
+      }
+    }
+
+    &.success {
+      border-color: #2e7d32;
+      color: #2e7d32;
+
+      &:hover {
+        background-color: rgba(46, 125, 50, 0.04);
+      }
+    }
+
+    &.error {
+      border-color: #d32f2f;
+      color: #d32f2f;
+
+      &:hover {
+        background-color: rgba(211, 47, 47, 0.04);
+      }
+    }
+
+    &.warning {
+      border-color: #ed6c02;
+      color: #ed6c02;
+
+      &:hover {
+        background-color: rgba(237, 108, 2, 0.04);
+      }
+    }
+
+    &.info {
+      border-color: #0288d1;
+      color: #0288d1;
+
+      &:hover {
+        background-color: rgba(2, 136, 209, 0.04);
+      }
+    }
+  }
+
+  &.soft {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.87);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.12);
+    }
+
+    &.primary {
+      background-color: rgba(25, 118, 210, 0.12);
+      color: #1976d2;
+
+      &:hover {
+        background-color: rgba(25, 118, 210, 0.2);
+      }
+    }
+
+    &.secondary {
+      background-color: rgba(156, 39, 176, 0.12);
+      color: #9c27b0;
+
+      &:hover {
+        background-color: rgba(156, 39, 176, 0.2);
+      }
+    }
+
+    &.success {
+      background-color: rgba(46, 125, 50, 0.12);
+      color: #2e7d32;
+
+      &:hover {
+        background-color: rgba(46, 125, 50, 0.2);
+      }
+    }
+
+    &.error {
+      background-color: rgba(211, 47, 47, 0.12);
+      color: #d32f2f;
+
+      &:hover {
+        background-color: rgba(211, 47, 47, 0.2);
+      }
+    }
+
+    &.warning {
+      background-color: rgba(237, 108, 2, 0.12);
+      color: #ed6c02;
+
+      &:hover {
+        background-color: rgba(237, 108, 2, 0.2);
+      }
+    }
+
+    &.info {
+      background-color: rgba(2, 136, 209, 0.12);
+      color: #0288d1;
+
+      &:hover {
+        background-color: rgba(2, 136, 209, 0.2);
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.selected {
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.5);
+  }
+
+  &.loading {
+    background-color: #e0e0e0;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  .avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .deleteIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .loadingWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 0 4px;
+    position: relative;
+
+    span {
+      flex: 1;
+      text-align: center;
+      opacity: 0.5;
+      margin-left: 24px;
+    }
+
+    > :first-child {
+      position: absolute;
+      left: 8px;
+      z-index: 1;
+    }
+  }
+
+  &.filled.loading {
+    &.primary,
+    &.secondary,
+    &.success,
+    &.error,
+    &.warning,
+    &.info {
+      :global(.status-indicator) {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+
+  &.outlined.loading,
+  &.soft.loading {
+    &.primary,
+    &.secondary,
+    &.success,
+    &.error,
+    &.warning,
+    &.info {
+      :global(.status-indicator) {
+        opacity: 0.8;
+      }
+    }
+  }
+}

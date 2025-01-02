@@ -43,7 +43,11 @@ const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({
     ),
   };
 
-  const widthClass = full ? styles.fullWidth : styles.defaultWidth;
+  const widthClass = full
+    ? styles.fullWidth
+    : !width
+      ? styles.defaultWidth
+      : "";
 
   return (
     <div
