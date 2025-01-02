@@ -1,8 +1,8 @@
 export interface TextFieldProps {
   name: string; // Name is required
   label: string; // Label is required
-  value: string; // Value is required
-  onChange: (value: string) => void; // onChange is required
+  value?: string;
+  onChange?: (value: string) => void;
   placeholder?: string;
   error?: string;
   icon?: React.ReactNode;

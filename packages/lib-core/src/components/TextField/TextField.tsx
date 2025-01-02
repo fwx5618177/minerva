@@ -75,10 +75,17 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const [isFilled, setIsFilled] = useState(!!value);
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [shake, setShake] = useState(false);
+    const [internalValue, setInternalValue] = useState(value || "");
 
     useEffect(() => {
-      setIsFilled(!!value);
+      if (value !== undefined) {
+        setInternalValue(value);
+      }
     }, [value]);
+
+    useEffect(() => {
+      setIsFilled(!!(value || internalValue));
+    }, [value, internalValue]);
 
     const handleFocus = useCallback(() => {
       setIsFocused(true);
@@ -94,13 +101,22 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 
     const handleChange = useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange && onChange(e.target.value);
+        const newValue = e.target.value;
+        if (!onChange) {
+          setInternalValue(newValue);
+        } else {
+          onChange(newValue);
+        }
       },
       [onChange],
     );
 
     const handleClear = useCallback(() => {
-      onChange && onChange("");
+      if (onChange) {
+        onChange("");
+      } else {
+        setInternalValue("");
+      }
     }, [onChange]);
 
     const handleTogglePasswordVisibility = useCallback(() => {
@@ -160,7 +176,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               name={name}
               className={inputClasses}
               placeholder={isFocused || isFilled ? "" : placeholder}
-              value={value}
+              value={value !== undefined ? value : internalValue}
               onChange={handleChange}
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -189,11 +205,15 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                 )}
               </>
             )}
-            {clearable && value && !readOnly && !disabled && !suffix && (
-              <span className={styles.clearIcon} onClick={handleClear}>
-                <FaTimesCircle />
-              </span>
-            )}
+            {clearable &&
+              (value || internalValue) &&
+              !readOnly &&
+              !disabled &&
+              !suffix && (
+                <span className={styles.clearIcon} onClick={handleClear}>
+                  <FaTimesCircle />
+                </span>
+              )}
             {suffix && <span className={styles.suffix}>{suffix}</span>}
             {error && (
               <span className={styles.errorIcon}>
@@ -202,7 +222,9 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             )}
           </div>
           {showCharCount && (
-            <div className={styles.charCount}>{value?.length}</div>
+            <div className={styles.charCount}>
+              {(value !== undefined ? value : internalValue)?.length}
+            </div>
           )}
         </div>
         {error && (
