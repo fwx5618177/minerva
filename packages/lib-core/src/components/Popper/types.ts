@@ -93,7 +93,7 @@ export interface PopperProps {
   zIndex?: number;
 
   /** Click outside handler */
-  onClickAway?: () => void;
+  onClickAway?: (event: MouseEvent) => void;
 
   /** Custom class name */
   className?: string;
@@ -124,7 +124,10 @@ export interface PopperProps {
   /** 是否允许内容滚动 */
   scrollable?: boolean;
 
-  /** 最大高度 */
+  /** 固定高度 */
+  height?: number | string;
+
+  /** 最大高度（仅在未设置 height 时生效）*/
   maxHeight?: number | string;
 }
 
@@ -147,6 +150,8 @@ export interface PopperCustomStyle {
   minHeight?: number | string;
   /** Padding */
   padding?: number | string;
+  /** Border color */
+  borderColor?: string;
 }
 
 export type PopperTrigger =

@@ -109,8 +109,9 @@ const PopperArrow = ({
  * @param onVisibleChange - Callback when visibility changes
  * @param scrollable - Whether to allow content scrolling
  * @param maxHeight - Maximum height
+ * @param height - Fixed height
  */
-const Popper = ({
+const Popper: React.FC<PopperProps> = ({
   anchorEl,
   visible,
   children,
@@ -133,6 +134,7 @@ const Popper = ({
   onVisibleChange,
   scrollable = false,
   maxHeight,
+  height,
 }: PopperProps) => {
   const popperRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
@@ -149,7 +151,7 @@ const Popper = ({
         anchorEl &&
         !anchorEl.contains(event.target as Node)
       ) {
-        onClickAway();
+        onClickAway(event);
       }
     };
 
@@ -247,30 +249,41 @@ const Popper = ({
   // Combine custom styles with default styles
   const combinedStyles = useMemo(
     () => ({
-      ...style,
       position: "absolute" as const,
       top: position.top,
       left: position.left,
       zIndex,
-      maxHeight,
       transition: `
-      opacity ${animation.duration}ms ${animation.easing},
-      visibility ${animation.duration}ms ${animation.easing},
-      transform ${animation.duration}ms ${animation.easing}
-    `,
+        opacity ${animation.duration}ms ${animation.easing},
+        visibility ${animation.duration}ms ${animation.easing},
+        transform ${animation.duration}ms ${animation.easing}
+      `,
       ...(scrollable && { overflow: "auto" }),
+      ...style,
       ...popperStyle,
+      ...(height ? { height } : maxHeight ? { maxHeight } : {}),
     }),
-    [style, position, zIndex, maxHeight, scrollable, popperStyle],
+    [
+      style,
+      position.top,
+      position.left,
+      zIndex,
+      animation.duration,
+      animation.easing,
+      scrollable,
+      popperStyle,
+      height,
+      maxHeight,
+    ],
   );
 
   // Arrow styles
   const arrowStyle = useMemo(
     () => ({
-      backgroundColor: popperStyle.backgroundColor,
-      borderColor: popperStyle.backgroundColor,
+      backgroundColor: popperStyle?.backgroundColor || "",
+      borderColor: popperStyle?.borderColor || "",
     }),
-    [popperStyle.backgroundColor],
+    [popperStyle.backgroundColor, popperStyle.borderColor],
   );
 
   useEffect(() => {
@@ -375,7 +388,6 @@ const Popper = ({
         ${styles[variant]}
         ${styles[type]}
         ${styles[size]}
-        ${scrollable ? styles.scrollable : ""}
         ${multiline ? styles.multiline : styles.singleline}
         ${visible ? styles.visible : ""}
         ${className}
@@ -386,7 +398,7 @@ const Popper = ({
       aria-hidden={!visible}
       aria-label={ariaLabel}
     >
-      {processedChildren}
+      <div className={styles.popperContent}>{processedChildren}</div>
       {arrow && <PopperArrow placement={placement} style={arrowStyle} />}
     </div>,
     document.body,
