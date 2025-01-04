@@ -23,6 +23,9 @@ import BadgeSection from "@components/BadgeSection";
 import TimePickerSection from "@components/TimePickerSection";
 import ChipSection from "@components/ChipSection";
 import RadioSection from "@components/RadioSection";
+import VirtualListSection from "@components/VirtualListSection";
+import AutoCompleteSection from "@components/AutoCompleteSection";
+import EmptySection from "@components/EmptySection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -75,6 +78,11 @@ const App: React.FC = () => {
 
           <ChipSection />
           <RadioSection />
+          <VirtualListSection />
+          <EmptySection />
+
+          <AutoCompleteSection />
+
           <TimePickerSection />
         </section>
       </Main>

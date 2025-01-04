@@ -2,7 +2,6 @@ export interface TextFieldProps {
   name: string; // Name is required
   label: string; // Label is required
   value?: string;
-  onChange?: (value: string) => void;
   placeholder?: string;
   error?: string;
   icon?: React.ReactNode;
@@ -24,6 +23,12 @@ export interface TextFieldProps {
   size?: "small" | "medium" | "large";
   /** Suffix content */
   suffix?: React.ReactNode;
+  /** Callback fired when the input value changes */
+  onChange?: (value: string) => void;
   /** Callback fired when the input loses focus */
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Callback fired when the input gains focus */
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Callback fired when the input key down */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }

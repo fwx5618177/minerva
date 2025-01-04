@@ -107,6 +107,8 @@ const PopperArrow = ({
  * @param multiline - Whether to allow text wrapping
  * @param trigger - Trigger mode
  * @param onVisibleChange - Callback when visibility changes
+ * @param scrollable - Whether to allow content scrolling
+ * @param maxHeight - Maximum height
  */
 const Popper = ({
   anchorEl,
@@ -129,6 +131,8 @@ const Popper = ({
   multiline = true,
   trigger = "click",
   onVisibleChange,
+  scrollable = false,
+  maxHeight,
 }: PopperProps) => {
   const popperRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ top: 0, left: 0 });
@@ -248,22 +252,16 @@ const Popper = ({
       top: position.top,
       left: position.left,
       zIndex,
-      backgroundColor: popperStyle.backgroundColor,
-      color: popperStyle.color,
-      width: popperStyle.width,
-      height: popperStyle.height,
-      maxWidth: popperStyle.maxWidth,
-      maxHeight: popperStyle.maxHeight,
-      minWidth: popperStyle.minWidth,
-      minHeight: popperStyle.minHeight,
-      padding: popperStyle.padding,
+      maxHeight,
       transition: `
       opacity ${animation.duration}ms ${animation.easing},
       visibility ${animation.duration}ms ${animation.easing},
       transform ${animation.duration}ms ${animation.easing}
     `,
+      ...(scrollable && { overflow: "auto" }),
+      ...popperStyle,
     }),
-    [style, position, zIndex, popperStyle, animation],
+    [style, position, zIndex, maxHeight, scrollable, popperStyle],
   );
 
   // Arrow styles
@@ -336,6 +334,37 @@ const Popper = ({
     };
   }, [anchorEl, trigger, visible, onVisibleChange]);
 
+  // Optimize scroll handling
+  useEffect(() => {
+    if (!visible || !scrollable) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      const popper = popperRef.current;
+      if (!popper) return;
+
+      // Check if at scroll boundaries
+      const { scrollTop, scrollHeight, clientHeight } = popper;
+      const isAtTop = scrollTop === 0;
+      const isAtBottom = scrollTop + clientHeight >= scrollHeight;
+
+      // Prevent scroll propagation at boundaries
+      if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
+        e.preventDefault();
+      }
+    };
+
+    const popperElement = popperRef.current;
+    if (popperElement) {
+      popperElement.addEventListener("wheel", handleWheel, { passive: false });
+    }
+
+    return () => {
+      if (popperElement) {
+        popperElement.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, [visible, scrollable]);
+
   if (!visible) return null;
 
   return createPortal(
@@ -346,6 +375,7 @@ const Popper = ({
         ${styles[variant]}
         ${styles[type]}
         ${styles[size]}
+        ${scrollable ? styles.scrollable : ""}
         ${multiline ? styles.multiline : styles.singleline}
         ${visible ? styles.visible : ""}
         ${className}

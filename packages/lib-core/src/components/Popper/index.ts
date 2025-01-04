@@ -10,8 +10,8 @@ import type {
   PopperCustomStyle,
 } from "./types";
 
-export {
-  Popper,
+export { Popper };
+export type {
   PopperPlacement,
   PopperVariant,
   PopperType,

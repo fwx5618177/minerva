@@ -169,7 +169,6 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
     .menuItem,
     .selectItem {
-      padding: 0.75rem 1rem;
       cursor: pointer;
       text-align: center;
       font-size: clamp(0.6rem, 2vw, 0.8rem);
@@ -196,7 +195,7 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
   // Arrow styles
   .popperArrow {
-    position: absolute;
+    // position: absolute;
     width: 12px;
     height: 12px;
     pointer-events: none;
@@ -369,19 +368,19 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
   // Size variants
   &.small {
-    padding: 8px;
+    padding: 4px;
     font-size: 12px;
     min-width: 120px;
   }
 
   &.medium {
-    padding: 12px;
+    padding: 6px;
     font-size: 14px;
     min-width: 160px;
   }
 
   &.large {
-    padding: 16px;
+    padding: 8px;
     font-size: 16px;
     min-width: 200px;
   }
@@ -393,10 +392,15 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     max-height: 300px;
     overflow-y: auto;
 
-    // Scrollbar styles
+    // 优化滚动条样式
     &::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
+      display: none;
+    }
+
+    &:hover::-webkit-scrollbar {
+      display: block;
     }
 
     &::-webkit-scrollbar-track {
@@ -419,10 +423,15 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     overflow-x: auto;
     overflow-y: hidden;
 
-    // 水平滚动条样式
+    // 优化水平滚动条样式
     &::-webkit-scrollbar {
       width: 0;
-      height: 6px;
+      height: 5px;
+      display: none;
+    }
+
+    &:hover::-webkit-scrollbar {
+      display: block;
     }
 
     &::-webkit-scrollbar-track {
@@ -464,7 +473,6 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     &.small {
       .menuItem,
       .selectItem {
-        padding: 6px 12px;
         font-size: 12px;
       }
     }
@@ -472,7 +480,6 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     &.medium {
       .menuItem,
       .selectItem {
-        padding: 8px 16px;
         font-size: 14px;
       }
     }
@@ -480,8 +487,35 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     &.large {
       .menuItem,
       .selectItem {
-        padding: 12px 20px;
         font-size: 16px;
+      }
+    }
+  }
+
+  &.tooltip {
+    padding: 6px 8px;
+  }
+
+  &.scrollable {
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.3);
       }
     }
   }

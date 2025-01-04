@@ -39,6 +39,7 @@ import { TextFieldProps } from "./types";
  * @param size - The size of the text field
  * @param suffix - The suffix to be displayed
  * @param onBlur - Callback fired when the input loses focus
+ * @param onFocus - Callback fired when the input gains focus
  * @returns A text field component
  */
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
@@ -67,6 +68,8 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       size = "medium",
       suffix,
       onBlur,
+      onFocus,
+      onKeyDown,
     },
     ref,
   ) => {
@@ -87,9 +90,20 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       setIsFilled(!!(value || internalValue));
     }, [value, internalValue]);
 
-    const handleFocus = useCallback(() => {
-      setIsFocused(true);
-    }, []);
+    const handleKeyDown = useCallback(
+      (e: React.KeyboardEvent<HTMLInputElement>) => {
+        onKeyDown?.(e);
+      },
+      [onKeyDown],
+    );
+
+    const handleFocus = useCallback(
+      (e: React.FocusEvent<HTMLInputElement>) => {
+        setIsFocused(true);
+        onFocus?.(e);
+      },
+      [onFocus],
+    );
 
     const handleBlur = useCallback(
       (e: React.FocusEvent<HTMLInputElement>) => {
@@ -180,6 +194,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               onChange={handleChange}
               onFocus={handleFocus}
               onBlur={handleBlur}
+              onKeyDown={handleKeyDown}
               tabIndex={0}
               disabled={disabled}
               readOnly={readOnly}

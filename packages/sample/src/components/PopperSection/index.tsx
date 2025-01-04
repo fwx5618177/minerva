@@ -65,16 +65,16 @@ const PopperSection: React.FC = () => {
       title: "自定义尺寸",
       style: {
         width: 300,
-        height: 150,
+        height: 300,
         padding: "16px",
       },
     },
     {
       id: "max-size",
-      title: "最大尺寸",
+      title: "max-size 设置尺寸",
       style: {
-        maxWidth: 200,
-        maxHeight: 100,
+        width: 300,
+        maxHeight: 400,
         overflow: "auto",
       },
     },

@@ -121,6 +121,11 @@ export interface PopperProps {
 
   /** Callback when visibility changes */
   onVisibleChange?: (visible: boolean) => void;
+  /** 是否允许内容滚动 */
+  scrollable?: boolean;
+
+  /** 最大高度 */
+  maxHeight?: number | string;
 }
 
 export interface PopperCustomStyle {
