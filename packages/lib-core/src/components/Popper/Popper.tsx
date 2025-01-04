@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import { createPortal } from "react-dom";
-import type { PopperProps, PopperPlacement, PopperType } from "./types";
+import type { PopperProps, PopperPlacement } from "./types";
 import styles from "./popper.module.scss";
 
 /**
@@ -100,7 +100,6 @@ const PopperArrow = ({
  * @param zIndex - Z-index level
  * @param onClickAway - Click outside handler
  * @param className - Custom class name
- * @param style - Custom styles
  * @param popperStyle - Custom popper styles
  * @param tabIndex - Focus management
  * @param ariaLabel - Accessibility label
@@ -125,7 +124,6 @@ const Popper: React.FC<PopperProps> = ({
   zIndex = 1000,
   onClickAway,
   className = "",
-  style,
   popperStyle = {},
   tabIndex = 0,
   ariaLabel,
@@ -222,29 +220,36 @@ const Popper: React.FC<PopperProps> = ({
     };
   }, [visible, anchorEl, updatePosition]);
 
-  // Map of type-specific class names
-  const TYPE_CLASS_MAP: Record<PopperType, string> = {
-    default: styles.defaultItem,
-    menu: styles.menuItem,
-    select: styles.selectItem,
-    tooltip: styles.tooltipItem,
-  };
+  // Update scroll handling
+  useEffect(() => {
+    if (!visible || scrollable === false) return;
 
-  // Process children based on type using map
-  const processedChildren = useMemo(() => {
-    if (!children) return null;
+    const handleWheel = (e: WheelEvent) => {
+      const popper = popperRef.current;
+      if (!popper) return;
 
-    const typeClass = TYPE_CLASS_MAP[type];
-    if (!typeClass) return children;
+      // Check if at scroll boundaries
+      const { scrollTop, scrollHeight, clientHeight } = popper;
+      const isAtTop = scrollTop === 0;
+      const isAtBottom = scrollTop + clientHeight >= scrollHeight;
 
-    return React.Children.map(children, (child) =>
-      React.isValidElement(child)
-        ? React.cloneElement(child, {
-            className: `${typeClass} ${React.isValidElement(child) && child.props.className ? child.props.className : ""}`,
-          } as React.HTMLAttributes<HTMLElement>)
-        : child,
-    );
-  }, [children, type]);
+      // Prevent scroll propagation at boundaries
+      if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
+        e.preventDefault();
+      }
+    };
+
+    const popperElement = popperRef.current;
+    if (popperElement) {
+      popperElement.addEventListener("wheel", handleWheel, { passive: false });
+    }
+
+    return () => {
+      if (popperElement) {
+        popperElement.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, [visible, scrollable]);
 
   // Combine custom styles with default styles
   const combinedStyles = useMemo(
@@ -259,12 +264,10 @@ const Popper: React.FC<PopperProps> = ({
         transform ${animation.duration}ms ${animation.easing}
       `,
       ...(scrollable && { overflow: "auto" }),
-      ...style,
       ...popperStyle,
       ...(height ? { height } : maxHeight ? { maxHeight } : {}),
     }),
     [
-      style,
       position.top,
       position.left,
       zIndex,
@@ -347,37 +350,6 @@ const Popper: React.FC<PopperProps> = ({
     };
   }, [anchorEl, trigger, visible, onVisibleChange]);
 
-  // Optimize scroll handling
-  useEffect(() => {
-    if (!visible || !scrollable) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      const popper = popperRef.current;
-      if (!popper) return;
-
-      // Check if at scroll boundaries
-      const { scrollTop, scrollHeight, clientHeight } = popper;
-      const isAtTop = scrollTop === 0;
-      const isAtBottom = scrollTop + clientHeight >= scrollHeight;
-
-      // Prevent scroll propagation at boundaries
-      if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
-        e.preventDefault();
-      }
-    };
-
-    const popperElement = popperRef.current;
-    if (popperElement) {
-      popperElement.addEventListener("wheel", handleWheel, { passive: false });
-    }
-
-    return () => {
-      if (popperElement) {
-        popperElement.removeEventListener("wheel", handleWheel);
-      }
-    };
-  }, [visible, scrollable]);
-
   if (!visible) return null;
 
   return createPortal(
@@ -398,7 +370,7 @@ const Popper: React.FC<PopperProps> = ({
       aria-hidden={!visible}
       aria-label={ariaLabel}
     >
-      <div className={styles.popperContent}>{processedChildren}</div>
+      <div className={styles.popperContent}>{children}</div>
       {arrow && <PopperArrow placement={placement} style={arrowStyle} />}
     </div>,
     document.body,

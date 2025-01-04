@@ -8,6 +8,7 @@ import type {
   PopperAnimation,
   PopperProps,
   PopperCustomStyle,
+  PopperTrigger,
 } from "./types";
 
 export { Popper };
@@ -20,5 +21,6 @@ export type {
   PopperProps,
   PopperSize,
   PopperCustomStyle,
+  PopperTrigger,
 };
 export default Popper;

@@ -6,6 +6,8 @@ import {
   PopperType,
   PopperSize,
   Button,
+  PopperTrigger,
+  VirtualList,
 } from "@minerva/lib-core";
 import styles from "./index.module.scss";
 
@@ -201,9 +203,7 @@ const PopperSection: React.FC = () => {
         {types.map((type) => (
           <div key={type} className={styles.demoContainer}>
             <Button
-              ref={(el: HTMLButtonElement | null) =>
-                (buttonRefs.current[`type-${type}`] = el)
-              }
+              ref={(el) => (buttonRefs.current[`type-${type}`] = el)}
               onClick={() => handlePopperToggle(`type-${type}`)}
             >
               {type} 类型
@@ -216,21 +216,31 @@ const PopperSection: React.FC = () => {
               onClickAway={() => setActivePopper(null)}
             >
               {type === "menu" && (
-                <div className={styles.menuItems}>
+                <div className={styles.menuContent}>
                   <div className={styles.menuItem}>菜单项 1</div>
                   <div className={styles.menuItem}>菜单项 2</div>
                   <div className={styles.menuItem}>菜单项 3</div>
+                  <div className={`${styles.menuItem} ${styles.disabled}`}>
+                    禁用项
+                  </div>
                 </div>
               )}
               {type === "select" && (
-                <div className={styles.selectItems}>
+                <div className={styles.selectContent}>
                   <div className={styles.selectItem}>选项 1</div>
                   <div className={styles.selectItem}>选项 2</div>
                   <div className={styles.selectItem}>选项 3</div>
+                  <div className={`${styles.selectItem} ${styles.disabled}`}>
+                    禁用选项
+                  </div>
                 </div>
               )}
-              {type === "tooltip" && <div>这是一个提示信息</div>}
-              {type === "default" && <div>默认内容</div>}
+              {type === "tooltip" && (
+                <div className={styles.tooltipContent}>这是一个提示信息</div>
+              )}
+              {type === "default" && (
+                <div className={styles.defaultContent}>默认内容</div>
+              )}
             </Popper>
           </div>
         ))}
@@ -300,7 +310,7 @@ const PopperSection: React.FC = () => {
                 (buttonRefs.current[`variant-${variant}`] = el)
               }
               onClick={() => handlePopperToggle(`variant-${variant}`)}
-              variant={variant}
+              variant={variant === "default" ? "retry" : variant}
             >
               {variant} 样式
             </Button>
@@ -589,6 +599,132 @@ const PopperSection: React.FC = () => {
             onClickAway={() => setActivePopper(null)}
           >
             <div>点击按钮或外部区域关闭</div>
+          </Popper>
+        </div>
+      </div>
+
+      {/* 添加触发方式展示 */}
+      <h3>触发方式</h3>
+      <div className={styles.group}>
+        {["hover", "click", "contextMenu", "focus", "manual"].map(
+          (triggerType) => (
+            <div key={triggerType} className={styles.demoContainer}>
+              <Button
+                ref={(el) =>
+                  (buttonRefs.current[`trigger-${triggerType}`] = el)
+                }
+                onMouseEnter={() =>
+                  triggerType === "hover" &&
+                  handlePopperToggle(`trigger-${triggerType}`)
+                }
+                onMouseLeave={() =>
+                  triggerType === "hover" && setActivePopper(null)
+                }
+                onClick={() =>
+                  triggerType === "click" &&
+                  handlePopperToggle(`trigger-${triggerType}`)
+                }
+                onContextMenu={(e) => {
+                  if (triggerType === "contextMenu") {
+                    e.preventDefault();
+                    handlePopperToggle(`trigger-${triggerType}`);
+                  }
+                }}
+                onFocus={() =>
+                  triggerType === "focus" &&
+                  handlePopperToggle(`trigger-${triggerType}`)
+                }
+                onBlur={() => triggerType === "focus" && setActivePopper(null)}
+              >
+                {triggerType} 触发
+              </Button>
+              <Popper
+                visible={activePopper === `trigger-${triggerType}`}
+                anchorEl={buttonRefs.current[`trigger-${triggerType}`]}
+                trigger={triggerType as PopperTrigger}
+                onVisibleChange={(visible) => {
+                  console.log(`${triggerType} visibility changed:`, visible);
+                  setActivePopper(visible ? `trigger-${triggerType}` : null);
+                }}
+                onClickAway={() => setActivePopper(null)}
+              >
+                <div>通过 {triggerType} 触发的内容</div>
+              </Popper>
+            </div>
+          ),
+        )}
+      </div>
+
+      {/* 滚动列表示例 */}
+      <h3>虚拟滚动列表</h3>
+      <div className={styles.group}>
+        <div className={styles.demoContainer}>
+          <Button
+            ref={(el) => (buttonRefs.current["virtual-list"] = el)}
+            onClick={() => handlePopperToggle("virtual-list")}
+          >
+            显示虚拟列表
+          </Button>
+          <Popper
+            visible={activePopper === "virtual-list"}
+            anchorEl={buttonRefs.current["virtual-list"]}
+            scrollable={false} // 让 VirtualList 控制滚动
+            popperStyle={{
+              width: 300,
+              padding: 0, // 移除默认内边距
+            }}
+            maxHeight={400}
+            onClickAway={() => setActivePopper(null)}
+          >
+            <VirtualList
+              items={Array.from({ length: 1000 }, (_, i) => ({
+                id: i,
+                metadata: { title: `Item ${i}` },
+              }))}
+              maxHeight={300}
+              itemHeight={40}
+              renderItem={(item) => (
+                <div
+                  style={{
+                    padding: "8px 16px",
+                    borderBottom: "1px solid #eee",
+                    cursor: "pointer",
+                  }}
+                >
+                  {item.metadata?.title}
+                </div>
+              )}
+            />
+          </Popper>
+        </div>
+      </div>
+
+      {/* 点击外部处理示例 */}
+      <h3>点击外部处理</h3>
+      <div className={styles.group}>
+        <div className={styles.demoContainer}>
+          <Button
+            ref={(el) => (buttonRefs.current["clickaway"] = el)}
+            onClick={() => handlePopperToggle("clickaway")}
+          >
+            打开菜单
+          </Button>
+          <Popper
+            visible={activePopper === "clickaway"}
+            anchorEl={buttonRefs.current["clickaway"]}
+            onClickAway={(e) => {
+              // 展示更复杂的 clickaway 处理
+              const target = e.target as HTMLElement;
+              if (target.closest(".safe-zone")) {
+                return; // 不关闭 popper
+              }
+              setActivePopper(null);
+            }}
+          >
+            <div className="safe-zone">
+              <div>这是安全区域，点击不会关闭</div>
+              <Button onClick={() => setActivePopper(null)}>手动关闭</Button>
+            </div>
           </Popper>
         </div>
       </div>

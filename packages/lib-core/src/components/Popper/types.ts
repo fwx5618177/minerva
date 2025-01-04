@@ -98,9 +98,6 @@ export interface PopperProps {
   /** Custom class name */
   className?: string;
 
-  /** Custom styles */
-  style?: React.CSSProperties;
-
   /** Focus management */
   tabIndex?: number;
 
