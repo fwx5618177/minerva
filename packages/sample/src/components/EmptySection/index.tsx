@@ -79,6 +79,37 @@ const EmptySection: React.FC = () => {
         />
       </div>
 
+      <h3>With, height, shadow, backgroundColor, color</h3>
+      <div className={styles.group}>
+        <Empty
+          width="200px"
+          height="200px"
+          showShadow
+          backgroundColor="#fff"
+          color="#000"
+        />
+
+        <Empty
+          width={300}
+          height={300}
+          showShadow
+          backgroundColor="#fff"
+          color="#000"
+        >
+          <Button variant="primary">重新加载</Button>
+        </Empty>
+
+        <Empty
+          width={300}
+          height={500}
+          showShadow
+          backgroundColor="#fff"
+          color="#000"
+        >
+          <Button variant="primary">重新加载</Button>
+        </Empty>
+      </div>
+
       <h3>Complex Empty States</h3>
       <p className={styles.description}>复杂的空状态展示</p>
       <div className={styles.group}>
