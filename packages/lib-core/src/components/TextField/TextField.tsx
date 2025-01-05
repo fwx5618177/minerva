@@ -40,6 +40,7 @@ import { TextFieldProps } from "./types";
  * @param suffix - The suffix to be displayed
  * @param onBlur - Callback fired when the input loses focus
  * @param onFocus - Callback fired when the input gains focus
+ * @param className - The custom class name for the text field
  * @returns A text field component
  */
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
@@ -70,6 +71,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       onBlur,
       onFocus,
       onKeyDown,
+      className,
     },
     ref,
   ) => {
@@ -156,7 +158,9 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     }`;
     const inputClasses = `${styles.input} ${hideBorder ? styles.hideBorder : ""}`;
     const labelClasses = `${styles.label} ${isFocused || isFilled ? styles.shrink : ""}`;
-    const containerClass = `${styles.container} ${hideBorder ? styles.containerHideBorder : ""}`;
+    const containerClass = `${styles.container} ${
+      hideBorder ? styles.containerHideBorder : ""
+    } ${className || ""}`;
     const containerStyles = {
       width: fullWidth ? "100%" : width,
       borderRadius: borderRadius,

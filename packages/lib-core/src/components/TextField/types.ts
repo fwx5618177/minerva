@@ -31,4 +31,6 @@ export interface TextFieldProps {
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** Callback fired when the input key down */
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  /** 自定义类名 */
+  className?: string;
 }
