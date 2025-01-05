@@ -43,7 +43,7 @@
     .selectContent {
       min-width: 200px;
       max-height: 300px;
-      overflow-y: auto;
+      // overflow-y: auto;
     }
 
     .datepickerContent {
@@ -169,4 +169,131 @@
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
+}
+
+.menuContent,
+.selectContent {
+  min-width: 240px;
+  padding: 8px 0;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    transform: translateX(4px);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    &:hover {
+      background-color: transparent;
+      transform: none;
+    }
+  }
+}
+
+.menuIcon {
+  margin-right: 12px;
+  font-size: 1.2em;
+}
+
+.menuItemContent {
+  flex: 1;
+}
+
+.menuItemLabel {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.menuItemDescription {
+  font-size: 0.85em;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.selectItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.selectItemContent {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.selectItemName {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.selectItemEmail {
+  font-size: 0.85em;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.selectItemStatus {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.85em;
+
+  &.在线 {
+    background-color: rgba(82, 196, 26, 0.1);
+    color: #52c41a;
+  }
+
+  &.离线 {
+    background-color: rgba(0, 0, 0, 0.04);
+    color: rgba(0, 0, 0, 0.45);
+  }
+}
+
+.virtualListItem {
+  display: flex;
+  padding: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}
+
+.virtualListItemContent {
+  flex: 1;
+  margin-left: 16px;
+}
+
+.virtualListItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.virtualListItemName {
+  font-weight: 500;
+}
+
+.virtualListItemActivity {
+  font-size: 0.85em;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.virtualListItemEmail {
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.65);
 }

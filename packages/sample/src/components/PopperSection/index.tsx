@@ -8,6 +8,7 @@ import {
   Button,
   PopperTrigger,
   VirtualList,
+  Avatar,
 } from "@minerva/lib-core";
 import styles from "./index.module.scss";
 
@@ -55,6 +56,7 @@ const PopperSection: React.FC = () => {
 
   // 尺寸选项
   const sizes: PopperSize[] = [
+    "auto",
     "small", // 小尺寸
     "medium", // 中等尺寸
     "large", // 大尺寸
@@ -145,6 +147,98 @@ const PopperSection: React.FC = () => {
   const longText =
     "这是一段很长的文本内容，用来测试不同尺寸下的文本展示效果。当文本内容超出容器宽度时，可以选择单行滚动或者多行折行显示。";
 
+  // 添加菜单数据
+  const menuItems = [
+    { icon: "🏠", label: "首页", description: "返回首页" },
+    { icon: "📝", label: "编辑", description: "编辑当前内容" },
+    { icon: "💾", label: "保存", description: "保存更改" },
+    { icon: "🗑️", label: "删除", description: "删除当前项" },
+    { icon: "⚙️", label: "设置", description: "系统设置" },
+    // ... 更多菜单项
+  ].concat(
+    Array(10)
+      .fill(null)
+      .map((_, i) => ({
+        icon: "📄",
+        label: `更多选项 ${i + 1}`,
+        description: `额外选项描述 ${i + 1}`,
+      })),
+  );
+
+  // 添加选择器数据
+  const selectItems = Array(20)
+    .fill(null)
+    .map((_, i) => ({
+      id: i,
+      avatar: `https://i.pravatar.cc/40?img=${i}`,
+      name: `用户 ${i + 1}`,
+      email: `user${i + 1}@example.com`,
+      status: i % 3 === 0 ? "在线" : "离线",
+    }));
+
+  // 添加虚拟列表数据
+  const virtualListItems = Array(1000)
+    .fill(null)
+    .map((_, i) => ({
+      id: i,
+      metadata: {
+        avatar: `https://i.pravatar.cc/40?img=${i % 70}`,
+        name: `用户 ${i + 1}`,
+        email: `user${i + 1}@example.com`,
+        activity: `最近活动 ${Math.floor(Math.random() * 24)} 小时前`,
+      },
+    }));
+
+  // 更新 size 展示组
+  const sizeExamples = [
+    {
+      id: "size-auto",
+      title: "Auto Size",
+      size: "auto" as const,
+      content: "这是自动尺寸的 Popper，宽高会根据内容自动调整",
+    },
+    {
+      id: "size-small",
+      title: "Small Size",
+      size: "small" as const,
+      content: "这是一个小尺寸的 Popper，默认宽度 200px，高度 120px",
+    },
+    {
+      id: "size-medium",
+      title: "Medium Size",
+      size: "medium" as const,
+      content: "这是一个中等尺寸的 Popper，默认宽度 300px，高度 200px",
+    },
+    {
+      id: "size-large",
+      title: "Large Size",
+      size: "large" as const,
+      content: "这是一个大尺寸的 Popper，默认宽度 400px，高度 300px",
+    },
+  ];
+
+  // 添加内容展示组
+  const contentExamples = [
+    {
+      id: "auto-single",
+      title: "Auto 单行",
+      size: "auto" as const,
+      multiline: false,
+      content: "这是一段单行文本，超出部分会水平滚动而不是换行。".repeat(3),
+      width: 300,
+      height: "",
+    },
+    {
+      id: "auto-multi",
+      title: "Auto 多行",
+      size: "auto" as const,
+      multiline: true,
+      content: "这是一段多行文本，会自动换行显示。".repeat(5),
+      width: 300,
+      height: 200,
+    },
+  ];
+
   return (
     <div className={styles.section}>
       {/* 基础用法 */}
@@ -212,27 +306,46 @@ const PopperSection: React.FC = () => {
               visible={activePopper === `type-${type}`}
               anchorEl={buttonRefs.current[`type-${type}`]}
               type={type}
+              height={["menu", "select"].includes(type) ? 400 : "auto"}
               arrow
               onClickAway={() => setActivePopper(null)}
             >
               {type === "menu" && (
                 <div className={styles.menuContent}>
-                  <div className={styles.menuItem}>菜单项 1</div>
-                  <div className={styles.menuItem}>菜单项 2</div>
-                  <div className={styles.menuItem}>菜单项 3</div>
-                  <div className={`${styles.menuItem} ${styles.disabled}`}>
-                    禁用项
-                  </div>
+                  {menuItems.map((item, index) => (
+                    <div
+                      key={index}
+                      className={`${styles.menuItem} ${index === 3 ? styles.disabled : ""}`}
+                    >
+                      <span className={styles.menuIcon}>{item.icon}</span>
+                      <div className={styles.menuItemContent}>
+                        <div className={styles.menuItemLabel}>{item.label}</div>
+                        <div className={styles.menuItemDescription}>
+                          {item.description}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               )}
               {type === "select" && (
                 <div className={styles.selectContent}>
-                  <div className={styles.selectItem}>选项 1</div>
-                  <div className={styles.selectItem}>选项 2</div>
-                  <div className={styles.selectItem}>选项 3</div>
-                  <div className={`${styles.selectItem} ${styles.disabled}`}>
-                    禁用选项
-                  </div>
+                  {selectItems.map((item) => (
+                    <div key={item.id} className={styles.selectItem}>
+                      <Avatar src={item.avatar} size="small" />
+                      <div className={styles.selectItemContent}>
+                        <div className={styles.selectItemName}>{item.name}</div>
+                        <div className={styles.selectItemEmail}>
+                          {item.email}
+                        </div>
+                      </div>
+                      <span
+                        className={`${styles.selectItemStatus} ${styles[item.status]}`}
+                      >
+                        {item.status}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               )}
               {type === "tooltip" && (
@@ -264,6 +377,8 @@ const PopperSection: React.FC = () => {
               visible={activePopper === `size-single-${size}`}
               anchorEl={buttonRefs.current[`size-single-${size}`]}
               size={size}
+              width={size === "auto" ? 200 : ""}
+              height={size === "auto" ? "auto" : ""}
               arrow
               multiline={false}
               onClickAway={() => setActivePopper(null)}
@@ -290,6 +405,8 @@ const PopperSection: React.FC = () => {
               visible={activePopper === `size-multi-${size}`}
               anchorEl={buttonRefs.current[`size-multi-${size}`]}
               size={size}
+              width={size === "auto" ? 300 : ""}
+              height={size === "auto" ? 200 : ""}
               arrow
               multiline
               onClickAway={() => setActivePopper(null)}
@@ -670,28 +787,32 @@ const PopperSection: React.FC = () => {
             anchorEl={buttonRefs.current["virtual-list"]}
             scrollable={false} // 让 VirtualList 控制滚动
             popperStyle={{
-              width: 300,
               padding: 0, // 移除默认内边距
             }}
-            maxHeight={400}
+            width={300}
+            height={400}
             onClickAway={() => setActivePopper(null)}
           >
             <VirtualList
-              items={Array.from({ length: 1000 }, (_, i) => ({
-                id: i,
-                metadata: { title: `Item ${i}` },
-              }))}
-              maxHeight={300}
-              itemHeight={40}
+              items={virtualListItems}
+              maxHeight={400}
+              itemHeight={72}
               renderItem={(item) => (
-                <div
-                  style={{
-                    padding: "8px 16px",
-                    borderBottom: "1px solid #eee",
-                    cursor: "pointer",
-                  }}
-                >
-                  {item.metadata?.title}
+                <div className={styles.virtualListItem}>
+                  <Avatar src={item.metadata?.avatar as string} size="medium" />
+                  <div className={styles.virtualListItemContent}>
+                    <div className={styles.virtualListItemHeader}>
+                      <span className={styles.virtualListItemName}>
+                        {item.metadata?.name}
+                      </span>
+                      <span className={styles.virtualListItemActivity}>
+                        {item.metadata?.activity}
+                      </span>
+                    </div>
+                    <div className={styles.virtualListItemEmail}>
+                      {item.metadata?.email}
+                    </div>
+                  </div>
                 </div>
               )}
             />
@@ -727,6 +848,65 @@ const PopperSection: React.FC = () => {
             </div>
           </Popper>
         </div>
+      </div>
+
+      {/* Size 预设尺寸 */}
+      <h3>Size 预设尺寸</h3>
+      <div className={styles.group}>
+        {sizeExamples.map(({ id, title, size, content }) => (
+          <div key={id} className={styles.demoContainer}>
+            <Button
+              ref={(el) => (buttonRefs.current[id] = el)}
+              onClick={() => handlePopperToggle(id)}
+            >
+              {title}
+            </Button>
+            <Popper
+              visible={activePopper === id}
+              anchorEl={buttonRefs.current[id]}
+              size={size}
+              arrow
+              onClickAway={() => setActivePopper(null)}
+            >
+              <div className={styles.popperContent}>
+                <h4>{title}</h4>
+                <p>{content}</p>
+              </div>
+            </Popper>
+          </div>
+        ))}
+      </div>
+
+      {/* Auto 尺寸内容展示 */}
+      <h3>Auto 尺寸内容展示</h3>
+      <div className={styles.group}>
+        {contentExamples.map(
+          ({ id, title, size, multiline, content, width, height }) => (
+            <div key={id} className={styles.demoContainer}>
+              <Button
+                ref={(el) => (buttonRefs.current[id] = el)}
+                onClick={() => handlePopperToggle(id)}
+              >
+                {title}
+              </Button>
+              <Popper
+                visible={activePopper === id}
+                anchorEl={buttonRefs.current[id]}
+                size={size}
+                width={width}
+                height={height}
+                multiline={multiline}
+                arrow
+                onClickAway={() => setActivePopper(null)}
+              >
+                <div className={styles.popperContent}>
+                  <h4>{title}</h4>
+                  <p>{content}</p>
+                </div>
+              </Popper>
+            </div>
+          ),
+        )}
       </div>
     </div>
   );

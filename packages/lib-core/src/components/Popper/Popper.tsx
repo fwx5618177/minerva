@@ -6,6 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import { createPortal } from "react-dom";
+import { POPPER_SIZE_CONFIG } from "./constants";
 import type { PopperProps, PopperPlacement } from "./types";
 import styles from "./popper.module.scss";
 
@@ -107,7 +108,7 @@ const PopperArrow = ({
  * @param trigger - Trigger mode
  * @param onVisibleChange - Callback when visibility changes
  * @param scrollable - Whether to allow content scrolling
- * @param maxHeight - Maximum height
+ * @param width - Fixed width
  * @param height - Fixed height
  */
 const Popper: React.FC<PopperProps> = ({
@@ -117,7 +118,7 @@ const Popper: React.FC<PopperProps> = ({
   placement = "bottom",
   variant = "default",
   type = "default",
-  size = "medium",
+  size = "auto",
   offset = { x: 0, y: 8 },
   animation = { duration: 200, easing: "ease" },
   arrow = false,
@@ -127,11 +128,11 @@ const Popper: React.FC<PopperProps> = ({
   popperStyle = {},
   tabIndex = 0,
   ariaLabel,
-  multiline = true,
+  multiline = false,
   trigger = "click",
   onVisibleChange,
-  scrollable = false,
-  maxHeight,
+  scrollable = true,
+  width,
   height,
 }: PopperProps) => {
   const popperRef = useRef<HTMLDivElement>(null);
@@ -252,7 +253,7 @@ const Popper: React.FC<PopperProps> = ({
   }, [visible, scrollable]);
 
   // Combine custom styles with default styles
-  const combinedStyles = useMemo(
+  const combinedStyles: React.CSSProperties = useMemo(
     () => ({
       position: "absolute" as const,
       top: position.top,
@@ -263,9 +264,27 @@ const Popper: React.FC<PopperProps> = ({
         visibility ${animation.duration}ms ${animation.easing},
         transform ${animation.duration}ms ${animation.easing}
       `,
-      ...(scrollable && { overflow: "auto" }),
+      ...(multiline
+        ? {
+            overflowY: scrollable ? "auto" : "visible",
+            overflowX: "hidden",
+          }
+        : {
+            overflowY: "hidden",
+            overflowX: scrollable ? "auto" : "hidden",
+          }),
+      ...(size === "auto"
+        ? {
+            width: width || "auto",
+            height: height || "auto",
+            overflowX: scrollable ? "auto" : "hidden",
+            overflowY: scrollable ? "auto" : "visible",
+          }
+        : {
+            width: width || POPPER_SIZE_CONFIG[size].width,
+            height: height || POPPER_SIZE_CONFIG[size].height,
+          }),
       ...popperStyle,
-      ...(height ? { height } : maxHeight ? { maxHeight } : {}),
     }),
     [
       position.top,
@@ -273,10 +292,12 @@ const Popper: React.FC<PopperProps> = ({
       zIndex,
       animation.duration,
       animation.easing,
-      scrollable,
       popperStyle,
+      width,
       height,
-      maxHeight,
+      size,
+      scrollable,
+      multiline,
     ],
   );
 
@@ -362,6 +383,7 @@ const Popper: React.FC<PopperProps> = ({
         ${styles[size]}
         ${multiline ? styles.multiline : styles.singleline}
         ${visible ? styles.visible : ""}
+        ${scrollable ? styles.scrollable : ""}
         ${className}
       `}
       style={combinedStyles}
@@ -371,7 +393,7 @@ const Popper: React.FC<PopperProps> = ({
       aria-label={ariaLabel}
     >
       <div className={styles.popperContent}>{children}</div>
-      {arrow && <PopperArrow placement={placement} style={arrowStyle} />}
+      {/* {arrow && <PopperArrow placement={placement} style={arrowStyle} />} */}
     </div>,
     document.body,
   );

@@ -38,7 +38,7 @@ export type PopperType =
 /**
  * Popper size options
  */
-export type PopperSize = "small" | "medium" | "large";
+export type PopperSize = "auto" | "small" | "medium" | "large";
 
 /**
  * Position offset configuration
@@ -108,7 +108,7 @@ export interface PopperProps {
   popperStyle?: PopperCustomStyle;
 
   /** Size variant */
-  size?: "small" | "medium" | "large";
+  size?: PopperSize;
 
   /** Whether to allow text wrapping */
   multiline?: boolean;
@@ -121,11 +121,11 @@ export interface PopperProps {
   /** 是否允许内容滚动 */
   scrollable?: boolean;
 
+  /** 固定宽度 */
+  width?: number | string;
+
   /** 固定高度 */
   height?: number | string;
-
-  /** 最大高度（仅在未设置 height 时生效）*/
-  maxHeight?: number | string;
 }
 
 export interface PopperCustomStyle {

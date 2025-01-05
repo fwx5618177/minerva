@@ -85,7 +85,6 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   &.default,
   &.tooltip {
     min-width: 10rem;
-    max-width: clamp(12rem, 2vw, 30rem);
   }
 
   &.default {
@@ -142,7 +141,6 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     z-index: 1000;
     min-width: clamp(10rem, 2vw, 15rem); // 同步 dropdown 的宽度
     min-height: 10rem; // 同步最小高度
-    max-height: 15rem; // 同步最大高度
     padding: 0;
     margin: 0;
     animation: fadeIn 0.3s ease;
@@ -375,70 +373,20 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
   // Common text overflow handling
   &.multiline {
-    white-space: normal;
-    word-wrap: break-word;
-    overflow-y: auto;
-    overflow-x: hidden;
-
     .popperContent {
-      max-height: 300px;
-      padding: 0;
-
-      // 优化水平滚动条样式
-      &::-webkit-scrollbar {
-        width: 0;
-        height: 5px;
-        display: none;
-      }
-
-      &:hover::-webkit-scrollbar {
-        display: block;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: #f0f0f0;
-        border-radius: 3px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: #bfbfbf;
-        border-radius: 3px;
-
-        &:hover {
-          background: #999;
-        }
-      }
+      width: 100%;
+      min-width: min-content;
+      word-wrap: break-word;
+      white-space: normal;
     }
   }
 
   &.singleline {
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    // 优化水平滚动条样式
-    &::-webkit-scrollbar {
-      width: 0;
-      height: 5px;
-      display: none;
-    }
-
-    &:hover::-webkit-scrollbar {
-      display: block;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #f0f0f0;
-      border-radius: 3px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #bfbfbf;
-      border-radius: 3px;
-
-      &:hover {
-        background: #999;
-      }
+    .popperContent {
+      display: inline-block;
+      width: 100%;
+      min-width: min-content;
+      white-space: nowrap;
     }
   }
 
@@ -490,12 +438,24 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   }
 
   &.scrollable {
-    overflow: auto;
+    &.multiline {
+      .popperContent {
+        overflow-y: visible;
+        overflow-x: hidden;
+      }
+    }
 
+    &.singleline {
+      .popperContent {
+        overflow-y: hidden;
+        overflow-x: visible;
+      }
+    }
+
+    // 滚动条样式
     &::-webkit-scrollbar {
       width: 6px;
       height: 6px;
-      display: block;
     }
 
     &::-webkit-scrollbar-thumb {
@@ -504,6 +464,33 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
       &:hover {
         background: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  &.auto {
+    &.multiline {
+      width: auto;
+      max-width: 100%;
+
+      .popperContent {
+        width: 100%;
+        word-wrap: break-word;
+        white-space: normal;
+      }
+    }
+
+    &.singleline {
+      width: auto;
+
+      .popperContent {
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
       }
     }
   }
@@ -585,4 +572,11 @@ $shadow-lg: 0 9px 28px 8px rgba(0, 0, 0, 0.05);
       }
     }
   }
+}
+
+// 移除多余的滚动样式
+.menuContent,
+.selectContent {
+  min-width: 240px;
+  padding: 8px 0;
 }
