@@ -81,7 +81,7 @@ const App: React.FC = () => {
           <VirtualListSection />
           <EmptySection />
 
-          <AutoCompleteSection />
+          {/* <AutoCompleteSection /> */}
 
           {/* <TimePickerSection /> */}
         </section>

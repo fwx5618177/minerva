@@ -15,5 +15,5 @@ export * from "./TimePicker";
 export * from "./Chip";
 export * from "./Radio";
 export * from "./VirtualList";
-export * from "./AutoComplete";
+export * from "./AutoComplete_old";
 export * from "./Empty";

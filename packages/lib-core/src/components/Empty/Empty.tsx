@@ -11,6 +11,11 @@ import { EmptyProps } from "./types";
  * @param style 自定义样式
  * @param children 底部内容
  * @param useSvg 是否用 svg 图标
+ * @param width 宽度
+ * @param height 高度
+ * @param backgroundColor 背景颜色
+ * @param showShadow 是否显示阴影
+ * @param color 字体颜色
  * @returns {React.ReactNode} 空状态组件
  */
 const Empty: React.FC<EmptyProps> = ({
@@ -20,6 +25,11 @@ const Empty: React.FC<EmptyProps> = ({
   style,
   children,
   useSvg = false,
+  width,
+  height,
+  backgroundColor,
+  showShadow,
+  color,
 }) => {
   const DefaultIcon = () => (
     <RiInboxLine size={40} className={styles.defaultIcon} />
@@ -48,8 +58,14 @@ const Empty: React.FC<EmptyProps> = ({
 
   return (
     <div
-      className={`${styles.empty} ${className || ""}`}
-      style={style}
+      className={`${styles.empty} ${showShadow ? styles.showShadow : ""} ${className || ""}`}
+      style={{
+        width,
+        height,
+        backgroundColor,
+        color,
+        ...style,
+      }}
       role="status"
       aria-label={description?.toString()}
     >

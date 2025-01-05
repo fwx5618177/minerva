@@ -120,6 +120,46 @@ const EmptySection: React.FC = () => {
         >
           <Button variant="primary">重新加载</Button>
         </Empty>
+
+        <Empty
+          useSvg
+          showShadow
+          description={
+            <div className={styles.complexDescription}>
+              <h4>数据加载失败</h4>
+              <p>可能的原因：</p>
+              <ul>
+                <li>网络连接不稳定</li>
+                <li>服务器暂时不可用</li>
+                <li>数据权限不足</li>
+              </ul>
+            </div>
+          }
+          className={styles.errorEmpty}
+        >
+          <Button variant="primary">重新加载</Button>
+        </Empty>
+
+        <Empty
+          useSvg
+          showShadow
+          backgroundColor="#ff9800"
+          color="#fff"
+          description={
+            <div className={styles.complexDescription}>
+              <h4>数据加载失败</h4>
+              <p>可能的原因：</p>
+              <ul>
+                <li>网络连接不稳定</li>
+                <li>服务器暂时不可用</li>
+                <li>数据权限不足</li>
+              </ul>
+            </div>
+          }
+          className={styles.errorEmpty}
+        >
+          <Button variant="primary">重新加载</Button>
+        </Empty>
       </div>
     </div>
   );

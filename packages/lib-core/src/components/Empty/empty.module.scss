@@ -1,5 +1,13 @@
 @import "../../styles/common.scss";
 
+.showShadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
 .empty {
   display: flex;
   flex-direction: column;
@@ -9,14 +17,9 @@
   color: rgba(0, 0, 0, 0.45);
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition:
     box-shadow 0.3s ease,
     transform 0.1s ease;
-
-  &:hover {
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  }
 
   .iconWrapper {
     height: 40px;
@@ -42,4 +45,36 @@
   }
 
   @extend .commonRippleEffect;
+}
+
+.defaultIcon {
+  color: currentColor;
+
+  // 针对 react-icons
+  &,
+  & > * {
+    fill: currentColor;
+    stroke: currentColor;
+  }
+
+  // 针对自定义 SVG
+  .svgFill {
+    fill: currentColor;
+    opacity: 0.15;
+  }
+
+  .svgStroke {
+    stroke: currentColor;
+    fill: none;
+
+    path {
+      stroke: currentColor;
+      stroke-width: 1px;
+    }
+  }
+
+  .svgPath {
+    fill: currentColor;
+    opacity: 0.06;
+  }
 }
