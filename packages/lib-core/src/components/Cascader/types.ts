@@ -51,6 +51,14 @@ export interface CascaderProps {
   dropdownClassName?: string;
   /** 自定义选项渲染 */
   optionRender?: (option: CascaderOption, level: number) => ReactNode;
+  /** 组件宽度 */
+  width?: number | string;
+  /** 最大层级 */
+  maxLevel?: number;
+  /** 下拉框样式 */
+  dropdownStyle?: React.CSSProperties;
+  /** 选项样式 */
+  optionStyle?: React.CSSProperties;
 }
 
 export interface CascaderPanelProps
@@ -61,4 +69,6 @@ export interface CascaderPanelProps
   activeLevel?: number;
   /** 选择某一级时的回调 */
   onLevelSelect?: (option: CascaderOption, level: number) => void;
+  maxLevel?: number;
+  optionStyle?: React.CSSProperties;
 }
