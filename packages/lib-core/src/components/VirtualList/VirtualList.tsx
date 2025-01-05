@@ -247,6 +247,7 @@ const VirtualList: React.FC<VirtualListProps> = ({
                 height: finalItemHeight,
                 willChange: "transform",
                 padding: itemPadding,
+                cursor: "pointer",
               }}
               className={styles.virtualListItem}
             >
