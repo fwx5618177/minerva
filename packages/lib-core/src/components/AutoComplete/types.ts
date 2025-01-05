@@ -1,13 +1,14 @@
 import type { EmptyProps } from "../Empty";
 import type { TextFieldProps } from "../TextField";
+import type { PopperProps } from "../Popper";
 
 /**
  * AutoComplete 选项接口
  */
 export interface AutoCompleteOption {
-  /** 选项显示的文本(必选) */
+  /** 选项显示的文本 */
   label: string;
-  /** 选项的值(必选) */
+  /** 选项的值 */
   value: string | number;
   /** 是否禁用 */
   disabled?: boolean;
@@ -19,6 +20,8 @@ export interface AutoCompleteOption {
   description?: string;
   /** 分组标识 */
   group?: string;
+  /** 自定义样式 */
+  style?: React.CSSProperties;
 }
 
 /**
@@ -41,8 +44,6 @@ export interface AutoCompleteProps {
   defaultValue?: string;
   /** 选择选项时的回调 */
   onSelect?: (option: AutoCompleteOption) => void;
-  /** 自定义筛选逻辑 */
-  filterOption?: (inputValue: string, option: AutoCompleteOption) => boolean;
   /** 选项分组函数 */
   groupBy?: (option: AutoCompleteOption) => string;
   /** 是否多选模式 */
@@ -62,6 +63,28 @@ export interface AutoCompleteProps {
   >;
   /** 空状态属性 */
   emptyProps?: Omit<EmptyProps, "children">;
+  /** 下拉框属性 */
+  popperProps?: Omit<PopperProps, "anchorEl" | "visible" | "children">;
+  /** 下拉框位置 */
+  placement?: "top" | "bottom" | "left" | "right";
+  /** 下拉框偏移量 */
+  offset?: PopperProps["offset"];
+  /** 下拉框背景色 */
+  dropdownBgColor?: string;
+  /** 选项高亮背景色 */
+  highlightBgColor?: string;
+  /** 选项hover背景色 */
+  hoverBgColor?: string;
+  /** 是否显示动画 */
+  animation?: boolean;
+  /** 自定义过滤逻辑 */
+  filterOption?: (inputValue: string, option: AutoCompleteOption) => boolean;
+  /** 自定义排序逻辑 */
+  sortOption?: (a: AutoCompleteOption, b: AutoCompleteOption) => number;
+  /** 选项点击事件 */
+  onOptionClick?: (option: AutoCompleteOption) => void;
+  /** 下拉框显示/隐藏事件 */
+  onDropdownVisibleChange?: (visible: boolean) => void;
 }
 
 /**

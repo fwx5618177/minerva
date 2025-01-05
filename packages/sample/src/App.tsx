@@ -83,7 +83,7 @@ const App: React.FC = () => {
 
           <AutoCompleteSection />
 
-          <TimePickerSection />
+          {/* <TimePickerSection /> */}
         </section>
       </Main>
     </Layout>

@@ -20,7 +20,7 @@ import { TextFieldProps } from "./types";
  * @param placeholder - The placeholder text of the text field
  * @param value - The value of the text field
  * @param onChange - Function to be called when the text field value changes
- * @param error - The error message to be displayed
+ * @param helperText - The error message to be displayed
  * @param icon - The icon to be displayed in the text field
  * @param iconPosition - The position of the icon (left, right)
  * @param borderColor - The border color of the text field
@@ -49,7 +49,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       placeholder,
       value,
       onChange,
-      error,
+      helperText,
       icon,
       iconPosition = "left",
       borderColor,
@@ -138,17 +138,17 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     }, [isPasswordVisible]);
 
     useEffect(() => {
-      if (error) {
+      if (helperText) {
         setShake(true);
         setTimeout(() => setShake(false), 500);
         inputRef.current?.focus();
       }
-    }, [error]);
+    }, [helperText]);
 
     const textFieldClasses = `${styles.textField} ${
       isFocused ? styles.focused : ""
     } ${isFilled ? styles.filled : ""} ${minimal ? styles.minimal : ""} ${
-      error ? styles.error : ""
+      helperText ? styles.error : ""
     } ${hideBorder ? styles.containerHideBorder : ""} ${
       shake ? styles.shake : ""
     } ${disabled ? styles.disabled : ""} ${readOnly ? styles.readonly : ""} ${
@@ -230,7 +230,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
                 </span>
               )}
             {suffix && <span className={styles.suffix}>{suffix}</span>}
-            {error && (
+            {helperText && (
               <span className={styles.errorIcon}>
                 <FaExclamationTriangle />
               </span>
@@ -242,10 +242,10 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             </div>
           )}
         </div>
-        {error && (
+        {helperText && (
           <div className={styles.errorMessage}>
             <FaExclamationTriangle className={styles.errorIcon} />
-            {error}
+            {helperText}
           </div>
         )}
       </div>

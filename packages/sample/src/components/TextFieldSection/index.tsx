@@ -81,7 +81,7 @@ const TextFieldSection: React.FC = () => {
             name="errorExample"
             label="Error Example"
             placeholder="Enter text"
-            error={error}
+            helperText={error}
             borderRadius="0.5rem"
           />
           <p>展示带有错误消息的 TextField</p>
@@ -174,7 +174,7 @@ const TextFieldSection: React.FC = () => {
             placeholder="With Error"
             value={basicInput}
             onChange={handleBasicInputChange}
-            error={error}
+            helperText={error}
             borderRadius="0.5rem"
           />
           <TextField

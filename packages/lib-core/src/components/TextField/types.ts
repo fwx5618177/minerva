@@ -3,7 +3,7 @@ export interface TextFieldProps {
   label: string; // Label is required
   value?: string;
   placeholder?: string;
-  error?: string;
+  helperText?: string;
   icon?: React.ReactNode;
   iconPosition?: "left" | "right";
   borderColor?: string;
