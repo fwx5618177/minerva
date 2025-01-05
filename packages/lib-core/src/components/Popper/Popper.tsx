@@ -80,11 +80,15 @@ const PopperArrow = ({
 }: {
   placement: PopperPlacement;
   style?: React.CSSProperties;
-}) => (
-  <div className={styles.popperArrow} data-placement={placement}>
-    <div className={styles.popperArrowInner} style={style} />
-  </div>
-);
+}) => {
+  return null;
+  // TODO: 箭头, 需要修复
+  return (
+    <div className={styles.popperArrow} data-placement={placement}>
+      <div className={styles.popperArrowInner} style={style} />
+    </div>
+  );
+};
 
 /**
  * Popper Component
@@ -393,8 +397,9 @@ const Popper: React.FC<PopperProps> = ({
       aria-label={ariaLabel}
     >
       <div className={styles.popperContent}>{children}</div>
-      {/* {arrow && <PopperArrow placement={placement} style={arrowStyle} />} */}
+      {arrow && <PopperArrow placement={placement} style={arrowStyle} />}
     </div>,
+
     document.body,
   );
 };
