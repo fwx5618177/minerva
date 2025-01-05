@@ -284,7 +284,7 @@ const IconButtonSection: React.FC = () => {
           tooltip={{
             content: "Delete item",
             arrow: true,
-            shape: "thought",
+            shape: "rounded",
           }}
         />
         <IconButton

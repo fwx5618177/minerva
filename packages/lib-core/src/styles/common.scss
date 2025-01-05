@@ -1,3 +1,5 @@
+@import "./animation.scss";
+
 .commonRippleEffect {
   &::before {
     content: "";
@@ -27,4 +29,16 @@
       opacity: 0;
     }
   }
+}
+
+.commonErrorAnimation {
+  animation: shake 0.4s linear;
+}
+
+.commonClickedAnimation {
+  animation: clickedAnimation 1s ease;
+}
+
+.commonStarAnimation {
+  animation: starAnimation 1.5s ease;
 }

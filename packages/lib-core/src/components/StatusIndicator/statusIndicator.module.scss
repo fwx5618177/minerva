@@ -1,3 +1,5 @@
+@import "../../styles/common.scss";
+
 .wrapper {
   display: inline-flex;
   align-items: center;
@@ -128,11 +130,11 @@
   }
 
   &.clicked {
-    animation: clickedAnimation 1s ease;
+    @extend .commonClickedAnimation;
   }
 
   &.clicked.error {
-    animation: errorAnimation 1s ease;
+    @extend .commonErrorAnimation;
   }
 
   .stars {
@@ -153,7 +155,8 @@
     height: 20px;
     background: gold;
     border-radius: 50%;
-    animation: starAnimation 1.5s ease;
+
+    @extend .commonStarAnimation;
   }
 
   &.clicked .stars::before {
@@ -204,47 +207,6 @@
 
   &.busy {
     background-color: #f44336;
-  }
-}
-
-@keyframes clickedAnimation {
-  0% {
-    transform: scale(1) translateY(0);
-  }
-  50% {
-    transform: scale(1.2) translateY(-10px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes errorAnimation {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-10px);
-  }
-  50% {
-    transform: translateX(10px);
-  }
-  75% {
-    transform: translateX(-10px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes starAnimation {
-  0% {
-    transform: scale(0) translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5) translateY(-30px);
-    opacity: 0;
   }
 }
 

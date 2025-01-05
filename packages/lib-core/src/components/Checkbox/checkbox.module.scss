@@ -6,7 +6,7 @@
   gap: 4px;
 
   &.error {
-    animation: shake 0.4s linear;
+    @extend .commonErrorAnimation;
   }
 }
 
@@ -204,20 +204,6 @@ input:indeterminate ~ .checkmark {
 // Ripple effect
 .checkbox {
   @extend .commonRippleEffect;
-}
-
-// Error animation
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-4px);
-  }
-  75% {
-    transform: translateX(4px);
-  }
 }
 
 // 当设置自定义颜色时更新边框颜色
