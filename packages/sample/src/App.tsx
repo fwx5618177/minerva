@@ -27,6 +27,7 @@ import VirtualListSection from "@components/VirtualListSection";
 import AutoCompleteSection from "@components/AutoCompleteSection";
 import EmptySection from "@components/EmptySection";
 import CascaderSection from "@components/CascaderSection";
+import SkeletonSection from "@components/SkeletonSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -81,6 +82,8 @@ const App: React.FC = () => {
           <RadioSection />
           <VirtualListSection />
           <EmptySection />
+
+          <SkeletonSection />
 
           {/* <CascaderSection /> */}
 

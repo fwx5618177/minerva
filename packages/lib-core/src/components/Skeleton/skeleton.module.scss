@@ -1,0 +1,127 @@
+@import "../../styles/common.scss";
+
+.skeletonRoot {
+  display: flex;
+  width: 100%;
+
+  &.withAvatar {
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(190, 190, 190, 0.2) 25%, rgba(129, 129, 129, 0.24) 37%, rgba(190, 190, 190, 0.2) 63%);
+  background-size: 400% 100%;
+  border-radius: 4px;
+
+  &.text {
+    height: 16px;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.circular {
+    border-radius: 50%;
+  }
+
+  &.rounded {
+    border-radius: 8px;
+  }
+
+  &.button {
+    height: 40px;
+    border-radius: 6px;
+  }
+
+  &.image {
+    width: 100%;
+    padding-top: 56.25%; // 16:9 比例
+    border-radius: 8px;
+  }
+
+  &.title {
+    width: 50%;
+    height: 32px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+  }
+}
+
+.paragraph {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .skeleton {
+    margin: 0;
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+
+  &.avatar-circle {
+    border-radius: 50%;
+  }
+
+  &.avatar-square {
+    border-radius: 4px;
+  }
+}
+
+.card {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow:
+    0 1px 3px rgba(16, 24, 40, 0.1),
+    0 1px 2px rgba(16, 24, 40, 0.06);
+
+  .cardContent {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}
+
+// Animations
+.animation-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animation-wave {
+  animation: wave 1.6s linear infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes wave {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
