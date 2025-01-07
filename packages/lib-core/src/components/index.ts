@@ -20,3 +20,4 @@ export * from "./Empty";
 export * from "./Cascader";
 export * from "./Skeleton";
 export * from "./Alert";
+export * from "./Space";

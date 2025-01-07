@@ -29,6 +29,7 @@ import EmptySection from "@components/EmptySection";
 import CascaderSection from "@components/CascaderSection";
 import SkeletonSection from "@components/SkeletonSection";
 import AlertSection from "@components/AlertSection";
+import SpaceSection from "@components/SpaceSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -85,6 +86,7 @@ const App: React.FC = () => {
           <EmptySection />
 
           <SkeletonSection />
+          <SpaceSection />
 
           <AlertSection />
 
