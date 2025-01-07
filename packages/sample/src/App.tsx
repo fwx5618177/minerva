@@ -32,6 +32,7 @@ import AlertSection from "@components/AlertSection";
 import SpaceSection from "@components/SpaceSection";
 import DividerSection from "@components/DividerSection";
 import TagSection from "@components/TagSection";
+import SwitchSection from "@components/SwitchSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -95,6 +96,7 @@ const App: React.FC = () => {
           <DividerSection />
 
           <TagSection />
+          <SwitchSection />
 
           {/* <CascaderSection /> */}
 
