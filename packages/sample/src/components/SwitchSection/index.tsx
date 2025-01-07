@@ -22,6 +22,17 @@ import {
   IoHeartDislike,
   IoLockClosed,
   IoLockOpen,
+  IoCamera,
+  IoFlash,
+  IoWater,
+  IoThermometer,
+  IoBatteryCharging,
+  IoSpeedometer,
+  IoHome,
+  IoAlarm,
+  IoGameController,
+  IoMusicalNotes,
+  IoRadio,
 } from "react-icons/io5";
 import styles from "./section.module.scss";
 
@@ -44,6 +55,23 @@ const SwitchSection: React.FC = () => {
     notifications: true,
     darkMode: false,
     sound: true,
+  });
+
+  const [deviceSettings, setDeviceSettings] = useState({
+    camera: false,
+    flash: true,
+    waterproof: true,
+    temperature: false,
+    battery: true,
+    performance: false,
+  });
+
+  const [homeSettings, setHomeSettings] = useState({
+    lights: true,
+    alarm: false,
+    gaming: false,
+    music: true,
+    radio: false,
   });
 
   const handleSubmit = () => {
@@ -170,32 +198,188 @@ const SwitchSection: React.FC = () => {
 
         <div>
           <h3>自定义样式</h3>
-          <p className={styles.description}>可以自定义开关的样式。</p>
+          <p className={styles.description}>展示不同的自定义样式效果。</p>
+          <div className={styles.group}>
+            <Space direction="vertical" size="large">
+              <Space size="large">
+                <Switch
+                  trackStyle={{
+                    backgroundColor: "rgba(139, 92, 246, 0.5)",
+                  }}
+                  thumbStyle={{
+                    backgroundColor: "#8B5CF6",
+                  }}
+                  labelStyle={{
+                    color: "#8B5CF6",
+                    fontWeight: 500,
+                  }}
+                  defaultChecked
+                  label="紫色主题"
+                />
+                <Switch
+                  trackStyle={{
+                    backgroundColor: "rgba(16, 185, 129, 0.5)",
+                  }}
+                  thumbStyle={{
+                    backgroundColor: "#10B981",
+                  }}
+                  labelStyle={{
+                    color: "#10B981",
+                    fontWeight: 500,
+                  }}
+                  defaultChecked
+                  label="绿色主题"
+                />
+              </Space>
+
+              <Space size="large">
+                <Switch
+                  trackStyle={{
+                    background:
+                      "linear-gradient(45deg, #FF6B6B 30%, #FFD93D 90%)",
+                  }}
+                  thumbStyle={{
+                    background:
+                      "linear-gradient(45deg, #FF6B6B 30%, #FFD93D 90%)",
+                    boxShadow: "0 3px 12px rgba(255, 107, 107, 0.4)",
+                  }}
+                  labelStyle={{
+                    background:
+                      "linear-gradient(45deg, #FF6B6B 30%, #FFD93D 90%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    fontWeight: 600,
+                  }}
+                  defaultChecked
+                  label="渐变主题"
+                />
+                <Switch
+                  trackStyle={{
+                    background:
+                      "linear-gradient(45deg, #4F46E5 30%, #7C3AED 90%)",
+                  }}
+                  thumbStyle={{
+                    background:
+                      "linear-gradient(45deg, #4F46E5 30%, #7C3AED 90%)",
+                    boxShadow: "0 3px 12px rgba(124, 58, 237, 0.4)",
+                  }}
+                  labelStyle={{
+                    background:
+                      "linear-gradient(45deg, #4F46E5 30%, #7C3AED 90%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    fontWeight: 600,
+                  }}
+                  defaultChecked
+                  label="紫罗兰"
+                />
+              </Space>
+            </Space>
+          </div>
+        </div>
+
+        <div>
+          <h3>标签样式</h3>
+          <p className={styles.description}>展示不同的标签样式效果。</p>
+          <div className={styles.group}>
+            <Space direction="vertical" size="large">
+              <Space size="large">
+                <Switch
+                  label="重要选项"
+                  labelStyle={{
+                    color: "#EF4444",
+                    fontWeight: 600,
+                    fontSize: "16px",
+                  }}
+                  color="error"
+                />
+                <Switch
+                  label="可选设置"
+                  labelStyle={{
+                    color: "#6B7280",
+                    fontStyle: "italic",
+                  }}
+                  color="secondary"
+                />
+              </Space>
+
+              <Space size="large">
+                <Switch
+                  label={
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ fontWeight: 500 }}>高级设置</span>
+                      <span style={{ fontSize: "12px", color: "#6B7280" }}>
+                        启用后可使用更多功能
+                      </span>
+                    </div>
+                  }
+                  labelStyle={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "4px",
+                  }}
+                  color="primary"
+                />
+                <Switch
+                  label="实验性功能"
+                  labelStyle={{
+                    backgroundColor: "#FEF3C7",
+                    color: "#D97706",
+                    padding: "4px 8px",
+                    borderRadius: "4px",
+                    fontSize: "12px",
+                    fontWeight: 500,
+                  }}
+                  color="warning"
+                />
+              </Space>
+            </Space>
+          </div>
+        </div>
+
+        <div>
+          <h3>渐变效果</h3>
+          <p className={styles.description}>展示带有渐变效果的开关。</p>
           <div className={styles.group}>
             <Space size="large">
               <Switch
-                style={{
-                  "--switch-checked-thumb-bg": "#8B5CF6",
-                  "--switch-checked-track-bg": "rgba(139, 92, 246, 0.5)",
+                trackStyle={{
+                  background:
+                    "linear-gradient(45deg, #FF6B6B 30%, #FFD93D 90%)",
+                }}
+                thumbStyle={{
+                  background:
+                    "linear-gradient(45deg, #FF6B6B 30%, #FFD93D 90%)",
+                  color: "#fff",
                 }}
                 defaultChecked
-                label="紫色主题"
+                label="日落渐变"
               />
               <Switch
-                style={{
-                  "--switch-checked-thumb-bg": "#10B981",
-                  "--switch-checked-track-bg": "rgba(16, 185, 129, 0.5)",
+                trackStyle={{
+                  background:
+                    "linear-gradient(45deg, #4F46E5 30%, #7C3AED 90%)",
+                }}
+                thumbStyle={{
+                  background:
+                    "linear-gradient(45deg, #4F46E5 30%, #7C3AED 90%)",
+                  color: "#fff",
                 }}
                 defaultChecked
-                label="绿色主题"
+                label="紫罗兰"
               />
               <Switch
-                style={{
-                  "--switch-checked-thumb-bg": "#F59E0B",
-                  "--switch-checked-track-bg": "rgba(245, 158, 11, 0.5)",
+                trackStyle={{
+                  background:
+                    "linear-gradient(45deg, #059669 30%, #10B981 90%)",
+                }}
+                thumbStyle={{
+                  background:
+                    "linear-gradient(45deg, #059669 30%, #10B981 90%)",
+                  color: "#fff",
                 }}
                 defaultChecked
-                label="橙色主题"
+                label="翡翠绿"
               />
             </Space>
           </div>
@@ -565,6 +749,161 @@ const SwitchSection: React.FC = () => {
                   icon={<IoLanguage />}
                   label="翻译"
                   color="success"
+                />
+              </Space>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>设备控制面板</h3>
+          <p className={styles.description}>模拟设备控制面板的开关组合。</p>
+          <div className={styles.group}>
+            <div className={styles.controlPanel}>
+              <div className={styles.controlGroup}>
+                <h4>相机设置</h4>
+                <Space direction="vertical" size="medium">
+                  <Switch
+                    checked={deviceSettings.camera}
+                    onChange={(checked) =>
+                      setDeviceSettings((prev) => ({
+                        ...prev,
+                        camera: checked,
+                      }))
+                    }
+                    icon={<IoCamera />}
+                    label="相机开关"
+                    color="#3B82F6"
+                    size="large"
+                  />
+                  <Switch
+                    checked={deviceSettings.flash}
+                    onChange={(checked) =>
+                      setDeviceSettings((prev) => ({ ...prev, flash: checked }))
+                    }
+                    icon={<IoFlash />}
+                    label="闪光灯"
+                    color="#F59E0B"
+                  />
+                </Space>
+              </div>
+              <div className={styles.controlGroup}>
+                <h4>设备状态</h4>
+                <Space direction="vertical" size="medium">
+                  <Switch
+                    checked={deviceSettings.waterproof}
+                    onChange={(checked) =>
+                      setDeviceSettings((prev) => ({
+                        ...prev,
+                        waterproof: checked,
+                      }))
+                    }
+                    icon={<IoWater />}
+                    label="防水模式"
+                    color="#0EA5E9"
+                  />
+                  <Switch
+                    checked={deviceSettings.temperature}
+                    onChange={(checked) =>
+                      setDeviceSettings((prev) => ({
+                        ...prev,
+                        temperature: checked,
+                      }))
+                    }
+                    icon={<IoThermometer />}
+                    label="温度监控"
+                    color="#DC2626"
+                  />
+                </Space>
+              </div>
+              <div className={styles.controlGroup}>
+                <h4>性能设置</h4>
+                <Space direction="vertical" size="medium">
+                  <Switch
+                    checked={deviceSettings.battery}
+                    onChange={(checked) =>
+                      setDeviceSettings((prev) => ({
+                        ...prev,
+                        battery: checked,
+                      }))
+                    }
+                    icon={<IoBatteryCharging />}
+                    label="省电模式"
+                    color="#059669"
+                  />
+                  <Switch
+                    checked={deviceSettings.performance}
+                    onChange={(checked) =>
+                      setDeviceSettings((prev) => ({
+                        ...prev,
+                        performance: checked,
+                      }))
+                    }
+                    icon={<IoSpeedometer />}
+                    label="高性能模式"
+                    color="#7C3AED"
+                  />
+                </Space>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>智能家居控制</h3>
+          <p className={styles.description}>智能家居设备的控制面板。</p>
+          <div className={styles.group}>
+            <div className={styles.homePanel}>
+              <Space wrap size={[32, 24]}>
+                <Switch
+                  size="large"
+                  checked={homeSettings.lights}
+                  onChange={(checked) =>
+                    setHomeSettings((prev) => ({ ...prev, lights: checked }))
+                  }
+                  icon={<IoHome />}
+                  label="智能灯光"
+                  color="#EC4899"
+                />
+                <Switch
+                  size="large"
+                  checked={homeSettings.alarm}
+                  onChange={(checked) =>
+                    setHomeSettings((prev) => ({ ...prev, alarm: checked }))
+                  }
+                  icon={<IoAlarm />}
+                  label="安防系统"
+                  color="#EF4444"
+                />
+                <Switch
+                  size="large"
+                  checked={homeSettings.gaming}
+                  onChange={(checked) =>
+                    setHomeSettings((prev) => ({ ...prev, gaming: checked }))
+                  }
+                  icon={<IoGameController />}
+                  label="游戏模式"
+                  color="#8B5CF6"
+                />
+                <Switch
+                  size="large"
+                  checked={homeSettings.music}
+                  onChange={(checked) =>
+                    setHomeSettings((prev) => ({ ...prev, music: checked }))
+                  }
+                  icon={<IoMusicalNotes />}
+                  label="音乐系统"
+                  color="#10B981"
+                />
+                <Switch
+                  size="large"
+                  checked={homeSettings.radio}
+                  onChange={(checked) =>
+                    setHomeSettings((prev) => ({ ...prev, radio: checked }))
+                  }
+                  icon={<IoRadio />}
+                  label="智能广播"
+                  color="#F97316"
                 />
               </Space>
             </div>

@@ -17,12 +17,14 @@ import styles from "./switch.module.scss";
  * @param loading - 是否加载中
  * @param ripple - 是否显示涟漪效果
  * @param className - 自定义类名
- * @param style - 自定义样式
+ * @param labelStyle - 自定义样式
  * @param onChange - 值改变时的回调函数
  * @param onFocus - 聚焦时的回调函数
  * @param onBlur - 失焦时的回调函数
  * @param icon - 自定义图标
  * @param iconPlacement - 图标位置
+ * @param trackStyle - 自定义轨道样式
+ * @param thumbStyle - 自定义滑块样式
  */
 const Switch: React.FC<SwitchProps> = ({
   checked,
@@ -36,7 +38,9 @@ const Switch: React.FC<SwitchProps> = ({
   loading = false,
   ripple = true,
   className,
-  style,
+  labelStyle,
+  trackStyle,
+  thumbStyle: customThumbStyle,
   onChange,
   onFocus,
   onBlur,
@@ -75,6 +79,7 @@ const Switch: React.FC<SwitchProps> = ({
     styles[size],
     {
       [styles.checked]: isChecked,
+      [styles.checkedLarge]: isChecked && size === "large",
       [styles.disabled]: disabled,
       [styles.loading]: loading,
       [styles.square]: shape === "square",
@@ -84,7 +89,7 @@ const Switch: React.FC<SwitchProps> = ({
     className,
   );
 
-  const thumbStyle = {
+  const computedThumbStyle = {
     ...(isChecked &&
     !disabled &&
     !Object.prototype.hasOwnProperty.call(styles, color)
@@ -93,6 +98,7 @@ const Switch: React.FC<SwitchProps> = ({
           color: color,
         }
       : {}),
+    ...customThumbStyle,
   };
 
   const renderLabel = () => {
@@ -108,7 +114,7 @@ const Switch: React.FC<SwitchProps> = ({
   return (
     <label
       className={switchClasses}
-      style={style}
+      style={labelStyle}
       ref={switchRef}
       onClick={handleRipple}
     >
@@ -122,8 +128,8 @@ const Switch: React.FC<SwitchProps> = ({
           onFocus={onFocus}
           onBlur={onBlur}
         />
-        <div className={styles.track} />
-        <div className={styles.thumb} style={thumbStyle}>
+        <div className={styles.track} style={trackStyle} />
+        <div className={styles.thumb} style={computedThumbStyle}>
           {iconPlacement === "start" && renderIcon()}
         </div>
         {ripple && <div className={styles.rippleEffect} />}

@@ -22,7 +22,11 @@ export interface SwitchProps {
   /** 自定义样式 */
   className?: string;
   /** 自定义样式 */
-  style?: React.CSSProperties;
+  labelStyle?: React.CSSProperties;
+  /** 自定义轨道样式 */
+  trackStyle?: React.CSSProperties;
+  /** 自定义滑块样式 */
+  thumbStyle?: React.CSSProperties;
   /** 值改变时的回调函数 */
   onChange?: (
     checked: boolean,
