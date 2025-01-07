@@ -30,6 +30,8 @@ import CascaderSection from "@components/CascaderSection";
 import SkeletonSection from "@components/SkeletonSection";
 import AlertSection from "@components/AlertSection";
 import SpaceSection from "@components/SpaceSection";
+import DividerSection from "@components/DividerSection";
+import TagSection from "@components/TagSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -89,6 +91,10 @@ const App: React.FC = () => {
           <SpaceSection />
 
           <AlertSection />
+
+          <DividerSection />
+
+          <TagSection />
 
           {/* <CascaderSection /> */}
 

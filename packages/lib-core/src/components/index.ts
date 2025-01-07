@@ -21,3 +21,5 @@ export * from "./Cascader";
 export * from "./Skeleton";
 export * from "./Alert";
 export * from "./Space";
+export * from "./Divider";
+export * from "./Tag";

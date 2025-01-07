@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Button } from "@minerva/lib-core";
-import { IoHeart, IoClose, IoStar, IoRefresh } from "react-icons/io5";
+import { IoHeart, IoClose, IoStar } from "react-icons/io5";
 import styles from "./section.module.scss";
 
 const AlertSection: React.FC = () => {

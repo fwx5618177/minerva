@@ -1,0 +1,100 @@
+@import "../../styles/common.scss";
+
+.divider {
+  position: relative;
+  border: none;
+  margin: 0;
+  transition: all 0.3s ease;
+
+  &.horizontal {
+    width: 100%;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+
+  &.vertical {
+    display: inline-block;
+    height: 1em;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-color: rgba(0, 0, 0, 0.12);
+    vertical-align: middle;
+    margin: 0 8px;
+  }
+
+  &.solid {
+    &.horizontal {
+      border-top-style: solid;
+    }
+    &.vertical {
+      border-left-style: solid;
+    }
+  }
+
+  &.dashed {
+    &.horizontal {
+      border-top-style: dashed;
+    }
+    &.vertical {
+      border-left-style: dashed;
+    }
+  }
+
+  &.dotted {
+    &.horizontal {
+      border-top-style: dotted;
+    }
+    &.vertical {
+      border-left-style: dotted;
+    }
+  }
+
+  &.withText {
+    display: flex;
+    align-items: center;
+    border: none;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  &.textLeft {
+    &::before {
+      width: 5%;
+    }
+  }
+
+  &.textRight {
+    &::after {
+      width: 5%;
+    }
+  }
+
+  &.elevation {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .text {
+    padding: 0 16px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
+  }
+}
+
+// 动画效果
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,142 @@
+@import "../../styles/common.scss";
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: default;
+  gap: 4px;
+
+  // Size variants
+  &.small {
+    padding: 2px 8px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  &.medium {
+    padding: 4px 12px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  &.large {
+    padding: 6px 16px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  // Shape variants
+  &.square {
+    border-radius: 0;
+  }
+
+  &.rounded {
+    border-radius: 4px;
+  }
+
+  &.circle {
+    border-radius: 100px;
+  }
+
+  // Color variants
+  &.default {
+    background-color: var(--tag-default-bg, #f5f5f5);
+    color: var(--tag-default-text, rgba(0, 0, 0, 0.87));
+  }
+
+  &.primary {
+    background-color: var(--tag-primary-bg, #e3f2fd);
+    color: var(--tag-primary-text, #1976d2);
+  }
+
+  &.success {
+    background-color: var(--tag-success-bg, #e8f5e9);
+    color: var(--tag-success-text, #2e7d32);
+  }
+
+  &.warning {
+    background-color: var(--tag-warning-bg, #fff3e0);
+    color: var(--tag-warning-text, #ed6c02);
+  }
+
+  &.error {
+    background-color: var(--tag-error-bg, #fdecea);
+    color: var(--tag-error-text, #d32f2f);
+  }
+
+  &.info {
+    background-color: var(--tag-info-bg, #e3f2fd);
+    color: var(--tag-info-text, #0288d1);
+  }
+
+  // Modifiers
+  &.clickable:not(.disabled) {
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(0.95);
+    }
+
+    &:active {
+      filter: brightness(0.9);
+    }
+  }
+
+  &.bordered {
+    border: 1px solid;
+    border-color: currentColor;
+  }
+
+  &.elevation {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // Elements
+  .icon {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+  }
+
+  .content {
+    display: inline-block;
+  }
+
+  .closeIcon {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  // Ripple effect
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleAnimation 0.6s linear;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes rippleAnimation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
