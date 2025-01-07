@@ -1,0 +1,274 @@
+@import "../../styles/common.scss";
+
+.alert {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-bottom: 16px;
+
+  &.withElevation {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &.rounded {
+    border-radius: 8px;
+  }
+
+  &.collapsible {
+    .title {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .expandButton {
+      background: none;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      opacity: 0.7;
+      transition: all 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      @extend .commonRippleEffect;
+    }
+  }
+
+  // Size variants
+  &.small {
+    padding: 8px 12px;
+    font-size: 12px;
+
+    .icon {
+      font-size: 16px;
+    }
+  }
+
+  &.medium {
+    padding: 12px 16px;
+    font-size: 14px;
+
+    .icon {
+      font-size: 20px;
+    }
+  }
+
+  &.large {
+    padding: 16px 20px;
+    font-size: 16px;
+
+    .icon {
+      font-size: 24px;
+    }
+  }
+
+  // Type variants
+  &.info {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+
+    &.filled {
+      background-color: #2196f3;
+      color: #fff;
+    }
+
+    &.outlined {
+      background-color: transparent;
+      border: 1px solid #2196f3;
+    }
+  }
+
+  &.success {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+
+    &.filled {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    &.outlined {
+      background-color: transparent;
+      border: 1px solid #4caf50;
+    }
+  }
+
+  &.warning {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: #ff9800;
+
+    &.filled {
+      background-color: #ff9800;
+      color: #fff;
+    }
+
+    &.outlined {
+      background-color: transparent;
+      border: 1px solid #ff9800;
+    }
+  }
+
+  &.error {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+
+    &.filled {
+      background-color: #f44336;
+      color: #fff;
+    }
+
+    &.outlined {
+      background-color: transparent;
+      border: 1px solid #f44336;
+    }
+  }
+
+  &.banner {
+    border-radius: 0;
+    width: 100%;
+  }
+
+  // Icon styles
+  .icon {
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  // Content styles
+  .content {
+    flex: 1;
+  }
+
+  .title {
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .message {
+    color: inherit;
+  }
+
+  // Action styles
+  .action {
+    margin-left: 16px;
+  }
+
+  // Close button styles
+  .closeButton {
+    padding: 0;
+    margin-left: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @extend .commonRippleEffect;
+  }
+
+  // Animation
+  &.withAnimation {
+    &.animation-slideIn {
+      animation: alertSlideIn 0.3s ease;
+    }
+
+    &.animation-fadeIn {
+      animation: alertFadeIn 0.3s ease;
+    }
+
+    &.animation-bounce {
+      animation: alertBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    &.animation-zoom {
+      animation: alertZoom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  &.expanded {
+    .message {
+      animation: expandContent 0.3s ease-out forwards;
+    }
+  }
+}
+
+@keyframes alertSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes alertFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes alertBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes alertZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes expandContent {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 1000px;
+  }
+}

@@ -28,6 +28,7 @@ import AutoCompleteSection from "@components/AutoCompleteSection";
 import EmptySection from "@components/EmptySection";
 import CascaderSection from "@components/CascaderSection";
 import SkeletonSection from "@components/SkeletonSection";
+import AlertSection from "@components/AlertSection";
 
 const App: React.FC = () => {
   const { t } = useTranslation();
@@ -84,6 +85,8 @@ const App: React.FC = () => {
           <EmptySection />
 
           <SkeletonSection />
+
+          <AlertSection />
 
           {/* <CascaderSection /> */}
 
