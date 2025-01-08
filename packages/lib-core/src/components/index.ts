@@ -24,3 +24,4 @@ export * from "./Space";
 export * from "./Divider";
 export * from "./Tag";
 export * from "./Switch";
+export * from "./Message";
