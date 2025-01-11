@@ -1,0 +1,103 @@
+{
+    "lib": {
+        "title": "Minerva UI",
+        "description": "モダンな React コンポーネントライブラリ",
+        "about": "概要",
+        "about.description": "Minerva UI は、モダンなウェブアプリケーションを構築するための再利用可能でアクセシブルなコンポーネントを提供する包括的な React コンポーネントライブラリです。",
+        "installation": "インストール",
+        "installation.title": "インストール",
+        "installation.description": "プロジェクトに Minerva UI をインストールして始めましょう。",
+        "installation.usage.title": "使用方法",
+        "installation.usage.description": "React アプリケーションでコンポーネントをインポートして使用します。",
+        "installation.requirements.title": "要件",
+        "installation.cdn.title": "CDN",
+        "installation.cdn.description": "CDN から直接 Minerva UI を使用することもできます。",
+        "features": {
+            "title": "機能",
+            "modern": {
+                "title": "モダンなデザイン",
+                "description": "モダンなデザイン原則とベストプラクティスを念頭に置いて構築されています。"
+            },
+            "customizable": {
+                "title": "高度にカスタマイズ可能",
+                "description": "ブランドやデザインシステムに合わせて簡単にコンポーネントをカスタマイズできます。"
+            },
+            "typescript": {
+                "title": "TypeScript サポート",
+                "description": "より良い開発体験のために、完全な型サポートを備えた TypeScript で書かれています。"
+            },
+            "performance": {
+                "title": "パフォーマンス重視",
+                "description": "最小限のバンドルサイズと効率的なレンダリングでパフォーマンスを最適化。"
+            }
+        },
+        "getStarted": {
+            "title": "はじめに",
+            "description": "Minerva UI コンポーネントで次のプロジェクトを構築しましょう。"
+        }
+    },
+    "components": {
+        "menu": {
+            "getting_started": "はじめに",
+            "inputs": "入力",
+            "data_display": "データ表示",
+            "feedback": "フィードバック",
+            "navigation": "ナビゲーション"
+        },
+        "overview": {
+            "title": "概要",
+            "description": "美しくアクセシブルなインターフェースを構築するためのモダンな React UI ライブラリ。",
+            "features": {
+                "title": "機能",
+                "modern": {
+                    "title": "モダンなデザイン",
+                    "description": "使いやすさと美しさに焦点を当てたクリーンでモダンなデザインシステム。"
+                },
+                "components": {
+                    "title": "コンポーネントライブラリ",
+                    "description": "TypeScript で構築された高品質な React コンポーネントのコレクション。"
+                },
+                "customization": {
+                    "title": "カスタマイズ",
+                    "description": "広範なテーマとスタイルのカスタマイズオプション。"
+                },
+                "typescript": {
+                    "title": "TypeScript サポート",
+                    "description": "包括的な型定義を含む完全な TypeScript サポート。"
+                }
+            }
+        },
+        "button": {
+            "title": "ボタン",
+            "description": "ボタンはユーザーがアクションを実行し、選択を行うことができます。",
+            "variants": "ボタンのバリアント",
+            "sizes": "ボタンのサイズ",
+            "states": "ボタンの状態",
+            "shapes": "ボタンの形状",
+            "customStyles": "カスタムスタイル",
+            "basic": "基本的な使用法",
+            "icons": "アイコン付き",
+            "loading": "ローディング状態",
+            "block": "ブロックボタン",
+            "disabled": "無効状態"
+        },
+        "switch": {
+            "title": "スイッチ",
+            "description": "スイッチはオプションのオン/オフを切り替えることができます。",
+            "basic": "基本的なスイッチ",
+            "sizes": "スイッチのサイズ",
+            "disabled": "無効状態",
+            "loading": "ローディング状態",
+            "customColors": "カスタムカラー",
+            "text": "テキストとアイコン"
+        },
+        "alert": {
+            "title": "アラート",
+            "description": "アラートはユーザーに重要なメッセージを表示します。",
+            "basic": "基本的なアラート",
+            "types": "アラートの種類",
+            "withIcon": "アイコン付き",
+            "closable": "閉じることができる"
+        }
+    }
+}

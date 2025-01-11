@@ -1,0 +1,312 @@
+{
+    "lib": {
+        "title": "Minerva UI",
+        "description": "用于构建美观且无障碍的用户界面的现代 React 组件库",
+        "about": "关于",
+        "about.description": "Minerva UI 是一个全面的 React 组件库，提供一套可重用、无障碍和可定制的组件，帮助您构建现代 Web 应用程序。",
+        "installation": "安装",
+        "installation.title": "安装",
+        "installation.description": "通过在项目中安装 Minerva UI 开始使用。",
+        "installation.usage.title": "使用",
+        "installation.usage.description": "在 React 应用程序中导入和使用组件。",
+        "installation.requirements.title": "要求",
+        "installation.cdn.title": "CDN",
+        "installation.cdn.description": "您也可以直接从 CDN 使用 Minerva UI。",
+        "features": {
+            "title": "特性",
+            "modern": {
+                "title": "现代设计",
+                "description": "基于现代设计原则和最佳实践构建。"
+            },
+            "customizable": {
+                "title": "高度可定制",
+                "description": "轻松定制组件以匹配您的品牌和设计系统。"
+            },
+            "typescript": {
+                "title": "TypeScript 支持",
+                "description": "使用 TypeScript 编写，提供完整的类型支持以获得更好的开发体验。"
+            },
+            "performance": {
+                "title": "性能优先",
+                "description": "通过最小化包大小和高效渲染进行性能优化。"
+            }
+        },
+        "getStarted": {
+            "title": "开始使用",
+            "description": "使用 Minerva UI 组件开始构建您的下一个项目。"
+        }
+    },
+    "components": {
+        "menu": {
+            "getting_started": "开始使用",
+            "inputs": "输入",
+            "data_display": "数据展示",
+            "feedback": "反馈",
+            "navigation": "导航"
+        },
+        "overview": {
+            "title": "概述",
+            "description": "用于构建美观且无障碍界面的现代 React UI 库。",
+            "features": {
+                "title": "特性",
+                "modern": {
+                    "title": "现代设计",
+                    "description": "注重可用性和美观性的清晰现代设计系统。"
+                },
+                "components": {
+                    "title": "组件库",
+                    "description": "使用 TypeScript 构建的高质量 React 组件集合。"
+                },
+                "customization": {
+                    "title": "定制化",
+                    "description": "广泛的主题和样式定制选项。"
+                },
+                "typescript": {
+                    "title": "TypeScript 支持",
+                    "description": "具有全面类型定义的完整 TypeScript 支持。"
+                }
+            }
+        },
+        "button": {
+            "title": "按钮",
+            "description": "按钮允许用户通过单击执行操作和做出选择。",
+            "variants": "按钮变体",
+            "sizes": "按钮尺寸",
+            "states": "按钮状态",
+            "shapes": "按钮形状",
+            "customStyles": "自定义样式",
+            "basic": "基础用法",
+            "icons": "带图标",
+            "loading": "加载状态",
+            "block": "块级按钮",
+            "disabled": "禁用状态"
+        },
+        "switch": {
+            "title": "开关",
+            "description": "开关允许用户打开或关闭选项。",
+            "basic": "基础开关",
+            "sizes": "开关尺寸",
+            "disabled": "禁用状态",
+            "loading": "加载状态",
+            "customColors": "自定义颜色",
+            "text": "文本和图标"
+        },
+        "alert": {
+            "title": "警告提示",
+            "description": "警告提示用于向用户显示重要信息。",
+            "basic": "基础警告提示",
+            "types": "警告提示类型",
+            "withIcon": "带图标",
+            "closable": "可关闭"
+        },
+        "textfield": {
+            "title": "文本框",
+            "description": "文本框让用户输入和编辑文本。",
+            "basic": "基础用法",
+            "sizes": "尺寸",
+            "status": "状态",
+            "prefix": "前缀和后缀",
+            "clearable": "可清除",
+            "password": "密码框",
+            "textarea": "文本域"
+        },
+        "radio": {
+            "title": "单选框",
+            "description": "单选框允许用户从一组选项中选择一个。",
+            "basic": "基础用法",
+            "disabled": "禁用",
+            "group": "单选框组",
+            "direction": "方向",
+            "button": "按钮样式"
+        },
+        "checkbox": {
+            "title": "复选框",
+            "description": "复选框允许用户从一组选项中选择一个或多个。",
+            "basic": "基础复选框",
+            "shapes": "复选框形状",
+            "sizes": "复选框尺寸",
+            "customIcons": "自定义图标",
+            "customStyles": "自定义颜色和样式"
+        },
+        "avatar": {
+            "title": "头像",
+            "description": "头像用图片或字母代表用户或实体。",
+            "basic": "基础用法",
+            "sizes": "尺寸",
+            "types": "类型",
+            "group": "头像组",
+            "badge": "带徽标"
+        },
+        "badge": {
+            "title": "徽标",
+            "description": "徽标是 UI 元素的小型状态描述符。",
+            "basic": "基础用法",
+            "max": "最大值",
+            "dot": "点状徽标",
+            "status": "状态",
+            "colors": "自定义颜色"
+        },
+        "card": {
+            "title": "卡片",
+            "description": "卡片包含关于单个主题的内容和操作。",
+            "basic": "基础用法",
+            "title_prop": "带标题",
+            "bordered": "带边框",
+            "hoverable": "可悬浮",
+            "loading": "加载中",
+            "grid": "网格卡片",
+            "inner": "内部卡片"
+        },
+        "chip": {
+            "title": "纸片",
+            "description": "纸片表示小块信息。",
+            "basic": "基础用法",
+            "variants": "变体",
+            "sizes": "尺寸",
+            "removable": "可移除",
+            "icon": "带图标",
+            "colors": "自定义颜色"
+        },
+        "divider": {
+            "title": "分割线",
+            "description": "分割线将内容分成清晰的组。",
+            "basic": "基础用法",
+            "orientation": "文本位置",
+            "type": "分割线类型",
+            "styles": "样式"
+        },
+        "dropdown": {
+            "title": "下拉菜单",
+            "description": "下拉菜单显示操作或选项列表。",
+            "basic": "基础用法",
+            "placement": "位置",
+            "trigger": "触发方式",
+            "disabled": "禁用",
+            "nested": "嵌套菜单"
+        },
+        "message": {
+            "title": "消息",
+            "description": "消息提供关于用户操作的反馈。",
+            "basic": "基础用法",
+            "types": "消息类型",
+            "duration": "持续时间",
+            "loading": "加载中",
+            "promise": "Promise 接口"
+        },
+        "progress": {
+            "title": "进度条",
+            "description": "进度指示器表示不确定的等待时间。",
+            "basic": "基础用法",
+            "types": "进度条类型",
+            "sizes": "尺寸",
+            "status": "状态",
+            "dynamic": "动态"
+        },
+        "skeleton": {
+            "title": "骨架屏",
+            "description": "骨架屏在内容加载前提供低保真的表现形式。",
+            "basic": "基础用法",
+            "animated": "动画",
+            "complex": "复杂组合",
+            "active": "动态动画"
+        },
+        "space": {
+            "title": "间距",
+            "description": "设置组件之间的间距",
+            "basic": "基础用法",
+            "size": "尺寸",
+            "align": "对齐",
+            "direction": "方向",
+            "customization": "自定义"
+        },
+        "tag": {
+            "title": "标签",
+            "description": "用于标记和选择",
+            "basic": "基础用法",
+            "sizes": "尺寸",
+            "color": "颜色",
+            "closable": "可关闭",
+            "icon": "带图标",
+            "customization": "自定义"
+        },
+        "tooltip": {
+            "title": "文字提示",
+            "description": "简单的文字弹出提示",
+            "basic": "基础用法",
+            "placement": "位置",
+            "trigger": "触发方式",
+            "customization": "自定义"
+        },
+        "popper": {
+            "title": "弹出框",
+            "description": "创建自定义弹出内容",
+            "basic": "基础用法",
+            "placement": "位置",
+            "trigger": "触发方式",
+            "arrow": "箭头"
+        },
+        "searchButton": {
+            "title": "搜索按钮",
+            "description": "用于触发搜索操作的特殊按钮",
+            "basic": "基础用法",
+            "sizes": "尺寸",
+            "loading": "加载中",
+            "customization": "自定义"
+        },
+        "statusIndicator": {
+            "title": "状态指示器",
+            "description": "显示元素的当前状态",
+            "basic": "基础用法",
+            "sizes": "尺寸",
+            "colors": "颜色",
+            "animation": "动画"
+        },
+        "timePicker": {
+            "title": "时间选择器",
+            "description": "用于选择特定时间",
+            "basic": "基础用法",
+            "format": "格式",
+            "range": "范围选择",
+            "disabled": "禁用"
+        },
+        "virtualList": {
+            "title": "虚拟列表",
+            "description": "高效渲染大型列表",
+            "basic": "基础用法",
+            "height": "固定高度",
+            "dynamic": "动态高度",
+            "loading": "加载中"
+        },
+        "autoComplete": {
+            "title": "自动完成",
+            "description": "带有自动完成建议的输入框",
+            "basic": "基础用法",
+            "customization": "自定义",
+            "async": "异步加载",
+            "grouping": "分组"
+        },
+        "empty": {
+            "title": "空状态",
+            "description": "空状态占位符",
+            "basic": "基础用法",
+            "customization": "自定义",
+            "image": "图片"
+        },
+        "cascader": {
+            "title": "级联选择",
+            "description": "级联选择器",
+            "basic": "基础用法",
+            "size": "尺寸",
+            "multiple": "多选",
+            "async": "异步加载"
+        },
+        "iconButton": {
+            "title": "图标按钮",
+            "description": "图标按钮仅包含图标，通常用于工具栏或紧凑的界面中。",
+            "basic": "基础用法",
+            "sizes": "尺寸",
+            "variants": "变体",
+            "states": "状态"
+        }
+    }
+}

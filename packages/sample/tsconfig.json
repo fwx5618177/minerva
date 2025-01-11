@@ -1,22 +1,31 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "esnext",
-    "lib": ["dom", "es2017"],
-    "jsx": "react",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
-    "strict": true,
-    "baseUrl": "./",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
     "paths": {
-      "@hooks/*": ["src/hooks/*"],
-      "@utils/*": ["src/utils/*"],
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@layout/*": ["src/layout/*"],
+      "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
-      "@config/*": ["src/config/*"],
+      "@assets/*": ["src/assets/*"],
       "@i18n/*": ["src/i18n/*"],
-      "@components/*": ["src/components/*"]
+      "@router/*": ["src/router/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "include": ["src", "global.d.ts"]

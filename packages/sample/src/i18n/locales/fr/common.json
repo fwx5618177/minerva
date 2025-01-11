@@ -1,0 +1,103 @@
+{
+    "lib": {
+        "title": "Minerva UI",
+        "description": "Une bibliothèque moderne de composants React",
+        "about": "À propos",
+        "about.description": "Minerva UI est une bibliothèque complète de composants React qui fournit un ensemble de composants réutilisables, accessibles et personnalisables pour vous aider à construire des applications web modernes.",
+        "installation": "Installation",
+        "installation.title": "Installation",
+        "installation.description": "Commencez avec Minerva UI en l'installant dans votre projet.",
+        "installation.usage.title": "Utilisation",
+        "installation.usage.description": "Importez et utilisez les composants dans votre application React.",
+        "installation.requirements.title": "Prérequis",
+        "installation.cdn.title": "CDN",
+        "installation.cdn.description": "Vous pouvez également utiliser Minerva UI directement depuis un CDN.",
+        "features": {
+            "title": "Fonctionnalités",
+            "modern": {
+                "title": "Design Moderne",
+                "description": "Construit avec les principes de design modernes et les meilleures pratiques à l'esprit."
+            },
+            "customizable": {
+                "title": "Hautement Personnalisable",
+                "description": "Personnalisez facilement les composants pour correspondre à votre marque et votre système de design."
+            },
+            "typescript": {
+                "title": "Support TypeScript",
+                "description": "Écrit en TypeScript avec un support complet des types pour une meilleure expérience de développement."
+            },
+            "performance": {
+                "title": "Axé sur la Performance",
+                "description": "Optimisé pour la performance avec une taille de bundle minimale et un rendu efficace."
+            }
+        },
+        "getStarted": {
+            "title": "Commencer",
+            "description": "Commencez à construire votre prochain projet avec les composants Minerva UI."
+        }
+    },
+    "components": {
+        "menu": {
+            "getting_started": "Pour Commencer",
+            "inputs": "Entrées",
+            "data_display": "Affichage des Données",
+            "feedback": "Retour",
+            "navigation": "Navigation"
+        },
+        "overview": {
+            "title": "Vue d'ensemble",
+            "description": "Une bibliothèque moderne de composants React pour construire des interfaces belles et accessibles.",
+            "features": {
+                "title": "Fonctionnalités",
+                "modern": {
+                    "title": "Design Moderne",
+                    "description": "Système de design propre et moderne axé sur l'utilisabilité et l'esthétique."
+                },
+                "components": {
+                    "title": "Bibliothèque de Composants",
+                    "description": "Une collection de composants React de haute qualité construits avec TypeScript."
+                },
+                "customization": {
+                    "title": "Personnalisation",
+                    "description": "Options étendues de personnalisation des thèmes et des styles."
+                },
+                "typescript": {
+                    "title": "Support TypeScript",
+                    "description": "Support TypeScript complet avec des définitions de types complètes."
+                }
+            }
+        },
+        "button": {
+            "title": "Bouton",
+            "description": "Les boutons permettent aux utilisateurs d'effectuer des actions et de faire des choix d'un simple clic.",
+            "variants": "Variantes de Bouton",
+            "sizes": "Tailles de Bouton",
+            "states": "États de Bouton",
+            "shapes": "Formes de Bouton",
+            "customStyles": "Styles Personnalisés",
+            "basic": "Utilisation de Base",
+            "icons": "Avec Icônes",
+            "loading": "État de Chargement",
+            "block": "Bouton Block",
+            "disabled": "État Désactivé"
+        },
+        "switch": {
+            "title": "Interrupteur",
+            "description": "Les interrupteurs permettent aux utilisateurs d'activer ou de désactiver une option.",
+            "basic": "Interrupteur de Base",
+            "sizes": "Tailles d'Interrupteur",
+            "disabled": "État Désactivé",
+            "loading": "État de Chargement",
+            "customColors": "Couleurs Personnalisées",
+            "text": "Texte et Icône"
+        },
+        "alert": {
+            "title": "Alerte",
+            "description": "Les alertes affichent des messages importants aux utilisateurs.",
+            "basic": "Alertes de Base",
+            "types": "Types d'Alerte",
+            "withIcon": "Avec Icônes",
+            "closable": "Fermable"
+        }
+    }
+}

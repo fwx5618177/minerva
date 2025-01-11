@@ -1,0 +1,119 @@
+.errorPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--spacing-6);
+  background: var(--bg-base);
+  transition: var(--transition-colors);
+
+  .content {
+    text-align: center;
+    max-width: 480px;
+    padding: var(--spacing-8);
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-all);
+
+    h1 {
+      font-size: var(--text-5xl);
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 0 0 var(--spacing-4);
+      line-height: 1;
+      transition: var(--transition-colors);
+    }
+
+    p {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      margin: 0 0 var(--spacing-6);
+      transition: var(--transition-colors);
+
+      &.errorMessage {
+        font-family: monospace;
+        font-size: var(--text-sm);
+        color: var(--error-color);
+        padding: var(--spacing-4);
+        background: var(--bg-subtle);
+        border-radius: var(--radius);
+        margin-bottom: var(--spacing-8);
+        word-break: break-word;
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: var(--spacing-4);
+      justify-content: center;
+
+      .homeLink,
+      .refreshButton {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-2);
+        padding: var(--spacing-3) var(--spacing-6);
+        border-radius: var(--radius);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        transition: var(--transition-all);
+
+        .icon {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .homeLink {
+        background: var(--primary-color);
+        color: var(--text-on-primary);
+
+        &:hover {
+          background: var(--primary-dark);
+          transform: translateY(-2px);
+        }
+      }
+
+      .refreshButton {
+        background: var(--bg-subtle);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+
+        &:hover {
+          background: var(--bg-hover);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
+
+// Mobile styles
+@media (max-width: 768px) {
+  .errorPage {
+    padding: var(--spacing-4);
+
+    .content {
+      padding: var(--spacing-6);
+
+      h1 {
+        font-size: var(--text-4xl);
+      }
+
+      p {
+        font-size: var(--text-base);
+      }
+
+      .actions {
+        flex-direction: column;
+
+        .homeLink,
+        .refreshButton {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

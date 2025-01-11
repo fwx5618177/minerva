@@ -1,5 +1,7 @@
 .section {
   padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
 
   h3 {
     margin: 32px 0 16px;
@@ -19,6 +21,8 @@
     padding: 16px;
     background: rgba(0, 0, 0, 0.02);
     border-radius: 8px;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .description {
@@ -48,5 +52,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 }

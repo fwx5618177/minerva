@@ -57,4 +57,18 @@
 
   // 其他变量
   --radius: 0.5rem; // 圆角半径
+
+  // 代码块相关变量
+  --code-bg: #f8f9fa;
+  --code-header-bg: #f1f3f5;
+  --code-content-bg: #ffffff;
+  --code-text: #1a1a1a;
+  --code-line-number: #a0aec0;
+  --code-line-number-bg: #f8f9fa;
+  --code-line-hover-bg: #f1f3f5;
+
+  // 滚动条
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #c1c1c1;
+  --scrollbar-thumb-hover: #a8a8a8;
 }
