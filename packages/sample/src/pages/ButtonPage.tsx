@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { IoRocketOutline } from "react-icons/io5";
 import { Button } from "@minerva/lib-core";
 import CodeBlock from "@layout/CodeBlock";
-import styles from "@styles/pages/components.module.scss";
+import styles from "@styles/pages/button.module.scss";
 
 const ButtonPage: React.FC = () => {
   const { t } = useTranslation();
@@ -50,14 +50,14 @@ function App() {
 
       <section className={styles.section}>
         <h2>{t("components.button.installation")}</h2>
-        <p className={styles.description}>
-          {t("components.button.installation_description")}
-        </p>
-        <CodeBlock
-          code={installCode}
-          language="typescript"
-          showLineNumbers={false}
-        />
+        <p>{t("components.button.installation_description")}</p>
+        <div className={styles.codeWrapper}>
+          <CodeBlock
+            code={installCode}
+            language="typescript"
+            showLineNumbers={false}
+          />
+        </div>
       </section>
 
       <section className={styles.section}>

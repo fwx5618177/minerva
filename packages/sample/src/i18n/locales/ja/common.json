@@ -389,6 +389,47 @@
             "color": "タグの色",
             "size": "タグのサイズ",
             "closable": "閉じることができるタグ"
+        },
+        "textfield": {
+            "title": "テキストフィールド",
+            "description": "テキストフィールドはユーザーがテキストを入力・編集できるようにします。",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "sizes": "テキストフィールドのサイズ",
+            "states": "テキストフィールドの状態",
+            "prefix": "プレフィックスとサフィックス",
+            "clearable": "クリア可能",
+            "password": "パスワード入力",
+            "textarea": "テキストエリア",
+            "properties": {
+                "title": "プロパティ",
+                "value": {
+                    "name": "value",
+                    "type": "string",
+                    "description": "テキストフィールドの値。"
+                },
+                "placeholder": {
+                    "name": "placeholder",
+                    "type": "string",
+                    "description": "フィールドが空の時のプレースホルダーテキスト。"
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "description": "テキストフィールドが無効化されているかどうか。"
+                },
+                "error": {
+                    "name": "error",
+                    "type": "boolean",
+                    "description": "テキストフィールドがエラー状態かどうか。"
+                },
+                "size": {
+                    "name": "size",
+                    "type": "'small' | 'medium' | 'large'",
+                    "description": "テキストフィールドのサイズ。"
+                }
+            }
         }
     },
     "error": {

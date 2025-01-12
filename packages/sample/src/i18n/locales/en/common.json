@@ -196,13 +196,43 @@
         "textfield": {
             "title": "Text Field",
             "description": "Text fields let users enter and edit text.",
-            "basic": "Basic Usage",
-            "sizes": "Sizes",
-            "status": "Status",
-            "prefix": "Prefix & Suffix",
-            "clearable": "Clearable",
-            "password": "Password",
-            "textarea": "Textarea"
+            "installation": "Installation",
+            "basic_usage": "Basic Usage",
+            "examples": "Examples",
+            "sizes": "Text Field Sizes",
+            "states": "Text Field States",
+            "prefix": "Prefix and Suffix",
+            "clearable": "Clearable Input",
+            "password": "Password Input",
+            "textarea": "Text Area",
+            "properties": {
+                "title": "Properties",
+                "value": {
+                    "name": "value",
+                    "type": "string",
+                    "description": "The value of the text field."
+                },
+                "placeholder": {
+                    "name": "placeholder",
+                    "type": "string",
+                    "description": "Placeholder text when the field is empty."
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "description": "Whether the text field is disabled."
+                },
+                "error": {
+                    "name": "error",
+                    "type": "boolean",
+                    "description": "Whether the text field is in error state."
+                },
+                "size": {
+                    "name": "size",
+                    "type": "'small' | 'medium' | 'large'",
+                    "description": "The size of the text field."
+                }
+            }
         },
         "radio": {
             "title": "Radio",

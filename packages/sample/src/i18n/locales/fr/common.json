@@ -389,6 +389,47 @@
             "color": "Couleurs d'Étiquette",
             "size": "Tailles d'Étiquette",
             "closable": "Étiquettes Fermables"
+        },
+        "textfield": {
+            "title": "Champ de Texte",
+            "description": "Les champs de texte permettent aux utilisateurs de saisir et de modifier du texte.",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "sizes": "Tailles de Champ",
+            "states": "États du Champ",
+            "prefix": "Préfixe et Suffixe",
+            "clearable": "Effaçable",
+            "password": "Champ de Mot de Passe",
+            "textarea": "Zone de Texte",
+            "properties": {
+                "title": "Propriétés",
+                "value": {
+                    "name": "value",
+                    "type": "string",
+                    "description": "La valeur du champ de texte."
+                },
+                "placeholder": {
+                    "name": "placeholder",
+                    "type": "string",
+                    "description": "Texte d'indication lorsque le champ est vide."
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "description": "Si le champ de texte est désactivé."
+                },
+                "error": {
+                    "name": "error",
+                    "type": "boolean",
+                    "description": "Si le champ de texte est en état d'erreur."
+                },
+                "size": {
+                    "name": "size",
+                    "type": "'small' | 'medium' | 'large'",
+                    "description": "La taille du champ de texte."
+                }
+            }
         }
     },
     "error": {

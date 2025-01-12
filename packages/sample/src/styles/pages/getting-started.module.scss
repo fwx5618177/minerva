@@ -8,7 +8,7 @@
 
     .titleWrapper {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: var(--spacing-4);
 
       .icon {
@@ -110,54 +110,6 @@
 
         &:last-child {
           margin-bottom: 0;
-        }
-
-        a {
-          display: inline-flex;
-          align-items: center;
-          gap: var(--spacing-2);
-          color: var(--primary-color);
-          font-weight: 500;
-          text-decoration: none;
-          transition: var(--transition-colors);
-
-          &:hover {
-            color: var(--primary-dark);
-          }
-        }
-      }
-    }
-
-    .tokens {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--spacing-8);
-      margin: var(--spacing-6) 0;
-
-      .tokenGroup {
-        h3 {
-          font-size: var(--text-lg);
-          margin: 0 0 var(--spacing-3);
-        }
-
-        ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-
-          li {
-            font-family: var(--font-mono);
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            padding: var(--spacing-2) var(--spacing-3);
-            background: var(--bg-muted);
-            border-radius: var(--radius);
-            margin-bottom: var(--spacing-2);
-
-            &:last-child {
-              margin-bottom: 0;
-            }
-          }
         }
       }
     }

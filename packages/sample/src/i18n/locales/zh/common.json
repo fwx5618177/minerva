@@ -192,14 +192,44 @@
         },
         "textfield": {
             "title": "文本框",
-            "description": "文本框让用户输入和编辑文本。",
-            "basic": "基础用法",
-            "sizes": "尺寸",
-            "status": "状态",
+            "description": "文本框允许用户输入和编辑文本。",
+            "installation": "安装",
+            "basic_usage": "基础用法",
+            "examples": "示例",
+            "sizes": "文本框尺寸",
+            "states": "文本框状态",
             "prefix": "前缀和后缀",
-            "clearable": "可清除",
-            "password": "密码框",
-            "textarea": "文本域"
+            "clearable": "可清除输入",
+            "password": "密码输入",
+            "textarea": "文本域",
+            "properties": {
+                "title": "属性",
+                "value": {
+                    "name": "value",
+                    "type": "string",
+                    "description": "文本框的值。"
+                },
+                "placeholder": {
+                    "name": "placeholder",
+                    "type": "string",
+                    "description": "文本框为空时的占位文本。"
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "description": "文本框是否禁用。"
+                },
+                "error": {
+                    "name": "error",
+                    "type": "boolean",
+                    "description": "文本框是否处于错误状态。"
+                },
+                "size": {
+                    "name": "size",
+                    "type": "'small' | 'medium' | 'large'",
+                    "description": "文本框的尺寸。"
+                }
+            }
         },
         "radio": {
             "title": "单选框",

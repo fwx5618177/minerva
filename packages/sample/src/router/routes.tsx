@@ -244,21 +244,6 @@ export const menuConfig = {
       icon: <IoRadioButtonOnOutline />,
       translationKey: "components.radio.title",
     },
-    {
-      path: "switch",
-      icon: <IoToggleOutline />,
-      translationKey: "components.switch.title",
-    },
-    {
-      path: "icon-button",
-      icon: <IoRocketOutline />,
-      translationKey: "components.iconButton.title",
-    },
-    {
-      path: "search-button",
-      icon: <IoSearchOutline />,
-      translationKey: "components.searchButton.title",
-    },
   ],
   dataDisplay: [
     {
@@ -311,6 +296,11 @@ export const menuConfig = {
       icon: <IoBookmarkOutline />,
       translationKey: "components.tag.title",
     },
+    {
+      path: "switch",
+      icon: <IoToggleOutline />,
+      translationKey: "components.switch.title",
+    },
   ],
   feedback: [
     {
@@ -342,6 +332,16 @@ export const menuConfig = {
       path: "popper",
       icon: <IoArrowUpOutline />,
       translationKey: "components.popper.title",
+    },
+    {
+      path: "icon-button",
+      icon: <IoRocketOutline />,
+      translationKey: "components.iconButton.title",
+    },
+    {
+      path: "search-button",
+      icon: <IoSearchOutline />,
+      translationKey: "components.searchButton.title",
     },
   ],
   navigation: [
