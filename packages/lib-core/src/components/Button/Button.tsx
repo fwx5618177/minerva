@@ -15,7 +15,6 @@ import { ButtonProps } from "./types";
  * @param shape - The shape of the button (square, rounded, circle)
  * @param borderRadius - The border radius of the button (none, small, medium, large, circle, square)
  * @param ref - Ref forwarded to the button element
- * @returns A button component
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -31,6 +30,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       active = false,
       shape,
       borderRadius = "medium",
+      style,
+      // 解构其他 HTML button 元素支持的属性
+      ...restProps
     },
     ref,
   ) => {
@@ -50,10 +52,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const getCustomStyle = () => {
-      if (typeof borderRadius === "number") {
-        return { borderRadius: `${borderRadius}px` };
-      }
-      return {};
+      const baseStyle =
+        typeof borderRadius === "number"
+          ? { borderRadius: `${borderRadius}px` }
+          : {};
+
+      // 合并自定义样式
+      return {
+        ...baseStyle,
+        ...style,
+      };
     };
 
     return (
@@ -75,6 +83,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         tabIndex={0}
         disabled={disabled || loading}
         style={getCustomStyle()}
+        {...restProps}
       >
         {loading ? (
           <span className={styles.loadingWrapper}>

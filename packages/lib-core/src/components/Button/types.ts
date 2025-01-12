@@ -1,5 +1,5 @@
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
   className?: string;
@@ -25,4 +25,5 @@ export interface ButtonProps
     | "circle"
     | "square"
     | number;
+  style?: React.CSSProperties;
 }
