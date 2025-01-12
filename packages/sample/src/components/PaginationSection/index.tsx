@@ -24,14 +24,6 @@ const PaginationSection: React.FC = () => {
   const [customPage, setCustomPage] = useState(1);
   const [simplePage, setSimplePage] = useState(1);
   const [responsivePage, setResponsivePage] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-
-  const handlePageChange = (page: number, size: number) => {
-    setCurrentPage(page);
-    setPageSize(size);
-    console.log(`Page: ${page}, PageSize: ${size}`);
-  };
 
   return (
     <div className={styles.examples}>
@@ -193,7 +185,10 @@ const PaginationSection: React.FC = () => {
             showQuickJumper
             showSizeChanger
             showTotal
-            onChange={(page) => setMorePage(page)}
+            onChange={(page) => {
+              setMorePage(page);
+              setMorePageSize(page);
+            }}
             totalRender={(total: number, range: [number, number]) =>
               `${range[0]}-${range[1]} of ${total} items`
             }
@@ -228,7 +223,10 @@ const PaginationSection: React.FC = () => {
             showQuickJumper
             showSizeChanger
             showTotal
-            onChange={(page) => setLargePage(page)}
+            onChange={(page) => {
+              setLargePage(page);
+              setLargePageSize(page);
+            }}
           />
         </div>
         <div className={styles.codeWrapper}>
@@ -255,7 +253,9 @@ const PaginationSection: React.FC = () => {
           <Pagination
             total={100}
             current={customPage}
-            onChange={(page) => setCustomPage(page)}
+            onChange={(page) => {
+              setCustomPage(page);
+            }}
             icons={{
               prev: <IoChevronBack />,
               next: <IoChevronForward />,

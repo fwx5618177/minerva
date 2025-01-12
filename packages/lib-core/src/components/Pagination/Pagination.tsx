@@ -106,7 +106,6 @@ const Pagination: React.FC<PaginationProps> = ({
       }
 
       if (event) {
-        // 添加水波纹效果
         const rect = event.currentTarget.getBoundingClientRect();
         const ripple = {
           x: event.clientX - rect.left,
@@ -162,9 +161,9 @@ const Pagination: React.FC<PaginationProps> = ({
       const isDisabled =
         disabled ||
         (type === "prev"
-          ? page <= 1
+          ? current <= 1
           : type === "next"
-            ? page > totalPages
+            ? current >= totalPages
             : false);
       const itemClassName = classNames(styles.item, {
         [styles.active]: type === "page" && page === current,
