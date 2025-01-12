@@ -485,6 +485,63 @@
                     "description": "La taille du champ de texte."
                 }
             }
+        },
+        "pagination": {
+            "title": "Pagination",
+            "description": "Une longue liste peut être divisée en plusieurs pages en utilisant la pagination, et une seule page sera chargée à la fois.",
+            "examples": {
+                "basic": {
+                    "title": "Basique",
+                    "description": "L'utilisation la plus simple de la pagination."
+                },
+                "sizes": {
+                    "title": "Différentes tailles",
+                    "description": "Trois tailles sont disponibles : petite, moyenne (par défaut) et grande."
+                },
+                "shapes": {
+                    "title": "Différentes formes",
+                    "description": "Trois formes sont disponibles : carrée, arrondie (par défaut) et circulaire."
+                },
+                "variants": {
+                    "title": "Différentes variantes",
+                    "description": "Trois variantes sont disponibles : remplie (par défaut), contour et texte."
+                },
+                "more": {
+                    "title": "Plus de fonctionnalités",
+                    "description": "Plus de fonctionnalités comme le saut rapide, le changeur de taille et l'affichage total."
+                },
+                "simple": {
+                    "title": "Mode simple",
+                    "description": "Le mode simple affichera moins d'éléments de page."
+                },
+                "disabled": {
+                    "title": "Désactivé",
+                    "description": "État désactivé de la pagination."
+                },
+                "responsive": {
+                    "title": "Responsive",
+                    "description": "En mode responsive, les éléments seront masqués sur les petits écrans."
+                }
+            },
+            "properties": {
+                "title": "Propriétés",
+                "current": "Numéro de page actuel",
+                "total": "Nombre total d'éléments",
+                "pageSize": "Nombre d'éléments par page",
+                "onChange": "Callback lors du changement de page ou de taille de page",
+                "disabled": "Si la pagination est désactivée",
+                "showQuickJumper": "Si le saut rapide est affiché",
+                "showSizeChanger": "Si le changeur de taille de page est affiché",
+                "pageSizeOptions": "Options pour le changeur de taille de page",
+                "itemRender": "Fonction de rendu personnalisée pour les éléments de page",
+                "showTotal": "Si le nombre total est affiché",
+                "totalRender": "Fonction de rendu personnalisée pour le texte total",
+                "size": "Taille de la pagination",
+                "shape": "Forme des éléments de pagination",
+                "variant": "Variante des éléments de pagination",
+                "simple": "Si le mode simple est utilisé",
+                "responsive": "Si le mode responsive est utilisé"
+            }
         }
     },
     "error": {

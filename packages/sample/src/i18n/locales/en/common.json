@@ -497,6 +497,63 @@
             "events": "Events",
             "methods": "Methods",
             "slots": "Slots"
+        },
+        "pagination": {
+            "title": "Pagination",
+            "description": "A long list can be divided into several pages using Pagination, and only one page will be loaded at a time.",
+            "examples": {
+                "basic": {
+                    "title": "Basic",
+                    "description": "The simplest use of Pagination."
+                },
+                "sizes": {
+                    "title": "Different Sizes",
+                    "description": "Three sizes are available: small, medium (default) and large."
+                },
+                "shapes": {
+                    "title": "Different Shapes",
+                    "description": "Three shapes are available: square, rounded (default) and circle."
+                },
+                "variants": {
+                    "title": "Different Variants",
+                    "description": "Three variants are available: filled (default), outlined and text."
+                },
+                "more": {
+                    "title": "More Features",
+                    "description": "More features like quick jumper, size changer and total display."
+                },
+                "simple": {
+                    "title": "Simple Mode",
+                    "description": "Simple mode will show less page items."
+                },
+                "disabled": {
+                    "title": "Disabled",
+                    "description": "Disabled state of Pagination."
+                },
+                "responsive": {
+                    "title": "Responsive",
+                    "description": "In responsive mode, items will be hidden on small screens."
+                }
+            },
+            "properties": {
+                "title": "Properties",
+                "current": "Current page number",
+                "total": "Total number of items",
+                "pageSize": "Number of items per page",
+                "onChange": "Callback when page or pageSize changes",
+                "disabled": "Whether to disable pagination",
+                "showQuickJumper": "Whether to show quick jumper",
+                "showSizeChanger": "Whether to show page size changer",
+                "pageSizeOptions": "Options for page size changer",
+                "itemRender": "Custom render function for page items",
+                "showTotal": "Whether to show total number",
+                "totalRender": "Custom render function for total text",
+                "size": "Size of pagination",
+                "shape": "Shape of pagination items",
+                "variant": "Variant of pagination items",
+                "simple": "Whether to use simple mode",
+                "responsive": "Whether to use responsive mode"
+            }
         }
     },
     "error": {

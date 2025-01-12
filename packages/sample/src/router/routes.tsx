@@ -63,6 +63,7 @@ import EmptyPage from "@pages/EmptyPage";
 import CascaderPage from "@pages/CascaderPage";
 import SpacePage from "@pages/SpacePage";
 import TagPage from "@pages/TagPage";
+import PaginationPage from "@pages/PaginationPage";
 
 export const routes: RouteObject[] = [
   // Getting Started Routes
@@ -191,6 +192,10 @@ export const routes: RouteObject[] = [
   {
     path: "tag",
     element: <TagPage />,
+  },
+  {
+    path: "pagination",
+    element: <PaginationPage />,
   },
 ];
 
@@ -359,6 +364,11 @@ export const menuConfig = {
       path: "auto-complete",
       icon: <IoSearchOutline />,
       translationKey: "components.autoComplete.title",
+    },
+    {
+      path: "pagination",
+      icon: <IoListOutline />,
+      translationKey: "components.pagination.title",
     },
   ],
 };

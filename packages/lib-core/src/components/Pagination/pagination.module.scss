@@ -1,0 +1,247 @@
+@import "../../styles/themes/light.module.scss";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  transition: all 0.3s;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color-light);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.small {
+    font-size: var(--font-size-sm);
+    .item {
+      min-width: 28px;
+      height: 28px;
+    }
+  }
+
+  &.large {
+    font-size: var(--font-size-lg);
+    .item {
+      min-width: 40px;
+      height: 40px;
+    }
+  }
+
+  &.circle .item {
+    border-radius: 50%;
+  }
+
+  &.square .item {
+    border-radius: 0;
+  }
+
+  &.outlined .item {
+    background: transparent;
+    border: 1px solid var(--border-color);
+
+    &:hover:not(.disabled) {
+      border-color: var(--primary-color);
+    }
+  }
+
+  &.text .item {
+    background: transparent;
+
+    &:hover:not(.disabled) {
+      background: var(--hover-color);
+    }
+  }
+
+  &.responsive {
+    @media (max-width: 576px) {
+      .item:not(.prev):not(.next):not(.active) {
+        display: none;
+      }
+    }
+  }
+
+  &.animating .item {
+    animation: fadeInScale 0.3s ease;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 4px;
+  margin: 0;
+  color: inherit;
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius-base);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+
+  &:hover:not(.disabled) {
+    color: var(--primary-color);
+    background-color: var(--hover-color);
+  }
+
+  &.active {
+    color: var(--white);
+    background-color: var(--primary-color);
+    &:hover {
+      color: var(--white);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--disabled-color);
+    &:hover {
+      color: var(--disabled-color);
+      background-color: var(--bg-color);
+    }
+  }
+
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.total {
+  margin-right: 8px;
+}
+
+.jumper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  input {
+    width: 50px;
+    height: 32px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-base);
+    outline: none;
+    transition: all 0.2s;
+
+    &:focus {
+      border-color: var(--primary-color);
+    }
+  }
+}
+
+.sizeChanger {
+  select {
+    height: 32px;
+    padding: 4px 24px 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-base);
+    outline: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    appearance: none;
+    background: var(--bg-color)
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")
+      no-repeat right 4px center/16px;
+
+    &:focus {
+      border-color: var(--primary-color);
+    }
+
+    option {
+      background-color: var(--bg-color);
+    }
+  }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Dark theme support
+:global(.dark) {
+  .pagination {
+    color: var(--dark-text-color);
+
+    .item {
+      background-color: var(--dark-bg-color);
+
+      &:hover:not(.disabled) {
+        background-color: var(--dark-hover-color);
+      }
+
+      &.active {
+        background-color: var(--primary-color);
+      }
+
+      &.disabled {
+        color: var(--dark-disabled-color);
+        &:hover {
+          background-color: var(--dark-bg-color);
+        }
+      }
+    }
+
+    &.outlined {
+      .item {
+        border-color: var(--dark-border-color);
+      }
+    }
+
+    &.text {
+      .item {
+        &:hover:not(.disabled) {
+          background-color: var(--dark-hover-color);
+        }
+      }
+    }
+  }
+
+  .jumper {
+    input {
+      background-color: var(--dark-bg-color);
+      border-color: var(--dark-border-color);
+      color: var(--dark-text-color);
+    }
+  }
+
+  .sizeChanger {
+    select {
+      background-color: var(--dark-bg-color);
+      border-color: var(--dark-border-color);
+      color: var(--dark-text-color);
+
+      option {
+        background-color: var(--dark-bg-color);
+      }
+    }
+  }
+}

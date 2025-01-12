@@ -494,6 +494,63 @@
             "events": "事件",
             "methods": "方法",
             "slots": "插槽"
+        },
+        "pagination": {
+            "title": "分页",
+            "description": "采用分页的形式分隔长列表，每次只加载一个页面。",
+            "examples": {
+                "basic": {
+                    "title": "基本用法",
+                    "description": "最简单的分页用法。"
+                },
+                "sizes": {
+                    "title": "不同尺寸",
+                    "description": "提供三种尺寸：小、中（默认）、大。"
+                },
+                "shapes": {
+                    "title": "不同形状",
+                    "description": "提供三种形状：方形、圆角（默认）、圆形。"
+                },
+                "variants": {
+                    "title": "不同变体",
+                    "description": "提供三种变体：填充（默认）、描边、文本。"
+                },
+                "more": {
+                    "title": "更多功能",
+                    "description": "更多功能，如快速跳转、页码选择器和总数显示。"
+                },
+                "simple": {
+                    "title": "简洁模式",
+                    "description": "简洁模式下会显示较少的页码。"
+                },
+                "disabled": {
+                    "title": "禁用状态",
+                    "description": "分页的禁用状态。"
+                },
+                "responsive": {
+                    "title": "响应式",
+                    "description": "在响应式模式下，小屏幕上会隐藏部分项目。"
+                }
+            },
+            "properties": {
+                "title": "属性",
+                "current": "当前页码",
+                "total": "总条目数",
+                "pageSize": "每页条目数",
+                "onChange": "页码或每页条目数改变时的回调",
+                "disabled": "是否禁用分页",
+                "showQuickJumper": "是否显示快速跳转",
+                "showSizeChanger": "是否显示页码选择器",
+                "pageSizeOptions": "页码选择器的选项",
+                "itemRender": "自定义页码的渲染函数",
+                "showTotal": "是否显示总数",
+                "totalRender": "自定义总数文本的渲染函数",
+                "size": "分页的尺寸",
+                "shape": "分页项的形状",
+                "variant": "分页项的变体",
+                "simple": "是否使用简洁模式",
+                "responsive": "是否使用响应式模式"
+            }
         }
     },
     "error": {
