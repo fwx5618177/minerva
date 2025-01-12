@@ -44,28 +44,34 @@
             "feedback": "Feedback",
             "navigation": "Navigation"
         },
+        "installation": {
+            "title": "Installation",
+            "description": "Get started with Minerva UI by installing it in your project",
+            "package": "Package Installation",
+            "setup": "Project Setup",
+            "usage": "Basic Usage"
+        },
         "overview": {
             "title": "Overview",
-            "description": "A modern React UI library for building beautiful and accessible interfaces.",
-            "features": {
-                "title": "Features",
-                "modern": {
-                    "title": "Modern Design",
-                    "description": "Clean and modern design system with a focus on usability and aesthetics."
-                },
-                "components": {
-                    "title": "Component Library",
-                    "description": "A collection of high-quality React components built with TypeScript."
-                },
-                "customization": {
-                    "title": "Customization",
-                    "description": "Extensive theming and style customization options."
-                },
-                "typescript": {
-                    "title": "TypeScript Support",
-                    "description": "Full TypeScript support with comprehensive type definitions."
-                }
-            }
+            "description": "A modern React UI library for building beautiful and accessible interfaces",
+            "introduction": "Introduction",
+            "features": "Features",
+            "examples": "Examples"
+        },
+        "introduction": {
+            "title": "Introduction",
+            "description": "Learn about Minerva UI's features and capabilities",
+            "what_is": "What is Minerva UI",
+            "key_features": "Key Features",
+            "principles": "Design Principles"
+        },
+        "theming": {
+            "title": "Theming",
+            "description": "Customize the look and feel of your components",
+            "tokens": "Design Tokens",
+            "colors": "Color System",
+            "typography": "Typography",
+            "spacing": "Spacing"
         },
         "button": {
             "title": "Button",

@@ -44,28 +44,34 @@
             "feedback": "フィードバック",
             "navigation": "ナビゲーション"
         },
+        "installation": {
+            "title": "インストール",
+            "description": "プロジェクトに Minerva UI をインストールして始めましょう",
+            "package": "パッケージのインストール",
+            "setup": "プロジェクトの設定",
+            "usage": "基本的な使い方"
+        },
         "overview": {
             "title": "概要",
-            "description": "美しくアクセシブルなインターフェースを構築するためのモダンな React UI ライブラリ。",
-            "features": {
-                "title": "機能",
-                "modern": {
-                    "title": "モダンなデザイン",
-                    "description": "使いやすさと美しさに焦点を当てたクリーンでモダンなデザインシステム。"
-                },
-                "components": {
-                    "title": "コンポーネントライブラリ",
-                    "description": "TypeScript で構築された高品質な React コンポーネントのコレクション。"
-                },
-                "customization": {
-                    "title": "カスタマイズ",
-                    "description": "広範なテーマとスタイルのカスタマイズオプション。"
-                },
-                "typescript": {
-                    "title": "TypeScript サポート",
-                    "description": "包括的な型定義を含む完全な TypeScript サポート。"
-                }
-            }
+            "description": "美しくアクセシブルなインターフェースを構築するためのモダンな React UI ライブラリ",
+            "introduction": "はじめに",
+            "features": "機能",
+            "examples": "例"
+        },
+        "introduction": {
+            "title": "はじめに",
+            "description": "Minerva UI の機能と特徴について学びましょう",
+            "what_is": "Minerva UI とは",
+            "key_features": "主な機能",
+            "principles": "設計原則"
+        },
+        "theming": {
+            "title": "テーマ設定",
+            "description": "コンポーネントの外観をカスタマイズ",
+            "tokens": "デザイントークン",
+            "colors": "カラーシステム",
+            "typography": "タイポグラフィ",
+            "spacing": "スペーシング"
         },
         "button": {
             "title": "ボタン",

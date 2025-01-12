@@ -44,28 +44,34 @@
             "feedback": "Retour",
             "navigation": "Navigation"
         },
+        "installation": {
+            "title": "Installation",
+            "description": "Commencez avec Minerva UI en l'installant dans votre projet",
+            "package": "Installation du Package",
+            "setup": "Configuration du Projet",
+            "usage": "Utilisation de Base"
+        },
         "overview": {
             "title": "Vue d'ensemble",
-            "description": "Une bibliothèque moderne de composants React pour construire des interfaces belles et accessibles.",
-            "features": {
-                "title": "Fonctionnalités",
-                "modern": {
-                    "title": "Design Moderne",
-                    "description": "Système de design propre et moderne axé sur l'utilisabilité et l'esthétique."
-                },
-                "components": {
-                    "title": "Bibliothèque de Composants",
-                    "description": "Une collection de composants React de haute qualité construits avec TypeScript."
-                },
-                "customization": {
-                    "title": "Personnalisation",
-                    "description": "Options étendues de personnalisation des thèmes et des styles."
-                },
-                "typescript": {
-                    "title": "Support TypeScript",
-                    "description": "Support TypeScript complet avec des définitions de types complètes."
-                }
-            }
+            "description": "Une bibliothèque moderne de composants React pour construire des interfaces belles et accessibles",
+            "introduction": "Introduction",
+            "features": "Fonctionnalités",
+            "examples": "Exemples"
+        },
+        "introduction": {
+            "title": "Introduction",
+            "description": "Découvrez les fonctionnalités et les capacités de Minerva UI",
+            "what_is": "Qu'est-ce que Minerva UI",
+            "key_features": "Fonctionnalités Clés",
+            "principles": "Principes de Design"
+        },
+        "theming": {
+            "title": "Thématisation",
+            "description": "Personnalisez l'apparence de vos composants",
+            "tokens": "Tokens de Design",
+            "colors": "Système de Couleurs",
+            "typography": "Typographie",
+            "spacing": "Espacement"
         },
         "button": {
             "title": "Bouton",
