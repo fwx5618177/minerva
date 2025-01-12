@@ -1,28 +1,30 @@
 import React from "react";
 import { useRouteError, Link } from "react-router-dom";
 import { IoHomeOutline, IoRefreshOutline } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 import styles from "@styles/pages/error.module.scss";
 
 const ErrorBoundary: React.FC = () => {
   const error = useRouteError() as Error;
+  const { t } = useTranslation();
 
   return (
     <div className={styles.errorPage}>
       <div className={styles.content}>
-        <h1>Oops!</h1>
-        <p>Sorry, an unexpected error has occurred.</p>
+        <h1>{t("error.title")}</h1>
+        <p>{t("error.description")}</p>
         <p className={styles.errorMessage}>{error.message}</p>
         <div className={styles.actions}>
-          <Link to="/" className={styles.homeLink}>
+          <Link to="overview" className={styles.homeLink}>
             <IoHomeOutline className={styles.icon} />
-            Back to Home
+            {t("error.back_home")}
           </Link>
           <button
             onClick={() => window.location.reload()}
             className={styles.refreshButton}
           >
             <IoRefreshOutline className={styles.icon} />
-            Refresh Page
+            {t("error.refresh")}
           </button>
         </div>
       </div>

@@ -99,5 +99,16 @@
             "withIcon": "Avec Icônes",
             "closable": "Fermable"
         }
+    },
+    "error": {
+        "title": "Oups !",
+        "description": "Désolé, une erreur inattendue s'est produite.",
+        "back_home": "Retour à l'accueil",
+        "refresh": "Actualiser la page"
+    },
+    "notFound": {
+        "title": "404",
+        "description": "Oups ! La page que vous recherchez n'existe pas.",
+        "back_home": "Retour à l'accueil"
     }
 }

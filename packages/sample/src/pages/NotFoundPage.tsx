@@ -1,17 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 import styles from "@styles/pages/error.module.scss";
 
 const NotFoundPage: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.errorPage}>
       <div className={styles.content}>
-        <h1>404</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <Link to="/" className={styles.homeLink}>
+        <h1>{t("notFound.title")}</h1>
+        <p>{t("notFound.description")}</p>
+        <Link to="overview" className={styles.homeLink}>
           <IoHomeOutline className={styles.icon} />
-          Back to Home
+          {t("notFound.back_home")}
         </Link>
       </div>
     </div>

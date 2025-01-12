@@ -99,5 +99,16 @@
             "withIcon": "アイコン付き",
             "closable": "閉じることができる"
         }
+    },
+    "error": {
+        "title": "おっと！",
+        "description": "申し訳ありません。予期せぬエラーが発生しました。",
+        "back_home": "ホームに戻る",
+        "refresh": "ページを更新"
+    },
+    "notFound": {
+        "title": "404",
+        "description": "申し訳ありません。お探しのページは存在しません。",
+        "back_home": "ホームに戻る"
     }
 }

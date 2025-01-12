@@ -308,5 +308,16 @@
             "variants": "Variants",
             "states": "States"
         }
+    },
+    "error": {
+        "title": "Oops!",
+        "description": "Sorry, an unexpected error has occurred.",
+        "back_home": "Back to Home",
+        "refresh": "Refresh Page"
+    },
+    "notFound": {
+        "title": "404",
+        "description": "Oops! The page you're looking for doesn't exist.",
+        "back_home": "Back to Home"
     }
 }
