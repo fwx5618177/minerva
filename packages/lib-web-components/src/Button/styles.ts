@@ -20,6 +20,10 @@ export default css`
     --disabled-color: #e5e7eb;
     --disabled-text: #9ca3af;
     --ripple-color: rgba(255, 255, 255, 0.7);
+    --retry-color: #f59e0b;
+    --retry-hover: #d97706;
+    --back-color: #6b7280;
+    --back-hover: #4b5563;
   }
 
   .button {
@@ -101,6 +105,24 @@ export default css`
 
   .variant-ghost:hover:not(:disabled) {
     background-color: var(--ghost-hover);
+  }
+
+  .variant-retry {
+    background-color: var(--retry-color);
+    color: white;
+  }
+
+  .variant-retry:hover:not(:disabled) {
+    background-color: var(--retry-hover);
+  }
+
+  .variant-back {
+    background-color: var(--back-color);
+    color: white;
+  }
+
+  .variant-back:hover:not(:disabled) {
+    background-color: var(--back-hover);
   }
 
   /* Sizes */

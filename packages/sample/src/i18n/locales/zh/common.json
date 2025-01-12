@@ -583,6 +583,34 @@
                 "responsive": "是否使用响应式模式",
                 "icons": "自定义导航图标"
             }
+        },
+        "webComponentButton": {
+            "examples": {
+                "basic": {
+                    "title": "基础用法",
+                    "description": "按钮的基本用法。使用 primary 变体表示主要操作。"
+                },
+                "variants": {
+                    "title": "按钮变体",
+                    "description": "不同用途的按钮样式。"
+                },
+                "sizes": {
+                    "title": "按钮尺寸",
+                    "description": "不同场景下使用不同尺寸的按钮。"
+                },
+                "shapes": {
+                    "title": "按钮形状",
+                    "description": "按钮可以有不同的形状以匹配您的设计需求。"
+                },
+                "borderRadius": {
+                    "title": "圆角",
+                    "description": "自定义按钮的圆角大小。"
+                },
+                "rippleEffect": {
+                    "title": "涟漪效果",
+                    "description": "点击按钮时可以显示涟漪效果。"
+                }
+            }
         }
     },
     "error": {

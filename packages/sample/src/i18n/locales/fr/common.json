@@ -545,6 +545,34 @@
                 "responsive": "Utiliser le mode responsive",
                 "icons": "Icônes de navigation personnalisées"
             }
+        },
+        "webComponentButton": {
+            "examples": {
+                "basic": {
+                    "title": "Utilisation de Base",
+                    "description": "Utilisation basique du bouton. Utilisez la variante primary pour les actions principales."
+                },
+                "variants": {
+                    "title": "Variantes de Bouton",
+                    "description": "Différents styles de boutons pour différents usages."
+                },
+                "sizes": {
+                    "title": "Tailles de Bouton",
+                    "description": "Les boutons existent en différentes tailles pour différents usages."
+                },
+                "shapes": {
+                    "title": "Formes de Bouton",
+                    "description": "Les boutons peuvent avoir différentes formes selon vos besoins."
+                },
+                "borderRadius": {
+                    "title": "Rayon de Bordure",
+                    "description": "Personnalisez l'arrondi des coins des boutons."
+                },
+                "rippleEffect": {
+                    "title": "Effet d'Ondulation",
+                    "description": "Les boutons peuvent avoir un effet d'ondulation au clic."
+                }
+            }
         }
     },
     "error": {

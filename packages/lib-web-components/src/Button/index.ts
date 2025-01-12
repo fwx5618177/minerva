@@ -16,56 +16,20 @@ export class Button extends LitElement {
   @property({ type: String, reflect: true })
   shape: ButtonProps["shape"] = "rounded";
 
+  @property({ type: String, reflect: true })
+  borderRadius: ButtonProps["borderRadius"] = "medium";
+
+  @property({ type: Boolean, reflect: true })
+  disabled = false;
+
   @property({ type: Boolean, reflect: true })
   loading = false;
 
   @property({ type: Boolean, reflect: true })
   active = false;
 
-  @property({ type: Boolean, reflect: true })
-  disabled = false;
-
-  @property({ type: Boolean, reflect: true })
-  block = false;
-
-  @property({ type: Boolean, reflect: true })
-  elevation = false;
-
-  @property({ type: Boolean, reflect: true })
-  animation = false;
-
   @property({ type: String })
-  icon = "";
-
-  @property({ type: String })
-  iconPosition: ButtonProps["iconPosition"] = "left";
-
-  @property({ type: Boolean, reflect: true })
-  ripple = false;
-
-  @property({ type: Boolean, reflect: true })
-  outlined = false;
-
-  @property({ type: Boolean, reflect: true })
-  gradient = false;
-
-  @property({ type: Boolean, reflect: true })
-  transparent = false;
-
-  @property({ type: Boolean, reflect: true })
-  borderless = false;
-
-  @property({ type: Boolean, reflect: true })
-  compact = false;
-
-  @property({ type: Boolean, reflect: true })
-  uppercase = false;
-
-  @property({ type: Boolean, reflect: true })
-  lowercase = false;
-
-  @property({ type: Boolean, reflect: true })
-  capitalize = false;
+  ariaLabel = "";
 
   private handleClick(e: MouseEvent) {
     if (this.disabled || this.loading) {
@@ -74,9 +38,7 @@ export class Button extends LitElement {
       return;
     }
 
-    if (this.ripple) {
-      this.createRippleEffect(e);
-    }
+    this.createRippleEffect(e);
   }
 
   private createRippleEffect(e: MouseEvent) {
@@ -109,19 +71,13 @@ export class Button extends LitElement {
       <button
         class=${this.generateClasses()}
         ?disabled=${this.disabled}
+        ?active=${this.active}
+        aria-label=${this.ariaLabel}
         @click=${this.handleClick}
       >
         ${this.loading
           ? html`<span class="loading-spinner"></span>`
-          : html`
-              ${this.icon && this.iconPosition === "left"
-                ? html`<span class="icon left">${this.icon}</span>`
-                : null}
-              <slot></slot>
-              ${this.icon && this.iconPosition === "right"
-                ? html`<span class="icon right">${this.icon}</span>`
-                : null}
-            `}
+          : html`<slot></slot>`}
       </button>
     `;
   }
@@ -132,21 +88,10 @@ export class Button extends LitElement {
       `variant-${this.variant}`,
       `size-${this.size}`,
       `shape-${this.shape}`,
+      `border-radius-${this.borderRadius}`,
       this.loading && "loading",
       this.active && "active",
       this.disabled && "disabled",
-      this.block && "block",
-      this.elevation && "elevation",
-      this.animation && "animation",
-      this.ripple && "ripple",
-      this.outlined && "outlined",
-      this.gradient && "gradient",
-      this.transparent && "transparent",
-      this.borderless && "borderless",
-      this.compact && "compact",
-      this.uppercase && "uppercase",
-      this.lowercase && "lowercase",
-      this.capitalize && "capitalize",
     ]
       .filter(Boolean)
       .join(" ");

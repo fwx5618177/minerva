@@ -534,6 +534,34 @@
                 "responsive": "レスポンシブモードを使用するかどうか",
                 "icons": "カスタムナビゲーションアイコン"
             }
+        },
+        "webComponentButton": {
+            "examples": {
+                "basic": {
+                    "title": "基本的な使用法",
+                    "description": "ボタンの基本的な使用法です。主要なアクションにはprimaryバリアントを使用します。"
+                },
+                "variants": {
+                    "title": "ボタンのバリエーション",
+                    "description": "異なる用途のための異なるボタンスタイル。"
+                },
+                "sizes": {
+                    "title": "ボタンのサイズ",
+                    "description": "異なる用途のための様々なサイズのボタン。"
+                },
+                "shapes": {
+                    "title": "ボタンの形状",
+                    "description": "ニーズに合わせて異なる形状のボタンを選択できます。"
+                },
+                "borderRadius": {
+                    "title": "角丸",
+                    "description": "ボタンの角の丸みをカスタマイズします。"
+                },
+                "rippleEffect": {
+                    "title": "リップルエフェクト",
+                    "description": "クリック時にリップルエフェクトを表示できます。"
+                }
+            }
         }
     },
     "error": {

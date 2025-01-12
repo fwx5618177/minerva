@@ -598,5 +598,47 @@
         "title": "404",
         "description": "Oops! The page you're looking for doesn't exist.",
         "back_home": "Back to Home"
+    },
+    "webComponentButton": {
+        "examples": {
+            "basic": {
+                "title": "Basic Usage",
+                "description": "Basic button variants for different contexts"
+            },
+            "variants": {
+                "title": "Button Variants",
+                "description": "Different button styles for different purposes"
+            },
+            "sizes": {
+                "title": "Button Sizes",
+                "description": "Buttons come in different sizes"
+            },
+            "shapes": {
+                "title": "Button Shapes",
+                "description": "Different button shapes to match your design"
+            },
+            "borderRadius": {
+                "title": "Border Radius",
+                "description": "Customize the button's corner roundness"
+            },
+            "rippleEffect": {
+                "title": "Ripple Effect",
+                "description": "Add a material design-like ripple effect on click"
+            },
+            "states": {
+                "title": "Button States",
+                "description": "Different states a button can be in"
+            }
+        },
+        "properties": {
+            "variant": "Button style variant",
+            "size": "Button size",
+            "shape": "Button shape",
+            "borderRadius": "Button corner roundness",
+            "disabled": "Disabled state",
+            "loading": "Loading state",
+            "active": "Active state",
+            "ariaLabel": "Accessibility label"
+        }
     }
 }
