@@ -1,12 +1,29 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Pagination } from "@minerva/lib-core";
-import { IoChevronBack, IoChevronForward } from "react-icons/io5";
+import {
+  IoChevronBack,
+  IoChevronForward,
+  IoEllipsisHorizontal,
+} from "react-icons/io5";
 import CodeBlock from "@layout/CodeBlock";
 import styles from "./index.module.scss";
 
 const PaginationSection: React.FC = () => {
   const { t } = useTranslation();
+
+  // 为不同的例子创建独立的状态
+  const [basicPage, setBasicPage] = useState(1);
+  const [sizePage, setSizePage] = useState(1);
+  const [shapePage, setShapePage] = useState(1);
+  const [variantPage, setVariantPage] = useState(1);
+  const [morePage, setMorePage] = useState(1);
+  const [morePageSize, setMorePageSize] = useState(10);
+  const [largePage, setLargePage] = useState(1);
+  const [largePageSize, setLargePageSize] = useState(10);
+  const [customPage, setCustomPage] = useState(1);
+  const [simplePage, setSimplePage] = useState(1);
+  const [responsivePage, setResponsivePage] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
@@ -45,13 +62,15 @@ const PaginationSection: React.FC = () => {
         <div className={styles.demo}>
           <Pagination
             total={50}
-            current={currentPage}
-            onChange={handlePageChange}
+            current={basicPage}
+            onChange={(page) => setBasicPage(page)}
           />
         </div>
         <div className={styles.codeWrapper}>
           <CodeBlock
-            code={`<Pagination 
+            code={`const [page, setPage] = useState(1);
+
+<Pagination 
   total={50}
   current={currentPage}
   onChange={handlePageChange}
@@ -69,26 +88,26 @@ const PaginationSection: React.FC = () => {
           <Pagination
             total={50}
             size="small"
-            current={currentPage}
-            onChange={handlePageChange}
+            current={sizePage}
+            onChange={(page) => setSizePage(page)}
           />
           <Pagination
             total={50}
-            current={currentPage}
-            onChange={handlePageChange}
+            current={sizePage}
+            onChange={(page) => setSizePage(page)}
           />
           <Pagination
             total={50}
             size="large"
-            current={currentPage}
-            onChange={handlePageChange}
+            current={sizePage}
+            onChange={(page) => setSizePage(page)}
           />
         </div>
         <div className={styles.codeWrapper}>
           <CodeBlock
-            code={`<Pagination total={50} size="small" current={currentPage} onChange={handlePageChange} />
-<Pagination total={50} current={currentPage} onChange={handlePageChange} />
-<Pagination total={50} size="large" current={currentPage} onChange={handlePageChange} />`}
+            code={`<Pagination total={50} size="small" current={sizePage} onChange={(page) => setSizePage(page)} />
+<Pagination total={50} current={sizePage} onChange={(page) => setSizePage(page)} />
+<Pagination total={50} size="large" current={sizePage} onChange={(page) => setSizePage(page)} />`}
           />
         </div>
       </div>
@@ -102,27 +121,27 @@ const PaginationSection: React.FC = () => {
           <Pagination
             total={50}
             shape="square"
-            current={currentPage}
-            onChange={handlePageChange}
+            current={shapePage}
+            onChange={(page) => setShapePage(page)}
           />
           <Pagination
             total={50}
             shape="rounded"
-            current={currentPage}
-            onChange={handlePageChange}
+            current={shapePage}
+            onChange={(page) => setShapePage(page)}
           />
           <Pagination
             total={50}
             shape="circle"
-            current={currentPage}
-            onChange={handlePageChange}
+            current={shapePage}
+            onChange={(page) => setShapePage(page)}
           />
         </div>
         <div className={styles.codeWrapper}>
           <CodeBlock
-            code={`<Pagination total={50} shape="square" current={currentPage} onChange={handlePageChange} />
-<Pagination total={50} shape="rounded" current={currentPage} onChange={handlePageChange} />
-<Pagination total={50} shape="circle" current={currentPage} onChange={handlePageChange} />`}
+            code={`<Pagination total={50} shape="square" current={shapePage} onChange={(page) => setShapePage(page)} />
+<Pagination total={50} shape="rounded" current={shapePage} onChange={(page) => setShapePage(page)} />
+<Pagination total={50} shape="circle" current={shapePage} onChange={(page) => setShapePage(page)} />`}
           />
         </div>
       </div>
@@ -136,27 +155,27 @@ const PaginationSection: React.FC = () => {
           <Pagination
             total={50}
             variant="filled"
-            current={currentPage}
-            onChange={handlePageChange}
+            current={variantPage}
+            onChange={(page) => setVariantPage(page)}
           />
           <Pagination
             total={50}
             variant="outlined"
-            current={currentPage}
-            onChange={handlePageChange}
+            current={variantPage}
+            onChange={(page) => setVariantPage(page)}
           />
           <Pagination
             total={50}
             variant="text"
-            current={currentPage}
-            onChange={handlePageChange}
+            current={variantPage}
+            onChange={(page) => setVariantPage(page)}
           />
         </div>
         <div className={styles.codeWrapper}>
           <CodeBlock
-            code={`<Pagination total={50} variant="filled" current={currentPage} onChange={handlePageChange} />
-<Pagination total={50} variant="outlined" current={currentPage} onChange={handlePageChange} />
-<Pagination total={50} variant="text" current={currentPage} onChange={handlePageChange} />`}
+            code={`<Pagination total={50} variant="filled" current={variantPage} onChange={(page) => setVariantPage(page)} />
+<Pagination total={50} variant="outlined" current={variantPage} onChange={(page) => setVariantPage(page)} />
+<Pagination total={50} variant="text" current={variantPage} onChange={(page) => setVariantPage(page)} />`}
           />
         </div>
       </div>
@@ -169,12 +188,12 @@ const PaginationSection: React.FC = () => {
         <div className={styles.demo}>
           <Pagination
             total={500}
-            current={currentPage}
-            pageSize={pageSize}
+            current={morePage}
+            pageSize={morePageSize}
             showQuickJumper
             showSizeChanger
             showTotal
-            onChange={handlePageChange}
+            onChange={(page) => setMorePage(page)}
             totalRender={(total: number, range: [number, number]) =>
               `${range[0]}-${range[1]} of ${total} items`
             }
@@ -184,12 +203,12 @@ const PaginationSection: React.FC = () => {
           <CodeBlock
             code={`<Pagination
   total={500}
-  current={currentPage}
-  pageSize={pageSize}
+  current={morePage}
+  pageSize={morePageSize}
   showQuickJumper
   showSizeChanger
   showTotal
-  onChange={handlePageChange}
+  onChange={(page) => setMorePage(page)}
   totalRender={(total, range) => \`\${range[0]}-\${range[1]} of \${total} items\`}
 />`}
           />
@@ -204,24 +223,24 @@ const PaginationSection: React.FC = () => {
         <div className={styles.demo}>
           <Pagination
             total={1000}
-            current={currentPage}
-            pageSize={pageSize}
+            current={largePage}
+            pageSize={largePageSize}
             showQuickJumper
             showSizeChanger
             showTotal
-            onChange={handlePageChange}
+            onChange={(page) => setLargePage(page)}
           />
         </div>
         <div className={styles.codeWrapper}>
           <CodeBlock
             code={`<Pagination
   total={1000}
-  current={currentPage}
-  pageSize={pageSize}
+  current={largePage}
+  pageSize={largePageSize}
   showQuickJumper
   showSizeChanger
   showTotal
-  onChange={handlePageChange}
+  onChange={(page) => setLargePage(page)}
 />`}
           />
         </div>
@@ -235,13 +254,19 @@ const PaginationSection: React.FC = () => {
         <div className={styles.demo}>
           <Pagination
             total={100}
-            current={currentPage}
-            onChange={handlePageChange}
+            current={customPage}
+            onChange={(page) => setCustomPage(page)}
             icons={{
               prev: <IoChevronBack />,
               next: <IoChevronForward />,
+              jumpPrev: <IoEllipsisHorizontal />,
+              jumpNext: <IoEllipsisHorizontal />,
             }}
             itemRender={(page, type) => {
+              if (type === "prev") return <IoChevronBack />;
+              if (type === "next") return <IoChevronForward />;
+              if (type === "jump-prev" || type === "jump-next")
+                return <IoEllipsisHorizontal />;
               if (type === "page") return `Page ${page}`;
               return null;
             }}
@@ -249,15 +274,23 @@ const PaginationSection: React.FC = () => {
         </div>
         <div className={styles.codeWrapper}>
           <CodeBlock
-            code={`<Pagination
+            code={`const [page, setPage] = useState(1);
+
+<Pagination
   total={100}
-  current={currentPage}
-  onChange={handlePageChange}
+  current={page}
+  onChange={(page) => setPage(page)}
   icons={{
     prev: <IoChevronBack />,
     next: <IoChevronForward />,
+    jumpPrev: <IoEllipsisHorizontal />,
+    jumpNext: <IoEllipsisHorizontal />
   }}
   itemRender={(page, type) => {
+    if (type === "prev") return <IoChevronBack />;
+    if (type === "next") return <IoChevronForward />;
+    if (type === "jump-prev" || type === "jump-next") 
+      return <IoEllipsisHorizontal />;
     if (type === "page") return \`Page \${page}\`;
     return null;
   }}
@@ -275,13 +308,13 @@ const PaginationSection: React.FC = () => {
           <Pagination
             total={50}
             simple
-            current={currentPage}
-            onChange={handlePageChange}
+            current={simplePage}
+            onChange={(page) => setSimplePage(page)}
           />
         </div>
         <div className={styles.codeWrapper}>
           <CodeBlock
-            code={`<Pagination total={50} simple current={currentPage} onChange={handlePageChange} />`}
+            code={`<Pagination total={50} simple current={simplePage} onChange={(page) => setSimplePage(page)} />`}
           />
         </div>
       </div>
@@ -295,13 +328,13 @@ const PaginationSection: React.FC = () => {
           <Pagination
             total={50}
             disabled
-            current={currentPage}
-            onChange={handlePageChange}
+            current={simplePage}
+            onChange={(page) => setSimplePage(page)}
           />
         </div>
         <div className={styles.codeWrapper}>
           <CodeBlock
-            code={`<Pagination total={50} disabled current={currentPage} onChange={handlePageChange} />`}
+            code={`<Pagination total={50} disabled current={simplePage} onChange={(page) => setSimplePage(page)} />`}
           />
         </div>
       </div>
@@ -315,13 +348,32 @@ const PaginationSection: React.FC = () => {
           <Pagination
             total={50}
             responsive
-            current={currentPage}
-            onChange={handlePageChange}
+            current={responsivePage}
+            onChange={(page) => setResponsivePage(page)}
           />
         </div>
         <div className={styles.codeWrapper}>
           <CodeBlock
-            code={`<Pagination total={50} responsive current={currentPage} onChange={handlePageChange} />`}
+            code={`<Pagination total={50} responsive current={responsivePage} onChange={(page) => setResponsivePage(page)} />`}
+          />
+        </div>
+      </div>
+
+      <div className={styles.example}>
+        <h3>{t("components.pagination.examples.bordered.title")}</h3>
+        <div className={styles.demo}>
+          <Pagination
+            total={100}
+            current={customPage}
+            onChange={(page) => setCustomPage(page)}
+            variant="outlined"
+            showQuickJumper
+            showSizeChanger
+          />
+        </div>
+        <div className={styles.codeWrapper}>
+          <CodeBlock
+            code={`<Pagination total={100} current={customPage} onChange={(page) => setCustomPage(page)} variant="outlined" showQuickJumper showSizeChanger />`}
           />
         </div>
       </div>
