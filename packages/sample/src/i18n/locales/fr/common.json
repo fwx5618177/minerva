@@ -143,42 +143,97 @@
                 "title": "Propriétés",
                 "variant": {
                     "name": "variant",
-                    "type": "'primary' | 'secondary' | 'success' | 'warning'",
-                    "description": "Le style visuel du bouton."
+                    "type": "'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'retry' | 'back'",
+                    "description": "Le style visuel du bouton. Chaque variante a sa propre signification sémantique : primary pour les actions principales, secondary pour les actions secondaires, success pour les confirmations, warning pour les actions nécessitant de la prudence, error pour les actions destructrices, retry pour les réessais, back pour la navigation."
                 },
                 "size": {
                     "name": "size",
-                    "type": "'small' | 'medium' | 'large'",
-                    "description": "La taille du bouton."
+                    "type": "'small' | 'medium' | 'large' | 'xlarge'",
+                    "description": "La taille du bouton. Small pour les espaces restreints, medium pour une utilisation générale, large pour l'emphase, et xlarge pour les actions proéminentes."
+                },
+                "shape": {
+                    "name": "shape",
+                    "type": "'square' | 'rounded' | 'circle'",
+                    "description": "La forme du bouton. Square a des coins nets, rounded a des coins arrondis, et circle est parfaitement rond."
+                },
+                "borderRadius": {
+                    "name": "borderRadius",
+                    "type": "'none' | 'small' | 'medium' | 'large' | 'circle' | 'square' | number",
+                    "description": "Le rayon de bordure personnalisé du bouton. Peut être une valeur prédéfinie ou un nombre spécifique en pixels."
                 },
                 "disabled": {
                     "name": "disabled",
                     "type": "boolean",
-                    "description": "Si le bouton est désactivé."
+                    "description": "Si le bouton est désactivé. Les boutons désactivés ne peuvent pas être cliqués et apparaissent estompés."
                 },
                 "loading": {
                     "name": "loading",
                     "type": "boolean",
-                    "description": "Si le bouton est en état de chargement."
+                    "description": "Si le bouton est en état de chargement. Affiche un spinner et empêche les clics pendant le chargement."
+                },
+                "active": {
+                    "name": "active",
+                    "type": "boolean",
+                    "description": "Si le bouton est en état actif. Les boutons actifs apparaissent enfoncés."
+                },
+                "onClick": {
+                    "name": "onClick",
+                    "type": "(event: React.MouseEvent<HTMLButtonElement>) => void",
+                    "description": "Fonction de rappel déclenchée lorsque le bouton est cliqué."
+                },
+                "children": {
+                    "name": "children",
+                    "type": "React.ReactNode",
+                    "description": "Le contenu à afficher à l'intérieur du bouton. Peut être du texte, des icônes ou d'autres éléments."
+                },
+                "className": {
+                    "name": "className",
+                    "type": "string",
+                    "description": "Noms de classes CSS supplémentaires à ajouter au bouton."
+                },
+                "ariaLabel": {
+                    "name": "ariaLabel",
+                    "type": "string",
+                    "description": "Étiquette accessible pour les lecteurs d'écran. Important pour les boutons qui ne contiennent que des icônes."
                 }
             },
             "examples": {
                 "title": "Exemples",
                 "basic": {
-                    "title": "Utilisation de Base",
-                    "description": "L'utilisation la plus basique d'un bouton."
+                    "title": "Utilisation de base",
+                    "description": "L'utilisation la plus basique d'un bouton. Utilisez la variante primary pour les actions principales."
                 },
                 "variants": {
-                    "title": "Variantes de Bouton",
-                    "description": "Différents styles de boutons pour différents usages."
+                    "title": "Variantes de boutons",
+                    "description": "Différents styles de boutons pour différents usages. Choisissez la variante appropriée en fonction de l'importance et de la signification de l'action."
                 },
                 "sizes": {
-                    "title": "Tailles de Bouton",
-                    "description": "Les boutons existent en trois tailles : petit, moyen et grand."
+                    "title": "Tailles de boutons",
+                    "description": "Les boutons existent en quatre tailles : small pour les mises en page compactes, medium pour une utilisation générale, large pour l'emphase, et xlarge pour les actions proéminentes."
+                },
+                "shapes": {
+                    "title": "Formes de boutons",
+                    "description": "Les boutons peuvent avoir différentes formes pour correspondre à vos besoins de design. Square pour un look traditionnel, rounded pour une sensation moderne, et circle pour les boutons avec icône."
+                },
+                "borderRadius": {
+                    "title": "Rayon de bordure",
+                    "description": "Personnalisez l'arrondi des coins des boutons. Utilisez des valeurs prédéfinies ou spécifiez un rayon personnalisé en pixels."
                 },
                 "states": {
-                    "title": "États de Bouton",
-                    "description": "Les boutons peuvent être dans différents états comme chargement ou désactivé."
+                    "title": "États des boutons",
+                    "description": "Les boutons peuvent être dans différents états : normal, chargement (affiche un spinner), désactivé (non cliquable), et actif (apparaît enfoncé)."
+                },
+                "withIcons": {
+                    "title": "Boutons avec icônes",
+                    "description": "Les boutons peuvent inclure des icônes pour améliorer la communication visuelle. Les icônes peuvent être placées avant ou après le texte."
+                },
+                "block": {
+                    "title": "Bouton bloc",
+                    "description": "Un bouton bloc occupe toute la largeur de son conteneur. Utile pour les interfaces mobiles ou lorsque vous souhaitez aligner la largeur du bouton avec d'autres éléments."
+                },
+                "customStyles": {
+                    "title": "Styles personnalisés",
+                    "description": "Les boutons peuvent être personnalisés avec vos propres styles en utilisant CSS. Voici quelques exemples de boutons avec des styles personnalisés."
                 }
             }
         },

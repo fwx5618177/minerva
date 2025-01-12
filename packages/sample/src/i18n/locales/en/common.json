@@ -136,42 +136,97 @@
                 "title": "Properties",
                 "variant": {
                     "name": "variant",
-                    "type": "'primary' | 'secondary' | 'success' | 'warning'",
-                    "description": "The visual style of the button."
+                    "type": "'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'retry' | 'back'",
+                    "description": "The visual style of the button. Each variant has its own semantic meaning: primary for main actions, secondary for less important actions, success for confirmations, warning for cautious actions, error for destructive actions, retry for retry operations, and back for navigation."
                 },
                 "size": {
                     "name": "size",
-                    "type": "'small' | 'medium' | 'large'",
-                    "description": "The size of the button."
+                    "type": "'small' | 'medium' | 'large' | 'xlarge'",
+                    "description": "The size of the button. Small is suitable for tight spaces, medium for general use, large for emphasis, and xlarge for prominent actions."
+                },
+                "shape": {
+                    "name": "shape",
+                    "type": "'square' | 'rounded' | 'circle'",
+                    "description": "The shape of the button. Square has sharp corners, rounded has soft corners, and circle is perfectly round."
+                },
+                "borderRadius": {
+                    "name": "borderRadius",
+                    "type": "'none' | 'small' | 'medium' | 'large' | 'circle' | 'square' | number",
+                    "description": "Custom border radius of the button. Can be a predefined value or a specific number in pixels."
                 },
                 "disabled": {
                     "name": "disabled",
                     "type": "boolean",
-                    "description": "Whether the button is disabled."
+                    "description": "Whether the button is disabled. Disabled buttons can't be clicked and appear faded."
                 },
                 "loading": {
                     "name": "loading",
                     "type": "boolean",
-                    "description": "Whether the button is in loading state."
+                    "description": "Whether the button is in loading state. Shows a spinner and prevents clicks while loading."
+                },
+                "active": {
+                    "name": "active",
+                    "type": "boolean",
+                    "description": "Whether the button is in active state. Active buttons appear pressed."
+                },
+                "onClick": {
+                    "name": "onClick",
+                    "type": "(event: React.MouseEvent<HTMLButtonElement>) => void",
+                    "description": "Callback function triggered when the button is clicked."
+                },
+                "children": {
+                    "name": "children",
+                    "type": "React.ReactNode",
+                    "description": "The content to be displayed inside the button. Can be text, icons, or other elements."
+                },
+                "className": {
+                    "name": "className",
+                    "type": "string",
+                    "description": "Additional CSS class names to be added to the button."
+                },
+                "ariaLabel": {
+                    "name": "ariaLabel",
+                    "type": "string",
+                    "description": "Accessible label for screen readers. Important for buttons that only contain icons."
                 }
             },
             "examples": {
                 "title": "Examples",
                 "basic": {
                     "title": "Basic Usage",
-                    "description": "The most basic usage of a button."
+                    "description": "The most basic usage of a button. Use the primary variant for main actions."
                 },
                 "variants": {
                     "title": "Button Variants",
-                    "description": "Different styles of buttons for different purposes."
+                    "description": "Different styles of buttons for different purposes. Choose the appropriate variant based on the action's importance and meaning."
                 },
                 "sizes": {
                     "title": "Button Sizes",
-                    "description": "Buttons come in three sizes: small, medium, and large."
+                    "description": "Buttons come in four sizes: small for compact layouts, medium for general use, large for emphasis, and xlarge for prominent actions."
+                },
+                "shapes": {
+                    "title": "Button Shapes",
+                    "description": "Buttons can have different shapes to match your design needs. Square for a traditional look, rounded for a modern feel, and circle for icon buttons."
+                },
+                "borderRadius": {
+                    "title": "Border Radius",
+                    "description": "Customize the corner roundness of buttons. Use predefined values or specify a custom radius in pixels."
                 },
                 "states": {
                     "title": "Button States",
-                    "description": "Buttons can be in different states like loading or disabled."
+                    "description": "Buttons can be in different states: normal, loading (shows a spinner), disabled (can't be clicked), and active (appears pressed)."
+                },
+                "withIcons": {
+                    "title": "Buttons with Icons",
+                    "description": "Buttons can include icons to enhance visual communication. Icons can be placed before or after the text."
+                },
+                "block": {
+                    "title": "Block Button",
+                    "description": "A block button spans the full width of its container. Useful for mobile interfaces or when you want to align button width with other elements."
+                },
+                "customStyles": {
+                    "title": "Custom Styles",
+                    "description": "Buttons can be customized with your own styles using CSS. Here are some examples of custom styled buttons."
                 }
             }
         },

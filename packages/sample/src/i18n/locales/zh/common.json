@@ -133,42 +133,97 @@
                 "title": "属性",
                 "variant": {
                     "name": "variant",
-                    "type": "'primary' | 'secondary' | 'success' | 'warning'",
-                    "description": "按钮的视觉样式。"
+                    "type": "'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'retry' | 'back'",
+                    "description": "按钮的视觉样式。每种变体都有其语义含义：primary 用于主要操作，secondary 用于次要操作，success 用于确认操作，warning 用于需要谨慎的操作，error 用于破坏性操作，retry 用于重试操作，back 用于导航。"
                 },
                 "size": {
                     "name": "size",
-                    "type": "'small' | 'medium' | 'large'",
-                    "description": "按钮的尺寸。"
+                    "type": "'small' | 'medium' | 'large' | 'xlarge'",
+                    "description": "按钮的尺寸。small 适用于紧凑空间，medium 用于一般用途，large 用于强调，xlarge 用于突出显示的操作。"
+                },
+                "shape": {
+                    "name": "shape",
+                    "type": "'square' | 'rounded' | 'circle'",
+                    "description": "按钮的形状。square 有锐利的边角，rounded 有柔和的边角，circle 是完全圆形的。"
+                },
+                "borderRadius": {
+                    "name": "borderRadius",
+                    "type": "'none' | 'small' | 'medium' | 'large' | 'circle' | 'square' | number",
+                    "description": "按钮的自定义圆角。可以是预定义的值或以像素为单位的具体数字。"
                 },
                 "disabled": {
                     "name": "disabled",
                     "type": "boolean",
-                    "description": "按钮是否禁用。"
+                    "description": "按钮是否禁用。禁用的按钮无法点击且显示为淡化状态。"
                 },
                 "loading": {
                     "name": "loading",
                     "type": "boolean",
-                    "description": "按钮是否处于加载状态。"
+                    "description": "按钮是否处于加载状态。加载时显示加载动画并阻止点击。"
+                },
+                "active": {
+                    "name": "active",
+                    "type": "boolean",
+                    "description": "按钮是否处于激活状态。激活的按钮显示为按下的状态。"
+                },
+                "onClick": {
+                    "name": "onClick",
+                    "type": "(event: React.MouseEvent<HTMLButtonElement>) => void",
+                    "description": "点击按钮时触发的回调函数。"
+                },
+                "children": {
+                    "name": "children",
+                    "type": "React.ReactNode",
+                    "description": "按钮内显示的内容。可以是文本、图标或其他元素。"
+                },
+                "className": {
+                    "name": "className",
+                    "type": "string",
+                    "description": "要添加到按钮的额外 CSS 类名。"
+                },
+                "ariaLabel": {
+                    "name": "ariaLabel",
+                    "type": "string",
+                    "description": "为屏幕阅读器提供的无障碍标签。对于仅包含图标的按钮尤为重要。"
                 }
             },
             "examples": {
                 "title": "示例",
                 "basic": {
                     "title": "基础用法",
-                    "description": "按钮最基本的用法。"
+                    "description": "按钮最基本的用法。使用 primary 变体表示主要操作。"
                 },
                 "variants": {
                     "title": "按钮变体",
-                    "description": "不同用途的按钮样式。"
+                    "description": "不同用途的按钮样式。根据操作的重要性和含义选择合适的变体。"
                 },
                 "sizes": {
                     "title": "按钮尺寸",
-                    "description": "按钮有三种尺寸：小、中、大。"
+                    "description": "按钮有四种尺寸：small 用于紧凑布局，medium 用于一般用途，large 用于强调，xlarge 用于突出显示的操作。"
+                },
+                "shapes": {
+                    "title": "按钮形状",
+                    "description": "按钮可以有不同的形状以匹配您的设计需求。square 用于传统外观，rounded 用于现代感，circle 用于图标按钮。"
+                },
+                "borderRadius": {
+                    "title": "圆角",
+                    "description": "自定义按钮的圆角。使用预定义的值或指定以像素为单位的自定义圆角。"
                 },
                 "states": {
                     "title": "按钮状态",
-                    "description": "按钮可以处于不同状态，如加载中或禁用。"
+                    "description": "按钮可以处于不同状态：正常、加载中（显示加载动画）、禁用（无法点击）和激活（显示为按下状态）。"
+                },
+                "withIcons": {
+                    "title": "带图标的按钮",
+                    "description": "按钮可以包含图标以增强视觉交互。图标可以放在文本前面或后面。"
+                },
+                "block": {
+                    "title": "块级按钮",
+                    "description": "块级按钮会占据其容器的全部宽度。适用于移动端界面或需要与其他元素对齐宽度的场景。"
+                },
+                "customStyles": {
+                    "title": "自定义样式",
+                    "description": "按钮可以使用 CSS 自定义样式。这里展示了一些自定义样式的按钮示例。"
                 }
             }
         },

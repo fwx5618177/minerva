@@ -126,59 +126,104 @@
         },
         "button": {
             "title": "ボタン",
-            "description": "ボタンはユーザーがアクションを実行し、選択を行うことができます。",
-            "variants": "ボタンのバリアント",
-            "sizes": "ボタンのサイズ",
-            "states": "ボタンの状態",
-            "shapes": "ボタンの形状",
-            "customStyles": "カスタムスタイル",
-            "basic": "基本的な使用法",
-            "icons": "アイコン付き",
-            "loading": "ローディング状態",
-            "block": "ブロックボタン",
-            "disabled": "無効状態",
+            "description": "ボタンを使用すると、ユーザーは1回のタップでアクションを実行し、選択を行うことができます。",
             "installation": "インストール",
             "installation_description": "パッケージマネージャーを使用してボタンコンポーネントをインストールします。",
             "properties": {
                 "title": "プロパティ",
                 "variant": {
                     "name": "variant",
-                    "type": "'primary' | 'secondary' | 'success' | 'warning'",
-                    "description": "ボタンの視覚的なスタイル。"
+                    "type": "'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'retry' | 'back'",
+                    "description": "ボタンの視覚的なスタイル。各バリアントには独自の意味があります：primary はメインアクション用、secondary は重要度の低いアクション用、success は確認用、warning は注意が必要なアクション用、error は破壊的なアクション用、retry は再試行用、back はナビゲーション用です。"
                 },
                 "size": {
                     "name": "size",
-                    "type": "'small' | 'medium' | 'large'",
-                    "description": "ボタンのサイズ。"
+                    "type": "'small' | 'medium' | 'large' | 'xlarge'",
+                    "description": "ボタンのサイズ。small は狭いスペース用、medium は一般的な用途、large は強調用、xlarge は目立つアクション用です。"
+                },
+                "shape": {
+                    "name": "shape",
+                    "type": "'square' | 'rounded' | 'circle'",
+                    "description": "ボタンの形状。square は鋭い角、rounded は柔らかい角、circle は完全な円形です。"
+                },
+                "borderRadius": {
+                    "name": "borderRadius",
+                    "type": "'none' | 'small' | 'medium' | 'large' | 'circle' | 'square' | number",
+                    "description": "ボタンのカスタム角丸。事前定義された値またはピクセル単位の具体的な数値を指定できます。"
                 },
                 "disabled": {
                     "name": "disabled",
                     "type": "boolean",
-                    "description": "ボタンが無効化されているかどうか。"
+                    "description": "ボタンが無効かどうか。無効なボタンはクリックできず、フェードアウトして表示されます。"
                 },
                 "loading": {
                     "name": "loading",
                     "type": "boolean",
-                    "description": "ボタンがローディング状態かどうか。"
+                    "description": "ボタンが読み込み中の状態かどうか。読み込み中はスピナーを表示し、クリックを防止します。"
+                },
+                "active": {
+                    "name": "active",
+                    "type": "boolean",
+                    "description": "ボタンがアクティブな状態かどうか。アクティブなボタンは押された状態で表示されます。"
+                },
+                "onClick": {
+                    "name": "onClick",
+                    "type": "(event: React.MouseEvent<HTMLButtonElement>) => void",
+                    "description": "ボタンがクリックされたときにトリガーされるコールバック関数。"
+                },
+                "children": {
+                    "name": "children",
+                    "type": "React.ReactNode",
+                    "description": "ボタン内に表示されるコンテンツ。テキスト、アイコン、その他の要素を含めることができます。"
+                },
+                "className": {
+                    "name": "className",
+                    "type": "string",
+                    "description": "ボタンに追加するCSSクラス名。"
+                },
+                "ariaLabel": {
+                    "name": "ariaLabel",
+                    "type": "string",
+                    "description": "スクリーンリーダー用のアクセシブルなラベル。アイコンのみを含むボタンには特に重要です。"
                 }
             },
             "examples": {
                 "title": "例",
                 "basic": {
-                    "title": "基本的な使い方",
-                    "description": "ボタンの最も基本的な使用方法。"
+                    "title": "基本的な使用法",
+                    "description": "ボタンの最も基本的な使用法。メインアクションにはprimaryバリアントを使用します。"
                 },
                 "variants": {
                     "title": "ボタンのバリアント",
-                    "description": "異なる目的のための異なるスタイルのボタン。"
+                    "description": "異なる目的のための異なるボタンスタイル。アクションの重要性と意味に基づいて適切なバリアントを選択します。"
                 },
                 "sizes": {
                     "title": "ボタンのサイズ",
-                    "description": "ボタンには小、中、大の3つのサイズがあります。"
+                    "description": "ボタンには4つのサイズがあります：コンパクトなレイアウト用のsmall、一般的な用途のmedium、強調用のlarge、目立つアクション用のxlargeです。"
+                },
+                "shapes": {
+                    "title": "ボタンの形状",
+                    "description": "デザインニーズに合わせて異なる形状を選択できます。従来の外観にはsquare、モダンな印象にはrounded、アイコンボタンにはcircleを使用します。"
+                },
+                "borderRadius": {
+                    "title": "角丸",
+                    "description": "ボタンの角の丸みをカスタマイズします。事前定義された値を使用するか、ピクセル単位でカスタム角丸を指定します。"
                 },
                 "states": {
                     "title": "ボタンの状態",
-                    "description": "ボタンはローディングや無効化など、異なる状態を持つことができます。"
+                    "description": "ボタンには異なる状態があります：通常、読み込み中（スピナーを表示）、無効（クリック不可）、アクティブ（押された状態）。"
+                },
+                "withIcons": {
+                    "title": "アイコン付きボタン",
+                    "description": "ボタンにはビジュアルコミュニケーションを強化するためのアイコンを含めることができます。アイコンはテキストの前後に配置できます。"
+                },
+                "block": {
+                    "title": "ブロックボタン",
+                    "description": "ブロックボタンはコンテナの全幅に広がります。モバイルインターフェースやボタンの幅を他の要素と揃えたい場合に便利です。"
+                },
+                "customStyles": {
+                    "title": "カスタムスタイル",
+                    "description": "ボタンはCSSを使用して独自のスタイルをカスタマイズできます。カスタムスタイルを適用したボタンの例をいくつか紹介します。"
                 }
             }
         },
