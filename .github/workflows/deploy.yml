@@ -30,6 +30,9 @@ jobs:
       - name: Build engine project
         run: pnpm --filter @minerva/lib-core build
 
+      - name: Build web components project
+        run: pnpm --filter @minerva/lib-web-components build
+
       - name: Build sample project
         run: pnpm --filter @minerva/sample build
 
