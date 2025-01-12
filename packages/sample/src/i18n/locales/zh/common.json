@@ -127,16 +127,50 @@
         "button": {
             "title": "按钮",
             "description": "按钮允许用户通过单击执行操作和做出选择。",
-            "variants": "按钮变体",
-            "sizes": "按钮尺寸",
-            "states": "按钮状态",
-            "shapes": "按钮形状",
-            "customStyles": "自定义样式",
-            "basic": "基础用法",
-            "icons": "带图标",
-            "loading": "加载状态",
-            "block": "块级按钮",
-            "disabled": "禁用状态"
+            "installation": "安装",
+            "installation_description": "使用包管理器安装按钮组件。",
+            "properties": {
+                "title": "属性",
+                "variant": {
+                    "name": "variant",
+                    "type": "'primary' | 'secondary' | 'success' | 'warning'",
+                    "description": "按钮的视觉样式。"
+                },
+                "size": {
+                    "name": "size",
+                    "type": "'small' | 'medium' | 'large'",
+                    "description": "按钮的尺寸。"
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "description": "按钮是否禁用。"
+                },
+                "loading": {
+                    "name": "loading",
+                    "type": "boolean",
+                    "description": "按钮是否处于加载状态。"
+                }
+            },
+            "examples": {
+                "title": "示例",
+                "basic": {
+                    "title": "基础用法",
+                    "description": "按钮最基本的用法。"
+                },
+                "variants": {
+                    "title": "按钮变体",
+                    "description": "不同用途的按钮样式。"
+                },
+                "sizes": {
+                    "title": "按钮尺寸",
+                    "description": "按钮有三种尺寸：小、中、大。"
+                },
+                "states": {
+                    "title": "按钮状态",
+                    "description": "按钮可以处于不同状态，如加载中或禁用。"
+                }
+            }
         },
         "switch": {
             "title": "开关",

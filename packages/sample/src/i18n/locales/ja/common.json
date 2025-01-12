@@ -136,7 +136,51 @@
             "icons": "アイコン付き",
             "loading": "ローディング状態",
             "block": "ブロックボタン",
-            "disabled": "無効状態"
+            "disabled": "無効状態",
+            "installation": "インストール",
+            "installation_description": "パッケージマネージャーを使用してボタンコンポーネントをインストールします。",
+            "properties": {
+                "title": "プロパティ",
+                "variant": {
+                    "name": "variant",
+                    "type": "'primary' | 'secondary' | 'success' | 'warning'",
+                    "description": "ボタンの視覚的なスタイル。"
+                },
+                "size": {
+                    "name": "size",
+                    "type": "'small' | 'medium' | 'large'",
+                    "description": "ボタンのサイズ。"
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "description": "ボタンが無効化されているかどうか。"
+                },
+                "loading": {
+                    "name": "loading",
+                    "type": "boolean",
+                    "description": "ボタンがローディング状態かどうか。"
+                }
+            },
+            "examples": {
+                "title": "例",
+                "basic": {
+                    "title": "基本的な使い方",
+                    "description": "ボタンの最も基本的な使用方法。"
+                },
+                "variants": {
+                    "title": "ボタンのバリアント",
+                    "description": "異なる目的のための異なるスタイルのボタン。"
+                },
+                "sizes": {
+                    "title": "ボタンのサイズ",
+                    "description": "ボタンには小、中、大の3つのサイズがあります。"
+                },
+                "states": {
+                    "title": "ボタンの状態",
+                    "description": "ボタンはローディングや無効化など、異なる状態を持つことができます。"
+                }
+            }
         },
         "switch": {
             "title": "スイッチ",

@@ -130,16 +130,50 @@
         "button": {
             "title": "Button",
             "description": "Buttons allow users to take actions, and make choices, with a single tap.",
-            "variants": "Button Variants",
-            "sizes": "Button Sizes",
-            "states": "Button States",
-            "shapes": "Button Shapes",
-            "customStyles": "Custom Styles",
-            "basic": "Basic Usage",
-            "icons": "With Icons",
-            "loading": "Loading State",
-            "block": "Block Button",
-            "disabled": "Disabled State"
+            "installation": "Installation",
+            "installation_description": "Install the button component using your package manager.",
+            "properties": {
+                "title": "Properties",
+                "variant": {
+                    "name": "variant",
+                    "type": "'primary' | 'secondary' | 'success' | 'warning'",
+                    "description": "The visual style of the button."
+                },
+                "size": {
+                    "name": "size",
+                    "type": "'small' | 'medium' | 'large'",
+                    "description": "The size of the button."
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "description": "Whether the button is disabled."
+                },
+                "loading": {
+                    "name": "loading",
+                    "type": "boolean",
+                    "description": "Whether the button is in loading state."
+                }
+            },
+            "examples": {
+                "title": "Examples",
+                "basic": {
+                    "title": "Basic Usage",
+                    "description": "The most basic usage of a button."
+                },
+                "variants": {
+                    "title": "Button Variants",
+                    "description": "Different styles of buttons for different purposes."
+                },
+                "sizes": {
+                    "title": "Button Sizes",
+                    "description": "Buttons come in three sizes: small, medium, and large."
+                },
+                "states": {
+                    "title": "Button States",
+                    "description": "Buttons can be in different states like loading or disabled."
+                }
+            }
         },
         "switch": {
             "title": "Switch",

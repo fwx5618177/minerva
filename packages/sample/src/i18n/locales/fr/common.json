@@ -136,7 +136,51 @@
             "icons": "Avec Icônes",
             "loading": "État de Chargement",
             "block": "Bouton Block",
-            "disabled": "État Désactivé"
+            "disabled": "État Désactivé",
+            "installation": "Installation",
+            "installation_description": "Installez le composant bouton en utilisant votre gestionnaire de paquets.",
+            "properties": {
+                "title": "Propriétés",
+                "variant": {
+                    "name": "variant",
+                    "type": "'primary' | 'secondary' | 'success' | 'warning'",
+                    "description": "Le style visuel du bouton."
+                },
+                "size": {
+                    "name": "size",
+                    "type": "'small' | 'medium' | 'large'",
+                    "description": "La taille du bouton."
+                },
+                "disabled": {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "description": "Si le bouton est désactivé."
+                },
+                "loading": {
+                    "name": "loading",
+                    "type": "boolean",
+                    "description": "Si le bouton est en état de chargement."
+                }
+            },
+            "examples": {
+                "title": "Exemples",
+                "basic": {
+                    "title": "Utilisation de Base",
+                    "description": "L'utilisation la plus basique d'un bouton."
+                },
+                "variants": {
+                    "title": "Variantes de Bouton",
+                    "description": "Différents styles de boutons pour différents usages."
+                },
+                "sizes": {
+                    "title": "Tailles de Bouton",
+                    "description": "Les boutons existent en trois tailles : petit, moyen et grand."
+                },
+                "states": {
+                    "title": "États de Bouton",
+                    "description": "Les boutons peuvent être dans différents états comme chargement ou désactivé."
+                }
+            }
         },
         "switch": {
             "title": "Interrupteur",
