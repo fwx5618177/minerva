@@ -1,0 +1,25 @@
+{
+    "name": "@minerva/lib-web-components",
+    "version": "0.0.1",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.es.js",
+    "types": "global.d.ts",
+    "style": "dist/index.css",
+    "files": [
+        "dist",
+        "global.d.ts"
+    ],
+    "scripts": {
+        "release": "standard-version",
+        "build": "tsc --emitDeclarationOnly && vite build",
+        "watch": "vite build --watch",
+        "test": "jest --config .jest.config.js --no-cache --coverage",
+        "clean": "rimraf dist node_modules",
+        "clean:cache": "rimraf dist src/dist src/**/dist src/**/**/dist",
+        "lint": "eslint \"{src}/**/*.{js,ts,tsx}\"",
+        "format": "prettier --write 'src/**/*.{ts,tsx,scss}'"
+    },
+    "dependencies": {
+        "lit": "^3.1.0"
+    }
+}

@@ -20,7 +20,8 @@
       "@i18n/*": ["src/i18n/*"],
       "@router/*": ["src/router/*"],
       "@utils/*": ["src/utils/*"]
-    }
+    },
+    "types": ["@minerva/lib-web-components"]
   },
   "include": ["src", "global.d.ts"]
 }

@@ -52,6 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         {renderNavSection("dataDisplay", "components.menu.data_display")}
         {renderNavSection("feedback", "components.menu.feedback")}
         {renderNavSection("navigation", "components.menu.navigation")}
+        {renderNavSection("webComponents", "components.menu.web_components")}
       </nav>
     </aside>
   );

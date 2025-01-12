@@ -27,6 +27,7 @@ import {
   IoArrowUpOutline,
   IoGitNetworkOutline,
   IoBookmarkOutline,
+  IoCodeOutline,
 } from "react-icons/io5";
 
 // Getting Started Pages
@@ -64,6 +65,7 @@ import CascaderPage from "@pages/CascaderPage";
 import SpacePage from "@pages/SpacePage";
 import TagPage from "@pages/TagPage";
 import PaginationPage from "@pages/PaginationPage";
+import WebComponentsPage from "@pages/WebComponentButtonPage";
 
 export const routes: RouteObject[] = [
   // Getting Started Routes
@@ -196,6 +198,10 @@ export const routes: RouteObject[] = [
   {
     path: "pagination",
     element: <PaginationPage />,
+  },
+  {
+    path: "web-components",
+    element: <WebComponentsPage />,
   },
 ];
 
@@ -369,6 +375,13 @@ export const menuConfig = {
       path: "pagination",
       icon: <IoListOutline />,
       translationKey: "components.pagination.title",
+    },
+  ],
+  webComponents: [
+    {
+      path: "web-components",
+      icon: <IoCodeOutline />,
+      translationKey: "components.webComponents.title",
     },
   ],
 };

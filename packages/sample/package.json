@@ -16,6 +16,7 @@
   "keywords": [],
   "dependencies": {
     "@minerva/lib-core": "workspace:^",
+    "@minerva/lib-web-components": "workspace:^",
     "prismjs": "^1.29.0"
   },
   "devDependencies": {
