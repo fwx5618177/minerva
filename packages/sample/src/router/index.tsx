@@ -5,23 +5,28 @@ import ErrorBoundary from "@pages/ErrorBoundary";
 import NotFoundPage from "@pages/NotFoundPage";
 import { flattenedRoutes } from "./routes";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      errorElement: <ErrorBoundary />,
+      children: [
+        {
+          index: true,
+          element: <Navigate to="overview" replace />,
+        },
+        ...flattenedRoutes,
+        {
+          path: "*",
+          element: <NotFoundPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <Layout />,
-    errorElement: <ErrorBoundary />,
-    children: [
-      {
-        index: true,
-        element: <Navigate to="/overview" replace />,
-      },
-      ...flattenedRoutes,
-      {
-        path: "*",
-        element: <NotFoundPage />,
-      },
-    ],
+    basename: "/minerva",
   },
-]);
+);
 
 export default router;
