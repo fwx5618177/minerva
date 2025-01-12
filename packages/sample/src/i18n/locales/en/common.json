@@ -47,23 +47,77 @@
         "installation": {
             "title": "Installation",
             "description": "Get started with Minerva UI by installing it in your project",
-            "package": "Package Installation",
-            "setup": "Project Setup",
-            "usage": "Basic Usage"
+            "package": {
+                "title": "Package Installation",
+                "description": "Install Minerva UI using your preferred package manager"
+            },
+            "setup": {
+                "title": "Project Setup",
+                "description": "Set up Minerva UI in your React application"
+            },
+            "next": {
+                "title": "Next Steps",
+                "description": "Learn more about Minerva UI",
+                "introduction": "Read the Introduction",
+                "theming": "Learn about Theming",
+                "components": "Browse Components"
+            }
         },
         "overview": {
             "title": "Overview",
             "description": "A modern React UI library for building beautiful and accessible interfaces",
             "introduction": "Introduction",
             "features": "Features",
-            "examples": "Examples"
+            "examples": "Examples",
+            "features": {
+                "title": "Key Features",
+                "modern": {
+                    "title": "Modern Design",
+                    "description": "Built with modern design principles and best practices in mind."
+                },
+                "performance": {
+                    "title": "Performance First",
+                    "description": "Optimized for performance with minimal bundle size and efficient rendering."
+                },
+                "theme": {
+                    "title": "Theme Support",
+                    "description": "Comprehensive theme system that allows you to customize every aspect of the components."
+                },
+                "responsive": {
+                    "title": "Responsive Design",
+                    "description": "Components are designed to work seamlessly across all device sizes."
+                }
+            },
+            "quickstart": {
+                "title": "Quick Start",
+                "description": "Get started quickly with Minerva UI by installing the package and importing components."
+            },
+            "support": {
+                "title": "Browser Support",
+                "description": "Minerva UI is compatible with all modern browsers."
+            }
         },
         "introduction": {
             "title": "Introduction",
             "description": "Learn about Minerva UI's features and capabilities",
-            "what_is": "What is Minerva UI",
-            "key_features": "Key Features",
-            "principles": "Design Principles"
+            "what": {
+                "title": "What is Minerva UI",
+                "description": "Minerva UI is a modern React component library designed to help you build beautiful and accessible user interfaces quickly and efficiently.",
+                "features": {
+                    "components": {
+                        "title": "Rich Component Library",
+                        "description": "A comprehensive set of pre-built components that follow best practices in design and accessibility."
+                    },
+                    "customization": {
+                        "title": "Highly Customizable",
+                        "description": "Flexible theming system that allows you to customize every aspect of the components to match your brand."
+                    },
+                    "typescript": {
+                        "title": "TypeScript Support",
+                        "description": "Built with TypeScript for better development experience with full type support and code completion."
+                    }
+                }
+            }
         },
         "theming": {
             "title": "Theming",
@@ -313,6 +367,17 @@
             "sizes": "Sizes",
             "variants": "Variants",
             "states": "States"
+        },
+        "common": {
+            "installation": "Installation",
+            "basic_usage": "Basic Usage",
+            "examples": "Examples",
+            "customization": "Customization",
+            "api": "API Reference",
+            "props": "Props",
+            "events": "Events",
+            "methods": "Methods",
+            "slots": "Slots"
         }
     },
     "error": {

@@ -47,23 +47,74 @@
         "installation": {
             "title": "安装",
             "description": "通过在项目中安装 Minerva UI 开始使用",
-            "package": "包安装",
-            "setup": "项目设置",
-            "usage": "基础用法"
+            "package": {
+                "title": "包安装",
+                "description": "使用您喜欢的包管理器安装 Minerva UI"
+            },
+            "setup": {
+                "title": "项目设置",
+                "description": "在 React 应用程序中设置 Minerva UI"
+            },
+            "next": {
+                "title": "下一步",
+                "description": "了解更多关于 Minerva UI",
+                "introduction": "阅读介绍",
+                "theming": "了解主题",
+                "components": "浏览组件"
+            }
         },
         "overview": {
             "title": "概述",
             "description": "用于构建美观且无障碍界面的现代 React UI 库",
-            "introduction": "介绍",
-            "features": "特性",
-            "examples": "示例"
+            "features": {
+                "title": "主要特性",
+                "modern": {
+                    "title": "现代设计",
+                    "description": "基于现代设计原则和最佳实践构建。"
+                },
+                "performance": {
+                    "title": "性能优先",
+                    "description": "通过最小化包大小和高效渲染进行性能优化。"
+                },
+                "theme": {
+                    "title": "主题支持",
+                    "description": "全面的主题系统，允许您自定义组件的各个方面。"
+                },
+                "responsive": {
+                    "title": "响应式设计",
+                    "description": "组件设计可在所有设备尺寸上无缝工作。"
+                }
+            },
+            "quickstart": {
+                "title": "快速开始",
+                "description": "通过安装包并导入组件快速开始使用 Minerva UI。"
+            },
+            "support": {
+                "title": "浏览器支持",
+                "description": "Minerva UI 兼容所有现代浏览器。"
+            }
         },
         "introduction": {
             "title": "介绍",
             "description": "了解 Minerva UI 的特性和功能",
-            "what_is": "什么是 Minerva UI",
-            "key_features": "主要特性",
-            "principles": "设计原则"
+            "what": {
+                "title": "什么是 Minerva UI",
+                "description": "Minerva UI 是一个现代的 React 组件库，旨在帮助您快速高效地构建美观且无障碍的用户界面。",
+                "features": {
+                    "components": {
+                        "title": "丰富的组件库",
+                        "description": "一套遵循设计和可访问性最佳实践的预构建组件。"
+                    },
+                    "customization": {
+                        "title": "高度可定制",
+                        "description": "灵活的主题系统，允许您自定义组件的各个方面以匹配您的品牌。"
+                    },
+                    "typescript": {
+                        "title": "TypeScript 支持",
+                        "description": "使用 TypeScript 构建，提供完整的类型支持和代码补全，带来更好的开发体验。"
+                    }
+                }
+            }
         },
         "theming": {
             "title": "主题",
@@ -313,6 +364,17 @@
             "sizes": "尺寸",
             "variants": "变体",
             "states": "状态"
+        },
+        "common": {
+            "installation": "安装",
+            "basic_usage": "基础用法",
+            "examples": "示例",
+            "customization": "自定义",
+            "api": "API 参考",
+            "props": "属性",
+            "events": "事件",
+            "methods": "方法",
+            "slots": "插槽"
         }
     },
     "error": {

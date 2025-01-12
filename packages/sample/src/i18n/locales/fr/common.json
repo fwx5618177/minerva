@@ -47,23 +47,74 @@
         "installation": {
             "title": "Installation",
             "description": "Commencez avec Minerva UI en l'installant dans votre projet",
-            "package": "Installation du Package",
-            "setup": "Configuration du Projet",
-            "usage": "Utilisation de Base"
+            "package": {
+                "title": "Installation du Package",
+                "description": "Installez Minerva UI avec votre gestionnaire de paquets préféré"
+            },
+            "setup": {
+                "title": "Configuration du Projet",
+                "description": "Configurez Minerva UI dans votre application React"
+            },
+            "next": {
+                "title": "Prochaines Étapes",
+                "description": "En savoir plus sur Minerva UI",
+                "introduction": "Lire l'Introduction",
+                "theming": "Découvrir la Thématisation",
+                "components": "Parcourir les Composants"
+            }
         },
         "overview": {
             "title": "Vue d'ensemble",
             "description": "Une bibliothèque moderne de composants React pour construire des interfaces belles et accessibles",
-            "introduction": "Introduction",
-            "features": "Fonctionnalités",
-            "examples": "Exemples"
+            "features": {
+                "title": "Fonctionnalités Clés",
+                "modern": {
+                    "title": "Design Moderne",
+                    "description": "Construit avec les principes de design modernes et les meilleures pratiques à l'esprit."
+                },
+                "performance": {
+                    "title": "Axé sur la Performance",
+                    "description": "Optimisé pour la performance avec une taille de bundle minimale et un rendu efficace."
+                },
+                "theme": {
+                    "title": "Support des Thèmes",
+                    "description": "Système de thèmes complet qui permet de personnaliser chaque aspect des composants."
+                },
+                "responsive": {
+                    "title": "Design Responsive",
+                    "description": "Les composants sont conçus pour fonctionner parfaitement sur tous les formats d'écran."
+                }
+            },
+            "quickstart": {
+                "title": "Démarrage Rapide",
+                "description": "Commencez rapidement avec Minerva UI en installant le package et en important les composants."
+            },
+            "support": {
+                "title": "Support des Navigateurs",
+                "description": "Minerva UI est compatible avec tous les navigateurs modernes."
+            }
         },
         "introduction": {
             "title": "Introduction",
             "description": "Découvrez les fonctionnalités et les capacités de Minerva UI",
-            "what_is": "Qu'est-ce que Minerva UI",
-            "key_features": "Fonctionnalités Clés",
-            "principles": "Principes de Design"
+            "what": {
+                "title": "Qu'est-ce que Minerva UI",
+                "description": "Minerva UI est une bibliothèque moderne de composants React conçue pour vous aider à construire rapidement et efficacement des interfaces utilisateur belles et accessibles.",
+                "features": {
+                    "components": {
+                        "title": "Bibliothèque Riche en Composants",
+                        "description": "Un ensemble complet de composants préconçus qui suivent les meilleures pratiques en matière de design et d'accessibilité."
+                    },
+                    "customization": {
+                        "title": "Hautement Personnalisable",
+                        "description": "Système de thèmes flexible qui vous permet de personnaliser chaque aspect des composants pour correspondre à votre marque."
+                    },
+                    "typescript": {
+                        "title": "Support TypeScript",
+                        "description": "Construit avec TypeScript pour une meilleure expérience de développement avec un support complet des types et une complétion de code."
+                    }
+                }
+            }
         },
         "theming": {
             "title": "Thématisation",
@@ -104,6 +155,196 @@
             "types": "Types d'Alerte",
             "withIcon": "Avec Icônes",
             "closable": "Fermable"
+        },
+        "common": {
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "customization": "Personnalisation",
+            "api": "Référence API",
+            "props": "Propriétés",
+            "events": "Événements",
+            "methods": "Méthodes",
+            "slots": "Slots"
+        },
+        "alert": {
+            "title": "Alerte",
+            "description": "Composant d'alerte pour afficher des messages importants",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "variants": "Variantes d'Alerte",
+            "customization": "Personnalisation"
+        },
+        "avatar": {
+            "title": "Avatar",
+            "description": "Composant d'avatar pour afficher des images de profil",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "sizes": "Tailles d'Avatar",
+            "badge": "Avec Badge"
+        },
+        "button": {
+            "title": "Bouton",
+            "description": "Composant bouton pour déclencher des actions",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "variants": "Variantes de Bouton",
+            "sizes": "Tailles de Bouton",
+            "states": "États de Bouton",
+            "loading": "État de Chargement"
+        },
+        "iconButton": {
+            "title": "Bouton Icône",
+            "description": "Boutons icônes contenant uniquement des icônes, généralement utilisés dans les barres d'outils",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "sizes": "Tailles de Bouton Icône",
+            "variants": "Variantes de Bouton Icône",
+            "states": "États de Bouton Icône"
+        },
+        "switch": {
+            "title": "Interrupteur",
+            "description": "Composant interrupteur pour basculer entre deux états",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "sizes": "Tailles d'Interrupteur",
+            "states": "États d'Interrupteur",
+            "customization": "Personnalisation"
+        },
+        "progress": {
+            "title": "Progression",
+            "description": "Indicateurs de progression pour montrer l'état d'avancement",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "variants": "Variantes de Progression",
+            "sizes": "Tailles de Progression",
+            "states": "États de Progression"
+        },
+        "message": {
+            "title": "Message",
+            "description": "Composant de message pour afficher des notifications temporaires",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "variants": "Variantes de Message",
+            "duration": "Durée du Message",
+            "placement": "Placement du Message"
+        },
+        "tooltip": {
+            "title": "Info-bulle",
+            "description": "Composant info-bulle pour afficher des informations supplémentaires",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "placement": "Placement de l'Info-bulle",
+            "trigger": "Déclencheur de l'Info-bulle",
+            "delay": "Délai de l'Info-bulle"
+        },
+        "popper": {
+            "title": "Popper",
+            "description": "Composant popper pour positionner des éléments flottants",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "placement": "Placement du Popper",
+            "offset": "Décalage du Popper",
+            "arrow": "Avec Flèche"
+        },
+        "searchButton": {
+            "title": "Bouton de Recherche",
+            "description": "Composant bouton de recherche avec fonctionnalité de recherche intégrée",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "variants": "Variantes de Bouton",
+            "sizes": "Tailles de Bouton",
+            "states": "États de Bouton"
+        },
+        "statusIndicator": {
+            "title": "Indicateur de Statut",
+            "description": "Composant indicateur de statut pour montrer l'état actuel",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "variants": "Variantes de Statut",
+            "sizes": "Tailles d'Indicateur",
+            "pulse": "Avec Effet Pulsation"
+        },
+        "timePicker": {
+            "title": "Sélecteur de Temps",
+            "description": "Composant de sélection de temps",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "format": "Format de Temps",
+            "range": "Plage de Temps",
+            "validation": "Validation de Temps"
+        },
+        "virtualList": {
+            "title": "Liste Virtuelle",
+            "description": "Composant de liste virtuelle pour le rendu efficace de grandes listes",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "height": "Hauteur de Liste",
+            "itemSize": "Taille d'Élément",
+            "scrolling": "Défilement Fluide"
+        },
+        "autoComplete": {
+            "title": "Auto-complétion",
+            "description": "Composant d'auto-complétion pour les suggestions de saisie",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "filter": "Filtre Personnalisé",
+            "async": "Données Asynchrones",
+            "templates": "Modèles Personnalisés"
+        },
+        "empty": {
+            "title": "État Vide",
+            "description": "Composant d'état vide pour les scénarios sans données",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "image": "Image Personnalisée",
+            "description_custom": "Description Personnalisée",
+            "action": "Avec Action"
+        },
+        "cascader": {
+            "title": "Sélecteur en Cascade",
+            "description": "Composant de sélection en cascade pour les données hiérarchiques",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "options": "Options Personnalisées",
+            "loading": "État de Chargement",
+            "search": "Fonction de Recherche"
+        },
+        "space": {
+            "title": "Espace",
+            "description": "Composant espace pour gérer l'espacement de mise en page",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "size": "Taille d'Espace",
+            "align": "Alignement d'Espace",
+            "direction": "Direction d'Espace"
+        },
+        "tag": {
+            "title": "Étiquette",
+            "description": "Composant étiquette pour la catégorisation et le filtrage",
+            "installation": "Installation",
+            "basic_usage": "Utilisation de Base",
+            "examples": "Exemples",
+            "color": "Couleurs d'Étiquette",
+            "size": "Tailles d'Étiquette",
+            "closable": "Étiquettes Fermables"
         }
     },
     "error": {

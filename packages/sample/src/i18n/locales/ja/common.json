@@ -47,23 +47,74 @@
         "installation": {
             "title": "インストール",
             "description": "プロジェクトに Minerva UI をインストールして始めましょう",
-            "package": "パッケージのインストール",
-            "setup": "プロジェクトの設定",
-            "usage": "基本的な使い方"
+            "package": {
+                "title": "パッケージのインストール",
+                "description": "お好みのパッケージマネージャーで Minerva UI をインストール"
+            },
+            "setup": {
+                "title": "プロジェクトの設定",
+                "description": "React アプリケーションで Minerva UI を設定"
+            },
+            "next": {
+                "title": "次のステップ",
+                "description": "Minerva UI についてさらに学ぶ",
+                "introduction": "はじめにを読む",
+                "theming": "テーマについて学ぶ",
+                "components": "コンポーネントを見る"
+            }
         },
         "overview": {
             "title": "概要",
             "description": "美しくアクセシブルなインターフェースを構築するためのモダンな React UI ライブラリ",
-            "introduction": "はじめに",
-            "features": "機能",
-            "examples": "例"
+            "features": {
+                "title": "主な機能",
+                "modern": {
+                    "title": "モダンなデザイン",
+                    "description": "モダンなデザイン原則とベストプラクティスを念頭に置いて構築。"
+                },
+                "performance": {
+                    "title": "パフォーマンス重視",
+                    "description": "最小限のバンドルサイズと効率的なレンダリングでパフォーマンスを最適化。"
+                },
+                "theme": {
+                    "title": "テーマサポート",
+                    "description": "コンポーネントのあらゆる側面をカスタマイズできる包括的なテーマシステム。"
+                },
+                "responsive": {
+                    "title": "レスポンシブデザイン",
+                    "description": "すべてのデバイスサイズで完璧に動作するように設計されたコンポーネント。"
+                }
+            },
+            "quickstart": {
+                "title": "クイックスタート",
+                "description": "パッケージをインストールしてコンポーネントをインポートすることで、すぐに Minerva UI を使い始めることができます。"
+            },
+            "support": {
+                "title": "ブラウザサポート",
+                "description": "Minerva UI はすべてのモダンブラウザに対応しています。"
+            }
         },
         "introduction": {
             "title": "はじめに",
             "description": "Minerva UI の機能と特徴について学びましょう",
-            "what_is": "Minerva UI とは",
-            "key_features": "主な機能",
-            "principles": "設計原則"
+            "what": {
+                "title": "Minerva UI とは",
+                "description": "Minerva UI は、美しくアクセシブルなユーザーインターフェースを迅速かつ効率的に構築するための現代的な React コンポーネントライブラリです。",
+                "features": {
+                    "components": {
+                        "title": "豊富なコンポーネント",
+                        "description": "デザインとアクセシビリティのベストプラクティスに従った、包括的なプリビルドコンポーネントセット。"
+                    },
+                    "customization": {
+                        "title": "高度なカスタマイズ性",
+                        "description": "ブランドに合わせてコンポーネントのあらゆる側面をカスタマイズできる柔軟なテーマシステム。"
+                    },
+                    "typescript": {
+                        "title": "TypeScript サポート",
+                        "description": "完全な型サポートとコード補完を備えた、より良い開発体験のための TypeScript 実装。"
+                    }
+                }
+            }
         },
         "theming": {
             "title": "テーマ設定",
@@ -104,6 +155,196 @@
             "types": "アラートの種類",
             "withIcon": "アイコン付き",
             "closable": "閉じることができる"
+        },
+        "common": {
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "customization": "カスタマイズ",
+            "api": "API リファレンス",
+            "props": "プロパティ",
+            "events": "イベント",
+            "methods": "メソッド",
+            "slots": "スロット"
+        },
+        "alert": {
+            "title": "アラート",
+            "description": "重要なメッセージを表示するためのアラートコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "variants": "アラートの種類",
+            "customization": "カスタマイズ"
+        },
+        "avatar": {
+            "title": "アバター",
+            "description": "ユーザープロフィール画像を表示するためのアバターコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "sizes": "アバターのサイズ",
+            "badge": "バッジ付き"
+        },
+        "button": {
+            "title": "ボタン",
+            "description": "アクションをトリガーするためのボタンコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "variants": "ボタンの種類",
+            "sizes": "ボタンのサイズ",
+            "states": "ボタンの状態",
+            "loading": "ローディング状態"
+        },
+        "iconButton": {
+            "title": "アイコンボタン",
+            "description": "アイコンのみを含むボタン、通常はツールバーやコンパクトなインターフェースで使用",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "sizes": "アイコンボタンのサイズ",
+            "variants": "アイコンボタンの種類",
+            "states": "アイコンボタンの状態"
+        },
+        "switch": {
+            "title": "スイッチ",
+            "description": "2つの状態を切り替えるためのスイッチコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "sizes": "スイッチのサイズ",
+            "states": "スイッチの状態",
+            "customization": "カスタマイズ"
+        },
+        "progress": {
+            "title": "プログレス",
+            "description": "完了状態を表示するためのプログレスインジケーター",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "variants": "プログレスの種類",
+            "sizes": "プログレスのサイズ",
+            "states": "プログレスの状態"
+        },
+        "message": {
+            "title": "メッセージ",
+            "description": "一時的な通知を表示するためのメッセージコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "variants": "メッセージの種類",
+            "duration": "表示時間",
+            "placement": "表示位置"
+        },
+        "tooltip": {
+            "title": "ツールチップ",
+            "description": "追加情報を表示するためのツールチップコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "placement": "表示位置",
+            "trigger": "トリガー",
+            "delay": "表示遅延"
+        },
+        "popper": {
+            "title": "ポッパー",
+            "description": "フローティング要素を配置するためのポッパーコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "placement": "配置位置",
+            "offset": "オフセット",
+            "arrow": "矢印付き"
+        },
+        "searchButton": {
+            "title": "検索ボタン",
+            "description": "検索機能を統合した検索ボタンコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "variants": "ボタンの種類",
+            "sizes": "ボタンのサイズ",
+            "states": "ボタンの状態"
+        },
+        "statusIndicator": {
+            "title": "ステータスインジケーター",
+            "description": "現在の状態を表示するためのステータスインジケーターコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "variants": "ステータスの種類",
+            "sizes": "インジケーターのサイズ",
+            "pulse": "パルスエフェクト"
+        },
+        "timePicker": {
+            "title": "タイムピッカー",
+            "description": "時間を選択するためのタイムピッカーコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "format": "時間フォーマット",
+            "range": "時間範囲",
+            "validation": "時間の検証"
+        },
+        "virtualList": {
+            "title": "バーチャルリスト",
+            "description": "大きなリストを効率的にレンダリングするためのバーチャルリストコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "height": "リストの高さ",
+            "itemSize": "アイテムのサイズ",
+            "scrolling": "スムーズスクロール"
+        },
+        "autoComplete": {
+            "title": "オートコンプリート",
+            "description": "入力候補を表示するためのオートコンプリートコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "filter": "カスタムフィルター",
+            "async": "非同期データ",
+            "templates": "カスタムテンプレート"
+        },
+        "empty": {
+            "title": "空の状態",
+            "description": "データがない場合の空の状態を表示するコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "image": "カスタム画像",
+            "description_custom": "カスタム説明",
+            "action": "アクション付き"
+        },
+        "cascader": {
+            "title": "カスケード選択",
+            "description": "階層データから選択するためのカスケード選択コンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "options": "カスタムオプション",
+            "loading": "ローディング状態",
+            "search": "検索機能"
+        },
+        "space": {
+            "title": "スペース",
+            "description": "レイアウトの間隔を管理するためのスペースコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "size": "スペースのサイズ",
+            "align": "配置",
+            "direction": "方向"
+        },
+        "tag": {
+            "title": "タグ",
+            "description": "分類とフィルタリングのためのタグコンポーネント",
+            "installation": "インストール",
+            "basic_usage": "基本的な使い方",
+            "examples": "例",
+            "color": "タグの色",
+            "size": "タグのサイズ",
+            "closable": "閉じることができるタグ"
         }
     },
     "error": {
