@@ -489,7 +489,12 @@
             "basic_usage": "基础用法",
             "examples": "示例",
             "customization": "自定义",
-            "api": "API 参考",
+            "api": {
+                "property": "属性",
+                "description": "说明",
+                "type": "类型",
+                "default": "默认值"
+            },
             "props": "属性",
             "events": "事件",
             "methods": "方法",
@@ -498,10 +503,27 @@
         "pagination": {
             "title": "分页",
             "description": "采用分页的形式分隔长列表，每次只加载一个页面。",
+            "installation": "安装",
+            "installation_description": "使用 npm 或 yarn 安装分页组件。",
+            "basic_usage": "基础用法",
+            "basic_usage_description": "分页组件提供了一种简单的方式来处理大量数据。",
+            "when_to_use": {
+                "title": "何时使用",
+                "items": [
+                    "当加载/渲染所有数据将花费很多时间时",
+                    "可切换页码浏览数据时",
+                    "数据量较大时"
+                ]
+            },
             "examples": {
+                "title": "示例",
+                "introduction": {
+                    "title": "介绍",
+                    "description": "分页组件允许您将大量内容分成较小的块，并在它们之间导航。"
+                },
                 "basic": {
                     "title": "基本用法",
-                    "description": "最简单的分页用法。"
+                    "description": "最简单的分页组件用法。"
                 },
                 "sizes": {
                     "title": "不同尺寸",
@@ -519,21 +541,30 @@
                     "title": "更多功能",
                     "description": "更多功能，如快速跳转、页码选择器和总数显示。"
                 },
+                "large": {
+                    "title": "大数据",
+                    "description": "大数据集的分页，带有快速导航和尺寸选项。"
+                },
+                "custom": {
+                    "title": "自定义渲染",
+                    "description": "自定义分页项和导航图标的渲染。"
+                },
                 "simple": {
                     "title": "简洁模式",
                     "description": "简洁模式下会显示较少的页码。"
                 },
                 "disabled": {
                     "title": "禁用状态",
-                    "description": "分页的禁用状态。"
+                    "description": "分页组件可以被禁用，此时不可交互。"
                 },
                 "responsive": {
-                    "title": "响应式",
+                    "title": "响应式布局",
                     "description": "在响应式模式下，小屏幕上会隐藏部分项目。"
                 }
             },
             "properties": {
                 "title": "属性",
+                "description": "分页组件提供以下属性：",
                 "current": "当前页码",
                 "total": "总条目数",
                 "pageSize": "每页条目数",
@@ -549,7 +580,8 @@
                 "shape": "分页项的形状",
                 "variant": "分页项的变体",
                 "simple": "是否使用简洁模式",
-                "responsive": "是否使用响应式模式"
+                "responsive": "是否使用响应式模式",
+                "icons": "自定义导航图标"
             }
         }
     },

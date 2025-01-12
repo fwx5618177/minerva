@@ -237,30 +237,17 @@
                 }
             }
         },
-        "switch": {
-            "title": "Interrupteur",
-            "description": "Les interrupteurs permettent aux utilisateurs d'activer ou de désactiver une option.",
-            "basic": "Interrupteur de Base",
-            "sizes": "Tailles d'Interrupteur",
-            "disabled": "État Désactivé",
-            "loading": "État de Chargement",
-            "customColors": "Couleurs Personnalisées",
-            "text": "Texte et Icône"
-        },
-        "alert": {
-            "title": "Alerte",
-            "description": "Les alertes affichent des messages importants aux utilisateurs.",
-            "basic": "Alertes de Base",
-            "types": "Types d'Alerte",
-            "withIcon": "Avec Icônes",
-            "closable": "Fermable"
-        },
         "common": {
             "installation": "Installation",
             "basic_usage": "Utilisation de Base",
             "examples": "Exemples",
             "customization": "Personnalisation",
-            "api": "Référence API",
+            "api": {
+                "property": "Propriété",
+                "description": "Description",
+                "type": "Type",
+                "default": "Par défaut"
+            },
             "props": "Propriétés",
             "events": "Événements",
             "methods": "Méthodes",
@@ -283,17 +270,6 @@
             "examples": "Exemples",
             "sizes": "Tailles d'Avatar",
             "badge": "Avec Badge"
-        },
-        "button": {
-            "title": "Bouton",
-            "description": "Composant bouton pour déclencher des actions",
-            "installation": "Installation",
-            "basic_usage": "Utilisation de Base",
-            "examples": "Exemples",
-            "variants": "Variantes de Bouton",
-            "sizes": "Tailles de Bouton",
-            "states": "États de Bouton",
-            "loading": "État de Chargement"
         },
         "iconButton": {
             "title": "Bouton Icône",
@@ -488,11 +464,28 @@
         },
         "pagination": {
             "title": "Pagination",
-            "description": "Une longue liste peut être divisée en plusieurs pages en utilisant la pagination, et une seule page sera chargée à la fois.",
+            "description": "Une longue liste peut être divisée en plusieurs pages à l'aide de la pagination, et une seule page sera chargée à la fois.",
+            "installation": "Installation",
+            "installation_description": "Installez le composant Pagination en utilisant npm ou yarn.",
+            "basic_usage": "Utilisation de base",
+            "basic_usage_description": "Le composant Pagination fournit un moyen simple de gérer de grands ensembles de données.",
+            "when_to_use": {
+                "title": "Quand utiliser",
+                "items": [
+                    "Lorsque le chargement/rendu de toutes les données prendra beaucoup de temps",
+                    "Lorsque vous devez parcourir les données en changeant de page",
+                    "Lorsque vous traitez de grandes quantités de données"
+                ]
+            },
             "examples": {
+                "title": "Exemples",
+                "introduction": {
+                    "title": "Introduction",
+                    "description": "La pagination vous permet de diviser de grands ensembles de contenu en plus petits morceaux et de naviguer entre eux."
+                },
                 "basic": {
-                    "title": "Basique",
-                    "description": "L'utilisation la plus simple de la pagination."
+                    "title": "Utilisation de base",
+                    "description": "L'utilisation la plus simple du composant de pagination."
                 },
                 "sizes": {
                     "title": "Différentes tailles",
@@ -504,43 +497,53 @@
                 },
                 "variants": {
                     "title": "Différentes variantes",
-                    "description": "Trois variantes sont disponibles : remplie (par défaut), contour et texte."
+                    "description": "Trois variantes sont disponibles : remplie (par défaut), contourée et texte."
                 },
                 "more": {
                     "title": "Plus de fonctionnalités",
                     "description": "Plus de fonctionnalités comme le saut rapide, le changeur de taille et l'affichage total."
                 },
+                "large": {
+                    "title": "Grandes données",
+                    "description": "Pagination pour les grands ensembles de données avec navigation rapide et options de taille."
+                },
+                "custom": {
+                    "title": "Rendu personnalisé",
+                    "description": "Personnalisez le rendu des éléments de pagination et des icônes de navigation."
+                },
                 "simple": {
                     "title": "Mode simple",
-                    "description": "Le mode simple affichera moins d'éléments de page."
+                    "description": "Le mode simple affichera moins de numéros de page de manière plus simple."
                 },
                 "disabled": {
-                    "title": "Désactivé",
-                    "description": "État désactivé de la pagination."
+                    "title": "État désactivé",
+                    "description": "La pagination peut être désactivée lorsqu'elle n'est pas interactive."
                 },
                 "responsive": {
-                    "title": "Responsive",
-                    "description": "En mode responsive, les éléments seront masqués sur les petits écrans."
+                    "title": "Mise en page responsive",
+                    "description": "En mode responsive, certains éléments seront masqués sur les petits écrans."
                 }
             },
             "properties": {
                 "title": "Propriétés",
+                "description": "Les propriétés suivantes sont disponibles pour le composant Pagination :",
                 "current": "Numéro de page actuel",
                 "total": "Nombre total d'éléments",
                 "pageSize": "Nombre d'éléments par page",
-                "onChange": "Callback lors du changement de page ou de taille de page",
-                "disabled": "Si la pagination est désactivée",
-                "showQuickJumper": "Si le saut rapide est affiché",
-                "showSizeChanger": "Si le changeur de taille de page est affiché",
-                "pageSizeOptions": "Options pour le changeur de taille de page",
-                "itemRender": "Fonction de rendu personnalisée pour les éléments de page",
-                "showTotal": "Si le nombre total est affiché",
-                "totalRender": "Fonction de rendu personnalisée pour le texte total",
-                "size": "Taille de la pagination",
-                "shape": "Forme des éléments de pagination",
-                "variant": "Variante des éléments de pagination",
-                "simple": "Si le mode simple est utilisé",
-                "responsive": "Si le mode responsive est utilisé"
+                "onChange": "Callback lors du changement de page ou de taille",
+                "disabled": "Désactiver la pagination",
+                "showQuickJumper": "Afficher le saut rapide",
+                "showSizeChanger": "Afficher le changeur de taille",
+                "pageSizeOptions": "Options pour le changeur de taille",
+                "itemRender": "Fonction de rendu personnalisé",
+                "showTotal": "Afficher le nombre total",
+                "totalRender": "Fonction de rendu du texte total",
+                "size": "Taille des éléments",
+                "shape": "Forme des éléments",
+                "variant": "Variante de style",
+                "simple": "Utiliser le mode simple",
+                "responsive": "Utiliser le mode responsive",
+                "icons": "Icônes de navigation personnalisées"
             }
         }
     },

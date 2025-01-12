@@ -250,20 +250,16 @@
             "basic_usage": "基本的な使い方",
             "examples": "例",
             "customization": "カスタマイズ",
-            "api": "API リファレンス",
+            "api": {
+                "property": "プロパティ",
+                "description": "説明",
+                "type": "型",
+                "default": "デフォルト"
+            },
             "props": "プロパティ",
             "events": "イベント",
             "methods": "メソッド",
             "slots": "スロット"
-        },
-        "alert": {
-            "title": "アラート",
-            "description": "重要なメッセージを表示するためのアラートコンポーネント",
-            "installation": "インストール",
-            "basic_usage": "基本的な使い方",
-            "examples": "例",
-            "variants": "アラートの種類",
-            "customization": "カスタマイズ"
         },
         "avatar": {
             "title": "アバター",
@@ -274,17 +270,6 @@
             "sizes": "アバターのサイズ",
             "badge": "バッジ付き"
         },
-        "button": {
-            "title": "ボタン",
-            "description": "アクションをトリガーするためのボタンコンポーネント",
-            "installation": "インストール",
-            "basic_usage": "基本的な使い方",
-            "examples": "例",
-            "variants": "ボタンの種類",
-            "sizes": "ボタンのサイズ",
-            "states": "ボタンの状態",
-            "loading": "ローディング状態"
-        },
         "iconButton": {
             "title": "アイコンボタン",
             "description": "アイコンのみを含むボタン、通常はツールバーやコンパクトなインターフェースで使用",
@@ -294,16 +279,6 @@
             "sizes": "アイコンボタンのサイズ",
             "variants": "アイコンボタンの種類",
             "states": "アイコンボタンの状態"
-        },
-        "switch": {
-            "title": "スイッチ",
-            "description": "2つの状態を切り替えるためのスイッチコンポーネント",
-            "installation": "インストール",
-            "basic_usage": "基本的な使い方",
-            "examples": "例",
-            "sizes": "スイッチのサイズ",
-            "states": "スイッチの状態",
-            "customization": "カスタマイズ"
         },
         "progress": {
             "title": "プログレス",
@@ -479,7 +454,24 @@
         "pagination": {
             "title": "ページネーション",
             "description": "長いリストを複数のページに分割し、一度に1ページのみを読み込みます。",
+            "installation": "インストール",
+            "installation_description": "npm または yarn を使用してページネーションコンポーネントをインストールします。",
+            "basic_usage": "基本的な使い方",
+            "basic_usage_description": "ページネーションコンポーネントは、大量のデータを扱うためのシンプルな方法を提供します。",
+            "when_to_use": {
+                "title": "使用するとき",
+                "items": [
+                    "すべてのデータの読み込み/レンダリングに時間がかかる場合",
+                    "ページを切り替えてデータを閲覧する必要がある場合",
+                    "大量のデータを扱う場合"
+                ]
+            },
             "examples": {
+                "title": "例",
+                "introduction": {
+                    "title": "はじめに",
+                    "description": "ページネーションを使用すると、大量のコンテンツを小さなチャンクに分割して、それらの間を移動できます。"
+                },
                 "basic": {
                     "title": "基本的な使い方",
                     "description": "最も簡単なページネーションの使用方法です。"
@@ -500,6 +492,14 @@
                     "title": "その他の機能",
                     "description": "クイックジャンパー、サイズチェンジャー、合計表示などの追加機能。"
                 },
+                "large": {
+                    "title": "大規模データ",
+                    "description": "クイックナビゲーションとサイズオプションを備えた大規模データセットのページネーション。"
+                },
+                "custom": {
+                    "title": "カスタムレンダリング",
+                    "description": "ページネーション項目とナビゲーションアイコンのカスタマイズ。"
+                },
                 "simple": {
                     "title": "シンプルモード",
                     "description": "シンプルモードではページ項目が少なく表示されます。"
@@ -515,6 +515,7 @@
             },
             "properties": {
                 "title": "プロパティ",
+                "description": "ページネーションコンポーネントで利用可能なプロパティ：",
                 "current": "現在のページ番号",
                 "total": "アイテムの総数",
                 "pageSize": "1ページあたりのアイテム数",
@@ -530,7 +531,8 @@
                 "shape": "ページネーション項目の形状",
                 "variant": "ページネーション項目のバリアント",
                 "simple": "シンプルモードを使用するかどうか",
-                "responsive": "レスポンシブモードを使用するかどうか"
+                "responsive": "レスポンシブモードを使用するかどうか",
+                "icons": "カスタムナビゲーションアイコン"
             }
         }
     },

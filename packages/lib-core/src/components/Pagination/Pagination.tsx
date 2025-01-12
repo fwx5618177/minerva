@@ -23,25 +23,25 @@ type PaginationType = "page" | "prev" | "next" | "jump-prev" | "jump-next";
  *
  * @description 用于数据分页展示的导航组件,支持多种样式和交互方式
  *
- * @param {number} current - 当前页
- * @param {number} total - 总数
- * @param {number} pageSize - 每页显示数量
- * @param {function} onChange - 页码改变回调
- * @param {boolean} disabled - 是否禁用
- * @param {boolean} showQuickJumper - 是否显示快速跳转
- * @param {boolean} showSizeChanger - 是否显示页码大小改变
- * @param {number[]} pageSizeOptions - 页码大小选项
- * @param {(page: number, type: PaginationType) => ReactNode} itemRender - 页码渲染函数
- * @param {string} className - 组件类名
- * @param {React.CSSProperties} style - 组件样式
- * @param {boolean} showTotal - 是否显示总数
- * @param {(total: number, range: [number, number]) => ReactNode} totalRender - 总数渲染函数
- * @param {string} size - 组件尺寸
- * @param {string} shape - 组件形状
- * @param {string} variant - 组件样式
- * @param {boolean} simple - 是否简单模式
- * @param {boolean} responsive - 是否响应式
- * @param {object} icons - 组件图标
+ * @param current - 当前页
+ * @param total - 总数
+ * @param pageSize - 每页显示数量
+ * @param onChange - 页码改变回调
+ * @param disabled - 是否禁用
+ * @param showQuickJumper - 是否显示快速跳转
+ * @param showSizeChanger - 是否显示页码大小改变
+ * @param pageSizeOptions - 页码大小选项
+ * @param itemRender - 页码渲染函数
+ * @param className - 组件类名
+ * @param style - 组件样式
+ * @param showTotal - 是否显示总数
+ * @param totalRender - 总数渲染函数
+ * @param size - 组件尺寸
+ * @param shape - 组件形状
+ * @param variant - 组件样式
+ * @param simple - 是否简单模式
+ * @param responsive - 是否响应式
+ * @param icons - 组件图标
  */
 const Pagination: React.FC<PaginationProps> = ({
   current = 1,
@@ -159,12 +159,19 @@ const Pagination: React.FC<PaginationProps> = ({
   // 渲染页码项
   const renderPageItem = useCallback(
     (page: number, type: PaginationType) => {
-      const isDisabled = type === "prev" ? page <= 1 : page >= totalPages;
+      const isDisabled =
+        disabled ||
+        (type === "prev"
+          ? page <= 1
+          : type === "next"
+            ? page > totalPages
+            : false);
       const itemClassName = classNames(styles.item, {
         [styles.active]: type === "page" && page === current,
         [styles.disabled]: isDisabled,
         [styles.prev]: type === "prev",
         [styles.next]: type === "next",
+        [styles.jump]: type === "jump-prev" || type === "jump-next",
       });
 
       let content: React.ReactNode;
@@ -176,10 +183,20 @@ const Pagination: React.FC<PaginationProps> = ({
           content = icons.next;
           break;
         case "jump-prev":
-          content = icons.jumpPrev;
+          content = (
+            <div className={styles.jumpWrapper}>
+              {icons.jumpPrev}
+              <div className={styles.jumpHint}>向前 5 页</div>
+            </div>
+          );
           break;
         case "jump-next":
-          content = icons.jumpNext;
+          content = (
+            <div className={styles.jumpWrapper}>
+              {icons.jumpNext}
+              <div className={styles.jumpHint}>向后 5 页</div>
+            </div>
+          );
           break;
         default:
           content = page;
@@ -193,13 +210,14 @@ const Pagination: React.FC<PaginationProps> = ({
         <div
           key={`${type}-${page}`}
           className={itemClassName}
-          onClick={(e) => handlePageClick(page, e)}
+          onClick={(e) => !isDisabled && handlePageClick(page, e)}
           role="button"
-          tabIndex={0}
+          tabIndex={isDisabled ? -1 : 0}
           aria-label={`${type === "page" ? "Page " : ""}${page}`}
           aria-current={
             type === "page" && page === current ? "page" : undefined
           }
+          aria-disabled={isDisabled}
         >
           {content}
           {ripples.map((ripple) => (
@@ -215,7 +233,15 @@ const Pagination: React.FC<PaginationProps> = ({
         </div>
       );
     },
-    [current, totalPages, itemRender, icons, handlePageClick, ripples],
+    [
+      current,
+      totalPages,
+      itemRender,
+      icons,
+      handlePageClick,
+      ripples,
+      disabled,
+    ],
   );
 
   // 渲染页码列表
@@ -224,7 +250,24 @@ const Pagination: React.FC<PaginationProps> = ({
       return (
         <>
           {renderPageItem(current - 1, "prev")}
-          <span className={styles.current}>{current}</span>
+          <div className={styles.simpleInput}>
+            <input
+              value={jumpValue || current}
+              onChange={(e) => setJumpValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  const value = parseInt(jumpValue);
+                  if (!isNaN(value) && value >= 1 && value <= totalPages) {
+                    onChange?.(value, currentPageSize);
+                    setJumpValue("");
+                  }
+                }
+              }}
+              onBlur={() => setJumpValue("")}
+            />
+            <span className={styles.simpleDivider}>/</span>
+            <span>{totalPages}</span>
+          </div>
           {renderPageItem(current + 1, "next")}
         </>
       );
@@ -261,7 +304,16 @@ const Pagination: React.FC<PaginationProps> = ({
     items.push(renderPageItem(current + 1, "next"));
 
     return items;
-  }, [current, totalPages, simple, getPageRange, renderPageItem]);
+  }, [
+    current,
+    totalPages,
+    simple,
+    getPageRange,
+    renderPageItem,
+    jumpValue,
+    onChange,
+    currentPageSize,
+  ]);
 
   // 组件类名
   const componentClassName = classNames(

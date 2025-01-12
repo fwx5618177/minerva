@@ -492,19 +492,41 @@
             "basic_usage": "Basic Usage",
             "examples": "Examples",
             "customization": "Customization",
-            "api": "API Reference",
             "props": "Props",
             "events": "Events",
             "methods": "Methods",
-            "slots": "Slots"
+            "slots": "Slots",
+            "api": {
+                "property": "Property",
+                "description": "Description",
+                "type": "Type",
+                "default": "Default"
+            }
         },
         "pagination": {
             "title": "Pagination",
             "description": "A long list can be divided into several pages using Pagination, and only one page will be loaded at a time.",
+            "installation": "Installation",
+            "installation_description": "Install the Pagination component using npm or yarn.",
+            "basic_usage": "Basic Usage",
+            "basic_usage_description": "The Pagination component provides a simple way to handle large sets of data.",
+            "when_to_use": {
+                "title": "When To Use",
+                "items": [
+                    "When loading/rendering all data will take a long time",
+                    "When you need to browse data by switching pages",
+                    "When dealing with large amounts of data"
+                ]
+            },
             "examples": {
+                "title": "Examples",
+                "introduction": {
+                    "title": "Introduction",
+                    "description": "Pagination allows you to divide large sets of content into smaller chunks and navigate between them."
+                },
                 "basic": {
-                    "title": "Basic",
-                    "description": "The simplest use of Pagination."
+                    "title": "Basic Usage",
+                    "description": "The simplest usage of pagination component."
                 },
                 "sizes": {
                     "title": "Different Sizes",
@@ -522,37 +544,47 @@
                     "title": "More Features",
                     "description": "More features like quick jumper, size changer and total display."
                 },
+                "large": {
+                    "title": "Large Data",
+                    "description": "Pagination for large data sets with quick navigation and size options."
+                },
+                "custom": {
+                    "title": "Custom Rendering",
+                    "description": "Customize the rendering of pagination items and navigation icons."
+                },
                 "simple": {
                     "title": "Simple Mode",
-                    "description": "Simple mode will show less page items."
+                    "description": "Simple mode will show less page numbers in a simpler way."
                 },
                 "disabled": {
-                    "title": "Disabled",
-                    "description": "Disabled state of Pagination."
+                    "title": "Disabled State",
+                    "description": "Pagination can be disabled when it's not interactive."
                 },
                 "responsive": {
-                    "title": "Responsive",
-                    "description": "In responsive mode, items will be hidden on small screens."
+                    "title": "Responsive Layout",
+                    "description": "In responsive mode, some items will be hidden on small screens."
                 }
             },
             "properties": {
                 "title": "Properties",
+                "description": "The following properties are available for the Pagination component:",
                 "current": "Current page number",
                 "total": "Total number of items",
                 "pageSize": "Number of items per page",
-                "onChange": "Callback when page or pageSize changes",
+                "onChange": "Callback when page or page size changes",
                 "disabled": "Whether to disable pagination",
                 "showQuickJumper": "Whether to show quick jumper",
                 "showSizeChanger": "Whether to show page size changer",
                 "pageSizeOptions": "Options for page size changer",
-                "itemRender": "Custom render function for page items",
+                "itemRender": "Custom item renderer",
                 "showTotal": "Whether to show total number",
-                "totalRender": "Custom render function for total text",
-                "size": "Size of pagination",
+                "totalRender": "Custom total text renderer",
+                "size": "Size of pagination items",
                 "shape": "Shape of pagination items",
-                "variant": "Variant of pagination items",
+                "variant": "Style variant of pagination items",
                 "simple": "Whether to use simple mode",
-                "responsive": "Whether to use responsive mode"
+                "responsive": "Whether to use responsive mode",
+                "icons": "Custom icons for navigation"
             }
         }
     },

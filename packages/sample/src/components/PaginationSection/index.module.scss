@@ -2,217 +2,135 @@
 
 .examples {
   display: grid;
-  gap: 32px;
+  gap: var(--spacing-8);
   width: 100%;
 
   .example {
-    padding: 24px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    padding: clamp(var(--spacing-4), 4vw, var(--spacing-8));
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
     min-width: 0;
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
-      opacity: 0;
-      transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
 
     &:hover {
-      box-shadow:
-        0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      border-color: #3b82f6;
-      transform: translateY(-2px);
-
-      &::before {
-        opacity: 1;
-      }
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-color);
     }
 
     h3 {
-      margin: 0 0 16px;
-      font-size: 20px;
-      color: #1e293b;
+      margin: 0 0 var(--spacing-4);
+      font-size: var(--text-xl);
+      color: var(--text-primary);
       font-weight: 600;
       word-break: break-word;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      &::before {
-        content: "#";
-        color: #3b82f6;
-        opacity: 0;
-        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        font-weight: 400;
-      }
-
-      &:hover::before {
-        opacity: 1;
-      }
     }
 
     .description {
-      color: #64748b;
-      font-size: 16px;
-      margin-bottom: 24px;
+      color: var(--text-secondary);
+      font-size: var(--text-base);
+      margin-bottom: var(--spacing-6);
       line-height: 1.6;
       word-wrap: break-word;
-      max-width: 80ch;
+    }
+
+    .tips {
+      margin-bottom: var(--spacing-6);
+      padding: var(--spacing-4) var(--spacing-6);
+      background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--primary-rgb), 0.05) 100%);
+      border-radius: var(--radius-lg);
+
+      h4 {
+        margin: 0 0 var(--spacing-2);
+        font-size: var(--text-lg);
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: var(--spacing-6);
+
+        li {
+          color: var(--text-secondary);
+          font-size: var(--text-base);
+          line-height: 1.6;
+          margin-bottom: var(--spacing-2);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
     }
 
     .demo {
-      padding: 24px;
-      background: #f8fafc;
-      border-radius: 12px;
-      margin-bottom: 24px;
+      padding: clamp(var(--spacing-4), 3vw, var(--spacing-8));
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-6);
       display: flex;
-      gap: 16px;
+      gap: clamp(var(--spacing-2), 2vw, var(--spacing-4));
       flex-wrap: wrap;
       align-items: center;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border-color);
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-      position: relative;
-
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        pointer-events: none;
-        box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.1);
-        transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      &:hover::after {
-        box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.2);
-      }
     }
 
     .codeWrapper {
-      background: #f8fafc;
-      border-radius: 12px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--border-color);
       width: 100%;
-      position: relative;
 
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        pointer-events: none;
-        box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.1);
-        transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      &:hover::after {
-        box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.2);
+      pre {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: var(--spacing-4);
       }
     }
 
     .apiTable {
-      margin-top: 24px;
+      width: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
 
       table {
         width: 100%;
         border-collapse: collapse;
-        font-size: 14px;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        background: var(--bg-secondary);
 
         th,
         td {
-          padding: 12px 16px;
+          padding: var(--spacing-3) var(--spacing-4);
           text-align: left;
-          border-bottom: 1px solid #e2e8f0;
+          border-bottom: 1px solid var(--border-color);
+          font-size: var(--text-sm);
+          line-height: 1.6;
         }
 
         th {
-          background: #f8fafc;
           font-weight: 600;
-          color: #1e293b;
+          color: var(--text-primary);
+          background: var(--bg-subtle);
         }
 
         td {
-          color: #64748b;
+          color: var(--text-secondary);
 
           &:first-child {
-            color: #3b82f6;
-            font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+            color: var(--primary-color);
+            font-family: var(--font-mono);
           }
         }
 
-        tr:hover td {
-          background: #f8fafc;
-        }
-      }
-    }
-  }
-}
-
-// Dark theme
-:global(.dark) {
-  .examples {
-    .example {
-      background: #1e293b;
-      border-color: #334155;
-
-      &:hover {
-        border-color: #3b82f6;
-      }
-
-      h3 {
-        color: #f8fafc;
-      }
-
-      .description {
-        color: #cbd5e1;
-      }
-
-      .demo {
-        background: #0f172a;
-        border-color: #334155;
-      }
-
-      .codeWrapper {
-        background: #0f172a;
-        border-color: #334155;
-      }
-
-      .apiTable {
-        table {
-          th {
-            background: #0f172a;
-            color: #f8fafc;
-            border-bottom-color: #334155;
-          }
-
-          td {
-            color: #cbd5e1;
-            border-bottom-color: #334155;
-
-            &:first-child {
-              color: #60a5fa;
-            }
-          }
-
-          tr:hover td {
-            background: #1e293b;
-          }
+        tr:last-child td {
+          border-bottom: none;
         }
       }
     }
@@ -222,42 +140,27 @@
 // Mobile styles
 @media (max-width: 768px) {
   .examples {
-    gap: 24px;
+    gap: var(--spacing-6);
 
     .example {
-      padding: 16px;
-
       h3 {
-        font-size: 18px;
+        font-size: var(--text-lg);
       }
 
       .description {
-        font-size: 14px;
-        margin-bottom: 16px;
+        font-size: var(--text-sm);
       }
 
       .demo {
-        padding: 16px;
         min-width: 0;
         justify-content: flex-start;
-        margin-bottom: 16px;
-      }
-
-      .codeWrapper {
-        pre {
-          padding: 12px;
-          font-size: 12px;
-        }
       }
 
       .apiTable {
-        table {
-          font-size: 12px;
-
-          th,
-          td {
-            padding: 8px 12px;
-          }
+        th,
+        td {
+          padding: var(--spacing-2) var(--spacing-3);
+          font-size: var(--text-xs);
         }
       }
     }
@@ -268,25 +171,10 @@
 @media (max-width: 360px) {
   .examples {
     .example {
-      padding: 12px;
+      padding: var(--spacing-3);
 
       .demo {
-        padding: 12px;
-      }
-
-      .codeWrapper {
-        pre {
-          padding: 8px;
-        }
-      }
-
-      .apiTable {
-        table {
-          th,
-          td {
-            padding: 6px 8px;
-          }
-        }
+        padding: var(--spacing-3);
       }
     }
   }
