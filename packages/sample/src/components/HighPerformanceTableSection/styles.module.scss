@@ -1,0 +1,114 @@
+.section {
+  padding: 24px;
+
+  h2 {
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  h3 {
+    margin: 24px 0 16px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .description {
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .features {
+    margin: 16px 0;
+    padding-left: 20px;
+
+    li {
+      margin: 8px 0;
+    }
+  }
+
+  .demo {
+    margin: 32px 0;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .controls {
+      margin-bottom: 16px;
+
+      .scaleSelector {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+
+        button {
+          padding: 6px 12px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+
+          cursor: pointer;
+          transition: all 0.3s;
+
+          &:hover {
+            border-color: #1890ff;
+            color: #1890ff;
+          }
+
+          &.active {
+            background: #1890ff;
+            border-color: #1890ff;
+            color: #fff;
+          }
+        }
+      }
+
+      .info {
+        font-size: 14px;
+
+        > div {
+          margin: 4px 0;
+        }
+
+        span {
+          margin-right: 12px;
+          padding: 2px 8px;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .tableWrapper {
+      padding: 6px;
+      border-radius: 4px;
+    }
+  }
+
+  .comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+
+    .performanceCard {
+      padding: 20px;
+      border-radius: 8px;
+
+      h4 {
+        margin-bottom: 12px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      ul {
+        padding-left: 20px;
+
+        li {
+          margin: 8px 0;
+        }
+      }
+    }
+  }
+}

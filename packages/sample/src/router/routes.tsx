@@ -28,6 +28,7 @@ import {
   IoGitNetworkOutline,
   IoBookmarkOutline,
   IoCodeOutline,
+  IoTabletPortraitOutline,
 } from "react-icons/io5";
 
 // Getting Started Pages
@@ -66,6 +67,7 @@ import SpacePage from "@pages/SpacePage";
 import TagPage from "@pages/TagPage";
 import PaginationPage from "@pages/PaginationPage";
 import WebComponentsPage from "@pages/WebComponentButtonPage";
+import HighPerformanceTablePage from "@/pages/HighPerformanceTablePage";
 
 export const routes: RouteObject[] = [
   // Getting Started Routes
@@ -198,6 +200,10 @@ export const routes: RouteObject[] = [
   {
     path: "pagination",
     element: <PaginationPage />,
+  },
+  {
+    path: "high-performance-table",
+    element: <HighPerformanceTablePage />,
   },
   {
     path: "web-components",
@@ -375,6 +381,13 @@ export const menuConfig = {
       path: "pagination",
       icon: <IoListOutline />,
       translationKey: "components.pagination.title",
+    },
+  ],
+  special: [
+    {
+      path: "high-performance-table",
+      icon: <IoTabletPortraitOutline />,
+      translationKey: "components.highPerformanceTable.title",
     },
   ],
   webComponents: [
