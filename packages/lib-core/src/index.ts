@@ -5,3 +5,5 @@ export * from "./utils";
 
 export * from "./wasm";
 export * from "./versioning";
+
+export * from "./components/HighPerformanceTable/HighPerformanceTable";
