@@ -1,0 +1,12 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<minerva-box bg="bg.subtle" p="2" rounded="md">
+  <minerva-box bg="bg.muted" px="6" py="2" mb="3" rounded="sm">
+    px="6" py="2" mb="3": spacing tokens
+  </minerva-box>
+  <minerva-box bg="bg.muted" p="12px" mx="auto" w="240" rounded="sm">
+    p="12px" mx="auto" w="240": CSS values and pixels
+  </minerva-box>
+  <minerva-box bg="bg.muted" p="3" mt="3" max-w="60%" min-h="80" rounded="sm">
+    max-w="60%" min-h="80"
+  </minerva-box>
+</minerva-box>
+`})))()}n();export{t as default};

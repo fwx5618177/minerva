@@ -1,1 +1,0 @@
-import{t as e}from"./sample-Dya6Jarx.js";e();

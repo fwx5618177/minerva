@@ -1,0 +1,23 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<minerva-page-section
+  heading="This month"
+  description="Compared with last month."
+>
+  <span slot="icon">📈</span>
+  <minerva-responsive-grid columns="1 2 3" gap="3">
+    <minerva-stat-card
+      label="Revenue"
+      value="$48,200"
+      description="+12% vs. last month"
+    >
+      <span slot="icon">💰</span>
+    </minerva-stat-card>
+    <minerva-stat-card label="Active users" value="3,104">
+      <span slot="icon">👥</span>
+    </minerva-stat-card>
+    <minerva-stat-card label="Churn">
+      <span slot="value">1.8<small>%</small></span>
+      <span slot="description">Down from <strong>2.4%</strong></span>
+    </minerva-stat-card>
+  </minerva-responsive-grid>
+</minerva-page-section>
+`})))()}n();export{t as default};

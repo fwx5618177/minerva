@@ -1,0 +1,13 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<minerva-page-tabs id="pages" aria-label="Open pages" active-value="books">
+  <minerva-page-tab value="home" label="Dashboard">
+    <span slot="icon">⌂</span>
+  </minerva-page-tab>
+  <minerva-page-tab value="books" label="Books" closable></minerva-page-tab>
+  <minerva-page-tab
+    value="article"
+    label="A very long article title that gets truncated"
+    closable
+  ></minerva-page-tab>
+</minerva-page-tabs>
+<output id="log" aria-live="polite"></output>
+`})))()}n();export{t as default};

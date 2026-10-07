@@ -1,0 +1,2 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#source`),n=e.querySelector(`#preview`);t.value=[`<p style="color: crimson">Styled text stays.</p>`,`<script>alert('removed')<\/script>`,`<img src="x" onerror="alert('removed')" alt="Broken image">`,`<button onclick="alert('removed')">Inert button</button>`].join(`
+`);let r=()=>n.html=t.value;return r(),t.addEventListener(`input`,r),()=>t.removeEventListener(`input`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

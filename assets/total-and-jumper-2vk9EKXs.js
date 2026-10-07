@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#results`);t.totalRender=(e,[t,n])=>`${t}–${n} of ${e} results`}function n(){return(n=e((()=>{})))()}n();export{t as setup};

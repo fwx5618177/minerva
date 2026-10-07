@@ -1,0 +1,23 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 8px">
+  <minerva-checkbox id="cb-all" label="All toppings"></minerva-checkbox>
+  <div style="display: grid; gap: 8px; padding-inline-start: 24px">
+    <minerva-checkbox
+      class="cb-item"
+      value="cheese"
+      checked
+      label="Cheese"
+    ></minerva-checkbox>
+    <minerva-checkbox
+      class="cb-item"
+      value="olives"
+      label="Olives"
+    ></minerva-checkbox>
+    <minerva-checkbox
+      class="cb-item"
+      value="basil"
+      label="Basil"
+    ></minerva-checkbox>
+  </div>
+  <output id="cb-selection"></output>
+</div>
+`})))()}n();export{t as default};

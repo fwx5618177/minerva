@@ -1,0 +1,12 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 12px; max-width: 360px">
+  <minerva-autocomplete
+    id="city"
+    label="City"
+    placeholder="Type at least 2 letters"
+    no-animation
+  >
+    <span slot="prefix" aria-hidden="true">🔍</span>
+  </minerva-autocomplete>
+  <output id="log"></output>
+</div>
+`})))()}n();export{t as default};

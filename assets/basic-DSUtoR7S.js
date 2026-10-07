@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){e.querySelector(`#order`).items=[{value:`placed`,label:`Order placed`},{value:`paid`,label:`Payment confirmed`},{value:`shipped`,label:`Shipped`},{value:`delivered`,label:`Delivered`}]}function n(){return(n=e((()=>{})))()}n();export{t as setup};

@@ -1,0 +1,31 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<form id="profile">
+  <minerva-form-layout columns="1 2" gap="4">
+    <minerva-form-control label="First name" required>
+      <minerva-input name="first" autocomplete="given-name"></minerva-input>
+    </minerva-form-control>
+    <minerva-form-control label="Last name" required>
+      <minerva-input name="last" autocomplete="family-name"></minerva-input>
+    </minerva-form-control>
+    <minerva-form-control label="Email" helper-text="We never share it.">
+      <minerva-input name="email" type="email"></minerva-input>
+    </minerva-form-control>
+    <minerva-form-control label="Phone">
+      <minerva-input name="phone" type="tel"></minerva-input>
+    </minerva-form-control>
+    <minerva-grid-item full-width>
+      <minerva-form-control label="About you">
+        <minerva-textarea name="about" rows="3"></minerva-textarea>
+      </minerva-form-control>
+    </minerva-grid-item>
+    <minerva-grid-item full-width>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <minerva-button type="submit">Save</minerva-button>
+        <minerva-button type="reset" variant="ghost" color="neutral"
+          >Reset</minerva-button
+        >
+        <output id="result"></output>
+      </div>
+    </minerva-grid-item>
+  </minerva-form-layout>
+</form>
+`})))()}n();export{t as default};

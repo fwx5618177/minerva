@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#in-name`),n=e.querySelector(`#in-name-echo`),r=e=>{let{value:t}=e.detail;n.value=t?`Hello, ${t}!`:`Hello!`};return t.addEventListener(`minerva-input`,r),()=>t.removeEventListener(`minerva-input`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

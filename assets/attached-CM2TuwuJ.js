@@ -1,0 +1,53 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<minerva-hstack attached aria-label="Text alignment">
+  <button
+    type="button"
+    style="
+      padding: 6px 12px;
+      border: 1px solid var(--border-color);
+      background: var(--surface-color);
+      color: inherit;
+    "
+  >
+    Left
+  </button>
+  <button
+    type="button"
+    style="
+      padding: 6px 12px;
+      border: 1px solid var(--border-color);
+      background: var(--surface-color);
+      color: inherit;
+    "
+  >
+    Center
+  </button>
+  <button
+    type="button"
+    style="
+      padding: 6px 12px;
+      border: 1px solid var(--border-color);
+      background: var(--surface-color);
+      color: inherit;
+    "
+  >
+    Right
+  </button>
+</minerva-hstack>
+<minerva-vstack
+  attached
+  aria-label="Account fields"
+  style="margin-top: 16px; max-width: 280px"
+>
+  <input
+    aria-label="Email"
+    placeholder="Email"
+    style="padding: 8px; border: 1px solid var(--border-color)"
+  />
+  <input
+    aria-label="Password"
+    type="password"
+    placeholder="Password"
+    style="padding: 8px; border: 1px solid var(--border-color)"
+  />
+</minerva-vstack>
+`})))()}n();export{t as default};

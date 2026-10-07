@@ -1,0 +1,14 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<minerva-config theme="light" palette="tech">
+  <minerva-card variant="outline" padding="medium" style="max-width: 520px">
+    <minerva-card-content style="display: grid; gap: 12px">
+      <minerva-palette-toggle show-default></minerva-palette-toggle>
+      <minerva-theme-toggle hide-system></minerva-theme-toggle>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <minerva-button>Primary</minerva-button>
+        <minerva-button variant="outline">Outline</minerva-button>
+        <minerva-button color="success" variant="ghost">Success</minerva-button>
+      </div>
+    </minerva-card-content>
+  </minerva-card>
+</minerva-config>
+`})))()}n();export{t as default};

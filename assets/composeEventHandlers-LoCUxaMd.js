@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e,t,{checkForDefaultPrevented:n=!0}={}){return r=>{e?.(r),!(n&&r?.defaultPrevented)&&t?.(r)}}function n(){return(n=e((()=>{})))()}export{n,t};

@@ -1,0 +1,38 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<minerva-responsive-grid columns="2 3" gap="3">
+  <minerva-grid-item full-width>
+    <minerva-box
+      p="3"
+      bg="bg.subtle"
+      rounded="md"
+      border="1px solid var(--border-color)"
+    >
+      Full-width header row
+    </minerva-box>
+  </minerva-grid-item>
+  <minerva-grid-item
+    ><minerva-box p="4" bg="bg.muted" rounded="md"
+      >1</minerva-box
+    ></minerva-grid-item
+  >
+  <minerva-grid-item
+    ><minerva-box p="4" bg="bg.muted" rounded="md"
+      >2</minerva-box
+    ></minerva-grid-item
+  >
+  <minerva-grid-item
+    ><minerva-box p="4" bg="bg.muted" rounded="md"
+      >3</minerva-box
+    ></minerva-grid-item
+  >
+  <minerva-grid-item full-width>
+    <minerva-box
+      p="3"
+      bg="bg.subtle"
+      rounded="md"
+      border="1px solid var(--border-color)"
+    >
+      Full-width footer row
+    </minerva-box>
+  </minerva-grid-item>
+</minerva-responsive-grid>
+`})))()}n();export{t as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#ni-guests`),n=e.querySelector(`#ni-guests-value`),r=e=>{let{value:t}=e.detail;n.value=`Committed: ${t??`empty`}`};return t.addEventListener(`minerva-change`,r),()=>t.removeEventListener(`minerva-change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

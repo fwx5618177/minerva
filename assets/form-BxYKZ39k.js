@@ -1,0 +1,29 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<form id="rd-form" style="display: grid; gap: 12px; justify-items: start">
+  <minerva-radio-group
+    name="size"
+    label="T-shirt size"
+    required
+    direction="horizontal"
+  >
+    <minerva-radio value="s" label="S"></minerva-radio>
+    <minerva-radio value="m" label="M"></minerva-radio>
+    <minerva-radio value="l" label="L"></minerva-radio>
+  </minerva-radio-group>
+  <minerva-radio-group
+    name="color"
+    label="Color"
+    value="blue"
+    direction="horizontal"
+  >
+    <minerva-radio value="blue" label="Blue"></minerva-radio>
+    <minerva-radio value="green" label="Green"></minerva-radio>
+  </minerva-radio-group>
+  <div style="display: flex; gap: 8px">
+    <minerva-button type="submit">Submit</minerva-button>
+    <minerva-button type="reset" variant="ghost" color="neutral"
+      >Reset</minerva-button
+    >
+  </div>
+  <output id="rd-form-result"></output>
+</form>
+`})))()}n();export{t as default};

@@ -1,0 +1,2 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=Array.from({length:20},(e,t)=>`[12:00:${String(t).padStart(2,`0`)}] step ${t+1}/20 ok -- compiled packages/lib-web-components/src/components with no warnings`).join(`
+`);e.querySelector(`#log`).code=t,e.querySelector(`#wrapped`).code=t}function n(){return(n=e((()=>{})))()}n();export{t as setup};

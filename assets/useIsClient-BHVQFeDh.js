@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";import{h as t}from"./react-vendor-fq7Q804H.js";var n,r,i;function a(){return(a=e((()=>{n=t(),r=()=>()=>{},i=()=>(0,n.useSyncExternalStore)(r,()=>!0,()=>!1)})))()}export{i as n,a as t};

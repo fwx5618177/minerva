@@ -1,0 +1,3 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#draft`),n=e.querySelector(`#dirty`),r=e.querySelector(`#draft-log`),i=e=>r.textContent=`${e}\n${r.textContent}`.split(`
+`,4).join(`
+`),a=e=>{let{open:t,reason:r}=e.detail;!t&&n.checked?(e.preventDefault(),i(`close (${r}) blocked: unsaved changes`)):i(`open-change: open=${t} (${r})`)},o=()=>i(`after-open`),s=()=>i(`after-close`);return t.addEventListener(`minerva-open-change`,a),t.addEventListener(`minerva-after-open`,o),t.addEventListener(`minerva-after-close`,s),()=>{t.removeEventListener(`minerva-open-change`,a),t.removeEventListener(`minerva-after-open`,o),t.removeEventListener(`minerva-after-close`,s)}}function n(){return(n=e((()=>{})))()}n();export{t as setup};

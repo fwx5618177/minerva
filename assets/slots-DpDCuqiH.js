@@ -1,0 +1,16 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
+  <minerva-badge id="cart" content="0" color="danger">
+    <minerva-button id="add" variant="outline" color="neutral"
+      >Add to cart</minerva-button
+    >
+  </minerva-badge>
+  <minerva-badge color="success" variant="subtle">
+    <span slot="icon" aria-hidden="true">✓</span>
+    Verified
+  </minerva-badge>
+  <minerva-badge color="info">
+    <minerva-button variant="ghost" color="neutral">Updates</minerva-button>
+    <span slot="content"><strong>99</strong>+</span>
+  </minerva-badge>
+</div>
+`})))()}n();export{t as default};

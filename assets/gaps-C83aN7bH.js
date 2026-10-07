@@ -1,0 +1,27 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<form style="display: grid; gap: 24px">
+  <minerva-form-layout columns="1 2 3" row-gap="6" column-gap="2">
+    <label style="display: grid; gap: 4px">
+      City
+      <input name="city" />
+    </label>
+    <label style="display: grid; gap: 4px">
+      State
+      <input name="state" />
+    </label>
+    <label style="display: grid; gap: 4px">
+      ZIP
+      <input name="zip" inputmode="numeric" />
+    </label>
+  </minerva-form-layout>
+  <minerva-form-layout columns="2" gap="24px">
+    <label style="display: grid; gap: 4px">
+      Start date
+      <input name="start" type="date" />
+    </label>
+    <label style="display: grid; gap: 4px">
+      End date
+      <input name="end" type="date" />
+    </label>
+  </minerva-form-layout>
+</form>
+`})))()}n();export{t as default};

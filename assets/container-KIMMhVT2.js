@@ -1,0 +1,27 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<label style="display: flex; gap: 8px; align-items: center">
+  Container width
+  <input id="width" type="range" min="280" max="1300" step="10" value="1300" />
+  <output id="value">1300px</output>
+</label>
+<div
+  id="frame"
+  style="
+    max-width: 100%;
+    width: 1300px;
+    margin-top: 12px;
+    padding: 8px;
+    border: 1px dashed var(--border-color);
+  "
+>
+  <minerva-responsive-grid
+    columns='{"base": 1, "sm": 2, "lg": 4}'
+    row-gap="2"
+    column-gap="6"
+  >
+    <minerva-box p="4" bg="bg.muted" rounded="md">A</minerva-box>
+    <minerva-box p="4" bg="bg.muted" rounded="md">B</minerva-box>
+    <minerva-box p="4" bg="bg.muted" rounded="md">C</minerva-box>
+    <minerva-box p="4" bg="bg.muted" rounded="md">D</minerva-box>
+  </minerva-responsive-grid>
+</div>
+`})))()}n();export{t as default};

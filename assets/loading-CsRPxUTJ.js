@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#post`),n=e.querySelector(`#reload`),r,i=()=>{t.loaded=!1,clearTimeout(r),r=setTimeout(()=>t.loaded=!0,1500)};return i(),n.addEventListener(`click`,i),()=>{clearTimeout(r),n.removeEventListener(`click`,i)}}function n(){return(n=e((()=>{})))()}n();export{t as setup};

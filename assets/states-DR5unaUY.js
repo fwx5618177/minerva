@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#fc-username`),n=e.querySelector(`#fc-toggle`),r=()=>t.invalid=!t.invalid;return n.addEventListener(`click`,r),()=>n.removeEventListener(`click`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};
