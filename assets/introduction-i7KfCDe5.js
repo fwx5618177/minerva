@@ -1,0 +1,19 @@
+import"./rolldown-runtime-CbXtAM7H.js";import{p as e,t}from"./react-vendor-BvKcNA9t.js";import{J as n}from"./registry-DXcVqgdp.js";import{a as r,r as i,t as a}from"./DocPage-DUnq_TLt.js";e();var o=t(),s=`https://github.com/fwx5618177/minerva`,c=`import { useState } from "react";
+import { Switch } from "@minerva/lib-core";
+
+// Uncontrolled: the component keeps its own state
+<Switch label="Wi-Fi" defaultChecked />;
+
+// Controlled: you own the state and update it in onChange
+function Controlled() {
+  const [on, setOn] = useState(false);
+  return <Switch label="Bluetooth" checked={on} onChange={setOn} />;
+}`,l=`import { Button, IconButton } from "@minerva/lib-core";
+import { IoTrashOutline } from "react-icons/io5";
+
+<Button className="my-button" style={{ minWidth: 120 }} type="submit">
+  Save
+</Button>;
+
+// icon-only controls need an accessible name
+<IconButton icon={<IoTrashOutline />} ariaLabel="Delete item" />;`,u=()=>{let{t:e}=n(),t=[{title:e(`docs.introduction.principles.tokens.title`),text:e(`docs.introduction.principles.tokens.text`)},{title:e(`docs.introduction.principles.accessible.title`),text:e(`docs.introduction.principles.accessible.text`)},{title:e(`docs.introduction.principles.predictable.title`),text:e(`docs.introduction.principles.predictable.text`)},{title:e(`docs.introduction.principles.small.title`),text:e(`docs.introduction.principles.small.text`)}],u=(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(`section`,{className:i.section,"aria-labelledby":`principles`,children:[(0,o.jsx)(`h2`,{id:`principles`,children:e(`docs.introduction.principles.title`)}),(0,o.jsx)(`ul`,{children:t.map(e=>(0,o.jsxs)(`li`,{children:[(0,o.jsx)(`strong`,{children:e.title}),`: `,e.text]},e.title))})]}),(0,o.jsxs)(`section`,{className:i.section,"aria-labelledby":`reading`,children:[(0,o.jsx)(`h2`,{id:`reading`,children:e(`docs.introduction.reading.title`)}),(0,o.jsx)(`p`,{className:i.prose,children:e(`docs.introduction.reading.text`)}),(0,o.jsxs)(`ul`,{children:[(0,o.jsxs)(`li`,{children:[(0,o.jsx)(`strong`,{children:e(`doc.import`)}),`:`,` `,e(`docs.introduction.reading.import`)]}),(0,o.jsxs)(`li`,{children:[(0,o.jsx)(`strong`,{children:e(`doc.examples`)}),`:`,` `,e(`docs.introduction.reading.examples`)]}),(0,o.jsxs)(`li`,{children:[(0,o.jsx)(`strong`,{children:e(`doc.api`)}),`:`,` `,e(`docs.introduction.reading.api`)]})]})]}),(0,o.jsxs)(`section`,{className:i.section,"aria-labelledby":`conventions`,children:[(0,o.jsx)(`h2`,{id:`conventions`,children:e(`docs.introduction.conventions.title`)}),(0,o.jsx)(`h3`,{children:e(`docs.introduction.conventions.controlled.title`)}),(0,o.jsx)(`p`,{className:i.prose,children:e(`docs.introduction.conventions.controlled.text`)}),(0,o.jsx)(r,{code:c,language:`tsx`}),(0,o.jsx)(`h3`,{children:e(`docs.introduction.conventions.passthrough.title`)}),(0,o.jsx)(`p`,{className:i.prose,children:e(`docs.introduction.conventions.passthrough.text`)}),(0,o.jsx)(`h3`,{children:e(`docs.introduction.conventions.aria.title`)}),(0,o.jsx)(`p`,{className:i.prose,children:e(`docs.introduction.conventions.aria.text`)}),(0,o.jsx)(r,{code:l,language:`tsx`})]}),(0,o.jsxs)(`section`,{className:i.section,"aria-labelledby":`browser-support`,children:[(0,o.jsx)(`h2`,{id:`browser-support`,children:e(`docs.introduction.browsers.title`)}),(0,o.jsx)(`p`,{className:i.prose,children:e(`docs.introduction.browsers.text`)})]}),(0,o.jsxs)(`section`,{className:i.section,"aria-labelledby":`contributing`,children:[(0,o.jsx)(`h2`,{id:`contributing`,children:e(`docs.introduction.contributing.title`)}),(0,o.jsxs)(`p`,{className:i.prose,children:[e(`docs.introduction.contributing.text`),` `,(0,o.jsx)(`a`,{href:s,target:`_blank`,rel:`noreferrer`,children:`github.com/fwx5618177/minerva`})]})]})]});return(0,o.jsx)(a,{id:`introduction`,intro:u})};export{u as default};
