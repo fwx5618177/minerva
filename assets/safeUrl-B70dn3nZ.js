@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";import{Pt as t,vt as n}from"./minerva-web-components-ByJsjP0z.js";function r(e,n){return t(n)}function i(){return(i=e((()=>{n()})))()}export{r as n,i as t};
