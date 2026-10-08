@@ -1,0 +1,1 @@
+import{t as e}from"./sample-Dg_ygJ6G.js";e();
