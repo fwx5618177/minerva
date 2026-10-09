@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#alarm`),n=e.querySelector(`#result`),r=()=>{let e=t.valueAsDate;n.value=e?`value = ${t.value} (${e.toLocaleTimeString()})`:`Cleared`};return t.addEventListener(`minerva-change`,r),()=>t.removeEventListener(`minerva-change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

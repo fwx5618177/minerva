@@ -1,0 +1,20 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<form id="booking" style="display: grid; gap: 8px; justify-items: start">
+  <label for="start">Start time</label>
+  <minerva-time-picker
+    id="start"
+    name="start"
+    format="HH:mm"
+    hide-second
+    minute-step="30"
+    value="10:00"
+    required
+  ></minerva-time-picker>
+  <div style="display: flex; gap: 8px">
+    <minerva-button type="submit">Book</minerva-button>
+    <minerva-button type="reset" variant="ghost" color="neutral"
+      >Reset</minerva-button
+    >
+  </div>
+  <output id="result"></output>
+</form>
+`})))()}n();export{t as default};

@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#placement-controls`),n=e.querySelector(`#placed`),r=e=>{let t=e.target;t.name===`side`&&(n.side=t.value),t.name===`align`&&(n.align=t.value)};return t.addEventListener(`change`,r),()=>t.removeEventListener(`change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

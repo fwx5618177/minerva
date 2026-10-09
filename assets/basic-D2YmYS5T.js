@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`minerva-button`),n=e.querySelector(`output`),r=0,i=()=>{n.textContent=`Clicked ${++r} times`};return t.addEventListener(`click`,i),()=>t.removeEventListener(`click`,i)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

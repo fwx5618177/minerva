@@ -1,0 +1,11 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<minerva-responsive-grid columns="1 2 3 4" gap="3">
+  <minerva-box p="4" bg="bg.muted" rounded="md">1</minerva-box>
+  <minerva-box p="4" bg="bg.muted" rounded="md">2</minerva-box>
+  <minerva-box p="4" bg="bg.muted" rounded="md">3</minerva-box>
+  <minerva-box p="4" bg="bg.muted" rounded="md">4</minerva-box>
+  <minerva-box p="4" bg="bg.muted" rounded="md">5</minerva-box>
+  <minerva-box p="4" bg="bg.muted" rounded="md">6</minerva-box>
+  <minerva-box p="4" bg="bg.muted" rounded="md">7</minerva-box>
+  <minerva-box p="4" bg="bg.muted" rounded="md">8</minerva-box>
+</minerva-responsive-grid>
+`})))()}n();export{t as default};

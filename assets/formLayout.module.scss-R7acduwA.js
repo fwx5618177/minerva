@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t,n;function r(){return(r=e((()=>{t=`_root_2xvpd_1`,n={root:t}})))()}export{n,r as t};

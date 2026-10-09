@@ -1,9 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<minerva-button size="xsmall">XS</minerva-button>
-<minerva-button size="small">Small</minerva-button>
-<minerva-button size="medium">Medium</minerva-button>
-<minerva-button size="large">Large</minerva-button>
-<minerva-button size="xlarge">XL</minerva-button>
-<minerva-button shape="rounded">Rounded</minerva-button>
-<minerva-button shape="square" variant="outline">Square</minerva-button>
-<minerva-button shape="circle" aria-label="Add item">+</minerva-button>
-`})))()}n();export{t as default};

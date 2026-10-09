@@ -1,0 +1,14 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<minerva-button id="publish">Publish article</minerva-button>
+<minerva-confirm-dialog
+  id="confirm-publish"
+  label="Publish now?"
+  description="Subscribers are notified by email."
+  confirm-label="Publish"
+>
+  <label style="display: flex; gap: 8px; align-items: center">
+    <input id="fail" type="checkbox" />
+    Make the request fail
+  </label>
+</minerva-confirm-dialog>
+<p id="publish-result" style="margin: 8px 0 0"></p>
+`})))()}n();export{t as default};

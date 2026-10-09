@@ -1,0 +1,18 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<form id="up-form" style="display: grid; gap: 12px; max-width: 480px">
+  <minerva-upload
+    name="receipts"
+    label="Receipts (PDF or image)"
+    accept=".pdf,image/*"
+    multiple
+    required
+    removable
+  ></minerva-upload>
+  <div style="display: flex; gap: 8px">
+    <minerva-button type="submit">Submit expense</minerva-button>
+    <minerva-button type="reset" variant="ghost" color="neutral"
+      >Reset</minerva-button
+    >
+  </div>
+  <output id="up-form-result"></output>
+</form>
+`})))()}n();export{t as default};

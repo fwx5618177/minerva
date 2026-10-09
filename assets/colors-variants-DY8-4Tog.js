@@ -1,0 +1,22 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 12px">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px">
+    <minerva-badge color="primary">Primary</minerva-badge>
+    <minerva-badge color="success">Success</minerva-badge>
+    <minerva-badge color="warning">Warning</minerva-badge>
+    <minerva-badge color="danger">Danger</minerva-badge>
+    <minerva-badge color="info">Info</minerva-badge>
+    <minerva-badge color="neutral">Neutral</minerva-badge>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+    <minerva-badge variant="solid">Solid</minerva-badge>
+    <minerva-badge variant="subtle">Subtle</minerva-badge>
+    <minerva-badge variant="outline">Outline</minerva-badge>
+    <minerva-badge size="small">Small</minerva-badge>
+    <minerva-badge size="medium">Medium</minerva-badge>
+    <minerva-badge size="large">Large</minerva-badge>
+    <minerva-badge border-radius="4px" border-width="2px" variant="outline"
+      >Custom</minerva-badge
+    >
+  </div>
+</div>
+`})))()}n();export{t as default};

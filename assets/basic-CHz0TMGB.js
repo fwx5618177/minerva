@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#controlled-name`),n=``;t.value=n;let r=e=>{n=e.detail.value,t.value=n};return t.addEventListener(`minerva-input`,r),()=>t.removeEventListener(`minerva-input`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

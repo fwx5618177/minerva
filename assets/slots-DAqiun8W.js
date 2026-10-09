@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#cart`),n=e.querySelector(`#add`),r=0,i=()=>t.content=String(++r);return n.addEventListener(`click`,i),()=>n.removeEventListener(`click`,i)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

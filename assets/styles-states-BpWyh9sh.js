@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#sw-sync`),n,r=()=>{t.loading=!0,n=setTimeout(()=>t.loading=!1,1200)};return t.addEventListener(`minerva-change`,r),()=>{clearTimeout(n),t.removeEventListener(`minerva-change`,r)}}function n(){return(n=e((()=>{})))()}n();export{t as setup};

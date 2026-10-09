@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#rd-plan`),n=e.querySelector(`#rd-plan-value`),r=e=>{let{value:t}=e.detail;n.value=`Selected: ${t}`};return t.addEventListener(`minerva-change`,r),()=>t.removeEventListener(`minerva-change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

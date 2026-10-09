@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#members`),n=e=>{e.target.closest(`[slot="actions"]`)?.closest(`minerva-list-item`)?.remove()};return t.addEventListener(`click`,n),()=>t.removeEventListener(`click`,n)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

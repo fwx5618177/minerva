@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t,n,r,i,a,o;function s(){return(s=e((()=>{t=`_root_mxxtj_1`,n=`_label_mxxtj_9`,r=`_required_mxxtj_19`,i=`_helper_mxxtj_24`,a=`_error_mxxtj_30`,o={root:t,label:n,required:r,helper:i,error:a}})))()}export{s as n,o as t};

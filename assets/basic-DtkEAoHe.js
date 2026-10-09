@@ -1,0 +1,12 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 8px; max-width: 560px">
+  <span id="kv-env-label">Environment variables</span>
+  <minerva-key-value-editor
+    id="kv-env"
+    aria-labelledby="kv-env-label"
+    key-label="Variable"
+    value-label="Value"
+    value='{"NODE_ENV":"production","PORT":"8080"}'
+  ></minerva-key-value-editor>
+  <pre id="kv-env-json" style="margin: 0; font-size: 12px"></pre>
+</div>
+`})))()}n();export{t as default};

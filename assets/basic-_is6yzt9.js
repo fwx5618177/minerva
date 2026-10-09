@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#list`);t.items=Array.from({length:1e4},(e,t)=>({id:t,metadata:{name:`Contact ${t+1}`}})),t.renderItem=e=>`${e.metadata?.name} · #${e.id}`}function n(){return(n=e((()=>{})))()}n();export{t as setup};

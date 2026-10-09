@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t={};for(let[n,r]of Object.entries(e))n.startsWith(`data-`)&&(t[n]=r);return t}function n(){return(n=e((()=>{})))()}export{n,t};

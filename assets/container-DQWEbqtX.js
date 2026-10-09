@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#width`),n=e.querySelector(`#value`),r=e.querySelector(`#frame`),i=()=>{r.style.width=`${t.value}px`,n.value=`${t.value}px`};return t.addEventListener(`input`,i),()=>t.removeEventListener(`input`,i)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t,n;function r(){return(r=e((()=>{t=`_prose_3xiks_1`,n={prose:t}})))()}export{n,r as t};

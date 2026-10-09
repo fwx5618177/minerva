@@ -1,9 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";var t;function n(){return(n=e((()=>{t=`<minerva-toast-region id="loading-region"></minerva-toast-region>
-<div style="display: flex; flex-wrap: wrap; gap: 8px">
-  <minerva-button id="deploy">Deploy (promise)</minerva-button>
-  <minerva-button id="sync" variant="outline">Sync (update)</minerva-button>
-  <minerva-button id="dismiss-all" variant="ghost" color="neutral"
-    >Dismiss all</minerva-button
-  >
-</div>
-`})))()}n();export{t as default};

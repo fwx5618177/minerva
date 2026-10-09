@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t,n,r,i,a,o,s;function c(){return(c=e((()=>{t=`_loadingState_8hf4k_1`,n=`_indicator_8hf4k_17`,r=`_label_8hf4k_21`,i=`_small_8hf4k_28`,a=`_medium_8hf4k_32`,o=`_large_8hf4k_36`,s={loadingState:t,indicator:n,label:r,small:i,medium:a,large:o}})))()}export{s as n,c as t};

@@ -1,0 +1,7 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 12px; justify-items: start">
+  <minerva-switch id="sw-wifi" checked label="Wi-Fi"></minerva-switch>
+  <minerva-switch label="Bluetooth"></minerva-switch>
+  <minerva-switch disabled label="Airplane mode"></minerva-switch>
+  <output id="sw-wifi-state">Wi-Fi is on</output>
+</div>
+`})))()}n();export{t as default};

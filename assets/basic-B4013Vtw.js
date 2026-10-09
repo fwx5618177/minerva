@@ -1,0 +1,17 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 8px; justify-items: start">
+  <minerva-rating value="8.6" size="small"></minerva-rating>
+  <minerva-rating
+    readonly
+    value="7"
+    show-value
+    rating-count="3214"
+  ></minerva-rating>
+  <minerva-rating
+    readonly
+    value="3.5"
+    max="5"
+    size="large"
+    show-value
+  ></minerva-rating>
+</div>
+`})))()}n();export{t as default};

@@ -1,0 +1,38 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 12px; justify-items: start">
+  <div
+    id="placement-controls"
+    style="display: flex; flex-wrap: wrap; gap: 12px"
+  >
+    <label
+      >side
+      <select name="side">
+        <option>top</option>
+        <option>right</option>
+        <option selected>bottom</option>
+        <option>left</option>
+      </select>
+    </label>
+    <label
+      >align
+      <select name="align">
+        <option>start</option>
+        <option selected>center</option>
+        <option>end</option>
+      </select>
+    </label>
+  </div>
+  <minerva-popover
+    id="placed"
+    side="bottom"
+    align="center"
+    side-offset="8"
+    arrow
+    label="Placement"
+  >
+    <minerva-button slot="trigger">Toggle popover</minerva-button>
+    <p style="margin: 0; max-width: 220px">
+      Flips and shifts to stay within the viewport (collision-padding).
+    </p>
+  </minerva-popover>
+</div>
+`})))()}n();export{t as default};

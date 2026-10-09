@@ -1,0 +1,25 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<!-- The transform contains the fixed sidebar inside this preview frame. -->
+<div style="height: 360px; overflow: auto; transform: translateZ(0)">
+  <minerva-app-shell
+    brand="Publishing Admin"
+    sidebar-mode="compact"
+    navigation-label="Workspace navigation"
+  >
+    <span slot="brand-icon" aria-hidden="true">◇</span>
+    <minerva-nav-tree
+      slot="navigation"
+      active-id="dashboard"
+      aria-label="Workspace"
+    ></minerva-nav-tree>
+    <minerva-badge slot="header-actions" color="neutral" variant="subtle"
+      >Workspace</minerva-badge
+    >
+    <minerva-page>
+      <minerva-page-header
+        heading="Dashboard"
+        description="Use the sidebar controls to expand the rail or switch to floating mode."
+      ></minerva-page-header>
+    </minerva-page>
+  </minerva-app-shell>
+</div>
+`})))()}n();export{t as default};

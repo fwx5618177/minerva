@@ -1,0 +1,19 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<minerva-split-layout>
+  <minerva-box p="4" bg="bg.muted" rounded="md">
+    <strong>Main</strong>
+    <p>
+      Primary content comes first in reading order and takes the remaining
+      width.
+    </p>
+  </minerva-box>
+  <minerva-box
+    slot="aside"
+    p="4"
+    border="1px solid var(--border-color)"
+    rounded="md"
+  >
+    <strong>Aside</strong>
+    <p>Splits beside main once the layout is at least 768px wide.</p>
+  </minerva-box>
+</minerva-split-layout>
+`})))()}n();export{t as default};

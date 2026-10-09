@@ -1,0 +1,7 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<minerva-input aria-label="Name" placeholder="Uncontrolled"></minerva-input>
+<minerva-input
+  id="controlled-name"
+  aria-label="Controlled"
+  placeholder="Controlled"
+></minerva-input>
+`})))()}n();export{t as default};

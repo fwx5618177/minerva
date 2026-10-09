@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#details`),n=e.querySelector(`#state`),r=e=>{let{expanded:t}=e.detail;n.value=t?`Expanded`:`Collapsed`};return t.addEventListener(`minerva-expanded-change`,r),()=>t.removeEventListener(`minerva-expanded-change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

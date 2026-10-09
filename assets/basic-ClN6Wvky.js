@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#pager`),n=e.querySelector(`#page`),r=e=>{let{page:r}=e.detail;n.value=`Page ${r} of ${t.totalPages}`};return t.addEventListener(`minerva-page-change`,r),()=>t.removeEventListener(`minerva-page-change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

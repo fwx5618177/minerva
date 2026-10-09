@@ -1,0 +1,17 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<minerva-page-tabs id="tabs" aria-label="Open queries" active-value="q1">
+  <minerva-page-tab value="q1" label="Query 1">
+    <minerva-icon-button
+      slot="action"
+      size="small"
+      toggle
+      label="Pin Query 1"
+      no-tooltip
+      >★</minerva-icon-button
+    >
+  </minerva-page-tab>
+  <minerva-page-tab value="q2" label="Query 2" closable></minerva-page-tab>
+  <minerva-icon-button id="add" slot="actions" label="New query"
+    >+</minerva-icon-button
+  >
+</minerva-page-tabs>
+`})))()}n();export{t as default};

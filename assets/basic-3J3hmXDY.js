@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#sw-wifi`),n=e.querySelector(`#sw-wifi-state`),r=e=>{let{checked:t}=e.detail;n.value=`Wi-Fi is ${t?`on`:`off`}`};return t.addEventListener(`minerva-change`,r),()=>t.removeEventListener(`minerva-change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e,t){let n=e;typeof n.vscodeWindowId!=`number`&&Object.defineProperty(n,"vscodeWindowId",{get:()=>t})}var n;function r(){return(r=e((()=>{n=window})))()}export{r as n,n as r,t};

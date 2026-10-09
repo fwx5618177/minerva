@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";import{a as t,o as n,r}from"./monaco-engine-Brb2DQk2.js";import{E as i}from"./monaco-engine-DQUu-T8p.js";function a(){return(a=e((()=>{n(),i(),self.MonacoEnvironment={getWorker:()=>new r}})))()}a();export{t as monaco};

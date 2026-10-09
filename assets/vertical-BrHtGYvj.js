@@ -1,0 +1,22 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<minerva-tabs
+  label="Documentation"
+  orientation="vertical"
+  activation-mode="manual"
+  no-loop
+  value="install"
+>
+  <minerva-tab value="install">Installation</minerva-tab>
+  <minerva-tab value="usage">Usage</minerva-tab>
+  <minerva-tab value="theming">Theming</minerva-tab>
+  <minerva-tab-panel value="install"
+    >npm install minerva-design</minerva-tab-panel
+  >
+  <minerva-tab-panel value="usage"
+    >Import the package once, then use the elements in any
+    HTML.</minerva-tab-panel
+  >
+  <minerva-tab-panel value="theming"
+    >Override the CSS variables on :root or on an element.</minerva-tab-panel
+  >
+</minerva-tabs>
+`})))()}n();export{t as default};

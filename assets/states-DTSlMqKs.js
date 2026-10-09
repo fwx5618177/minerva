@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#refresh`),n=()=>{t.loading=!0,setTimeout(()=>t.loading=!1,1500)};return t.addEventListener(`click`,n),()=>t.removeEventListener(`click`,n)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

@@ -1,0 +1,44 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div
+  style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+  "
+>
+  <minerva-checkbox id="lock" label="Lock sidebar mode"></minerva-checkbox>
+  <minerva-button id="expand" size="small" variant="outline" color="neutral"
+    >expandNavigation()</minerva-button
+  >
+  <minerva-button id="focus-main" size="small" variant="outline" color="neutral"
+    >focusMain()</minerva-button
+  >
+  <output id="log" aria-live="polite"></output>
+</div>
+<div style="height: 360px; overflow: auto; transform: translateZ(0)">
+  <minerva-app-shell
+    id="shell"
+    brand="Minerva"
+    skip-link="Jump to the page"
+    collapse-label="Shrink the sidebar"
+    expand-label="Grow the sidebar"
+    enable-floating-label="Float the rail"
+    disable-floating-label="Stop floating"
+    open-navigation-label="Show menu"
+    close-navigation-label="Hide menu"
+  >
+    <minerva-nav-tree
+      slot="navigation"
+      active-id="inbox"
+      aria-label="Workspace"
+    ></minerva-nav-tree>
+    <minerva-page>
+      <minerva-page-header
+        heading="Inbox"
+        description="Sidebar changes are reported above."
+      ></minerva-page-header>
+    </minerva-page>
+  </minerva-app-shell>
+</div>
+`})))()}n();export{t as default};

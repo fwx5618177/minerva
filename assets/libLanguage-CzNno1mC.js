@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t,n;function r(){return(r=e((()=>{t=[`en`,`zh`,`ja`,`fr`],n=e=>{let n=e.split(`-`)[0];return t.includes(n)?n:`en`}})))()}export{n,r as t};

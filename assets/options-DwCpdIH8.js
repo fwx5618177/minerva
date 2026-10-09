@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#jf-indent`),n=e.querySelector(`#jf-format`),r=()=>t.formatValue();return n.addEventListener(`click`,r),()=>n.removeEventListener(`click`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

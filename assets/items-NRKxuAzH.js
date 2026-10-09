@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#order`);t.items=[{key:`id`,label:`Order`,value:`#10482`},{key:`date`,label:`Placed on`,value:`March 4, 2026`},{key:`total`,label:`Total`,value:`€129.00`},{key:`returns`,label:`Returns`,value:0}]}function n(){return(n=e((()=>{})))()}n();export{t as setup};

@@ -1,0 +1,17 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 12px">
+  <div style="display: flex; flex-wrap: wrap; gap: 8px">
+    <minerva-button color="primary">Primary</minerva-button>
+    <minerva-button color="success">Success</minerva-button>
+    <minerva-button color="warning">Warning</minerva-button>
+    <minerva-button color="danger">Danger</minerva-button>
+    <minerva-button color="info">Info</minerva-button>
+    <minerva-button color="neutral">Neutral</minerva-button>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px">
+    <minerva-button variant="solid">Solid</minerva-button>
+    <minerva-button variant="outline">Outline</minerva-button>
+    <minerva-button variant="ghost">Ghost</minerva-button>
+    <minerva-button variant="link">Link</minerva-button>
+  </div>
+</div>
+`})))()}n();export{t as default};

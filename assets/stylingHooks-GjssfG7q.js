@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e,t,n){let r={"data-minerva":e,"data-part":t};if(n)for(let e in n){let t=n[e];t===!0?r[`data-${e}`]=``:t!=null&&t!==!1&&(r[`data-${e}`]=String(t))}return r}function n(){return(n=e((()=>{})))()}export{n,t};

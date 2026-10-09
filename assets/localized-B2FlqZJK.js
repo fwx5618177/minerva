@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";function t(e){let t=e.querySelector(`#fr`);t.weekdayLabels=[`lu`,`ma`,`me`,`je`,`ve`,`sa`,`di`],t.getDayLabel=(e,t)=>`${e}, ${t} événement${t>1?`s`:``}`,t.getEventsLabel=e=>`Événements du ${e}`}function n(){return(n=e((()=>{})))()}n();export{t as setup};

@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#jf-config`),n=e.querySelector(`#jf-config-state`),r=()=>{n.value=t.validity?.valid?`Committed valid JSON`:t.validationMessage};return t.addEventListener(`minerva-change`,r),()=>t.removeEventListener(`minerva-change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

@@ -1,0 +1,23 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 20px">
+  <minerva-tabs label="Line" value="a">
+    <minerva-tab value="a">Overview</minerva-tab>
+    <minerva-tab value="b">Activity</minerva-tab>
+    <minerva-tab value="c">Settings</minerva-tab>
+  </minerva-tabs>
+  <minerva-tabs label="Enclosed" variant="enclosed" value="a">
+    <minerva-tab value="a">Overview</minerva-tab>
+    <minerva-tab value="b">Activity</minerva-tab>
+    <minerva-tab value="c">Settings</minerva-tab>
+  </minerva-tabs>
+  <minerva-tabs label="Soft" variant="soft" color="success" value="a">
+    <minerva-tab value="a">Overview</minerva-tab>
+    <minerva-tab value="b">Activity</minerva-tab>
+    <minerva-tab value="c">Settings</minerva-tab>
+  </minerva-tabs>
+  <minerva-tabs label="Pills" variant="pills" color="info" value="a">
+    <minerva-tab value="a">Overview</minerva-tab>
+    <minerva-tab value="b">Activity</minerva-tab>
+    <minerva-tab value="c" color="danger">Danger zone</minerva-tab>
+  </minerva-tabs>
+</div>
+`})))()}n();export{t as default};

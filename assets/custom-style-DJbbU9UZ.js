@@ -1,0 +1,15 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div style="width: 100%">
+  <minerva-divider
+    style="--divider-color: #7c3aed"
+    thickness="2"
+  ></minerva-divider
+  ><minerva-divider
+    style="--divider-color: #16a34a"
+    thickness="3"
+    variant="dashed"
+    length="50%"
+  ></minerva-divider
+  ><minerva-divider style="--divider-color: #7c3aed">Section</minerva-divider
+  ><minerva-divider spacing="32" elevation></minerva-divider>
+</div>
+`})))()}n();export{t as default};

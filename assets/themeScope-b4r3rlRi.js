@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-8BhlS34s.js";import{g as t}from"./react-vendor-DuLeTlZP.js";var n,r,i,a,o;function s(){return(s=e((()=>{n=t(),r=(0,n.createContext)(null),i=`data-minerva-theme-scope`,a=()=>(0,n.useContext)(r),o=()=>(0,n.useContext)(r)?.portalContainer??void 0})))()}export{i as a,r as i,a as n,s as r,o as t};

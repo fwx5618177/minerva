@@ -1,0 +1,17 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<form id="kv-form" style="display: grid; gap: 8px; max-width: 560px">
+  <span id="kv-form-label">Labels (at least one)</span>
+  <minerva-key-value-editor
+    name="labels"
+    required
+    aria-labelledby="kv-form-label"
+    value='[{"key":"team","value":"platform"}]'
+  ></minerva-key-value-editor>
+  <div style="display: flex; gap: 8px">
+    <minerva-button type="submit">Save</minerva-button>
+    <minerva-button type="reset" variant="ghost" color="neutral"
+      >Reset</minerva-button
+    >
+  </div>
+  <output id="kv-form-result" style="font-family: monospace"></output>
+</form>
+`})))()}n();export{t as default};

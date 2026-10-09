@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t,n,r,i,a;function o(){return(o=e((()=>{t=`_root_1cdem_1`,n=`_layout_1cdem_7`,r=`_item_1cdem_35`,i=`_fullWidth_1cdem_39`,a={root:t,layout:n,item:r,fullWidth:i}})))()}export{o as n,a as t};

@@ -1,0 +1,13 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<minerva-popover label="Share link" arrow>
+  <minerva-button slot="trigger" variant="outline">Share</minerva-button>
+  <div style="display: grid; gap: 8px; width: 240px">
+    <strong>Share this document</strong>
+    <input value="https://minerva.dev/d/42" readonly aria-label="Link" />
+    <div style="display: flex; justify-content: end; gap: 8px">
+      <minerva-button data-popover-close size="small" variant="ghost"
+        >Done</minerva-button
+      >
+    </div>
+  </div>
+</minerva-popover>
+`})))()}n();export{t as default};

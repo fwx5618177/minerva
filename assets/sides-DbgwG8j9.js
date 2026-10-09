@@ -1,0 +1,14 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div id="sides" style="display: flex; flex-wrap: wrap; gap: 8px">
+  <minerva-button data-side="left" variant="outline">Left</minerva-button>
+  <minerva-button data-side="right" variant="outline">Right</minerva-button>
+  <minerva-button data-side="top" variant="outline">Top</minerva-button>
+  <minerva-button data-side="bottom" variant="outline">Bottom</minerva-button>
+</div>
+<minerva-drawer id="sided" size="small">
+  <span slot="header" id="sided-title"></span>
+  <p style="margin: 0">
+    size sets the width of left / right drawers and the height of top / bottom
+    ones.
+  </p>
+</minerva-drawer>
+`})))()}n();export{t as default};

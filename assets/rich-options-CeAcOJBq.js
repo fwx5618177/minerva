@@ -1,0 +1,16 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";var t;function n(){return(n=e((()=>{t=`<div style="display: grid; gap: 12px; max-width: 360px">
+  <minerva-autocomplete
+    id="framework"
+    label="Framework"
+    placeholder="Search a framework"
+    auto-highlight
+  ></minerva-autocomplete>
+  <minerva-autocomplete
+    id="framework-filled"
+    aria-label="Framework (filled, small)"
+    placeholder="Filled, small"
+    variant="filled"
+    size="small"
+  ></minerva-autocomplete>
+</div>
+`})))()}n();export{t as default};

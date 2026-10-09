@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#route`),n=e=>{let n=e.target.closest(`minerva-text-link`);n&&(e.preventDefault(),t.value=`Navigated to ${n.href}`)};return e.addEventListener(`click`,n),()=>e.removeEventListener(`click`,n)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

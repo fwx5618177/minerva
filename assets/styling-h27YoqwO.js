@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){e.querySelector(`#styled`).items=[{value:`draft`,label:`Draft`},{value:`review`,label:`Review`},{value:`publish`,label:`Publish`}]}function n(){return(n=e((()=>{})))()}n();export{t as setup};

@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#tags`),n=e.querySelector(`#result`),r=()=>n.value=`Tags: ${t.value.join(`, `)||`—`}`;return r(),t.addEventListener(`minerva-change`,r),()=>t.removeEventListener(`minerva-change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};

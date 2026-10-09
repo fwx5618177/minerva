@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-B0Z9INg1.js";function t(e){let t=e.querySelector(`#help`),n=e.querySelector(`#help-state`),r=e=>{let{open:t,reason:r}=e.detail;n.textContent=`${t?`Opened`:`Closed`} (reason: ${r})`};return t.addEventListener(`minerva-open-change`,r),()=>t.removeEventListener(`minerva-open-change`,r)}function n(){return(n=e((()=>{})))()}n();export{t as setup};
